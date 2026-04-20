@@ -1,0 +1,32 @@
+speakeasyVersion: 1.761.4
+sources:
+    Paygentic API:
+        sourceNamespace: paygentic-api
+        sourceRevisionDigest: sha256:a2543ff0e8e44cdb6cca9143c839e80a2aa258bbb7e3e2736c11a77c22cd5564
+        sourceBlobDigest: sha256:0700967eecef9e27fc3b6c632679118519695723bafdfa14badcc1683bda5dbd
+        tags:
+            - latest
+    paygentic-OAS:
+        sourceNamespace: paygentic-api
+        sourceRevisionDigest: sha256:9335a51ca360ab54afbf0f0f1997018d7a74b09279fd51b9cfb380b94510cb52
+        sourceBlobDigest: sha256:0bf87cbb10a0d2f833507f53a0c3891e0a137d9a572ddc15befdd88548272b54
+        tags:
+            - latest
+targets:
+    paygentic:
+        source: Paygentic API
+        sourceNamespace: paygentic-api
+        sourceRevisionDigest: sha256:a2543ff0e8e44cdb6cca9143c839e80a2aa258bbb7e3e2736c11a77c22cd5564
+        sourceBlobDigest: sha256:0700967eecef9e27fc3b6c632679118519695723bafdfa14badcc1683bda5dbd
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: 1.761.4
+    sources:
+        Paygentic API:
+            inputs:
+                - location: registry.speakeasyapi.dev/paygentic/default/paygentic-api:main
+            output: .speakeasy/out.openapi.yaml
+    targets:
+        paygentic:
+            target: cli
+            source: Paygentic API
