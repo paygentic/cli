@@ -1,8 +1,13 @@
 # Managed file — owned by paygentic/cli.
 # Canonical Speakeasy generation workflow. Regenerates the CLI from the
-# Speakeasy Registry spec and commits the result directly to main; that
-# push produces a v* tag which triggers release.yaml (GoReleaser builds
-# binaries and publishes to GitHub Releases + Homebrew).
+# Speakeasy Registry spec and commits the result directly to main.
+#
+# Speakeasy's workflow-executor does NOT tag CLI targets (publish_cli=false
+# is intentional — there's no package registry for CLIs in their model).
+# The auto-release job below fills that gap: it re-applies local patches
+# to .goreleaser.yaml (which Speakeasy rewrites each regen) and pushes a
+# v<cli.version> tag, which triggers release.yaml (GoReleaser → GitHub
+# Releases + Homebrew).
 name: Generate
 
 on:
@@ -36,3 +41,69 @@ jobs:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.ORG_SPEAKEASY_API_KEY }}
       slack_webhook_url: ${{ secrets.ORG_SLACK_WEBHOOK_URL }}
+
+  auto-release:
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          # PAT (not GITHUB_TOKEN) so the tag push triggers release.yaml.
+          # Requires Contents: Read and write on paygentic/cli.
+          token: ${{ secrets.CLI_RELEASE_PAT }}
+
+      - name: Patch .goreleaser.yaml (compensate for Speakeasy template)
+        id: patch
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pyyaml
+          python3 <<'PY'
+          import yaml
+          with open('.goreleaser.yaml') as f:
+              data = yaml.safe_load(f)
+          # 1) project_name so {{ .ProjectName }} resolves to "paygentic"
+          #    rather than the repo name "cli" (affects archive filenames
+          #    and Homebrew commit messages).
+          if data.get('project_name') != 'paygentic':
+              data['project_name'] = 'paygentic'
+          # 2) GoReleaser v2 expects brews[].repository.token, not
+          #    brews[].token (Speakeasy template emits v1-style).
+          for brew in data.get('brews', []) or []:
+              if 'token' in brew and 'repository' in brew:
+                  brew['repository']['token'] = brew.pop('token')
+          with open('.goreleaser.yaml', 'w') as f:
+              f.write('# yaml-language-server: $schema=https://goreleaser.com/static/schema.json\n')
+              yaml.safe_dump(data, f, sort_keys=False)
+          PY
+          if git diff --quiet .goreleaser.yaml; then
+            echo "patched=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "patched=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit patches
+        if: steps.patch.outputs.patched == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .goreleaser.yaml
+          git commit -m "fix(ci): re-apply .goreleaser.yaml patches after regen"
+          git push origin main
+
+      - name: Tag v<cli.version> if missing
+        run: |
+          set -euo pipefail
+          VERSION=$(yq '.cli.version' .speakeasy/gen.yaml)
+          TAG="v${VERSION}"
+          git fetch --tags
+          if git rev-parse "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "Tag ${TAG} already exists — nothing to do."
+          else
+            git tag "${TAG}"
+            git push origin "${TAG}"
+            echo "Tagged and pushed ${TAG} — release.yaml will run GoReleaser."
+          fi
