@@ -52,11 +52,6 @@ curl -fsSL https://raw.githubusercontent.com/paygentic/cli/main/scripts/install.
 ```powershell
 iwr -useb https://raw.githubusercontent.com/paygentic/cli/main/scripts/install.ps1 | iex
 ```
-### Homebrew (macOS/Linux)
-
-```bash
-brew install paygentic/tap/paygentic
-```
 
 ### Go Install
 

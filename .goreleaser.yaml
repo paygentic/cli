@@ -41,16 +41,6 @@ archives:
       - README.md
       - LICENSE*
 
-homebrew_casks:
-  - name: paygentic
-    repository:
-      owner: paygentic
-      name: homebrew-tap
-      branch: main
-      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-    homepage: "https://github.com/paygentic/cli"
-    description: "Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments.\\n\\nSee the [Quickstart](https://docs.paygentic.io/getting-started/quickstart) to go from zero to billing in a handful of steps."
-
 release:
   github:
     owner: paygentic
@@ -61,14 +51,3 @@ release:
 
 checksum:
   name_template: "checksums.txt"
-
-signs:
-  - artifacts: checksum
-    args:
-      - "--batch"
-      - "--local-user"
-      - "{{ .Env.GPG_FINGERPRINT }}"
-      - "--output"
-      - "${signature}"
-      - "--detach-sign"
-      - "${artifact}"

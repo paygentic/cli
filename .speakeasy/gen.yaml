@@ -31,13 +31,13 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 cli:
-  version: 0.1.0
+  version: 0.1.1
   additionalDependencies: {}
   cliName: paygentic
   distribution:
     homebrew:
-      enabled: true
-      tap: paygentic/homebrew-tap
+      enabled: false
+      tap: ""
     nfpm:
       enabled: false
       formats: deb,rpm

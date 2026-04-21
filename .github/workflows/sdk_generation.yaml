@@ -4,10 +4,10 @@
 #
 # Speakeasy's workflow-executor does NOT tag CLI targets (publish_cli=false
 # is intentional — there's no package registry for CLIs in their model).
-# The auto-release job below fills that gap: it re-applies local patches
-# to .goreleaser.yaml (which Speakeasy rewrites each regen) and pushes a
+# The auto-release job below fills that gap: it enforces project_name in
+# .goreleaser.yaml (Speakeasy rewrites it each regen) and pushes a
 # v<cli.version> tag, which triggers release.yaml (GoReleaser → GitHub
-# Releases + Homebrew).
+# Releases).
 name: Generate
 
 on:
@@ -56,7 +56,7 @@ jobs:
           # Requires Contents: Read and write on paygentic/cli.
           token: ${{ secrets.CLI_RELEASE_PAT }}
 
-      - name: Patch .goreleaser.yaml (compensate for Speakeasy template)
+      - name: Enforce project_name in .goreleaser.yaml
         id: patch
         run: |
           set -euo pipefail
@@ -65,27 +65,17 @@ jobs:
           import yaml
           with open('.goreleaser.yaml') as f:
               data = yaml.safe_load(f)
-          # 1) project_name so {{ .ProjectName }} resolves to "paygentic"
-          #    rather than the repo name "cli" (affects archive filenames
-          #    and Homebrew commit messages).
+          # project_name so {{ .ProjectName }} resolves to "paygentic"
+          # rather than the repo name "cli" (affects archive filenames).
           if data.get('project_name') != 'paygentic':
               data['project_name'] = 'paygentic'
-          # 2) brews: is deprecated since GoReleaser v2.10 and removed in v3.
-          #    Rename to homebrew_casks: and drop the formula-only `install:`
-          #    field (not valid in cask schema; would fail the release).
-          if 'brews' in data:
-              casks = data.pop('brews') or []
-              for cask in casks:
-                  cask.pop('install', None)
-              data['homebrew_casks'] = casks
-          # 3) GoReleaser v2 expects repository.token, not a top-level token
-          #    on each brew/cask entry (Speakeasy template emits v1-style).
-          for cask in data.get('homebrew_casks', []) or []:
-              if 'token' in cask and 'repository' in cask:
-                  cask['repository']['token'] = cask.pop('token')
-          with open('.goreleaser.yaml', 'w') as f:
-              f.write('# yaml-language-server: $schema=https://goreleaser.com/static/schema.json\n')
-              yaml.safe_dump(data, f, sort_keys=False)
+              dirty = True
+          else:
+              dirty = False
+          if dirty:
+              with open('.goreleaser.yaml', 'w') as f:
+                  f.write('# yaml-language-server: $schema=https://goreleaser.com/static/schema.json\n')
+                  yaml.safe_dump(data, f, sort_keys=False)
           PY
           if git diff --quiet .goreleaser.yaml; then
             echo "patched=false" >> "$GITHUB_OUTPUT"
@@ -99,7 +89,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .goreleaser.yaml
-          git commit -m "fix(ci): re-apply .goreleaser.yaml patches after regen"
+          git commit -m "fix(ci): re-apply project_name override after regen"
           git push origin main
 
       - name: Tag v<cli.version> if missing
