@@ -5,14 +5,14 @@ management:
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.1.1
-  configChecksum: 78e8c6772fa16ecada1a848b46e06af5
+  releaseVersion: 0.2.0
+  configChecksum: c2aec54aaf4337cf117e93ff523badd2
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 2af885f0-4f05-46f4-9ea4-319c7f4163ec
-  pristine_commit_hash: 8a753c6439e2a09bdd402635db7a0ec2969e162a
-  pristine_tree_hash: be0795da1c0a129e15eb1173c94822fca59c864f
+  generation_id: a0a1ebbb-4784-4b30-b0aa-f6478d6e0856
+  pristine_commit_hash: 714565c33a0b745bb1999aaffe1e743eb39d1680
+  pristine_tree_hash: b99a2ca5b9dbd62acf578edd3c982c8943fed6a4
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -546,8 +546,8 @@ trackedFiles:
     pristine_git_object: 3aa45638a3a7e2d1def0ce5f2229b408f0b02cf4
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:97a7312f711c95c6d7c337d7d3452d0d462aa9fd
-    pristine_git_object: 971b580e3a4722a75f78bf348c07e43bdcf7fbac
+    last_write_checksum: sha1:ce8750678ad8fc7d1dcd79ca6d5711d9f6fd10aa
+    pristine_git_object: 1d33fbb5652f40a652df86393593f54cc4f78d73
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:bf0040dc0f39b42f110fd33db6eca6749eb5fb0f
@@ -1506,8 +1506,8 @@ trackedFiles:
     pristine_git_object: 159a87ec97aba99e4edd132f69652e123434303e
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:27967d267a3dd0ca311a980d79bf488ebcef45fc
-    pristine_git_object: 625a10b96cd1d486e90fce875b5280f93d326b76
+    last_write_checksum: sha1:15217e1fea39330e14cc5502798ac26cd0113523
+    pristine_git_object: 67738a45a8c4019f181e41bbfd977cab588e280c
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
