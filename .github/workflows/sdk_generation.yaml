@@ -70,11 +70,19 @@ jobs:
           #    and Homebrew commit messages).
           if data.get('project_name') != 'paygentic':
               data['project_name'] = 'paygentic'
-          # 2) GoReleaser v2 expects brews[].repository.token, not
-          #    brews[].token (Speakeasy template emits v1-style).
-          for brew in data.get('brews', []) or []:
-              if 'token' in brew and 'repository' in brew:
-                  brew['repository']['token'] = brew.pop('token')
+          # 2) brews: is deprecated since GoReleaser v2.10 and removed in v3.
+          #    Rename to homebrew_casks: and drop the formula-only `install:`
+          #    field (not valid in cask schema; would fail the release).
+          if 'brews' in data:
+              casks = data.pop('brews') or []
+              for cask in casks:
+                  cask.pop('install', None)
+              data['homebrew_casks'] = casks
+          # 3) GoReleaser v2 expects repository.token, not a top-level token
+          #    on each brew/cask entry (Speakeasy template emits v1-style).
+          for cask in data.get('homebrew_casks', []) or []:
+              if 'token' in cask and 'repository' in cask:
+                  cask['repository']['token'] = cask.pop('token')
           with open('.goreleaser.yaml', 'w') as f:
               f.write('# yaml-language-server: $schema=https://goreleaser.com/static/schema.json\n')
               yaml.safe_dump(data, f, sort_keys=False)
