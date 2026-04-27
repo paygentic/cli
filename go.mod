@@ -8,7 +8,6 @@ require (
 	github.com/charmbracelet/bubbletea v1.3.4
 	github.com/charmbracelet/huh v0.6.0
 	github.com/charmbracelet/lipgloss v1.1.0
-	github.com/ericlagergren/decimal v0.0.0-20221120152707-495c53812d05
 	github.com/itchyny/gojq v0.12.18
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.9

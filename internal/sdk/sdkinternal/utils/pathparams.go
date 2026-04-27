@@ -12,8 +12,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ericlagergren/decimal"
-
 	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/types"
 )
@@ -146,8 +144,6 @@ func getSimplePathParams(parentName string, objType reflect.Type, objValue refle
 		case types.Date:
 			pathParams[parentName] = valToString(objValue.Interface())
 		case big.Int:
-			pathParams[parentName] = valToString(objValue.Interface())
-		case decimal.Big:
 			pathParams[parentName] = valToString(objValue.Interface())
 		default:
 			var ppVals []string

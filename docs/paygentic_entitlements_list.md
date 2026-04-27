@@ -50,4 +50,4 @@ paygentic entitlements list [flags]
 
 ### SEE ALSO
 
-* [paygentic entitlements](paygentic_entitlements.md)	 - An `Entitlement` grants a customer the right to access and use a specific product feature
+* [paygentic entitlements](paygentic_entitlements.md)	 - Operations for entitlements

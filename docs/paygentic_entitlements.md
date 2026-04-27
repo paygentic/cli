@@ -1,10 +1,10 @@
 ## paygentic entitlements
 
-An `Entitlement` grants a customer the right to access and use a specific product feature
+Operations for entitlements
 
 ### Synopsis
 
-An `Entitlement` grants a customer the right to access and use a specific product feature.
+Operations for entitlements
 
 ```
 paygentic entitlements [flags]

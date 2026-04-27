@@ -11,7 +11,7 @@ import (
 type IssueEntitlementResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Entitlement successfully issued.
-	SchemasEntitlement *components.SchemasEntitlement
+	Entitlement *components.Entitlement
 }
 
 func (i IssueEntitlementResponse) MarshalJSON() ([]byte, error) {
@@ -32,9 +32,9 @@ func (i *IssueEntitlementResponse) GetHTTPMeta() components.HTTPMetadata {
 	return i.HTTPMeta
 }
 
-func (i *IssueEntitlementResponse) GetSchemasEntitlement() *components.SchemasEntitlement {
+func (i *IssueEntitlementResponse) GetEntitlement() *components.Entitlement {
 	if i == nil {
 		return nil
 	}
-	return i.SchemasEntitlement
+	return i.Entitlement
 }

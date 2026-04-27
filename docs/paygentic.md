@@ -39,9 +39,7 @@ paygentic [flags]
 * [paygentic configure](paygentic_configure.md)	 - Configure authentication credentials and preferences
 * [paygentic costs](paygentic_costs.md)	 - A Cost represents the operational or infrastructure expense of serving customers for a given product
 * [paygentic customers](paygentic_customers.md)	 - A `Customer` is an entity connected to a `Merchant` via a `Subscription`
-* [paygentic disputes](paygentic_disputes.md)	 - A `Dispute` enables customers to contest usage events that they consider to be inaccurately recorded or billed
-* [paygentic entitlements](paygentic_entitlements.md)	 - An `Entitlement` grants a customer the right to access and use a specific product feature
-* [paygentic entitlements-v0](paygentic_entitlements-v0.md)	 - Operations for entitlements-v0
+* [paygentic entitlements](paygentic_entitlements.md)	 - Operations for entitlements
 * [paygentic events](paygentic_events.md)	 - Ingest raw metering events that are processed by the meters service
 * [paygentic explore](paygentic_explore.md)	 - Interactively browse and run commands
 * [paygentic features](paygentic_features.md)	 - A `Feature` represents a specific capability or functionality provided by a `Product`
@@ -55,7 +53,6 @@ paygentic [flags]
 * [paygentic sources](paygentic_sources.md)	 - A `Source` is an external data provider capable of automatically creating usage events
 * [paygentic subscriptions](paygentic_subscriptions.md)	 - A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`
 * [paygentic test-clocks](paygentic_test-clocks.md)	 - Test clocks provide programmable time control to simulate subscription and billing scenarios during testing
-* [paygentic usage-events](paygentic_usage-events.md)	 - Operations for usage-events
 * [paygentic users](paygentic_users.md)	 - A `User` is an entity granted access to an Organization's resources
 * [paygentic version](paygentic_version.md)	 - Print the CLI version
 * [paygentic whoami](paygentic_whoami.md)	 - Display current authentication configuration

@@ -8,9 +8,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/billablemetrics"
 	"github.com/paygentic/cli/internal/cli/costs"
 	"github.com/paygentic/cli/internal/cli/customers"
-	"github.com/paygentic/cli/internal/cli/disputes"
 	"github.com/paygentic/cli/internal/cli/entitlements"
-	"github.com/paygentic/cli/internal/cli/entitlementsv0"
 	"github.com/paygentic/cli/internal/cli/events"
 	"github.com/paygentic/cli/internal/cli/features"
 	"github.com/paygentic/cli/internal/cli/fees"
@@ -23,7 +21,6 @@ import (
 	"github.com/paygentic/cli/internal/cli/sources"
 	"github.com/paygentic/cli/internal/cli/subscriptions"
 	"github.com/paygentic/cli/internal/cli/testclocks"
-	"github.com/paygentic/cli/internal/cli/usageevents"
 	"github.com/paygentic/cli/internal/cli/users"
 	"github.com/paygentic/cli/internal/config"
 	"github.com/paygentic/cli/internal/explorer"
@@ -72,12 +69,6 @@ func NewRootCommand() (*cobra.Command, error) {
 	if err := customers.InitCustomersRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init customers: %w", err)
 	}
-	if err := disputes.InitDisputesRoot(rootCmd); err != nil {
-		return nil, fmt.Errorf("init disputes: %w", err)
-	}
-	if err := entitlementsv0.InitEntitlementsV0Root(rootCmd); err != nil {
-		return nil, fmt.Errorf("init entitlements-v0: %w", err)
-	}
 	if err := entitlements.InitEntitlementsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init entitlements: %w", err)
 	}
@@ -101,9 +92,6 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := subscriptions.InitSubscriptionsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init subscriptions: %w", err)
-	}
-	if err := usageevents.InitUsageEventsRoot(rootCmd); err != nil {
-		return nil, fmt.Errorf("init usage-events: %w", err)
 	}
 	if err := users.InitUsersRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init users: %w", err)

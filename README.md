@@ -204,16 +204,6 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`delete`](docs/paygentic_customers_delete.md) - Delete
 * [`update`](docs/paygentic_customers_update.md) - Update
 
-### [disputes](docs/paygentic_disputes.md)
-
-* [`create`](docs/paygentic_disputes_create.md) - Create
-* [`list`](docs/paygentic_disputes_list.md) - List
-
-### [entitlements-v0](docs/paygentic_entitlements-v0.md)
-
-* [`list-active`](docs/paygentic_entitlements-v0_list-active.md) - List by Customer
-* [`create`](docs/paygentic_entitlements-v0_create.md) - Create
-
 ### [entitlements](docs/paygentic_entitlements.md)
 
 * [`list`](docs/paygentic_entitlements_list.md) - List Entitlements
@@ -299,14 +289,6 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`generate-portal-link`](docs/paygentic_subscriptions_generate-portal-link.md) - Generate Portal Link
 * [`terminate`](docs/paygentic_subscriptions_terminate.md) - Terminate
 
-### [usage-events](docs/paygentic_usage-events.md)
-
-* [`create`](docs/paygentic_usage-events_create.md) - Create
-* [`list`](docs/paygentic_usage-events_list.md) - List
-* [`get`](docs/paygentic_usage-events_get.md) - Get
-* [`refund`](docs/paygentic_usage-events_refund.md) - Refund
-* [`batch-create`](docs/paygentic_usage-events_batch-create.md) - Batch Create
-
 ### [users](docs/paygentic_users.md)
 
 * [`get`](docs/paygentic_users_get.md) - Get
@@ -338,6 +320,7 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`update`](docs/paygentic_costs_update.md) - Update
 * [`delete`](docs/paygentic_costs_delete.md) - Delete
 * [`get-cost-summary`](docs/paygentic_costs_get-cost-summary.md) - Query Summary
+* [`get-cost-report`](docs/paygentic_costs_get-cost-report.md) - Report
 
 ### [revenue](docs/paygentic_revenue.md)
 
@@ -418,6 +401,19 @@ When multiple input methods are used, the priority is:
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
+
+### Select Server by Index
+
+Use `--server <index>` to select a server by its zero-based index (default: `0`):
+
+| #   | Server                             | Description    |
+| --- | ---------------------------------- | -------------- |
+| 0   | `https://api.paygentic.io`         | Production API |
+| 1   | `https://api.sandbox.paygentic.io` | Sandbox API    |
+
+```bash
+paygentic --server <index> <command> [arguments]
+```
 
 ### Override Server URL
 

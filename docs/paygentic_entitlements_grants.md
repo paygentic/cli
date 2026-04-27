@@ -37,7 +37,7 @@ paygentic entitlements grants [flags]
 
 ### SEE ALSO
 
-* [paygentic entitlements](paygentic_entitlements.md)	 - An `Entitlement` grants a customer the right to access and use a specific product feature
+* [paygentic entitlements](paygentic_entitlements.md)	 - Operations for entitlements
 * [paygentic entitlements grants create](paygentic_entitlements_grants_create.md)	 - Create Grant
 * [paygentic entitlements grants get](paygentic_entitlements_grants_get.md)	 - Get Grant
 * [paygentic entitlements grants list](paygentic_entitlements_grants_list.md)	 - List Grants

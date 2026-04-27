@@ -41,6 +41,7 @@ paygentic costs [flags]
 * [paygentic costs create](paygentic_costs_create.md)	 - Create
 * [paygentic costs delete](paygentic_costs_delete.md)	 - Delete
 * [paygentic costs get](paygentic_costs_get.md)	 - Get
+* [paygentic costs get-cost-report](paygentic_costs_get-cost-report.md)	 - Report
 * [paygentic costs get-cost-summary](paygentic_costs_get-cost-summary.md)	 - Query Summary
 * [paygentic costs list](paygentic_costs_list.md)	 - List
 * [paygentic costs update](paygentic_costs_update.md)	 - Update
