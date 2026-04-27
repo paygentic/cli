@@ -11,8 +11,6 @@ import (
 	"time"
 
 	"github.com/paygentic/cli/internal/sdk/types"
-
-	"github.com/ericlagergren/decimal"
 )
 
 // UnionCandidate represents a candidate type during union deserialization
@@ -120,7 +118,6 @@ func countFieldsRecursive(candidate *UnionCandidate, typ reflect.Type, val refle
 		kind == reflect.Float32 || kind == reflect.Float64 ||
 		typ == reflect.TypeOf(time.Time{}) ||
 		typ == reflect.TypeOf(big.Int{}) ||
-		typ == reflect.TypeOf(decimal.Big{}) ||
 		typ == reflect.TypeOf(types.Date{}) ||
 		typ == reflect.TypeOf([]byte{}) {
 		candidate.Matched++

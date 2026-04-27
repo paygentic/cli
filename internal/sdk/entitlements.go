@@ -17,7 +17,6 @@ import (
 	"net/url"
 )
 
-// Entitlements - An `Entitlement` grants a customer the right to access and use a specific product feature.
 type Entitlements struct {
 	Grants *Grants
 
@@ -373,12 +372,12 @@ func (s *Entitlements) Issue(ctx context.Context, request components.IssueEntitl
 					return nil, err
 				}
 
-				var out components.SchemasEntitlement
+				var out components.Entitlement
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasEntitlement = &out
+				res.Entitlement = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

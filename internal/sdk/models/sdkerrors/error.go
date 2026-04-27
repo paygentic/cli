@@ -14,7 +14,7 @@ type Error struct {
 	// Human-readable error message. Clients must not parse this field programmatically.
 	Message string `json:"message"`
 	// Optional semantic business error code for machine-readable discrimination (e.g. 'TAX_NOT_ENABLED'). UPPER_SNAKE_CASE. Clients should check this field, not message.
-	Code *components.Code `json:"code,omitzero"`
+	Code *string `json:"code,omitzero"`
 	// Additional error details
 	Details  map[string]any          `json:"details,omitzero"`
 	HTTPMeta components.HTTPMetadata `json:"-"`

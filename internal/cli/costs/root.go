@@ -45,6 +45,10 @@ func InitCostsRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initGetCostReportCmd(CostsCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(CostsCmd)
 	return nil
 }

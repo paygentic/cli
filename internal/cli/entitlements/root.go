@@ -12,8 +12,8 @@ import (
 func InitEntitlementsRoot(parent *cobra.Command) error {
 	var EntitlementsCmd = &cobra.Command{
 		Use:   "entitlements",
-		Short: "An `Entitlement` grants a customer the right to access and use a specific product feature",
-		Long:  "An `Entitlement` grants a customer the right to access and use a specific product feature.",
+		Short: "Operations for entitlements",
+		Long:  "Operations for entitlements",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if usage.UsageRequested(cmd) {
 				return usage.EmitSchema(cmd, cmd.OutOrStdout())
