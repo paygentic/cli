@@ -21,6 +21,8 @@ type ListBillableMetricEventsRequest struct {
 	Limit *int64 `default:"20" queryParam:"style=form,explode=true,name=limit"`
 	// Number of events to skip
 	Offset *int64 `default:"0" queryParam:"style=form,explode=true,name=offset"`
+	// Filter by external identifier. Alphanumeric characters, hyphens, and underscores only.
+	ExternalID *string `queryParam:"style=form,explode=true,name=externalId"`
 }
 
 func (l ListBillableMetricEventsRequest) MarshalJSON() ([]byte, error) {
@@ -74,6 +76,13 @@ func (l *ListBillableMetricEventsRequest) GetOffset() *int64 {
 		return nil
 	}
 	return l.Offset
+}
+
+func (l *ListBillableMetricEventsRequest) GetExternalID() *string {
+	if l == nil {
+		return nil
+	}
+	return l.ExternalID
 }
 
 type ListBillableMetricEventsResponse struct {

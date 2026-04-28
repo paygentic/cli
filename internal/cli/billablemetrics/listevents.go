@@ -22,6 +22,7 @@ var listEventsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "subject", Shorthand: "s", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by subject (typically the customer/user ID)"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 20, Description: "Maximum number of events to return"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of events to skip"},
+	{FlagName: "external-id", Shorthand: "e", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by external identifier. Alphanumeric characters, hyphens, and underscores only."},
 }
 
 // initListEventsCmd initializes the list-events command.
