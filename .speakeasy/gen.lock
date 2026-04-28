@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 40314a0e64cf09243f2c71070f120e58
+  docChecksum: f79782d1dfbbeffbdd412a4f9e8a7cc1
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.0
-  configChecksum: 85a6d3c050954cabb18c8a7ef8981e5a
+  releaseVersion: 0.3.1
+  configChecksum: a783114d7c0012cc919e812491c6ccee
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: d0e42a05-4490-4ad5-beff-10e74b589832
-  pristine_commit_hash: 11002507d03ddb4fd4eb2a78eefa555489818672
-  pristine_tree_hash: f85d45173d0964b169c83744fc3009bd23b8ab3f
+  generation_id: 3fff39b5-9aa9-4ec1-8d79-6aff13eea7fd
+  pristine_commit_hash: 28ed7095e462a2a1031d082eea01e724b89d6cc9
+  pristine_tree_hash: 76b45bdb6d396e23751747c6347dec21f048a6be
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -73,8 +73,8 @@ trackedFiles:
     pristine_git_object: 6d6a48e7eea85060a5b2dbdc9b6d22d29f44cc27
   internal/cli/billablemetrics/listevents.go:
     id: f560a4e52cbb
-    last_write_checksum: sha1:0ddbc80ba1cadee540c6ab09031dc4aac792b751
-    pristine_git_object: 71ebe4b13be1a7393ef659d9cd5aef72a57f1f06
+    last_write_checksum: sha1:68b0d1c3184e559dd05fc05ba13e4e44991152a8
+    pristine_git_object: 6029aee2da90d81af9743bbd46ebe84dc144e28c
   internal/cli/billablemetrics/meter.go:
     id: 9dcf1dc7b9ce
     last_write_checksum: sha1:52849989c261386e05af248adc351d209dadfdb3
@@ -501,8 +501,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:d2df132af83ad33e66fb3befb1cec7611f7e89ae
-    pristine_git_object: 4f45035ab09441286d3879fb611043937ea7726a
+    last_write_checksum: sha1:7b1419c7789d46f7cad8bb2c1dd80bebee5530b5
+    pristine_git_object: 49888d0a2e7b2669800478316911d065112f0e50
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -753,8 +753,8 @@ trackedFiles:
     pristine_git_object: 8222857489e8215f61c60f6f7b7725e0b109cafc
   internal/sdk/models/components/meterevent.go:
     id: e20c6cd40c8c
-    last_write_checksum: sha1:339523cf04c66b95acf61fa6bbd921a4df27a9a1
-    pristine_git_object: 48c89e660b52293660e80ecf43bc22b872647fce
+    last_write_checksum: sha1:b17c8a1086ffe4143c8ea7e7aa4bfcad8708fe62
+    pristine_git_object: 95b645c37fc47f1986bd8fe58a51cc4702885383
   internal/sdk/models/components/metereventlist.go:
     id: 9a95ef880c60
     last_write_checksum: sha1:66f7f84eb108f59ef2924ea310ba16e15814398a
@@ -1085,8 +1085,8 @@ trackedFiles:
     pristine_git_object: 6e6029981d076f9b9a072c5169a174b8ec6c2284
   internal/sdk/models/operations/listbillablemetricevents.go:
     id: 37315ca82524
-    last_write_checksum: sha1:65e60e8181b6da3b6ef9d4a9dfaf7dca3233caf0
-    pristine_git_object: 30cf5edbaeec1a7401bb746bbf3d1906db0d238e
+    last_write_checksum: sha1:930e6b14904aa70f4068dfb65e33eec597e0f26c
+    pristine_git_object: d3d1651718198f78ced42688a6bcb1b8d3de6c05
   internal/sdk/models/operations/listbillablemetrics.go:
     id: 7d20edf66416
     last_write_checksum: sha1:169ad519a5be5f2add840385a8a33040fa403d38
@@ -1389,8 +1389,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:6bf18363f8b88600f87781d64d6cf799df7550a5
-    pristine_git_object: 6a753709da1db9c13711889dd85955614e462dd2
+    last_write_checksum: sha1:dfb15b34136e45023e1dd4ba6d48b6b60495dc1f
+    pristine_git_object: a07c81ed27ad2b780c6700a8a23bb647957c8367
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -2940,4 +2940,4 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Products.Update()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.Update()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.Meter()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.TestClocks.Delete()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.TestClocks.Advance()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.TestClocks.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.TestClocks.Create()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.ListEvents()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Customers.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Customers.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Customers.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Customers.Delete()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Customers.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Issue()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Get()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Grants.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Grants.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Grants.Purchase()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Grants.Get()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Entitlements.Grants.Void()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Features.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Features.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Features.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Features.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Features.Delete()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Products.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.Delete()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.GetPrice()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.ListAvailable()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.Get()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.Get()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.Delete()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Products.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Fees.Update()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.BillableMetrics.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.TestClocks.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Products.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Events.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Events.Approve()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Events.Reject()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Events.BulkApprove()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Events.BulkReject()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Rules.List()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Rules.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Rules.Get()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Rules.Update()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Sources.Rules.Delete()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.List()`: \n  *  `response.Data[].AutoApprove` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.Create()`: \n  *  `response.AutoApprove` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.Get()`: \n  *  `response.AutoApprove` **Added**\n  *  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.GeneratePortalLink()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.Terminate()`: \n  *  `response.AutoApprove` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Users.Get()`: \n  *  `response.Organizations[].Roles` **Added**\n  *  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Users.Update()`: \n  *  `response.Organizations[].Roles` **Added**\n  *  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.ListLineItems()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.CreateLineItem()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.GetLineItems()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Payments.List()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Payments.Create()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Payments.Get()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Events.Ingest()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.CreateCost()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.ListCosts()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.GetCost()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.UpdateCost()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.DeleteCost()`:  `error.Code` **Changed** (Breaking ⚠️)\n* `Paygentic.Costs.GetCostSummary()`:  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.Revenue.Get()`: \n  *  `request.Request` **Changed**\n  *  `response` **Changed**\n  *  `error` **Changed** (Breaking ⚠️)\n* `Paygentic.EntitlementsV0.ListActive()`: **Removed** (Breaking ⚠️)\n* `Paygentic.EntitlementsV0.Create()`: **Removed** (Breaking ⚠️)\n* `Paygentic.Disputes.List()`: **Removed** (Breaking ⚠️)\n* `Paygentic.Disputes.Create()`: **Removed** (Breaking ⚠️)\n* `Paygentic.Costs.GetCostReport()`: **Added**\n* `Paygentic.UsageEvents.Create()`: **Removed** (Breaking ⚠️)\n* `Paygentic.UsageEvents.List()`: **Removed** (Breaking ⚠️)\n* `Paygentic.UsageEvents.Get()`: **Removed** (Breaking ⚠️)\n* `Paygentic.UsageEvents.Refund()`: **Removed** (Breaking ⚠️)\n* `Paygentic.UsageEvents.BatchCreate()`: **Removed** (Breaking ⚠️)\n"
+releaseNotes: "## Cli SDK Changes:\n* `Paygentic.BillableMetrics.ListEvents()`: \n  *  `request.Request.ExternalId` **Added**\n  *  `response.Events[].ExternalId` **Added**\n"
