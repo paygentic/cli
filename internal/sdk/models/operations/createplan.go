@@ -7,7 +7,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/paygentic/cli/internal/sdk/models/components"
+	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
+	"time"
 )
 
 // CreatePlanBillingCadence - ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided.
@@ -158,6 +160,8 @@ type CreatePlanRequest struct {
 	RenewalReminderDays *int64 `default:"3" json:"renewalReminderDays"`
 	// Billing engine version. 0 = legacy fee-schedule billing (Legacy), 1 = line-item billing with metered usage support (Standard).
 	BillingVersion *BillingVersion `default:"0" json:"billingVersion"`
+	// ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. When set, subscriptions created under this plan align their first billing period to the next recurrence of this anchor.
+	BillingAnchor optionalnullable.OptionalNullable[time.Time] `json:"billingAnchor,omitzero"`
 }
 
 func (c CreatePlanRequest) MarshalJSON() ([]byte, error) {
@@ -274,6 +278,13 @@ func (c *CreatePlanRequest) GetBillingVersion() *BillingVersion {
 		return nil
 	}
 	return c.BillingVersion
+}
+
+func (c *CreatePlanRequest) GetBillingAnchor() optionalnullable.OptionalNullable[time.Time] {
+	if c == nil {
+		return nil
+	}
+	return c.BillingAnchor
 }
 
 type CreatePlanResponse struct {

@@ -91,6 +91,8 @@ func (e *ListInvoicesStatus) UnmarshalJSON(data []byte) error {
 type ListInvoicesRequest struct {
 	// Maximum number of invoices to return
 	Limit *int64 `default:"10" queryParam:"style=form,explode=true,name=limit"`
+	// Number of invoices to skip for pagination
+	Offset *int64 `default:"0" queryParam:"style=form,explode=true,name=offset"`
 	// Filter for invoices ready for processing (platform only)
 	NextActionAt *NextActionAt `queryParam:"style=form,explode=true,name=nextActionAt"`
 	// Filter invoices by status
@@ -117,6 +119,13 @@ func (l *ListInvoicesRequest) GetLimit() *int64 {
 		return nil
 	}
 	return l.Limit
+}
+
+func (l *ListInvoicesRequest) GetOffset() *int64 {
+	if l == nil {
+		return nil
+	}
+	return l.Offset
 }
 
 func (l *ListInvoicesRequest) GetNextActionAt() *NextActionAt {
@@ -174,6 +183,19 @@ func (e *ListInvoicesObject) UnmarshalJSON(data []byte) error {
 type ListInvoicesResponseBody struct {
 	Object ListInvoicesObject   `json:"object"`
 	Data   []components.Invoice `json:"data"`
+	// Offset-based pagination response.
+	Pagination *components.OffsetPagination `json:"pagination,omitzero"`
+}
+
+func (l ListInvoicesResponseBody) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListInvoicesResponseBody) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (l *ListInvoicesResponseBody) GetObject() ListInvoicesObject {
@@ -188,6 +210,13 @@ func (l *ListInvoicesResponseBody) GetData() []components.Invoice {
 		return []components.Invoice{}
 	}
 	return l.Data
+}
+
+func (l *ListInvoicesResponseBody) GetPagination() *components.OffsetPagination {
+	if l == nil {
+		return nil
+	}
+	return l.Pagination
 }
 
 type ListInvoicesResponse struct {
