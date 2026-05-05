@@ -1,31 +1,19 @@
-## paygentic invoices-v2 list
+## paygentic payment-sessions
 
-List
+Handle payment session lifecycle and processing across various entity types including invoices and subscriptions
 
 ### Synopsis
 
-List invoices with optional filters. Platform users can use nextActionAt=ready to get invoices ready for processing.
+Handle payment session lifecycle and processing across various entity types including invoices and subscriptions
 
 ```
-paygentic invoices-v2 list [flags]
-```
-
-### Examples
-
-```
-  paygentic invoices-v2 list
+paygentic payment-sessions [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help                     help for list
-  -l, --limit int                Maximum number of invoices to return (default 10)
-  -m, --merchant-id string       Filter invoices by merchant ID
-  -n, --next-action-at string    Filter for invoices ready for processing (platform only) (options: ready)
-      --offset int               Number of invoices to skip for pagination
-      --status string            Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)
-      --subscription-id string   Filter invoices by subscription ID
+  -h, --help   help for payment-sessions
 ```
 
 ### Options inherited from parent commands
@@ -49,4 +37,5 @@ paygentic invoices-v2 list [flags]
 
 ### SEE ALSO
 
-* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
+* [paygentic payment-sessions list](paygentic_payment-sessions_list.md)	 - List

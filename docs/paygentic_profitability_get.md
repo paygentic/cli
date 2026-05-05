@@ -1,31 +1,31 @@
-## paygentic invoices-v2 list
+## paygentic profitability get
 
-List
+Get profitability summary
 
 ### Synopsis
 
-List invoices with optional filters. Platform users can use nextActionAt=ready to get invoices ready for processing.
+Returns a per-customer profitability summary for a merchant over a date range. Each row aggregates revenue (from issued + paid invoices), cost (from metered cost discovery), profit, and margin. Customers are ranked by profit descending and capped at topN; the remainder is rolled into a single self-consistent 'Other' row whose revenue, cost, and profit reflect the same set of customers. Rows are inner-joined against the merchant's customer list, so orphaned meter subjects from deleted or unknown customers are dropped.
 
 ```
-paygentic invoices-v2 list [flags]
+paygentic profitability get [flags]
 ```
 
 ### Examples
 
 ```
-  paygentic invoices-v2 list
+  paygentic profitability get --merchant-id <id> --from 2026-09-10T15:32:06.535Z --to 2026-10-20T08:45:45.521Z
 ```
 
 ### Options
 
 ```
-  -h, --help                     help for list
-  -l, --limit int                Maximum number of invoices to return (default 10)
-  -m, --merchant-id string       Filter invoices by merchant ID
-  -n, --next-action-at string    Filter for invoices ready for processing (platform only) (options: ready)
-      --offset int               Number of invoices to skip for pagination
-      --status string            Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)
-      --subscription-id string   Filter invoices by subscription ID
+  -b, --bucket-width string   Time bucket granularity for the per-customer revenue trend. When omitted, the server picks a reasonable bucket from the window length. (options: hour, day, week) (default "day")
+  -c, --currency string       ISO 4217 currency code to scope the summary. Defaults to the merchant's primary currency.
+  -f, --from string           Start of the time range (ISO 8601 format) [required]
+  -h, --help                  help for get
+  -m, --merchant-id string    Merchant whose customers to summarize [required]
+      --to string             End of the time range (ISO 8601 format) [required]
+      --top-n int             Number of top customers (by profit) to return individually. The rest are rolled into a single 'Other' row. (default 10)
 ```
 
 ### Options inherited from parent commands
@@ -49,4 +49,4 @@ paygentic invoices-v2 list [flags]
 
 ### SEE ALSO
 
-* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic profitability](paygentic_profitability.md)	 - Per-customer profitability summaries

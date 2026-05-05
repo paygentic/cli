@@ -7,7 +7,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/paygentic/cli/internal/sdk/models/components"
+	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
+	"time"
 )
 
 // UpdatePlanBillingCadence - ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided.
@@ -123,6 +125,8 @@ type UpdatePlanRequestBody struct {
 	RenewalReminderEnabled *bool `json:"renewalReminderEnabled,omitzero"`
 	// Number of days before renewal to send the reminder email
 	RenewalReminderDays *int64 `json:"renewalReminderDays,omitzero"`
+	// ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. Set to null to clear the anchor and revert to start-time-based anchoring.
+	BillingAnchor optionalnullable.OptionalNullable[time.Time] `json:"billingAnchor,omitzero"`
 }
 
 func (u UpdatePlanRequestBody) MarshalJSON() ([]byte, error) {
@@ -211,6 +215,13 @@ func (u *UpdatePlanRequestBody) GetRenewalReminderDays() *int64 {
 		return nil
 	}
 	return u.RenewalReminderDays
+}
+
+func (u *UpdatePlanRequestBody) GetBillingAnchor() optionalnullable.OptionalNullable[time.Time] {
+	if u == nil {
+		return nil
+	}
+	return u.BillingAnchor
 }
 
 type UpdatePlanRequest struct {

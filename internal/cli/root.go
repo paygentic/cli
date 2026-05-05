@@ -14,9 +14,11 @@ import (
 	"github.com/paygentic/cli/internal/cli/fees"
 	"github.com/paygentic/cli/internal/cli/invoicesv2"
 	"github.com/paygentic/cli/internal/cli/payments"
+	"github.com/paygentic/cli/internal/cli/paymentsessions"
 	"github.com/paygentic/cli/internal/cli/plans"
 	"github.com/paygentic/cli/internal/cli/prices"
 	"github.com/paygentic/cli/internal/cli/products"
+	"github.com/paygentic/cli/internal/cli/profitability"
 	"github.com/paygentic/cli/internal/cli/revenue"
 	"github.com/paygentic/cli/internal/cli/sources"
 	"github.com/paygentic/cli/internal/cli/subscriptions"
@@ -102,6 +104,9 @@ func NewRootCommand() (*cobra.Command, error) {
 	if err := payments.InitPaymentsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init payments: %w", err)
 	}
+	if err := paymentsessions.InitPaymentSessionsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init payment-sessions: %w", err)
+	}
 	if err := events.InitEventsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init events: %w", err)
 	}
@@ -110,6 +115,9 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := revenue.InitRevenueRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init revenue: %w", err)
+	}
+	if err := profitability.InitProfitabilityRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init profitability: %w", err)
 	}
 	if err := testclocks.InitTestClocksRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init test-clocks: %w", err)

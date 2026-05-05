@@ -1,31 +1,32 @@
-## paygentic invoices-v2 list
+## paygentic payment-sessions list
 
 List
 
 ### Synopsis
 
-List invoices with optional filters. Platform users can use nextActionAt=ready to get invoices ready for processing.
+List payment sessions for the authenticated merchant with optional filters. Supports filtering by subscriptionId, customerId, status, and entityType. When subscriptionId is provided the result includes both the subscription's own activation session (entityType='subscription') and any session attached to invoices for that subscription (entityType='invoice').
 
 ```
-paygentic invoices-v2 list [flags]
+paygentic payment-sessions list [flags]
 ```
 
 ### Examples
 
 ```
-  paygentic invoices-v2 list
+  paygentic payment-sessions list
 ```
 
 ### Options
 
 ```
+  -c, --customer-id string       Filter to sessions linked to a payment for this customer.
+  -e, --entity-type string       Filter by the kind of entity the session pays for. (options: invoice, subscription, payment, topup)
   -h, --help                     help for list
-  -l, --limit int                Maximum number of invoices to return (default 10)
-  -m, --merchant-id string       Filter invoices by merchant ID
-  -n, --next-action-at string    Filter for invoices ready for processing (platform only) (options: ready)
-      --offset int               Number of invoices to skip for pagination
-      --status string            Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)
-      --subscription-id string   Filter invoices by subscription ID
+  -l, --limit int                Number of sessions to return. (default 10)
+  -m, --merchant-id string       Merchant organization ID. Required when using an API key that is not scoped to a single merchant.
+      --offset int               Number of sessions to skip.
+      --status string            Filter by payment session status. (options: pending, processing, completed, failed, expired, cancelled)
+      --subscription-id string   Filter to sessions linked to this subscription (its own activation session plus all of its invoices' sessions).
 ```
 
 ### Options inherited from parent commands
@@ -49,4 +50,4 @@ paygentic invoices-v2 list [flags]
 
 ### SEE ALSO
 
-* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic payment-sessions](paygentic_payment-sessions.md)	 - Handle payment session lifecycle and processing across various entity types including invoices and subscriptions

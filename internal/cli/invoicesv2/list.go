@@ -17,6 +17,7 @@ import (
 
 var listCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Maximum number of invoices to return"},
+	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of invoices to skip for pagination"},
 	{FlagName: "next-action-at", Shorthand: "n", FieldPath: "NextActionAt", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"ready"}, Description: "Filter for invoices ready for processing (platform only) (options: ready)"},
 	{FlagName: "status", FieldPath: "Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"ACTIVE", "CLOSING", "CLOSED", "CALCULATING", "DRAFT", "ISSUED", "PAYMENT_FAILED", "PAID", "CANCELLED", "WRITTEN_OFF", "FAILED"}, Description: "Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)"},
 	{FlagName: "subscription-id", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter invoices by subscription ID"},

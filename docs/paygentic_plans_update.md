@@ -19,6 +19,7 @@ paygentic plans update [flags]
 ### Options
 
 ```
+      --billing-anchor string         ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. Set to null to clear the anchor and revert to start-time-based anchoring.
       --billing-cadence string        ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided. (options: P1M, P3M, P1Y)
       --billing-interval string       Recurring billing period frequency. Sample values: 'monthly' for monthly billing, 'quarterly' for quarterly billing, 'yearly' for annual billing (options: monthly, quarterly, yearly, annual)
       --body string                   Request body as JSON (alternative to individual flags). Can also be provided via stdin.

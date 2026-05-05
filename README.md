@@ -308,6 +308,10 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`create`](docs/paygentic_payments_create.md) - Create Payment
 * [`get`](docs/paygentic_payments_get.md) - Get Payment
 
+### [payment-sessions](docs/paygentic_payment-sessions.md)
+
+* [`list`](docs/paygentic_payment-sessions_list.md) - List
+
 ### [events](docs/paygentic_events.md)
 
 * [`ingest`](docs/paygentic_events_ingest.md) - Ingest Event
@@ -325,6 +329,10 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 ### [revenue](docs/paygentic_revenue.md)
 
 * [`get`](docs/paygentic_revenue_get.md) - Get revenue summary
+
+### [profitability](docs/paygentic_profitability.md)
+
+* [`get`](docs/paygentic_profitability_get.md) - Get profitability summary
 
 ### [test-clocks](docs/paygentic_test-clocks.md)
 

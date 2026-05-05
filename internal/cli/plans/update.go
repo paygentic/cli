@@ -28,6 +28,7 @@ var updateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "tax-behavior", Shorthand: "t", FieldPath: "Body.TaxBehavior", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"exclusive", "inclusive"}, Description: "Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive)"},
 	{FlagName: "renewal-reminder-enabled", FieldPath: "Body.RenewalReminderEnabled", Kind: flagutil.FlagKindBool, Optional: true, Description: "Whether to send renewal reminder emails to customers before their subscription renews"},
 	{FlagName: "renewal-reminder-days", FieldPath: "Body.RenewalReminderDays", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Number of days before renewal to send the reminder email"},
+	{FlagName: "billing-anchor", FieldPath: "Body.BillingAnchor", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingAnchor,omitempty"`, Description: "ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. Set to null to clear the anchor and revert to start-time-based anchoring."},
 }
 
 // initUpdateCmd initializes the update command.

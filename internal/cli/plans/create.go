@@ -31,6 +31,7 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "renewal-reminder-enabled", FieldPath: "RenewalReminderEnabled", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, DefaultBool: true, Description: "Whether to send renewal reminder emails to customers before their subscription renews"},
 	{FlagName: "renewal-reminder-days", FieldPath: "RenewalReminderDays", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 3, Description: "Number of days before renewal to send the reminder email"},
 	{FlagName: "billing-version", FieldPath: "BillingVersion", Kind: flagutil.FlagKindIntEnum, Optional: true, HasDefault: true, DefaultStr: "0", EnumValues: []string{"0", "1"}, Description: "Billing engine version. 0 = legacy fee-schedule billing (Legacy), 1 = line-item billing with metered usage support (Standard). (options: 0, 1)"},
+	{FlagName: "billing-anchor", FieldPath: "BillingAnchor", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingAnchor,omitempty"`, Description: "ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. When set, subscriptions created under this plan align their first billing period to the next recurrence of this anchor."},
 }
 
 // initCreateCmd initializes the create command.
