@@ -41,6 +41,14 @@ func InitCustomersRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initListCustomerPaymentMethodsCmd(CustomersCmd); err != nil {
+		return err
+	}
+
+	if err := initCreateCustomerPaymentMethodCmd(CustomersCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(CustomersCmd)
 	return nil
 }
