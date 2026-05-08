@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: b8029f62246b83a99e108acb1b3baaa0
+  docChecksum: c7df4275136d28af0b9aaf23e05ce149
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.2
-  configChecksum: 6c00197d51d2a30bd3b21971f03a42d7
+  releaseVersion: 0.3.3
+  configChecksum: b79f251b9c89d9a8be99cd0e6af31d88
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 7423a152-86f1-403a-a121-9ce8d828842b
-  pristine_commit_hash: f7fabf09eb0d557006a79e7954b67903bb571e80
-  pristine_tree_hash: 7a6aef787b4307b1df06d9b1f5d08cdce5b6a731
+  generation_id: f14e1e2a-8a1f-4b84-9794-95fdd7629fc4
+  pristine_commit_hash: 80d1edbe856fca26455868767d8e54cc316fa3f7
+  pristine_tree_hash: 909159a4dbd4676000ad94f56c1e51559050b38c
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -127,6 +127,10 @@ trackedFiles:
     id: dea47d6f024e
     last_write_checksum: sha1:b8260e9686d73203792b6d46a6f4c1ea05bf9a4e
     pristine_git_object: 9e66461ccf4cc5bb968a7389f1b1736b6f75ae28
+  internal/cli/customers/createcustomerpaymentmethod.go:
+    id: a357fd4eb253
+    last_write_checksum: sha1:2ae36859f5f1b09d3142b89a9097bcb223af0a2c
+    pristine_git_object: dc4c74669c8b781e33a023062ec935a9a08b4e2c
   internal/cli/customers/delete.go:
     id: 692be1e0b42c
     last_write_checksum: sha1:3c13210310d9e15b0ecb1aef2f1d4cde425d34fa
@@ -139,10 +143,14 @@ trackedFiles:
     id: 291da6997ca1
     last_write_checksum: sha1:9f7d7b9120243c3df39f156301293bfabc3cb8b5
     pristine_git_object: 02dfb4a8b636706a8ac0f70220642e85454cd716
+  internal/cli/customers/listcustomerpaymentmethods.go:
+    id: 5034f375aeae
+    last_write_checksum: sha1:4a35be60c512a3df61725edffd524f1f28df1206
+    pristine_git_object: 981e0f67616a71a461bd235e885882b55055d106
   internal/cli/customers/root.go:
     id: 8fe78c9b38ec
-    last_write_checksum: sha1:f78beb7f6979a251afc9b2567c9bd5c5233df06b
-    pristine_git_object: e164986cfde6262e3b9909e5a40fc0356940a080
+    last_write_checksum: sha1:cada6e469d25697db2360ddfc13d58ee9b38cfab
+    pristine_git_object: 91b8486bfd4137c2fe12341efa9c0725662091ce
   internal/cli/customers/update.go:
     id: 64c9aaffd1a3
     last_write_checksum: sha1:82464c1ea96eb738d9da4fdf6ac6e0715181f348
@@ -517,8 +525,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:beddefc5fb64107436f6415775a8ed05e98aef0f
-    pristine_git_object: 2ca364005e75b4d6a240096e0785a7a80d94fde6
+    last_write_checksum: sha1:00d8fb460af29c789ef32af723349fc7f2ff5c5f
+    pristine_git_object: 224a81647deddf1e9a437d183c37293496cd8899
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -601,8 +609,8 @@ trackedFiles:
     pristine_git_object: 5fa2e7cbd2cc5d0944be77a751e6ff24e745c47a
   internal/sdk/customers.go:
     id: 7a4fd51909f8
-    last_write_checksum: sha1:56222101d27ee7a75bd434d5653dc152b88068ab
-    pristine_git_object: 2d2c25e5a2034ca3b787a3c6f858a4fe9611a70f
+    last_write_checksum: sha1:84be920368ae0b35edafd60e2759802bdbed71ae
+    pristine_git_object: 2ddd4f758217f2c5ac603486a271a9fd53204c77
   internal/sdk/entitlements.go:
     id: 74a76a883d9a
     last_write_checksum: sha1:ee830b4a60709e17fb7f7baac9fa2435fd5d9539
@@ -783,10 +791,14 @@ trackedFiles:
     id: 4d237122f9dc
     last_write_checksum: sha1:f10787316494a5aa24560f0e87713585472d2fd7
     pristine_git_object: 47742e2cacc345a490d929dddde924dde52544bc
+  internal/sdk/models/components/paymentmethod.go:
+    id: 503657889e6f
+    last_write_checksum: sha1:03d2ca3432cdc44c21e282173114fa6c3d499f01
+    pristine_git_object: d66a2fee608543af3e3fabf559ab280a1fb077c4
   internal/sdk/models/components/paymentsession.go:
     id: ac0453023357
-    last_write_checksum: sha1:a769bd8538fe86bf33569910f34ea87eee6ba963
-    pristine_git_object: 5a8214da0f5c0c076376f038ffb0acfbc9e9a10e
+    last_write_checksum: sha1:5937014d2631d49917c8edc3daa105b8e6f1c65a
+    pristine_git_object: 3e313692a55b852728e2220ae319c46f52081476
   internal/sdk/models/components/paymentsummary.go:
     id: e1b44d96693d
     last_write_checksum: sha1:ab22f49eaa1f3f948b4dc9c9886ed5d09baeeae5
@@ -847,6 +859,10 @@ trackedFiles:
     id: 25fb7bf6c3e9
     last_write_checksum: sha1:1817edf498485d5f20768d4ab6944df5cbeeee3f
     pristine_git_object: a8c980e74255b01fef13f81a0c2d05948e66ec9d
+  internal/sdk/models/components/schemaspaymentsession.go:
+    id: d13d7ad296a1
+    last_write_checksum: sha1:c05cd008cd82f23ba910a10dc6b397eb4f115807
+    pristine_git_object: 658b6f59f804c6f5ab72d5bd5348980585c144e3
   internal/sdk/models/components/schemasprice.go:
     id: 508596028ac1
     last_write_checksum: sha1:a07906f1c15ef02f8576c9abdd74dfe50fb33d03
@@ -931,6 +947,10 @@ trackedFiles:
     id: 3b91d2bdeeab
     last_write_checksum: sha1:190b60d2c860faebddb3cc2308874e8ba3fe75b0
     pristine_git_object: 804d9da3d1a8592b74005b5198d2e58e870b2c19
+  internal/sdk/models/operations/createcustomerpaymentmethod.go:
+    id: f0a527c23c8a
+    last_write_checksum: sha1:9b6d603134a70d58d0f5b7bc79a34d1c63e67e3f
+    pristine_git_object: 7e6685abd62313595e4e22230b38d2b8975fdf85
   internal/sdk/models/operations/createentitlementgrant.go:
     id: 5701b4d9afd9
     last_write_checksum: sha1:2030b813385974a6392c32848e430d8dc0462fa6
@@ -1131,6 +1151,10 @@ trackedFiles:
     id: e13ea2bf086a
     last_write_checksum: sha1:723d863984a059582f118431cbcef6e8ee05b345
     pristine_git_object: bb57c6ae0ff371bd49841fc4cb7a98e4e3560d3b
+  internal/sdk/models/operations/listcustomerpaymentmethods.go:
+    id: ea731f9f138d
+    last_write_checksum: sha1:ac35765438252befba4516d36207ca4320f8b577
+    pristine_git_object: 2811e69822163045917237b01c9f7589ea2e0c11
   internal/sdk/models/operations/listcustomers.go:
     id: 61b15fe46a9c
     last_write_checksum: sha1:1273f16d899d1476bc00eda3e0e9af20d823d5ab
@@ -1153,8 +1177,8 @@ trackedFiles:
     pristine_git_object: 639edc1b9bc97efbd0c20b5e4563aaa324df4920
   internal/sdk/models/operations/listinvoices.go:
     id: c07326fa077a
-    last_write_checksum: sha1:fbec615e800ac1688d77d944e4512b1d040fa80d
-    pristine_git_object: 3c666de558ac77e2790df05d4501d7abf23b6227
+    last_write_checksum: sha1:4b67fc7738ce161766858326817ee68dbec0d928
+    pristine_git_object: 3b815a549836954c874a597d4483f3b9321ade9c
   internal/sdk/models/operations/listlineitems.go:
     id: a4b630cc1c29
     last_write_checksum: sha1:560c83f08962e186d3468b1e2aa9277e5288b5e7
@@ -1165,8 +1189,8 @@ trackedFiles:
     pristine_git_object: 1c5fd0230d76698c3b06153390fc13cf939e809f
   internal/sdk/models/operations/listpaymentsessions.go:
     id: b8f5a2f1dc76
-    last_write_checksum: sha1:08d3ff9bb7a7c9bc11eaa77c2b93322749f4b38d
-    pristine_git_object: b8a74d0053edcb6424eb25f2c77255ff31619f89
+    last_write_checksum: sha1:3d586d8fe881f33fdda3c97c8940cc8652b6a1a4
+    pristine_git_object: 7c8e6231f9b6dfc2b1450a16bf4ee9066712206b
   internal/sdk/models/operations/listplans.go:
     id: 67f4319a64a8
     last_write_checksum: sha1:43e2501ac15eeb34bd9d05a758079ef5875d43fc
@@ -1437,8 +1461,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:8efc1baed7ed7727601a1cc0c24ae9147ca007fa
-    pristine_git_object: d02bafbaa66977f0d5fc7439aa64a3025dde5f4b
+    last_write_checksum: sha1:612c10a5c1b04cfdb472ec88f1a95bbaabefa8d0
+    pristine_git_object: 6949c01f271aa3d245b061a09f3c494246d4831b
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -2642,7 +2666,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"object": "list", "data": []}
+          application/json: {"object": "list", "data": [], "pagination": {"limit": 68269, "offset": 80477, "total": 298150}}
         "403":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "500":
@@ -3019,5 +3043,35 @@ examples:
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
+  listCustomerPaymentMethods:
+    speakeasy-default-list-customer-payment-methods:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"object": "list", "data": []}
+        "403":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "500":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+  createCustomerPaymentMethod:
+    speakeasy-default-create-customer-payment-method:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "201":
+          application/json: {"object": "paymentSession", "id": "<id>", "mode": "setup", "status": "expired", "url": "https://flickering-wasabi.org", "expiresAt": "2026-01-29T06:59:27.780Z", "createdAt": "2026-03-21T03:55:15.785Z"}
+        "400":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "403":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "500":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.PaymentSessions.ListPaymentSessions()`: **Added**\n* `Paygentic.Profitability.GetProfitability()`: **Added**\n* `Paygentic.BillableMetrics.ListEvents()`:  `response.Pagination` **Changed**\n* `Paygentic.Customers.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Entitlements.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Entitlements.Grants.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Plans.Create()`: \n  *  `request.Request.BillingAnchor` **Added**\n  *  `response.BillingAnchor` **Added**\n* `Paygentic.Plans.List()`:  `response.Data[].BillingAnchor` **Added**\n* `Paygentic.Plans.ListAvailable()`:  `response.Data[].BillingAnchor` **Added**\n* `Paygentic.Plans.Get()`:  `response.BillingAnchor` **Added**\n* `Paygentic.Plans.Update()`: \n  *  `request.Request.Body.BillingAnchor` **Added**\n  *  `response.BillingAnchor` **Added**\n* `Paygentic.Products.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Sources.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Sources.Events.List()`:  `response.Pagination` **Changed**\n* `Paygentic.Subscriptions.List()`:  `response.Pagination` **Changed**\n* `Paygentic.InvoicesV2.List()`: \n  *  `request.Request.Offset` **Added**\n  *  `response.Pagination` **Added**\n* `Paygentic.Payments.List()`:  `response.Pagination` **Changed**\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.Customers.ListCustomerPaymentMethods()`: **Added**
+  * `Paygentic.Customers.CreateCustomerPaymentMethod()`: **Added**
+  * `Paygentic.InvoicesV2.List()`:  `response.Pagination` **Changed**

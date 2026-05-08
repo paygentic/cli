@@ -203,6 +203,8 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`get`](docs/paygentic_customers_get.md) - Get
 * [`delete`](docs/paygentic_customers_delete.md) - Delete
 * [`update`](docs/paygentic_customers_update.md) - Update
+* [`list-customer-payment-methods`](docs/paygentic_customers_list-customer-payment-methods.md) - List payment methods
+* [`create-customer-payment-method`](docs/paygentic_customers_create-customer-payment-method.md) - Set up a payment method
 
 ### [entitlements](docs/paygentic_entitlements.md)
 

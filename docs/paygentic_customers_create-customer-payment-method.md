@@ -1,19 +1,30 @@
-## paygentic customers
+## paygentic customers create-customer-payment-method
 
-A `Customer` is an entity connected to a `Merchant` via a `Subscription`
+Set up a payment method
 
 ### Synopsis
 
-A `Customer` is an entity connected to a `Merchant` via a `Subscription`. This represents the merchant-facing perspective of `Consumers` who purchase their `Products`.
+Create a payment session that captures a new off-session payment method for this customer without charging. The response contains a hosted-page URL — redirect the customer to it, or load it inside an iframe (when iframed, the page reports outcomes via `postMessage` to the parent window).
 
 ```
-paygentic customers [flags]
+paygentic customers create-customer-payment-method [flags]
+```
+
+### Examples
+
+```
+  paygentic customers create-customer-payment-method --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for customers
+      --body string                        Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -f, --failure-redirect-url postMessage   URL the customer is redirected to on failure. When the page is iframed, failure is reported via postMessage instead.
+  -h, --help                               help for create-customer-payment-method
+  -i, --id string                          The unique identifier of the customer. [required]
+  -m, --metadata string                    Arbitrary key/value pairs to attach to the session.
+  -s, --success-redirect-url postMessage   URL the customer is redirected to on success. When the page is iframed, success is reported via postMessage instead.
 ```
 
 ### Options inherited from parent commands
@@ -37,11 +48,4 @@ paygentic customers [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic customers create](paygentic_customers_create.md)	 - Create
-* [paygentic customers create-customer-payment-method](paygentic_customers_create-customer-payment-method.md)	 - Set up a payment method
-* [paygentic customers delete](paygentic_customers_delete.md)	 - Delete
-* [paygentic customers get](paygentic_customers_get.md)	 - Get
-* [paygentic customers list](paygentic_customers_list.md)	 - List by Merchant
-* [paygentic customers list-customer-payment-methods](paygentic_customers_list-customer-payment-methods.md)	 - List payment methods
-* [paygentic customers update](paygentic_customers_update.md)	 - Update
+* [paygentic customers](paygentic_customers.md)	 - A `Customer` is an entity connected to a `Merchant` via a `Subscription`

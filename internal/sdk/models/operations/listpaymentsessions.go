@@ -184,8 +184,8 @@ func (e *ListPaymentSessionsObject) UnmarshalJSON(data []byte) error {
 
 // ListPaymentSessionsResponseBody - List of payment sessions
 type ListPaymentSessionsResponseBody struct {
-	Object ListPaymentSessionsObject   `json:"object"`
-	Data   []components.PaymentSession `json:"data"`
+	Object ListPaymentSessionsObject          `json:"object"`
+	Data   []components.SchemasPaymentSession `json:"data"`
 	// Offset-based pagination response.
 	Pagination components.OffsetPagination `json:"pagination"`
 }
@@ -197,9 +197,9 @@ func (l *ListPaymentSessionsResponseBody) GetObject() ListPaymentSessionsObject 
 	return l.Object
 }
 
-func (l *ListPaymentSessionsResponseBody) GetData() []components.PaymentSession {
+func (l *ListPaymentSessionsResponseBody) GetData() []components.SchemasPaymentSession {
 	if l == nil {
-		return []components.PaymentSession{}
+		return []components.SchemasPaymentSession{}
 	}
 	return l.Data
 }
