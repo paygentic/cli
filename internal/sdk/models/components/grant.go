@@ -54,6 +54,10 @@ type Grant struct {
 	RecurrencePeriod *string `json:"recurrencePeriod"`
 	// The idempotency key used when creating this grant. Null if not provided.
 	IdempotencyKey *string `json:"idempotencyKey"`
+	// Maximum balance carried over at the entitlement's reset boundary.
+	ResetMaxRollover *float64 `json:"resetMaxRollover,omitzero"`
+	// Minimum balance at the entitlement's reset boundary.
+	ResetMinRollover *float64 `json:"resetMinRollover,omitzero"`
 }
 
 func (g Grant) MarshalJSON() ([]byte, error) {
@@ -135,4 +139,18 @@ func (g *Grant) GetIdempotencyKey() *string {
 		return nil
 	}
 	return g.IdempotencyKey
+}
+
+func (g *Grant) GetResetMaxRollover() *float64 {
+	if g == nil {
+		return nil
+	}
+	return g.ResetMaxRollover
+}
+
+func (g *Grant) GetResetMinRollover() *float64 {
+	if g == nil {
+		return nil
+	}
+	return g.ResetMinRollover
 }

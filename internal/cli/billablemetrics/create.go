@@ -23,8 +23,8 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for a product [required]"},
 	{FlagName: "unit", Shorthand: "u", FieldPath: "Unit", Kind: flagutil.FlagKindString, Required: true, Description: "Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]"},
 	{FlagName: "event-type", FieldPath: "EventType", Kind: flagutil.FlagKindString, Optional: true, Description: "CloudEvents type for meter routing. Links this billable metric to the metering service."},
-	{FlagName: "value-property", Shorthand: "v", FieldPath: "ValueProperty", Kind: flagutil.FlagKindString, Optional: true, Description: "JSONPath to extract numeric value from event data. Required for SUM/AVG/MIN/MAX/LATEST aggregations."},
-	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries."},
+	{FlagName: "value-property", Shorthand: "v", FieldPath: "ValueProperty", Kind: flagutil.FlagKindString, Optional: true, Description: "JSONPath to extract a numeric value from event data. Must start with `$.` (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations."},
+	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries. Each value must start with `$.` (example: `$.region`)."},
 	{FlagName: "event-from", FieldPath: "EventFrom", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Only count events after this timestamp. Used for meter versioning."},
 }
 

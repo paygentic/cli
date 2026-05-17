@@ -23,8 +23,8 @@ var updateCostCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "unit", FieldPath: "Body.Unit", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"unit,omitempty"`, Description: "Updated unit label (metered costs only)."},
 	{FlagName: "aggregation", Shorthand: "a", FieldPath: "Body.Aggregation", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"aggregation,omitempty"`, Description: "Updated aggregation method (metered costs only). (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST)"},
 	{FlagName: "event-type", Shorthand: "e", FieldPath: "Body.EventType", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"eventType,omitempty"`, Description: "Updated CloudEvents type (metered costs only)."},
-	{FlagName: "value-property", Shorthand: "v", FieldPath: "Body.ValueProperty", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"valueProperty,omitempty"`, Description: "Updated JSONPath for value extraction (metered costs only)."},
-	{FlagName: "group-by", Shorthand: "g", FieldPath: "Body.GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Updated group-by dimension map (metered costs only)."},
+	{FlagName: "value-property", Shorthand: "v", FieldPath: "Body.ValueProperty", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"valueProperty,omitempty"`, Description: "Updated JSONPath for value extraction. Must start with `$.` (example: `$.amount` or `$.payload.bytes`). Metered costs only."},
+	{FlagName: "group-by", Shorthand: "g", FieldPath: "Body.GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Updated group-by dimension map. Each value must start with `$.` (example: `$.region`). Metered costs only."},
 }
 
 // initUpdateCostCmd initializes the update-cost command.

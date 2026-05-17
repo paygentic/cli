@@ -25,6 +25,8 @@ var purchaseCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "success-url", Shorthand: "s", FieldPath: "Body.SuccessURL", Kind: flagutil.FlagKindString, Optional: true, Description: "URL to redirect the customer to after successful payment."},
 	{FlagName: "cancel-url", Shorthand: "c", FieldPath: "Body.CancelURL", Kind: flagutil.FlagKindString, Optional: true, Description: "URL to redirect the customer to if payment is cancelled."},
 	{FlagName: "payment-expires-at", FieldPath: "Body.PaymentExpiresAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "When the payment session expires. If omitted, uses the default expiry."},
+	{FlagName: "reset-max-rollover", FieldPath: "Body.ResetMaxRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Maximum balance carried over at the entitlement's reset boundary. If omitted, the purchased grant balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset."},
+	{FlagName: "reset-min-rollover", FieldPath: "Body.ResetMinRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor)."},
 }
 
 // initPurchaseCmd initializes the purchase command.
