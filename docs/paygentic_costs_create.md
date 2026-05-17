@@ -19,19 +19,19 @@ paygentic costs create [flags]
 ### Options
 
 ```
-  -a, --aggregation string      Aggregation method for the metered event. (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST) [required]
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -c, --currency string         ISO 4217 currency code (e.g. USD, EUR). [required]
-  -e, --event-type string       CloudEvents type that identifies the metered event. [required]
-  -g, --group-by string         Map of dimension name to JSONPath for group-by queries. Only valid for metered costs.
-  -h, --help                    help for create
-  -m, --merchant-id string      Unique identifier for an organization
-  -n, --name string             Human-readable name for the cost. [required]
-  -p, --product-id string       Unique identifier for a product [required]
-  -t, --type metered            The cost type. Only metered costs are supported; they track usage via events. (options: metered) [required]
-      --unit string             Unit label for metered costs (e.g. 'token', 'request'). Only valid for metered costs.
-      --unit-cost float         Cost per unit, multiplied by measured quantity to compute total cost. Must be non-negative. [required]
-  -v, --value-property string   JSONPath to extract numeric value from event data. Required for SUM/AVG/MIN/MAX/LATEST aggregations.
+  -a, --aggregation string   Aggregation method for the metered event. (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST) [required]
+      --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -c, --currency string      ISO 4217 currency code (e.g. USD, EUR). [required]
+  -e, --event-type string    CloudEvents type that identifies the metered event. [required]
+  -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`). Only valid for metered costs.
+  -h, --help                 help for create
+  -m, --merchant-id string   Unique identifier for an organization
+  -n, --name string          Human-readable name for the cost. [required]
+  -p, --product-id string    Unique identifier for a product [required]
+  -t, --type metered         The cost type. Only metered costs are supported; they track usage via events. (options: metered) [required]
+      --unit string          Unit label for metered costs (e.g. 'token', 'request'). Only valid for metered costs.
+      --unit-cost float      Cost per unit, multiplied by measured quantity to compute total cost. Must be non-negative. [required]
+  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations.
 ```
 
 ### Options inherited from parent commands

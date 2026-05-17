@@ -31,12 +31,12 @@ paygentic entitlements issue [flags]
       --template.boolean string                           EntitlementTemplate_Boolean variant as JSON
       --template.metered string                           EntitlementTemplate_Metered variant as JSON
       --template.metered.is-soft-limit                    When false (hard limit), access is blocked when balance is exhausted and overage is not charged on invoices. When true (soft limit), access continues past the grant and overage is charged at the per-unit rate.
-      --template.metered.issue-after-reset float          Amount of grants to issue after each period reset.
+      --template.metered.issue-after-reset float          Credits issued at each period reset. Set to 0 for entitlements without included credits; top-ups may be supplied via direct grants or grant purchases.
       --template.metered.issue-after-reset-priority int   Priority for grants issued after reset.
       --template.metered.preserve-overage-at-reset        When true, overage from the previous period carries over.
       --template.metered.reset-max-rollover float         Maximum amount of unused balance that rolls over on reset.
       --template.metered.reset-min-rollover float         Minimum amount of balance guaranteed to roll over on reset.
-      --template.metered.usage-period string              [required]
+      --template.metered.usage-period string              Recurrence configuration. Omit for a one-time grant that does not refill.
       --template.static string                            EntitlementTemplate_Static variant as JSON
 ```
 

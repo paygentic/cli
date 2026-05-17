@@ -19,16 +19,16 @@ paygentic billable-metrics update [flags]
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --description string      Revised explanation of what the metric represents. Sample values: 'Language model token consumption', 'Database storage capacity used', 'Machine learning prediction API calls', 'AI-generated content items'
-      --event-from string       Only count events after this timestamp.
-      --event-type string       CloudEvents type for meter routing.
-  -g, --group-by string         Map of dimension name to JSONPath for group-by queries.
-  -h, --help                    help for update
-  -i, --id string               [required]
-  -n, --name string             Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'
-  -u, --unit string             Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'
-  -v, --value-property string   JSONPath to extract numeric value from event data.
+      --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --description string   Revised explanation of what the metric represents. Sample values: 'Language model token consumption', 'Database storage capacity used', 'Machine learning prediction API calls', 'AI-generated content items'
+      --event-from string    Only count events after this timestamp.
+      --event-type string    CloudEvents type for meter routing.
+  -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
+  -h, --help                 help for update
+  -i, --id string            [required]
+  -n, --name string          Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'
+  -u, --unit string          Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'
+  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`).
 ```
 
 ### Options inherited from parent commands

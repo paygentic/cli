@@ -19,18 +19,18 @@ paygentic billable-metrics create [flags]
 ### Options
 
 ```
-  -a, --aggregation string      Aggregation calculation method for metric values. (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST) [required]
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --description string      Explanatory text describing what the metric tracks and how it's used for billing. Sample values: 'Total tokens consumed by Claude language model interactions', 'Gigabytes of cloud storage utilized', 'Count of machine learning inference requests processed', 'Quantity of AI-generated images created', 'Compute hours spent training neural networks', 'Terabytes of data transferred' [required]
-      --event-from string       Only count events after this timestamp. Used for meter versioning.
-      --event-type string       CloudEvents type for meter routing. Links this billable metric to the metering service.
-  -g, --group-by string         Map of dimension name to JSONPath for group-by queries.
-  -h, --help                    help for create
-  -m, --merchant-id string      Unique identifier for an organization [required]
-  -n, --name string             Human-readable label identifying what this metric measures. Sample values: 'Claude Tokens', 'Storage Capacity', 'Model Inference Calls', 'Generated Images', 'Training Compute Hours', 'Data Transfer Volume' [required]
-  -p, --product-id string       Unique identifier for a product [required]
-  -u, --unit string             Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]
-  -v, --value-property string   JSONPath to extract numeric value from event data. Required for SUM/AVG/MIN/MAX/LATEST aggregations.
+  -a, --aggregation string   Aggregation calculation method for metric values. (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST) [required]
+      --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --description string   Explanatory text describing what the metric tracks and how it's used for billing. Sample values: 'Total tokens consumed by Claude language model interactions', 'Gigabytes of cloud storage utilized', 'Count of machine learning inference requests processed', 'Quantity of AI-generated images created', 'Compute hours spent training neural networks', 'Terabytes of data transferred' [required]
+      --event-from string    Only count events after this timestamp. Used for meter versioning.
+      --event-type string    CloudEvents type for meter routing. Links this billable metric to the metering service.
+  -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
+  -h, --help                 help for create
+  -m, --merchant-id string   Unique identifier for an organization [required]
+  -n, --name string          Human-readable label identifying what this metric measures. Sample values: 'Claude Tokens', 'Storage Capacity', 'Model Inference Calls', 'Generated Images', 'Training Compute Hours', 'Data Transfer Volume' [required]
+  -p, --product-id string    Unique identifier for a product [required]
+  -u, --unit string          Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]
+  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations.
 ```
 
 ### Options inherited from parent commands

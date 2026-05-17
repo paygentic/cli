@@ -31,6 +31,8 @@ paygentic entitlements grants purchase [flags]
   -i, --idempotency-key string      Caller-provided deduplication key. Retrying with the same key returns the existing invoice. [required]
       --payment-expires-at string   When the payment session expires. If omitted, uses the default expiry.
       --price string                The price in decimal format (e.g., '5.00' for $5.00 USD). Must be at least $0.50. [required]
+      --reset-max-rollover float    Maximum balance carried over at the entitlement's reset boundary. If omitted, the purchased grant balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset.
+      --reset-min-rollover float    Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor).
   -s, --success-url string          URL to redirect the customer to after successful payment.
 ```
 

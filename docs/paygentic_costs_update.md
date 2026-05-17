@@ -19,17 +19,17 @@ paygentic costs update [flags]
 ### Options
 
 ```
-  -a, --aggregation string      Updated aggregation method (metered costs only). (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST)
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -c, --currency string         Updated ISO 4217 currency code.
-  -e, --event-type string       Updated CloudEvents type (metered costs only).
-  -g, --group-by string         Updated group-by dimension map (metered costs only).
-  -h, --help                    help for update
-  -i, --id string               The unique identifier of the cost [required]
-  -n, --name string             Updated name for the cost.
-      --unit string             Updated unit label (metered costs only).
-      --unit-cost float         Updated unit cost.
-  -v, --value-property string   Updated JSONPath for value extraction (metered costs only).
+  -a, --aggregation string   Updated aggregation method (metered costs only). (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST)
+      --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -c, --currency string      Updated ISO 4217 currency code.
+  -e, --event-type string    Updated CloudEvents type (metered costs only).
+  -g, --group-by $.          Updated group-by dimension map. Each value must start with $. (example: `$.region`). Metered costs only.
+  -h, --help                 help for update
+  -i, --id string            The unique identifier of the cost [required]
+  -n, --name string          Updated name for the cost.
+      --unit string          Updated unit label (metered costs only).
+      --unit-cost float      Updated unit cost.
+  -v, --value-property $.    Updated JSONPath for value extraction. Must start with $. (example: `$.amount` or `$.payload.bytes`). Metered costs only.
 ```
 
 ### Options inherited from parent commands

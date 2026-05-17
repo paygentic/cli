@@ -24,8 +24,8 @@ var createCostCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "unit", FieldPath: "Unit", Kind: flagutil.FlagKindString, Optional: true, Description: "Unit label for metered costs (e.g. 'token', 'request'). Only valid for metered costs."},
 	{FlagName: "aggregation", Shorthand: "a", FieldPath: "Aggregation", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"SUM", "COUNT", "AVG", "MIN", "MAX", "UNIQUE_COUNT", "LATEST"}, Description: "Aggregation method for the metered event. (options: SUM, COUNT, AVG, MIN, MAX, UNIQUE_COUNT, LATEST) [required]"},
 	{FlagName: "event-type", Shorthand: "e", FieldPath: "EventType", Kind: flagutil.FlagKindString, Required: true, Description: "CloudEvents type that identifies the metered event. [required]"},
-	{FlagName: "value-property", Shorthand: "v", FieldPath: "ValueProperty", Kind: flagutil.FlagKindString, Optional: true, Description: "JSONPath to extract numeric value from event data. Required for SUM/AVG/MIN/MAX/LATEST aggregations."},
-	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries. Only valid for metered costs."},
+	{FlagName: "value-property", Shorthand: "v", FieldPath: "ValueProperty", Kind: flagutil.FlagKindString, Optional: true, Description: "JSONPath to extract a numeric value from event data. Must start with `$.` (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations."},
+	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries. Each value must start with `$.` (example: `$.region`). Only valid for metered costs."},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for an organization"},
 }
 

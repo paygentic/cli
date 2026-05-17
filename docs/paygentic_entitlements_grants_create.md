@@ -19,13 +19,15 @@ paygentic entitlements grants create [flags]
 ### Options
 
 ```
-  -a, --amount float             The number of credits to grant. [required]
-      --body string              Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --effective-at string      When the grant becomes effective. Defaults to now.
-      --entitlement-id string    The unique identifier of the entitlement to grant credits to. [required]
-      --expires-at string        When the grant expires. If omitted, the grant does not expire.
-  -h, --help                     help for create
-  -i, --idempotency-key string   Idempotency key to prevent duplicate grants. Must be unique per entitlement. [required]
+  -a, --amount float               The number of credits to grant. [required]
+      --body string                Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --effective-at string        When the grant becomes effective. Defaults to now.
+      --entitlement-id string      The unique identifier of the entitlement to grant credits to. [required]
+      --expires-at string          When the grant expires. If omitted, the grant does not expire.
+  -h, --help                       help for create
+  -i, --idempotency-key string     Idempotency key to prevent duplicate grants. Must be unique per entitlement. [required]
+      --reset-max-rollover float   Maximum balance carried over at the entitlement's reset boundary. If omitted, the entire balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset.
+      --reset-min-rollover float   Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor).
 ```
 
 ### Options inherited from parent commands

@@ -21,8 +21,8 @@ var updateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "name", Shorthand: "n", FieldPath: "Body.Name", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'"},
 	{FlagName: "unit", Shorthand: "u", FieldPath: "Body.Unit", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'"},
 	{FlagName: "event-type", FieldPath: "Body.EventType", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"eventType,omitempty"`, Description: "CloudEvents type for meter routing."},
-	{FlagName: "value-property", Shorthand: "v", FieldPath: "Body.ValueProperty", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"valueProperty,omitempty"`, Description: "JSONPath to extract numeric value from event data."},
-	{FlagName: "group-by", Shorthand: "g", FieldPath: "Body.GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries."},
+	{FlagName: "value-property", Shorthand: "v", FieldPath: "Body.ValueProperty", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"valueProperty,omitempty"`, Description: "JSONPath to extract a numeric value from event data. Must start with `$.` (example: `$.amount` or `$.payload.bytes`)."},
+	{FlagName: "group-by", Shorthand: "g", FieldPath: "Body.GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries. Each value must start with `$.` (example: `$.region`)."},
 	{FlagName: "event-from", FieldPath: "Body.EventFrom", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"eventFrom,omitempty"`, Description: "Only count events after this timestamp."},
 }
 
