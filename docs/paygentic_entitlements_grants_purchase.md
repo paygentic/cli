@@ -21,19 +21,19 @@ paygentic entitlements grants purchase [flags]
 ### Options
 
 ```
-  -a, --amount float                The number of credits to grant upon payment completion. [required]
-      --body string                 Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -c, --cancel-url string           URL to redirect the customer to if payment is cancelled.
-      --effective-at string         When the grant becomes effective. Defaults to now.
-      --entitlement-id string       The unique identifier of the entitlement to purchase credits for. [required]
-      --expires-at string           When the grant expires. If omitted, the grant does not expire.
-  -h, --help                        help for purchase
-  -i, --idempotency-key string      Caller-provided deduplication key. Retrying with the same key returns the existing invoice. [required]
-      --payment-expires-at string   When the payment session expires. If omitted, uses the default expiry.
-      --price string                The price in decimal format (e.g., '5.00' for $5.00 USD). Must be at least $0.50. [required]
-      --reset-max-rollover float    Maximum balance carried over at the entitlement's reset boundary. If omitted, the purchased grant balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset.
-      --reset-min-rollover float    Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor).
-  -s, --success-url string          URL to redirect the customer to after successful payment.
+  -a, --amount float                     The number of credits to grant upon payment completion. [required]
+      --body string                      Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -c, --cancel-url string                URL to redirect the customer to if payment is cancelled.
+      --effective-at string              When the grant becomes effective. Defaults to now.
+      --entitlement-id string            The unique identifier of the entitlement to purchase credits for. [required]
+      --expires-at string                When the grant expires. If omitted, the grant does not expire.
+  -h, --help                             help for purchase
+  -i, --idempotency-key string           Caller-provided deduplication key. Retrying with the same key returns the existing invoice. [required]
+      --payment-expires-at string        When the payment session expires. If omitted, uses the default expiry.
+      --price string                     The price in decimal format (e.g., '5.00' for $5.00 USD). Must be at least $0.50. [required]
+      --reset-max-rollover usagePeriod   Maximum balance carried over at the entitlement's reset boundary. If omitted, the purchased grant balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset. Ignored when the target entitlement has no usagePeriod (one-time entitlement) — one-time entitlements have no reset boundary, so this field has no effect.
+      --reset-min-rollover usagePeriod   Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor). Ignored when the target entitlement has no usagePeriod (one-time entitlement).
+  -s, --success-url string               URL to redirect the customer to after successful payment.
 ```
 
 ### Options inherited from parent commands

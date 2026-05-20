@@ -21,8 +21,8 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "effective-at", FieldPath: "Body.EffectiveAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "When the grant becomes effective. Defaults to now."},
 	{FlagName: "expires-at", FieldPath: "Body.ExpiresAt", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"expiresAt,omitempty"`, Description: "When the grant expires. If omitted, the grant does not expire."},
 	{FlagName: "idempotency-key", Shorthand: "i", FieldPath: "Body.IdempotencyKey", Kind: flagutil.FlagKindString, Required: true, Description: "Idempotency key to prevent duplicate grants. Must be unique per entitlement. [required]"},
-	{FlagName: "reset-max-rollover", FieldPath: "Body.ResetMaxRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Maximum balance carried over at the entitlement's reset boundary. If omitted, the entire balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset."},
-	{FlagName: "reset-min-rollover", FieldPath: "Body.ResetMinRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor)."},
+	{FlagName: "reset-max-rollover", FieldPath: "Body.ResetMaxRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Maximum balance carried over at the entitlement's reset boundary. If omitted, the entire balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset. Ignored when the target entitlement has no `usagePeriod` (one-time entitlement) — one-time entitlements have no reset boundary, so this field has no effect."},
+	{FlagName: "reset-min-rollover", FieldPath: "Body.ResetMinRollover", Kind: flagutil.FlagKindFloat64, Optional: true, Description: "Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor). Ignored when the target entitlement has no `usagePeriod` (one-time entitlement)."},
 }
 
 // initCreateCmd initializes the create command.

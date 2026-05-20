@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 5dd54decad06d46302f72b92aed26116
+  docChecksum: ac3d6ba0bca06021703e79fc6475fce0
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.5
-  configChecksum: 758571ec46ed4838ed45a00eb722acfc
+  releaseVersion: 0.3.6
+  configChecksum: d1932cdadb752abfd7aeec3ca6723d22
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: c39d90eb-c5ea-4d94-b356-a8c81735f18b
-  pristine_commit_hash: 2f522f9ac55e918a169283f0bacb3f22c7f3baba
-  pristine_tree_hash: 578f35ff9d132f62a83a11f24a528cd8733c962c
+  generation_id: 0ed17966-934f-4fc4-a961-17b141fce83f
+  pristine_commit_hash: c789b9516d8af7ed53325266d791d6514f65dc6c
+  pristine_tree_hash: 8fe9a739bcb301491dbfb85ad086e22a944f7184
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -161,8 +161,8 @@ trackedFiles:
     pristine_git_object: 21d4b077149f2981e67acfaa4a098ce018395f53
   internal/cli/entitlements/grants/create.go:
     id: 3a82d651856f
-    last_write_checksum: sha1:ab6cf24cc08e28b88dea1e8cb02fefa1d442c6d3
-    pristine_git_object: 0bb6e72153cde20a012fb46ea5ab78955c70b9c4
+    last_write_checksum: sha1:5bc5e21a20a471ed0654a296c785cef674fb0c1a
+    pristine_git_object: 67aa24418dab3ef6cd73bfd26d08bd077856ecf2
   internal/cli/entitlements/grants/get.go:
     id: 1edc4674a1df
     last_write_checksum: sha1:fa3696331b1d59d0eb6fc6760f9ccf967841a31f
@@ -173,8 +173,8 @@ trackedFiles:
     pristine_git_object: 754530e1cbb42f31b4fd4f39d1d625b280da6671
   internal/cli/entitlements/grants/purchase.go:
     id: d0b99a24c085
-    last_write_checksum: sha1:d6e273d7afda41004cb73efc0f0f489389b32398
-    pristine_git_object: 0e4d647196dd51f6a4065208bc8b9c5fb7fe6826
+    last_write_checksum: sha1:11f420c9b694dc092839633187b0057b788cd02c
+    pristine_git_object: 55ec3e7fae63fb73f3b0608b8ab63da5f66d5936
   internal/cli/entitlements/grants/root.go:
     id: fe76ff9fb0f7
     last_write_checksum: sha1:d9b7f0a05c3aa2cc705408e64cf006824f9f6743
@@ -525,8 +525,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:e6bfb7cd9199b05294ef97412e8f1805be1bb1fe
-    pristine_git_object: 11a51e735149873c688c14d74ff20411ca032d21
+    last_write_checksum: sha1:b5fdee52b4f4d1f8561a46a6313e672559b7d18f
+    pristine_git_object: c44774f83a6ae5a6863350e4b9ff69f30739bfd0
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -669,8 +669,8 @@ trackedFiles:
     pristine_git_object: 73fd3e60b0795dc887f4c14c5bdf9b702b069b18
   internal/sdk/models/components/creategrantrequest.go:
     id: 4b0a5c23895f
-    last_write_checksum: sha1:2f5fffe8ec840306de7fd22df1d4bcdffe7fcea8
-    pristine_git_object: 858348efa04dede2f117214a319750dc9e58d3ea
+    last_write_checksum: sha1:96712c1c708b4601e1a601d83f07b532d9e3e548
+    pristine_git_object: 42ea20ef00331a4f8efd3459b2336cf426226f02
   internal/sdk/models/components/createmanuallineitemrequest.go:
     id: 9605763747d3
     last_write_checksum: sha1:520b6976b0333f2a10b15981c611c4bdfd1086a8
@@ -841,8 +841,8 @@ trackedFiles:
     pristine_git_object: 96b38d267becabb2075cb3dfae4f8bf722c987e7
   internal/sdk/models/components/purchasegrantrequest.go:
     id: 61d3bfa11a0e
-    last_write_checksum: sha1:dade8dfcbed5e501b138627200b182bf5303e8b3
-    pristine_git_object: 48d6399bfa968badc410b06484c39bb885872380
+    last_write_checksum: sha1:391100cdc866db1d1d4c2feddea303894bae8855
+    pristine_git_object: 2fec0f7f49b9bacbd8f01e6993482a8e138e007e
   internal/sdk/models/components/purchasegrantresponse.go:
     id: 7e8e7b53eb9a
     last_write_checksum: sha1:8f2196ec969001af96c82ea5b3bf4d6449b9a21c
@@ -1461,8 +1461,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:cd77d01f9d2b30dd3d0b7e2d200681ffa82c6ab1
-    pristine_git_object: c9ea343a876f99f0e79b51c4f38ae0f295196d85
+    last_write_checksum: sha1:4fb5d5b80776081532c07544b745e8ea4e5e4aba
+    pristine_git_object: da1f00084fc2b971850b4e47d415bf11654a413e
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -3070,4 +3070,3 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Entitlements.Issue()`: \n  *  `request.Request.Template.union(metered).UsagePeriod` **Changed**\n* `Paygentic.Entitlements.Grants.List()`:  `response.Data[]` **Changed**\n* `Paygentic.Entitlements.Grants.Create()`: \n  *  `request.Request.Body` **Changed**\n  *  `response` **Changed**\n* `Paygentic.Entitlements.Grants.Purchase()`: \n  *  `request.Request.Body` **Changed**\n* `Paygentic.Entitlements.Grants.Get()`:  `response` **Changed**\n* `Paygentic.Entitlements.Grants.Void()`:  `response` **Changed**\n"
