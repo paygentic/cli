@@ -25,6 +25,7 @@ var updateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "billing-cadence", FieldPath: "Body.BillingCadence", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingCadence,omitempty"`, Description: "ISO 8601 duration for recurring fees (e.g., 'P1M' for monthly, 'P1Y' for yearly, or 'P0D' for one-time)"},
 	{FlagName: "feature", Shorthand: "f", FieldPath: "Body.Feature", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"feature,omitempty"`, Description: "Feature to associate. Set to null to remove existing feature. Omit to leave unchanged."},
 	{FlagName: "grant-discount-enabled", Shorthand: "g", FieldPath: "Body.GrantDiscountEnabled", Kind: flagutil.FlagKindBool, Optional: true, Description: "When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices."},
+	{FlagName: "quantity", FieldPath: "Body.Quantity", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1."},
 }
 
 // initUpdateCmd initializes the update command.
