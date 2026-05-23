@@ -43,3 +43,4 @@ paygentic subscriptions [flags]
 * [paygentic subscriptions get](paygentic_subscriptions_get.md)	 - Get
 * [paygentic subscriptions list](paygentic_subscriptions_list.md)	 - List
 * [paygentic subscriptions terminate](paygentic_subscriptions_terminate.md)	 - Terminate
+* [paygentic subscriptions update](paygentic_subscriptions_update.md)	 - Update

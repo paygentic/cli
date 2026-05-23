@@ -25,6 +25,7 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "properties", FieldPath: "Properties", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, TypeDescription: "JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })"}},
 	{FlagName: "feature", FieldPath: "Feature", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"feature,omitempty"`, Description: "JSON object"},
 	{FlagName: "grant-discount-enabled", Shorthand: "g", FieldPath: "GrantDiscountEnabled", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices."},
+	{FlagName: "quantity", FieldPath: "Quantity", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1."},
 }
 
 // initCreateCmd initializes the create command.

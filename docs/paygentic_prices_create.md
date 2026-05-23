@@ -30,6 +30,7 @@ paygentic prices create [flags]
   -m, --model string                  Pricing calculation model. Required for billable metrics, optional for fees (defaults to 'standard'). (options: standard, dynamic, volume, percentage)
       --payment-term string           Billing timing preference. For billable metrics: 'instant' (charges immediately) or 'in_arrears' (charges at period end). For fees: 'in_advance' (charges upfront) or 'in_arrears' (charges at period end). (options: instant, in_arrears, in_advance) [required]
       --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })
+      --quantity int                  Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.
 ```
 
 ### Options inherited from parent commands
