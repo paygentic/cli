@@ -16,10 +16,10 @@ import (
 )
 
 var listCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "consumer-id", FieldPath: "ConsumerID", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
-	{FlagName: "customer-id", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
+	{FlagName: "consumer-id", FieldPath: "ConsumerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Return subscriptions for this consumer organization. May be combined with `merchantId` to scope to a single consumer/merchant pair. Cannot be combined with `customerId`."},
+	{FlagName: "customer-id", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Return subscriptions for this customer. Cannot be combined with `consumerId` or `merchantId`."},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindString, Optional: true, HasDefault: true, DefaultStr: "10", Description: "Number of subscriptions to return"},
-	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
+	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Return subscriptions for this merchant organization. May be combined with `consumerId` to scope to a single consumer/merchant pair. Cannot be combined with `customerId`."},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindString, Optional: true, HasDefault: true, DefaultStr: "0", Description: "Number of subscriptions to skip"},
 	{FlagName: "status", FieldPath: "Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"active", "terminated", "pending_payment"}, Description: "options: active, terminated, pending_payment"},
 	{FlagName: "started-before", FieldPath: "StartedBefore", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Filter subscriptions started at or before this ISO 8601 date-time"},
