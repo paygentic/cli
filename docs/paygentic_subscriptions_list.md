@@ -19,15 +19,15 @@ paygentic subscriptions list [flags]
 ### Options
 
 ```
-      --consumer-id string      string value
-      --customer-id string      string value
-  -h, --help                    help for list
-  -i, --include string          Include related resources. When 'customer' is specified, each subscription includes merchant and consumer details. (options: customer)
-  -l, --limit string            Number of subscriptions to return (default "10")
-  -m, --merchant-id string      string value
-      --offset string           Number of subscriptions to skip (default "0")
-      --started-before string   Filter subscriptions started at or before this ISO 8601 date-time
-      --status string           options: active, terminated, pending_payment
+      --consumer-id merchantId   Return subscriptions for this consumer organization. May be combined with merchantId to scope to a single consumer/merchant pair. Cannot be combined with `customerId`.
+      --customer-id consumerId   Return subscriptions for this customer. Cannot be combined with consumerId or `merchantId`.
+  -h, --help                     help for list
+  -i, --include string           Include related resources. When 'customer' is specified, each subscription includes merchant and consumer details. (options: customer)
+  -l, --limit string             Number of subscriptions to return (default "10")
+  -m, --merchant-id consumerId   Return subscriptions for this merchant organization. May be combined with consumerId to scope to a single consumer/merchant pair. Cannot be combined with `customerId`.
+      --offset string            Number of subscriptions to skip (default "0")
+      --started-before string    Filter subscriptions started at or before this ISO 8601 date-time
+      --status string            options: active, terminated, pending_payment
 ```
 
 ### Options inherited from parent commands
