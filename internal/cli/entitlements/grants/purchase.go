@@ -34,7 +34,7 @@ func initPurchaseCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "purchase",
 		Short:   "Purchase Grant",
-		Long:    "Create an ad-hoc invoice with a payment session for a grant purchase. The customer pays via the returned payment URL; the grant is created automatically on payment completion. If payment expires, the invoice is cancelled and no grant is created.\n\nAfter the consumer completes payment, the grant is created automatically. To confirm payment completion, poll `GET /v2/invoices/{invoiceId}` using the `invoiceId` from the response and check for `status === \"PAID\"`. Recommended polling interval: 2 seconds, timeout: 60 seconds.",
+		Long:    "Create an ad-hoc invoice with a payment session for a grant purchase. The customer pays via the returned payment URL; the grant is created automatically on payment completion. If payment expires, the invoice is cancelled and no grant is created.\n\nTo confirm payment completion, subscribe to the `invoice.paid.v0` webhook. The payload includes the original `invoiceId` and the created `grantId`, so you can correlate the purchase response with downstream fulfilment without an extra fetch. As a fallback if you cannot consume webhooks, poll `GET /v2/invoices/{invoiceId}` (interval 2s, timeout 60s) and check for `status === \"PAID\"`.",
 		Example: "  paygentic grants purchase --entitlement-id <id> --amount 1000 --price 5.00 --idempotency-key purchase-march-2026-topup",
 		RunE:    runPurchaseCmd,
 	}
