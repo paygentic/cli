@@ -490,7 +490,7 @@ func (s *Grants) Create(ctx context.Context, request operations.CreateEntitlemen
 // Purchase Grant
 // Create an ad-hoc invoice with a payment session for a grant purchase. The customer pays via the returned payment URL; the grant is created automatically on payment completion. If payment expires, the invoice is cancelled and no grant is created.
 //
-// After the consumer completes payment, the grant is created automatically. To confirm payment completion, poll `GET /v2/invoices/{invoiceId}` using the `invoiceId` from the response and check for `status === "PAID"`. Recommended polling interval: 2 seconds, timeout: 60 seconds.
+// To confirm payment completion, subscribe to the `invoice.paid.v0` webhook. The payload includes the original `invoiceId` and the created `grantId`, so you can correlate the purchase response with downstream fulfilment without an extra fetch. As a fallback if you cannot consume webhooks, poll `GET /v2/invoices/{invoiceId}` (interval 2s, timeout 60s) and check for `status === "PAID"`.
 func (s *Grants) Purchase(ctx context.Context, request operations.PurchaseEntitlementGrantRequest, opts ...operations.Option) (*operations.PurchaseEntitlementGrantResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

@@ -25,6 +25,7 @@ paygentic subscriptions update [flags]
   -h, --help                              help for update
   -i, --id string                         [required]
   -m, --minimum-account-balance string    Minimum wallet balance requirement in decimal dollars (e.g., '100.00'). Can be set to '0' to disable. Maximum allowed is $5,000. Contact support for higher limits. Note: If the calculated charge amount at renewal is below payment processor minimums (typically $1.00), it will be automatically adjusted upward to meet the minimum requirement. Changes apply at next renewal.
+  -p, --payment-term-days int             Payment term in days ("Net X") applied to subsequently generated invoices: invoice dueAt = invoice issue date + paymentTermDays. A non-zero value is only valid alongside bankTransferOnly=true. Set 0 for "due on issue". Already-issued invoices keep their snapshotted dueAt.
       --renewal-reminder-days string      Override plan setting for number of days before renewal to send the reminder. Set to null to use plan default.
       --renewal-reminder-enabled string   Override plan setting for renewal reminder emails. Set to true to enable, false to disable, or null to use plan default.
   -s, --status string                     options: active, terminated
