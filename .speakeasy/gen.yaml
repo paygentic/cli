@@ -32,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 cli:
-  version: 0.3.9
+  version: 0.3.10
   additionalDependencies: {}
   cliName: paygentic
   distribution:

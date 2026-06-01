@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 7bd4782ffdd27c48343f8692938b1b4b
+  docChecksum: 5543dffd1d0b28714079628faa5578b2
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.9
-  configChecksum: d93eff5ebc2ac7ba78d1d0972164098c
+  releaseVersion: 0.3.10
+  configChecksum: 178be5e1232eb19685cba814349b4ff2
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: aa26901e-4097-471a-b53b-08fbabee2294
-  pristine_commit_hash: 423482921084374260a8a2b65375eb26e21b820a
-  pristine_tree_hash: 10b6db67a09163374efe1e7f85eee0d637d397fa
+  generation_id: 68197d73-da2a-4068-ae6e-b28ddbe5ce61
+  pristine_commit_hash: dc039a9007714dd76572cc5014ccd210ed3af9c7
+  pristine_tree_hash: e094f62a1f981777693faa8ef2210f511f399f5f
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -529,8 +529,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:cd2726aec29554a607a72759943634fc6fe6bf57
-    pristine_git_object: e401f12ff7ea0429af5fe2c8404a4afa2ff7fbee
+    last_write_checksum: sha1:140e694a06d4deff499c58cdf791a199d5698024
+    pristine_git_object: 229f67b6c1ef999106bed7b4ebf5ed2b8e2bfb2e
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -917,8 +917,8 @@ trackedFiles:
     pristine_git_object: 11b108d14aa2859229c40f639d9c3cae5b42ccc2
   internal/sdk/models/components/user.go:
     id: 4019f4eaccb8
-    last_write_checksum: sha1:a74f274fa2d10328d695bc3e8ba4d4d16d1d2633
-    pristine_git_object: a462bf30776721cd35fc4d0eadaa13c0e1d2975d
+    last_write_checksum: sha1:009fef820016046dfcec060a71e2fd47d316c875
+    pristine_git_object: a46f4a373eb66822c6a25ae5b49b27e959b331a6
   internal/sdk/models/components/validationerror.go:
     id: d0d0928998bf
     last_write_checksum: sha1:c33f48a463f1251c5b5ec77ab135361f7dc5a490
@@ -1473,8 +1473,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:f77418ac9bd2d07ae516d165cb66fc7ccce166a0
-    pristine_git_object: 59f807742b0189f73efddd26f554dfe1bdcaafbe
+    last_write_checksum: sha1:eb4b0c277b0726e8a2223f0307216100c89b74be
+    pristine_git_object: 37b42a9f52e3fd3d3d1c1a7dd998dfa01ee9f5c1
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -3098,4 +3098,7 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Subscriptions.List()`:  `response.Data[].PaymentTermDays` **Added**\n* `Paygentic.Subscriptions.Create()`: \n  *  `request.Request.PaymentTermDays` **Added**\n  *  `response.PaymentTermDays` **Added**\n* `Paygentic.Subscriptions.Get()`:  `response.PaymentTermDays` **Added**\n* `Paygentic.Subscriptions.UpdateSubscription()`: \n  *  `request.Request.Body.PaymentTermDays` **Added**\n  *  `response.PaymentTermDays` **Added**\n* `Paygentic.Subscriptions.Terminate()`:  `response.PaymentTermDays` **Added**\n* `Paygentic.InvoicesV2.List()`:  `response.Data[].DueAt` **Added**\n* `Paygentic.InvoicesV2.Get()`:  `response.DueAt` **Added**\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.Users.Get()`:  `response.Organizations[].State.Enum(declined)` **Added**
+  * `Paygentic.Users.Update()`:  `response.Organizations[].State.Enum(declined)` **Added**
