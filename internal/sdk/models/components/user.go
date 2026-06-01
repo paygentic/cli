@@ -40,6 +40,7 @@ const (
 	StateInvited   State = "invited"
 	StateActive    State = "active"
 	StateSuspended State = "suspended"
+	StateDeclined  State = "declined"
 )
 
 func (e State) ToPointer() *State {
@@ -50,7 +51,7 @@ func (e State) ToPointer() *State {
 func (e *State) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "invited", "active", "suspended":
+		case "invited", "active", "suspended", "declined":
 			return true
 		}
 	}
