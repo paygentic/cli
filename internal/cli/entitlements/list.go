@@ -30,7 +30,7 @@ func initListCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "list",
 		Short:   "List Entitlements",
-		Long:    "Retrieve all entitlements for a customer, optionally filtered by feature or product.",
+		Long:    "Retrieve all entitlements for a customer, optionally filtered by feature or product.\n\nList items identify the entitlement with `entitlementId` (the original list contract). The get-by-id endpoint (`GET /v1/entitlements/{entitlementId}`) returns the same object but with a top-level `id` and `object: \"entitlement\"` instead — so use `item.entitlementId`, not `item.id`, when chaining a list result into a get-by-id call.\n\nFor metered entitlements, each item carries live balance/usage fields, which the API resolves with one grant-engine balance lookup per metered item (bounded concurrency, up to `limit` items per page).",
 		Example: "  paygentic entitlements list --customer-id cus_q3r4s5t6u7v8w9x0",
 		RunE:    runListCmd,
 	}

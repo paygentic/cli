@@ -5,24 +5,12 @@ package operations
 
 import (
 	"github.com/paygentic/cli/internal/sdk/models/components"
-	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 )
 
 type IssueEntitlementResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Entitlement successfully issued.
-	Entitlement *components.Entitlement
-}
-
-func (i IssueEntitlementResponse) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(i, "", false)
-}
-
-func (i *IssueEntitlementResponse) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	// Entitlement successfully issued. Returns the same shape as `GET /v1/entitlements/{entitlementId}` (a discriminated `EntitlementDetail`), so callers can read `featureType`, `hasAccess`, and metered balance/usage fields directly from the create response.
+	EntitlementDetail *components.EntitlementDetail
 }
 
 func (i *IssueEntitlementResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -32,9 +20,30 @@ func (i *IssueEntitlementResponse) GetHTTPMeta() components.HTTPMetadata {
 	return i.HTTPMeta
 }
 
-func (i *IssueEntitlementResponse) GetEntitlement() *components.Entitlement {
+func (i *IssueEntitlementResponse) GetEntitlementDetail() *components.EntitlementDetail {
 	if i == nil {
 		return nil
 	}
-	return i.Entitlement
+	return i.EntitlementDetail
+}
+
+func (i *IssueEntitlementResponse) GetEntitlementDetailBoolean() *components.BooleanEntitlementDetail {
+	if v := i.GetEntitlementDetail(); v != nil {
+		return v.BooleanEntitlementDetail
+	}
+	return nil
+}
+
+func (i *IssueEntitlementResponse) GetEntitlementDetailStatic() *components.StaticEntitlementDetail {
+	if v := i.GetEntitlementDetail(); v != nil {
+		return v.StaticEntitlementDetail
+	}
+	return nil
+}
+
+func (i *IssueEntitlementResponse) GetEntitlementDetailMetered() *components.MeteredEntitlementDetail {
+	if v := i.GetEntitlementDetail(); v != nil {
+		return v.MeteredEntitlementDetail
+	}
+	return nil
 }
