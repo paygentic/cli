@@ -36,6 +36,10 @@ func newEntitlements(rootSDK *Paygentic, sdkConfig config.SDKConfiguration, hook
 
 // List Entitlements
 // Retrieve all entitlements for a customer, optionally filtered by feature or product.
+//
+// List items identify the entitlement with `entitlementId` (the original list contract). The get-by-id endpoint (`GET /v1/entitlements/{entitlementId}`) returns the same object but with a top-level `id` and `object: "entitlement"` instead — so use `item.entitlementId`, not `item.id`, when chaining a list result into a get-by-id call.
+//
+// For metered entitlements, each item carries live balance/usage fields, which the API resolves with one grant-engine balance lookup per metered item (bounded concurrency, up to `limit` items per page).
 func (s *Entitlements) List(ctx context.Context, request operations.ListEntitlementsRequest, opts ...operations.Option) (*operations.ListEntitlementsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -372,12 +376,12 @@ func (s *Entitlements) Issue(ctx context.Context, request components.IssueEntitl
 					return nil, err
 				}
 
-				var out components.Entitlement
+				var out components.EntitlementDetail
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.Entitlement = &out
+				res.EntitlementDetail = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

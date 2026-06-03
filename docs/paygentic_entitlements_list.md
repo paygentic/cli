@@ -6,6 +6,10 @@ List Entitlements
 
 Retrieve all entitlements for a customer, optionally filtered by feature or product.
 
+List items identify the entitlement with `entitlementId` (the original list contract). The get-by-id endpoint (`GET /v1/entitlements/{entitlementId}`) returns the same object but with a top-level `id` and `object: "entitlement"` instead — so use `item.entitlementId`, not `item.id`, when chaining a list result into a get-by-id call.
+
+For metered entitlements, each item carries live balance/usage fields, which the API resolves with one grant-engine balance lookup per metered item (bounded concurrency, up to `limit` items per page).
+
 ```
 paygentic entitlements list [flags]
 ```

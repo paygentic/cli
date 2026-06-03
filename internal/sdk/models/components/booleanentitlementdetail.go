@@ -6,7 +6,6 @@ package components
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 	"time"
 )
@@ -57,30 +56,6 @@ func (e *BooleanEntitlementDetailFeatureType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// BooleanEntitlementDetailStatus - Current status of the entitlement.
-type BooleanEntitlementDetailStatus string
-
-const (
-	BooleanEntitlementDetailStatusActive   BooleanEntitlementDetailStatus = "active"
-	BooleanEntitlementDetailStatusCanceled BooleanEntitlementDetailStatus = "canceled"
-	BooleanEntitlementDetailStatusExpired  BooleanEntitlementDetailStatus = "expired"
-)
-
-func (e BooleanEntitlementDetailStatus) ToPointer() *BooleanEntitlementDetailStatus {
-	return &e
-}
-
-// IsExact returns true if the value matches a known enum value, false otherwise.
-func (e *BooleanEntitlementDetailStatus) IsExact() bool {
-	if e != nil {
-		switch *e {
-		case "active", "canceled", "expired":
-			return true
-		}
-	}
-	return false
-}
-
 // BooleanEntitlementDetail - Common fields shared by all entitlement types.
 type BooleanEntitlementDetail struct {
 	Object *BooleanEntitlementDetailObject `default:"entitlement" json:"object"`
@@ -93,18 +68,22 @@ type BooleanEntitlementDetail struct {
 	// The unique key identifying the feature.
 	FeatureKey  string                              `json:"featureKey"`
 	FeatureType BooleanEntitlementDetailFeatureType `json:"featureType"`
+	// Unique identifier for a product
+	ProductID string `json:"productId"`
 	// The subscription this entitlement is associated with, if any.
-	SubscriptionID optionalnullable.OptionalNullable[string] `json:"subscriptionId,omitzero"`
+	SubscriptionID *string `json:"subscriptionId"`
 	// Current status of the entitlement.
-	Status BooleanEntitlementDetailStatus `json:"status"`
+	Status EntitlementStatus `json:"status"`
 	// When the entitlement becomes active.
 	ActiveFrom time.Time `json:"activeFrom"`
 	// When the entitlement expires. Null means no expiration.
-	ActiveTo optionalnullable.OptionalNullable[time.Time] `json:"activeTo,omitzero"`
+	ActiveTo *time.Time `json:"activeTo"`
 	// Whether the customer currently has active access to this entitlement.
 	HasAccess bool `json:"hasAccess"`
 	// Additional metadata for the entitlement.
-	Metadata map[string]string `json:"metadata,omitzero"`
+	Metadata map[string]string `json:"metadata"`
+	// Always `null` for boolean entitlements. Surfaced on every entitlement so clients can read `config` without first switching on `featureType`.
+	Config map[string]any `json:"config"`
 }
 
 func (b BooleanEntitlementDetail) MarshalJSON() ([]byte, error) {
@@ -160,16 +139,23 @@ func (b *BooleanEntitlementDetail) GetFeatureType() BooleanEntitlementDetailFeat
 	return b.FeatureType
 }
 
-func (b *BooleanEntitlementDetail) GetSubscriptionID() optionalnullable.OptionalNullable[string] {
+func (b *BooleanEntitlementDetail) GetProductID() string {
+	if b == nil {
+		return ""
+	}
+	return b.ProductID
+}
+
+func (b *BooleanEntitlementDetail) GetSubscriptionID() *string {
 	if b == nil {
 		return nil
 	}
 	return b.SubscriptionID
 }
 
-func (b *BooleanEntitlementDetail) GetStatus() BooleanEntitlementDetailStatus {
+func (b *BooleanEntitlementDetail) GetStatus() EntitlementStatus {
 	if b == nil {
-		return BooleanEntitlementDetailStatus("")
+		return EntitlementStatus("")
 	}
 	return b.Status
 }
@@ -181,7 +167,7 @@ func (b *BooleanEntitlementDetail) GetActiveFrom() time.Time {
 	return b.ActiveFrom
 }
 
-func (b *BooleanEntitlementDetail) GetActiveTo() optionalnullable.OptionalNullable[time.Time] {
+func (b *BooleanEntitlementDetail) GetActiveTo() *time.Time {
 	if b == nil {
 		return nil
 	}
@@ -197,7 +183,14 @@ func (b *BooleanEntitlementDetail) GetHasAccess() bool {
 
 func (b *BooleanEntitlementDetail) GetMetadata() map[string]string {
 	if b == nil {
-		return nil
+		return map[string]string{}
 	}
 	return b.Metadata
+}
+
+func (b *BooleanEntitlementDetail) GetConfig() map[string]any {
+	if b == nil {
+		return nil
+	}
+	return b.Config
 }

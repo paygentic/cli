@@ -30,7 +30,7 @@ paygentic subscriptions update [flags]
       --renewal-reminder-enabled string   Override plan setting for renewal reminder emails. Set to true to enable, false to disable, or null to use plan default.
   -s, --status string                     options: active, terminated
       --tax-exempt                        When true, forces tax rate to 0%.
-      --terminated-at string              date/time value
+      --terminated-at string              Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400.
       --terminated-by string              Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation
       --termination-reason string         Explanation for subscription cancellation. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration'
 ```

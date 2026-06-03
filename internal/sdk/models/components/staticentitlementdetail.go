@@ -6,7 +6,6 @@ package components
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 	"time"
 )
@@ -57,30 +56,6 @@ func (e *StaticEntitlementDetailFeatureType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// StaticEntitlementDetailStatus - Current status of the entitlement.
-type StaticEntitlementDetailStatus string
-
-const (
-	StaticEntitlementDetailStatusActive   StaticEntitlementDetailStatus = "active"
-	StaticEntitlementDetailStatusCanceled StaticEntitlementDetailStatus = "canceled"
-	StaticEntitlementDetailStatusExpired  StaticEntitlementDetailStatus = "expired"
-)
-
-func (e StaticEntitlementDetailStatus) ToPointer() *StaticEntitlementDetailStatus {
-	return &e
-}
-
-// IsExact returns true if the value matches a known enum value, false otherwise.
-func (e *StaticEntitlementDetailStatus) IsExact() bool {
-	if e != nil {
-		switch *e {
-		case "active", "canceled", "expired":
-			return true
-		}
-	}
-	return false
-}
-
 // StaticEntitlementDetail - Common fields shared by all entitlement types.
 type StaticEntitlementDetail struct {
 	Object *StaticEntitlementDetailObject `default:"entitlement" json:"object"`
@@ -93,20 +68,22 @@ type StaticEntitlementDetail struct {
 	// The unique key identifying the feature.
 	FeatureKey  string                             `json:"featureKey"`
 	FeatureType StaticEntitlementDetailFeatureType `json:"featureType"`
+	// Unique identifier for a product
+	ProductID string `json:"productId"`
 	// The subscription this entitlement is associated with, if any.
-	SubscriptionID optionalnullable.OptionalNullable[string] `json:"subscriptionId,omitzero"`
+	SubscriptionID *string `json:"subscriptionId"`
 	// Current status of the entitlement.
-	Status StaticEntitlementDetailStatus `json:"status"`
+	Status EntitlementStatus `json:"status"`
 	// When the entitlement becomes active.
 	ActiveFrom time.Time `json:"activeFrom"`
 	// When the entitlement expires. Null means no expiration.
-	ActiveTo optionalnullable.OptionalNullable[time.Time] `json:"activeTo,omitzero"`
+	ActiveTo *time.Time `json:"activeTo"`
 	// Whether the customer currently has active access to this entitlement.
 	HasAccess bool `json:"hasAccess"`
 	// Additional metadata for the entitlement.
-	Metadata map[string]string `json:"metadata,omitzero"`
+	Metadata map[string]string `json:"metadata"`
 	// Configuration values for this entitlement.
-	Config map[string]any `json:"config,omitzero"`
+	Config map[string]any `json:"config"`
 }
 
 func (s StaticEntitlementDetail) MarshalJSON() ([]byte, error) {
@@ -162,16 +139,23 @@ func (s *StaticEntitlementDetail) GetFeatureType() StaticEntitlementDetailFeatur
 	return s.FeatureType
 }
 
-func (s *StaticEntitlementDetail) GetSubscriptionID() optionalnullable.OptionalNullable[string] {
+func (s *StaticEntitlementDetail) GetProductID() string {
+	if s == nil {
+		return ""
+	}
+	return s.ProductID
+}
+
+func (s *StaticEntitlementDetail) GetSubscriptionID() *string {
 	if s == nil {
 		return nil
 	}
 	return s.SubscriptionID
 }
 
-func (s *StaticEntitlementDetail) GetStatus() StaticEntitlementDetailStatus {
+func (s *StaticEntitlementDetail) GetStatus() EntitlementStatus {
 	if s == nil {
-		return StaticEntitlementDetailStatus("")
+		return EntitlementStatus("")
 	}
 	return s.Status
 }
@@ -183,7 +167,7 @@ func (s *StaticEntitlementDetail) GetActiveFrom() time.Time {
 	return s.ActiveFrom
 }
 
-func (s *StaticEntitlementDetail) GetActiveTo() optionalnullable.OptionalNullable[time.Time] {
+func (s *StaticEntitlementDetail) GetActiveTo() *time.Time {
 	if s == nil {
 		return nil
 	}
@@ -199,14 +183,14 @@ func (s *StaticEntitlementDetail) GetHasAccess() bool {
 
 func (s *StaticEntitlementDetail) GetMetadata() map[string]string {
 	if s == nil {
-		return nil
+		return map[string]string{}
 	}
 	return s.Metadata
 }
 
 func (s *StaticEntitlementDetail) GetConfig() map[string]any {
 	if s == nil {
-		return nil
+		return map[string]any{}
 	}
 	return s.Config
 }
