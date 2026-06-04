@@ -18,7 +18,7 @@ import (
 var listPaymentSessionsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Merchant organization ID. Required when using an API key that is not scoped to a single merchant."},
 	{FlagName: "subscription-id", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter to sessions linked to this subscription (its own activation session plus all of its invoices' sessions)."},
-	{FlagName: "customer-id", Shorthand: "c", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter to sessions linked to a payment for this customer."},
+	{FlagName: "customer-id", Shorthand: "c", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter to sessions for this customer: payment-link sessions plus the activation and invoice sessions of the customer's subscriptions."},
 	{FlagName: "status", FieldPath: "Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"pending", "processing", "completed", "failed", "expired", "cancelled"}, Description: "Filter by payment session status. (options: pending, processing, completed, failed, expired, cancelled)"},
 	{FlagName: "entity-type", Shorthand: "e", FieldPath: "EntityType", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"invoice", "subscription", "payment", "topup"}, Description: "Filter by the kind of entity the session pays for. (options: invoice, subscription, payment, topup)"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Number of sessions to return."},
@@ -30,7 +30,7 @@ func initListPaymentSessionsCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "list",
 		Short:   "List",
-		Long:    "List payment sessions for the authenticated merchant with optional filters. Supports filtering by subscriptionId, customerId, status, and entityType. When subscriptionId is provided the result includes both the subscription's own activation session (entityType='subscription') and any session attached to invoices for that subscription (entityType='invoice').",
+		Long:    "List payment sessions for the authenticated merchant with optional filters. Supports filtering by subscriptionId, customerId, status, and entityType. When subscriptionId is provided the result includes both the subscription's own activation session (entityType='subscription') and any session attached to invoices for that subscription (entityType='invoice'). When customerId is provided the result covers the customer's full payment history: payment-link sessions (entityType='payment'), the activation sessions of the customer's subscriptions, and the sessions of those subscriptions' invoices.",
 		Example: "  paygentic payment-sessions list",
 		RunE:    runListPaymentSessionsCmd,
 	}

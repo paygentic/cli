@@ -4,7 +4,7 @@ List
 
 ### Synopsis
 
-List payment sessions for the authenticated merchant with optional filters. Supports filtering by subscriptionId, customerId, status, and entityType. When subscriptionId is provided the result includes both the subscription's own activation session (entityType='subscription') and any session attached to invoices for that subscription (entityType='invoice').
+List payment sessions for the authenticated merchant with optional filters. Supports filtering by subscriptionId, customerId, status, and entityType. When subscriptionId is provided the result includes both the subscription's own activation session (entityType='subscription') and any session attached to invoices for that subscription (entityType='invoice'). When customerId is provided the result covers the customer's full payment history: payment-link sessions (entityType='payment'), the activation sessions of the customer's subscriptions, and the sessions of those subscriptions' invoices.
 
 ```
 paygentic payment-sessions list [flags]
@@ -19,7 +19,7 @@ paygentic payment-sessions list [flags]
 ### Options
 
 ```
-  -c, --customer-id string       Filter to sessions linked to a payment for this customer.
+  -c, --customer-id string       Filter to sessions for this customer: payment-link sessions plus the activation and invoice sessions of the customer's subscriptions.
   -e, --entity-type string       Filter by the kind of entity the session pays for. (options: invoice, subscription, payment, topup)
   -h, --help                     help for list
   -l, --limit int                Number of sessions to return. (default 10)
