@@ -22,6 +22,7 @@ var ingestCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "namespace", Shorthand: "n", FieldPath: "Namespace", Kind: flagutil.FlagKindString, Optional: true, Description: "Organization/merchant ID. Defaults to the authenticated user's organization. Platform users can specify a different organization."},
 	{FlagName: "timestamp", FieldPath: "Timestamp", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Event timestamp. Defaults to server time if not provided."},
 	{FlagName: "idempotency-key", Shorthand: "i", FieldPath: "IdempotencyKey", Kind: flagutil.FlagKindString, Optional: true, Description: "User-provided deduplication key. If not provided, a unique key is generated."},
+	{FlagName: "external-id", Shorthand: "e", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Optional external identifier for cross-referencing with external systems. Alphanumeric characters, hyphens, and underscores only."},
 	{FlagName: "data", FieldPath: "Data", Kind: flagutil.FlagKindJSON, Required: true, Annotations: `json:"data"`, Description: "Event payload containing the metering data. [required]"},
 }
 

@@ -21,6 +21,7 @@ paygentic events ingest [flags]
 ```
       --body string              Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --data string              Event payload containing the metering data. [required]
+  -e, --external-id string       Optional external identifier for cross-referencing with external systems. Alphanumeric characters, hyphens, and underscores only.
   -h, --help                     help for ingest
   -i, --idempotency-key string   User-provided deduplication key. If not provided, a unique key is generated.
   -n, --namespace string         Organization/merchant ID. Defaults to the authenticated user's organization. Platform users can specify a different organization.
