@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 84d7c2924c2ac5c0308abebeed68fbf1
+  docChecksum: 0269de32a04dc0c8c3b8f380bf88cd2f
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.13
-  configChecksum: 5f44da755b0e97bbd91844f57e565b7a
+  releaseVersion: 0.3.14
+  configChecksum: 9328794d59b481e8f41bd16bee630138
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: c78773c0-2d39-47c8-99fa-8cce4bae880a
-  pristine_commit_hash: 8988061f6a642d2269388c20a9e9ca645fc245bb
-  pristine_tree_hash: 6e02b1f3b307a9739a6fd163cef8814a6b33f04c
+  generation_id: 306072e5-50ee-4d16-b8af-cca9e6228619
+  pristine_commit_hash: a71b668337dedd9322a61a209ea4637719aaa4c9
+  pristine_tree_hash: 563f3a74913b16244b650073d592227b393e65e8
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -529,8 +529,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:295bda79adc4a3222047d4f9e1c657fa103a28f7
-    pristine_git_object: ca22ec5b6ec97dce53553b38c4f80a4b3c46a3d5
+    last_write_checksum: sha1:ac22bcfff277a1dd75ac371ebf422aba0a789d53
+    pristine_git_object: a5ecc8dbab434685d5cf6fbc3b33b3de359aa002
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -1485,8 +1485,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:973cd7a8aef0d722cf2617aa73d5d4b51f35d11d
-    pristine_git_object: f07b8decef23913795cf223871ba655766ea0234
+    last_write_checksum: sha1:4fe15a976942a62f3a8594120bc521faecc7f5f1
+    pristine_git_object: 260b4bbc9f98fe51eb1a4b359eecfedcf1de19d8
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -3119,4 +3119,3 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Events.Ingest()`: \n  *  `request.Request.ExternalId` **Added**\n  *  `response.ExternalId` **Added**\n"
