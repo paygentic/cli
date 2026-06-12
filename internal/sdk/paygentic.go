@@ -92,6 +92,12 @@ type Paygentic struct {
 	Profitability *Profitability
 	// Test clocks provide programmable time control to simulate subscription and billing scenarios during testing.
 	TestClocks *TestClocks
+	// An `ExternalReference` links a Paygentic entity (e.g. an `Item`) to a record in an external system such as Salesforce or NetSuite. Multiple external records may map to the same Paygentic entity, but each external id is the *primary* reference of at most one entity per merchant.
+	ExternalReferences *ExternalReferences
+	// An `Item` is the canonical "thing you sell" that external-system mappings point at. It is fully decoupled from the billing `Product` and holds no pricing/plan/metering, and it is CRM/ERP agnostic — which providers map to it lives entirely in its `ExternalReference` rows.
+	Items *Items
+	// A `MerchantIntegration` records a merchant's connection to an external provider. One connection per `(merchant, provider)` — re-connecting upserts in place.
+	MerchantIntegrations *MerchantIntegrations
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -204,6 +210,9 @@ func New(opts ...SDKOption) *Paygentic {
 	sdk.Revenue = newRevenue(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Profitability = newProfitability(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.TestClocks = newTestClocks(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ExternalReferences = newExternalReferences(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Items = newItems(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.MerchantIntegrations = newMerchantIntegrations(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

@@ -83,9 +83,11 @@ func (e *PricePaymentTerm) IsExact() bool {
 
 type Price struct {
 	// Unique identifier for a price
-	ID               string       `json:"id"`
-	Object           *PriceObject `default:"price" json:"object"`
-	BillableMetricID *string      `json:"billableMetricId,omitzero"`
+	ID     string       `json:"id"`
+	Object *PriceObject `default:"price" json:"object"`
+	// Unique identifier for an organization
+	MerchantID       string  `json:"merchantId"`
+	BillableMetricID *string `json:"billableMetricId,omitzero"`
 	// The unique identifier for the fee referred to by this price
 	FeeID *string `json:"feeId,omitzero"`
 	// ISO 8601 duration for billing frequency (e.g., P1M for monthly)
@@ -130,6 +132,13 @@ func (p *Price) GetObject() *PriceObject {
 		return nil
 	}
 	return p.Object
+}
+
+func (p *Price) GetMerchantID() string {
+	if p == nil {
+		return ""
+	}
+	return p.MerchantID
 }
 
 func (p *Price) GetBillableMetricID() *string {

@@ -10,9 +10,12 @@ import (
 	"github.com/paygentic/cli/internal/cli/customers"
 	"github.com/paygentic/cli/internal/cli/entitlements"
 	"github.com/paygentic/cli/internal/cli/events"
+	"github.com/paygentic/cli/internal/cli/externalreferences"
 	"github.com/paygentic/cli/internal/cli/features"
 	"github.com/paygentic/cli/internal/cli/fees"
 	"github.com/paygentic/cli/internal/cli/invoicesv2"
+	"github.com/paygentic/cli/internal/cli/items"
+	"github.com/paygentic/cli/internal/cli/merchantintegrations"
 	"github.com/paygentic/cli/internal/cli/payments"
 	"github.com/paygentic/cli/internal/cli/paymentsessions"
 	"github.com/paygentic/cli/internal/cli/plans"
@@ -121,6 +124,15 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := testclocks.InitTestClocksRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init test-clocks: %w", err)
+	}
+	if err := externalreferences.InitExternalReferencesRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init external-references: %w", err)
+	}
+	if err := items.InitItemsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init items: %w", err)
+	}
+	if err := merchantintegrations.InitMerchantIntegrationsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init merchant-integrations: %w", err)
 	}
 	if err := initConfigureCmd(rootCmd); err != nil {
 		return nil, fmt.Errorf("init configure: %w", err)
