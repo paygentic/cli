@@ -345,6 +345,29 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`advance`](docs/paygentic_test-clocks_advance.md) - Advance
 * [`delete`](docs/paygentic_test-clocks_delete.md) - Delete
 
+### [external-references](docs/paygentic_external-references.md)
+
+* [`create`](docs/paygentic_external-references_create.md) - Create
+* [`list`](docs/paygentic_external-references_list.md) - List
+* [`get`](docs/paygentic_external-references_get.md) - Get
+* [`update`](docs/paygentic_external-references_update.md) - Update
+* [`delete`](docs/paygentic_external-references_delete.md) - Delete
+
+### [items](docs/paygentic_items.md)
+
+* [`create`](docs/paygentic_items_create.md) - Create
+* [`list`](docs/paygentic_items_list.md) - List
+* [`get`](docs/paygentic_items_get.md) - Get
+* [`update`](docs/paygentic_items_update.md) - Update
+* [`delete`](docs/paygentic_items_delete.md) - Delete
+
+### [merchant-integrations](docs/paygentic_merchant-integrations.md)
+
+* [`list`](docs/paygentic_merchant-integrations_list.md) - List
+* [`upsert`](docs/paygentic_merchant-integrations_upsert.md) - Upsert
+* [`get`](docs/paygentic_merchant-integrations_get.md) - Get
+* [`disconnect`](docs/paygentic_merchant-integrations_disconnect.md) - Disconnect
+
 </details>
 <!-- End Available Commands [operations] -->
 

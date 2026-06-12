@@ -42,9 +42,12 @@ paygentic [flags]
 * [paygentic entitlements](paygentic_entitlements.md)	 - Operations for entitlements
 * [paygentic events](paygentic_events.md)	 - Ingest raw metering events that are processed by the meters service
 * [paygentic explore](paygentic_explore.md)	 - Interactively browse and run commands
+* [paygentic external-references](paygentic_external-references.md)	 - An `ExternalReference` links a Paygentic entity (e
 * [paygentic features](paygentic_features.md)	 - A `Feature` represents a specific capability or functionality provided by a `Product`
 * [paygentic fees](paygentic_fees.md)	 - A `Fee` defines a recurring or one-time charge tied to a `Product`
 * [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic items](paygentic_items.md)	 - An `Item` is the canonical "thing you sell" that external-system mappings point at
+* [paygentic merchant-integrations](paygentic_merchant-integrations.md)	 - A `MerchantIntegration` records a merchant's connection to an external provider
 * [paygentic payment-sessions](paygentic_payment-sessions.md)	 - Handle payment session lifecycle and processing across various entity types including invoices and subscriptions
 * [paygentic payments](paygentic_payments.md)	 - Create and manage one-off payments
 * [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`
