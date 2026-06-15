@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 6ad417ee9eb92a574763e7b67f60e8af
+  docChecksum: 6008bb11c139545b253312e2e964fddb
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.15
-  configChecksum: f2e5a007191428baf158d4324426bb15
+  releaseVersion: 0.3.16
+  configChecksum: 02cc0aa8fe9629b388d25d4e2c31d99e
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 296083f0-d34e-45ad-855b-4525273281bd
-  pristine_commit_hash: bc48874f8be804b50629e0e802db8fb9f3bd8c9f
-  pristine_tree_hash: d79dbe1ed663d65771a87d5b738c6b95ef70dad1
+  generation_id: 6fb9f4db-e9b8-4957-931d-95c581c8f7ff
+  pristine_commit_hash: 20d1c2d3a5cda01b0e640d8265a1d88e57bcbe22
+  pristine_tree_hash: d2f41c89d0e6d278c324d2758bf7a65dbd90eedf
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -173,8 +173,8 @@ trackedFiles:
     pristine_git_object: 754530e1cbb42f31b4fd4f39d1d625b280da6671
   internal/cli/entitlements/grants/purchase.go:
     id: d0b99a24c085
-    last_write_checksum: sha1:608f47a25ebd489a8527555794c9065fc3131550
-    pristine_git_object: edd4e06febf33d890272fb714051442bbe2901ae
+    last_write_checksum: sha1:328d23f11965eeaa40f2a3efb5311c4f20ddf251
+    pristine_git_object: fac7c6e905bff038a416c22e95dd47342f2ebdd8
   internal/cli/entitlements/grants/root.go:
     id: fe76ff9fb0f7
     last_write_checksum: sha1:d9b7f0a05c3aa2cc705408e64cf006824f9f6743
@@ -205,8 +205,8 @@ trackedFiles:
     pristine_git_object: 15574c5fdc35d28366b447f167fd5862a6ab7335
   internal/cli/externalreferences/createexternalreference.go:
     id: 18f7e9b8749f
-    last_write_checksum: sha1:2d244671394c2a6600cc57749db8992139abb49a
-    pristine_git_object: 81d5f3743b044b36276665d1bba2437eea5b1bfc
+    last_write_checksum: sha1:786e5d96b230c4858c3a027df6102826cc46824a
+    pristine_git_object: 25370fe79fed0f905bce6ae370bd71284e5c5c56
   internal/cli/externalreferences/deleteexternalreference.go:
     id: d6e8e025e20e
     last_write_checksum: sha1:68d075fe19bc31ba385ca25ae24212f894a5dcf2
@@ -217,8 +217,8 @@ trackedFiles:
     pristine_git_object: 72de3895c59c04326bacccc0da6872450efa36af
   internal/cli/externalreferences/listexternalreferences.go:
     id: 0832d1354841
-    last_write_checksum: sha1:2ba9a573bd746ab5b61582f1c113962ac41efbc3
-    pristine_git_object: 9707b9b93652059332d1710a27348a72109fcb4a
+    last_write_checksum: sha1:3fb527775d7556fe6c2b52a5b32b5a459e8a104e
+    pristine_git_object: 45f4b7bcb89d6e183990a3f01324a93f265cc0a9
   internal/cli/externalreferences/root.go:
     id: 5b09de17a783
     last_write_checksum: sha1:6eec0e0369407e56399b17d8cef2ace66b100863
@@ -293,8 +293,8 @@ trackedFiles:
     pristine_git_object: da30b5139df8bd8f4d83aec5f6c46b6ede4c19fa
   internal/cli/invoicesv2/list.go:
     id: 312ff3b752d8
-    last_write_checksum: sha1:7fb6cf23059afb34b75f8bb2e0ff634aa7bf7a4d
-    pristine_git_object: efc5bf716c15282cc55dde26966b5a9078b843be
+    last_write_checksum: sha1:12f931553c01cea00eb598bb9931ed987112f24f
+    pristine_git_object: acf49d782a504e57a99b74b26b9b3db953d4699e
   internal/cli/invoicesv2/listlineitems.go:
     id: 9b0cc3f8bdf5
     last_write_checksum: sha1:abe71e7ee0f7b22c68181630d180cb75f1254359
@@ -461,8 +461,16 @@ trackedFiles:
     pristine_git_object: 4a7659874113335cecc83e03884a92dc1e5b4107
   internal/cli/root.go:
     id: 239d55a0d6be
-    last_write_checksum: sha1:ed78d1c2f3aa58e63dee8b9bbb0fc5a657adb7f4
-    pristine_git_object: 0b4e8b28ae59dd46128592fa35484b14a9f081ce
+    last_write_checksum: sha1:9a72852408b26f006c43308208ecac2092b241bd
+    pristine_git_object: 7b9c1901d8ae7c881351ff6229c454d237dc91cd
+  internal/cli/salesforce/listsalesforceaccounts.go:
+    id: c97e43e43cc8
+    last_write_checksum: sha1:c29ca00038ad82327e9b1a8abf2b1bda9c5fccc9
+    pristine_git_object: 65e5f0fced76c5503c13c32d1b78cf51cb3ee117
+  internal/cli/salesforce/root.go:
+    id: fde9c65ea25f
+    last_write_checksum: sha1:dee9e9da3cabfdac09f1b13a1b335862eff42420
+    pristine_git_object: be9e639dfa138754d5dc5a7f1059e0aa4a8459c1
   internal/cli/sources/create.go:
     id: 9a73d88d4847
     last_write_checksum: sha1:1a510756ccfb1fde124cf76ebe9f63813c6f8b6e
@@ -597,8 +605,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:9ab547d252cd5b600e2cb902041836764ffd9b28
-    pristine_git_object: d12d09ac2ca8066616f73ae7799b115b00e2ee7f
+    last_write_checksum: sha1:88d046f85aecdb2addf7975c100b8c6d5f7dc4b7
+    pristine_git_object: 6713c9eb5db55a8a9b02190c7568821761c93862
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -793,8 +801,8 @@ trackedFiles:
     pristine_git_object: b12d25ed4a3ece96aaf309e1d6fc327e2d94ab38
   internal/sdk/models/components/entitytype.go:
     id: 1cdab48c095d
-    last_write_checksum: sha1:5783214afd9668f7ae4bfb339a8ee6e62ea44339
-    pristine_git_object: cd03a11ad17d8e32ca637aac6d84e9fa2bd21146
+    last_write_checksum: sha1:b945fd6e371d3fc7eeb1d10f5127ded4bd617afd
+    pristine_git_object: 5353bc27a2486dbe9b3c68a372e8f20d75e578e2
   internal/sdk/models/components/eventresponse.go:
     id: 8acd43d69c75
     last_write_checksum: sha1:84b5b54396543c1ba2b40cc244c78dba55f551e2
@@ -833,8 +841,8 @@ trackedFiles:
     pristine_git_object: a5c05d8c1fb5671491f1a355fb73723056b97a35
   internal/sdk/models/components/invoice.go:
     id: 0feca5d38bb2
-    last_write_checksum: sha1:80c7fd9ad13f752aeebc441aec5c38bc19abe123
-    pristine_git_object: b598e900cb395bb6da9662ac9d4fb32bc6ba319c
+    last_write_checksum: sha1:c3c008d72b626a08d2ff7a2ac3d230d75ecc535d
+    pristine_git_object: 19f5c93e951b7aae83694879e055341c57eae8c8
   internal/sdk/models/components/invoicecategorysummary.go:
     id: 67d75e2c8eb7
     last_write_checksum: sha1:81606dc8ed85663ef5581091295c57dfa9aafead
@@ -861,8 +869,8 @@ trackedFiles:
     pristine_git_object: b9a2fac2631c158b489a0c382808b803892cd0de
   internal/sdk/models/components/lineitem.go:
     id: adb3840daff0
-    last_write_checksum: sha1:f418281b46d9f6ed6b733cb039177dd9909ba8ac
-    pristine_git_object: b8c8e3f59217f29f5f152007855869d5807c0043
+    last_write_checksum: sha1:6cf61e724df75360c2489a2785b64284568ae79d
+    pristine_git_object: ebd88d8ea42d43e0664a44c84b2682bffc45bfa7
   internal/sdk/models/components/lineitemsresponse.go:
     id: bee374acf506
     last_write_checksum: sha1:e629663906f528e3f0027740fc2c5e6696ac42a1
@@ -957,8 +965,8 @@ trackedFiles:
     pristine_git_object: 96b38d267becabb2075cb3dfae4f8bf722c987e7
   internal/sdk/models/components/purchasegrantrequest.go:
     id: 61d3bfa11a0e
-    last_write_checksum: sha1:391100cdc866db1d1d4c2feddea303894bae8855
-    pristine_git_object: 2fec0f7f49b9bacbd8f01e6993482a8e138e007e
+    last_write_checksum: sha1:e22c7606bddf551b7da44d42eb19fc0baa8d43a6
+    pristine_git_object: 02e3127a77f0ad822f1cabe13f6148513286ff12
   internal/sdk/models/components/purchasegrantresponse.go:
     id: 7e8e7b53eb9a
     last_write_checksum: sha1:8f2196ec969001af96c82ea5b3bf4d6449b9a21c
@@ -1337,8 +1345,8 @@ trackedFiles:
     pristine_git_object: 639edc1b9bc97efbd0c20b5e4563aaa324df4920
   internal/sdk/models/operations/listinvoices.go:
     id: c07326fa077a
-    last_write_checksum: sha1:4b67fc7738ce161766858326817ee68dbec0d928
-    pristine_git_object: 3b815a549836954c874a597d4483f3b9321ade9c
+    last_write_checksum: sha1:77db4bcdceb6e395ccfaa5ed1bc6b6043bca6aaa
+    pristine_git_object: c2229186a0ceb87af6a9c8e685ff96c47da48fbc
   internal/sdk/models/operations/listitems.go:
     id: 7d90d70b42ab
     last_write_checksum: sha1:6c8bba68a1f5e24eb33f066e64bcfe87a5f6a991
@@ -1371,6 +1379,10 @@ trackedFiles:
     id: a35e75a0c74d
     last_write_checksum: sha1:396907bada9e8287445769abf8fd697da6ace690
     pristine_git_object: 5892848e671fc1be5734aca11c560830d6496474
+  internal/sdk/models/operations/listsalesforceaccounts.go:
+    id: e6a37c0a5993
+    last_write_checksum: sha1:c14766a738f728fbbb870582150b65c549fa9608
+    pristine_git_object: e2669482633ec261f11f19a839326c2fd4bd95db
   internal/sdk/models/operations/listsourceevents.go:
     id: 6957cee682d8
     last_write_checksum: sha1:3329bc397a3313e662a9b41b696e865173f3a0ca
@@ -1505,8 +1517,8 @@ trackedFiles:
     pristine_git_object: 1a9bcd0cc4a56f4034599c5a32058b0490dd17f8
   internal/sdk/paygentic.go:
     id: 4235254e4c06
-    last_write_checksum: sha1:61bf51a91ac53e88e2ee75482fd2ff1cd5af9d8f
-    pristine_git_object: 13d249f05023ee565cf00ec0e1fa37396009a334
+    last_write_checksum: sha1:30355219093c0df875bd094db6715e6d0c69a54c
+    pristine_git_object: 9f925639713d4a2468c3677c2e927950f641ebed
   internal/sdk/payments.go:
     id: e83a6c504e5c
     last_write_checksum: sha1:3778ebc82ad1da7a53137f67529869f6532fa163
@@ -1543,6 +1555,10 @@ trackedFiles:
     id: 1ecf39cf6118
     last_write_checksum: sha1:41c3988fda4052961cbac546e623ba2a7bab59dc
     pristine_git_object: ea2ae3073d0f242f25664493142330c669dd5485
+  internal/sdk/salesforce.go:
+    id: 8edc8770d87d
+    last_write_checksum: sha1:818c84f7b2c67ddcc51f2d8a748361b525d79a9e
+    pristine_git_object: 30c0b143c1e92a3500ad57415c66b06a3f6abbb0
   internal/sdk/sdkinternal/config/sdkconfiguration.go:
     id: f175ab9b0273
     last_write_checksum: sha1:81452aa4717c8db01dc28ad6ebf4dbf5304a50e3
@@ -1645,8 +1661,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:f011642e4a25a3fd509497feef7cd5fa031a3f0e
-    pristine_git_object: c48883c86ae66539e1bba19194fea01975eb5e95
+    last_write_checksum: sha1:4fe8ac1812bdfa114384b06925f2c89740839cc2
+    pristine_git_object: b51458ac1bc4029031bbbf0f5fdf298367dd4115
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -2872,7 +2888,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"object": "list", "data": [{"id": "<id>", "subscriptionId": "<id>", "type": "metered", "status": "invoiced", "displayName": "Ruthe20", "currency": "Tenge", "periodStart": "2026-09-04T02:49:10.376Z", "periodEnd": "2026-09-15T08:12:34.337Z", "invoiceAt": "2024-10-05T12:55:27.688Z", "unitPrice": "<value>", "createdAt": "2024-05-18T12:29:19.850Z", "updatedAt": "2024-07-26T23:40:10.281Z"}], "totalCount": 585166, "summary": {"feeSubtotal": "<value>", "meteredEstimatedSubtotal": "<value>", "currency": "Swedish Krona"}}
+          application/json: {"object": "list", "data": [{"id": "<id>", "subscriptionId": "<id>", "customerId": "<id>", "type": "metered", "status": "invoiced", "displayName": "Ruthe20", "currency": "Tenge", "periodStart": "2026-09-04T02:49:10.376Z", "periodEnd": "2026-09-15T08:12:34.337Z", "invoiceAt": "2024-10-05T12:55:27.688Z", "unitPrice": "<value>", "createdAt": "2024-05-18T12:29:19.850Z", "updatedAt": "2024-07-26T23:40:10.281Z"}], "totalCount": 585166, "summary": {"feeSubtotal": "<value>", "meteredEstimatedSubtotal": "<value>", "currency": "Swedish Krona"}}
         "400":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "401":
@@ -2885,7 +2901,7 @@ examples:
         application/json: {"displayName": "Nathan54", "currency": "Rwanda Franc", "quantity": 6214.31, "unitPrice": 7408.13}
       responses:
         "200":
-          application/json: {"id": "<id>", "subscriptionId": "<id>", "type": "discount", "status": "pending", "displayName": "Roscoe_Haag", "currency": "Belize Dollar", "periodStart": "2025-06-18T03:33:03.362Z", "periodEnd": "2025-11-09T02:25:51.382Z", "invoiceAt": "2024-04-26T04:27:52.258Z", "unitPrice": "<value>", "createdAt": "2025-10-18T18:51:06.413Z", "updatedAt": "2025-04-29T04:46:04.080Z"}
+          application/json: {"id": "<id>", "subscriptionId": "<id>", "customerId": "<id>", "type": "discount", "status": "pending", "displayName": "Roscoe_Haag", "currency": "Belize Dollar", "periodStart": "2025-06-18T03:33:03.362Z", "periodEnd": "2025-11-09T02:25:51.382Z", "invoiceAt": "2024-04-26T04:27:52.258Z", "unitPrice": "<value>", "createdAt": "2025-10-18T18:51:06.413Z", "updatedAt": "2025-04-29T04:46:04.080Z"}
         "400":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "401":
@@ -2901,7 +2917,7 @@ examples:
           lineItemsLimit: 100
       responses:
         "200":
-          application/json: {"id": "<id>", "object": "invoice", "autoApprove": true, "billingAnchor": "2026-09-05T07:35:48.967Z", "billingCadence": "<value>", "createdAt": "2026-05-07T17:21:44.913Z", "currency": "Syrian Pound", "gracePeriodEnd": "2026-09-09T07:32:58.606Z", "grandTotal": "<value>", "itemCount": 618603, "merchantId": "<id>", "paidAmount": "<value>", "periodEnd": "2025-03-26T10:35:15.865Z", "periodStart": "2026-12-13T23:28:43.227Z", "sequenceNumber": 649898, "status": "ACTIVE", "subscriptionId": "<id>", "subtotal": "<value>", "totalTax": "<value>", "unpaidAmount": "<value>", "updatedAt": "2025-01-05T14:26:49.311Z"}
+          application/json: {"id": "<id>", "object": "invoice", "autoApprove": true, "billingAnchor": "2026-09-05T07:35:48.967Z", "billingCadence": "<value>", "createdAt": "2026-05-07T17:21:44.913Z", "currency": "Syrian Pound", "gracePeriodEnd": "2026-09-09T07:32:58.606Z", "grandTotal": "<value>", "itemCount": 618603, "merchantId": "<id>", "paidAmount": "<value>", "periodEnd": "2025-03-26T10:35:15.865Z", "periodStart": "2026-12-13T23:28:43.227Z", "sequenceNumber": 649898, "status": "ACTIVE", "subscriptionId": "<id>", "customerId": "<id>", "subtotal": "<value>", "totalTax": "<value>", "unpaidAmount": "<value>", "updatedAt": "2025-01-05T14:26:49.311Z"}
         "403":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "500":
@@ -3462,34 +3478,21 @@ examples:
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
+  listSalesforceAccounts:
+    speakeasy-default-list-salesforce-accounts:
+      parameters:
+        query:
+          merchantId: "<id>"
+          limit: 50
+          offset: 0
+      responses:
+        "200":
+          application/json: {"data": [], "totalSize": 871992, "done": false}
+        "400":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "401":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "500":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Cli SDK Changes:
-  * `Paygentic.ExternalReferences.CreateExternalReference()`: **Added**
-  * `Paygentic.ExternalReferences.ListExternalReferences()`: **Added**
-  * `Paygentic.ExternalReferences.GetExternalReference()`: **Added**
-  * `Paygentic.ExternalReferences.UpdateExternalReference()`: **Added**
-  * `Paygentic.ExternalReferences.DeleteExternalReference()`: **Added**
-  * `Paygentic.Items.CreateItem()`: **Added**
-  * `Paygentic.Items.ListItems()`: **Added**
-  * `Paygentic.Items.GetItem()`: **Added**
-  * `Paygentic.Items.UpdateItem()`: **Added**
-  * `Paygentic.Items.DeleteItem()`: **Added**
-  * `Paygentic.MerchantIntegrations.ListMerchantIntegrations()`: **Added**
-  * `Paygentic.MerchantIntegrations.UpsertMerchantIntegration()`: **Added**
-  * `Paygentic.MerchantIntegrations.GetMerchantIntegration()`: **Added**
-  * `Paygentic.MerchantIntegrations.DisconnectMerchantIntegration()`: **Added**
-  * `Paygentic.Plans.Create()`:  `response.Prices[].MerchantId` **Added**
-  * `Paygentic.Plans.List()`:  `response.Data[].Prices[].MerchantId` **Added**
-  * `Paygentic.Plans.ListAvailable()`:  `response.Data[].Prices[].MerchantId` **Added**
-  * `Paygentic.Plans.Get()`:  `response.Prices[].MerchantId` **Added**
-  * `Paygentic.Plans.Update()`:  `response.Prices[].MerchantId` **Added**
-  * `Paygentic.Prices.Create()`:  `response.MerchantId` **Added**
-  * `Paygentic.Prices.List()`:  `response.Data[].MerchantId` **Added**
-  * `Paygentic.Prices.Get()`:  `response.MerchantId` **Added**
-  * `Paygentic.Prices.Update()`:  `response.MerchantId` **Added**
-  * `Paygentic.Subscriptions.List()`:  `response.Data[].MerchantId` **Added**
-  * `Paygentic.Subscriptions.Create()`:  `response.MerchantId` **Added**
-  * `Paygentic.Subscriptions.Get()`:  `response.MerchantId` **Added**
-  * `Paygentic.Subscriptions.UpdateSubscription()`:  `response.MerchantId` **Added**
-  * `Paygentic.Subscriptions.Terminate()`:  `response.MerchantId` **Added**
+releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Items.CreateItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.CreateExternalReference()`: \n  *  `request.Request.EntityType.Enum(customer)` **Added**\n  *  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.ListExternalReferences()`: \n  *  `request.Request.EntityType` **Changed**\n  *  `response.Data[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.GetExternalReference()`:  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.UpdateExternalReference()`:  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.ListItems()`:  `response.Data[].ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.GetItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.UpdateItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.List()`: \n  *  `request.Request.CustomerId` **Added**\n  *  `response.Data[].CustomerId` **Added**\n* `Paygentic.InvoicesV2.ListLineItems()`:  `response.Data[].CustomerId` **Added**\n* `Paygentic.InvoicesV2.CreateLineItem()`:  `response.CustomerId` **Added**\n* `Paygentic.InvoicesV2.Get()`:  `response.CustomerId` **Added**\n* `Paygentic.Salesforce.ListSalesforceAccounts()`: **Added**\n"

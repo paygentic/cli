@@ -20,7 +20,7 @@ paygentic external-references list [flags]
 
 ```
       --entity-id itm_xxx      Filter by the Paygentic entity id (e.g. itm_xxx). This is the inverse of the `GET /v0/items?provider=&externalId=` resolution endpoint — look up references from the Paygentic side. All active filters AND together.
-      --entity-type item       Filter by the Paygentic entity type the reference points at (e.g. item). All active filters AND together. (options: item)
+      --entity-type item       Filter by the Paygentic entity type the reference points at (e.g. item). All active filters AND together. (options: item, customer)
       --external-id provider   Filter by the external system's record id. Pair with provider to look up all Paygentic entities that carry a given external reference. All active filters AND together.
   -h, --help                   help for list
   -l, --limit int              integer value (default 50)

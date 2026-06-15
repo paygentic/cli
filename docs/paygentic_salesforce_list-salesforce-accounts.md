@@ -1,32 +1,29 @@
-## paygentic invoices-v2 list
+## paygentic salesforce list-salesforce-accounts
 
-List
+List Salesforce accounts
 
 ### Synopsis
 
-List invoices with optional filters. Platform users can use nextActionAt=ready to get invoices ready for processing.
+Returns Accounts from the merchant's connected Salesforce org via live proxy SOQL.
 
 ```
-paygentic invoices-v2 list [flags]
+paygentic salesforce list-salesforce-accounts [flags]
 ```
 
 ### Examples
 
 ```
-  paygentic invoices-v2 list
+  paygentic salesforce list-salesforce-accounts --merchant-id <id>
 ```
 
 ### Options
 
 ```
-  -c, --customer-id string       Filter invoices by customer ID. Authorizes against the customer's merchant; takes precedence as the merchant source when combined with other filters.
-  -h, --help                     help for list
-  -l, --limit int                Maximum number of invoices to return (default 10)
-  -m, --merchant-id string       Filter invoices by merchant ID
-  -n, --next-action-at string    Filter for invoices ready for processing (platform only) (options: ready)
-      --offset int               Number of invoices to skip for pagination
-      --status string            Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)
-      --subscription-id string   Filter invoices by subscription ID
+  -h, --help                 help for list-salesforce-accounts
+  -l, --limit int            integer value (default 50)
+  -m, --merchant-id string   Merchant whose Salesforce connection to use. [required]
+      --offset int           integer value
+      --q string             Optional name filter (LIKE match).
 ```
 
 ### Options inherited from parent commands
@@ -50,4 +47,4 @@ paygentic invoices-v2 list [flags]
 
 ### SEE ALSO
 
-* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic salesforce](paygentic_salesforce.md)	 - Operations for salesforce

@@ -55,6 +55,7 @@ paygentic [flags]
 * [paygentic products](paygentic_products.md)	 - A `Product` is an offering sold by a `Merchant`
 * [paygentic profitability](paygentic_profitability.md)	 - Per-customer profitability summaries
 * [paygentic revenue](paygentic_revenue.md)	 - Revenue data from invoices and payments
+* [paygentic salesforce](paygentic_salesforce.md)	 - Operations for salesforce
 * [paygentic sources](paygentic_sources.md)	 - A `Source` is an external data provider capable of automatically creating usage events
 * [paygentic subscriptions](paygentic_subscriptions.md)	 - A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`
 * [paygentic test-clocks](paygentic_test-clocks.md)	 - Test clocks provide programmable time control to simulate subscription and billing scenarios during testing

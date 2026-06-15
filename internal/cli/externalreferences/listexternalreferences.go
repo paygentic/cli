@@ -17,7 +17,7 @@ import (
 
 var listExternalReferencesCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Restrict results to a specific merchant. All active filters AND together."},
-	{FlagName: "entity-type", FieldPath: "EntityType", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"item"}, Description: "Filter by the Paygentic entity type the reference points at (e.g. `item`). All active filters AND together. (options: item)"},
+	{FlagName: "entity-type", FieldPath: "EntityType", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"item", "customer"}, Description: "Filter by the Paygentic entity type the reference points at (e.g. `item`). All active filters AND together. (options: item, customer)"},
 	{FlagName: "entity-id", FieldPath: "EntityID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by the Paygentic entity id (e.g. `itm_xxx`). This is the inverse of the `GET /v0/items?provider=&externalId=` resolution endpoint — look up references from the Paygentic side. All active filters AND together."},
 	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by provider (e.g. `salesforce`, `netsuite`). All active filters AND together."},
 	{FlagName: "external-id", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by the external system's record id. Pair with `provider` to look up all Paygentic entities that carry a given external reference. All active filters AND together."},

@@ -361,6 +361,10 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`update`](docs/paygentic_items_update.md) - Update
 * [`delete`](docs/paygentic_items_delete.md) - Delete
 
+### [salesforce](docs/paygentic_salesforce.md)
+
+* [`list-salesforce-accounts`](docs/paygentic_salesforce_list-salesforce-accounts.md) - List Salesforce accounts
+
 ### [merchant-integrations](docs/paygentic_merchant-integrations.md)
 
 * [`list`](docs/paygentic_merchant-integrations_list.md) - List

@@ -21,7 +21,7 @@ paygentic external-references create [flags]
 ```
       --body string                                   Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --entity-id itm_xxx                             Paygentic id of the entity, e.g. itm_xxx [required]
-      --entity-type string                            The type of Paygentic entity this external reference points at (options: item) [required]
+      --entity-type string                            The type of Paygentic entity this external reference points at (options: item, customer) [required]
       --external-id string                            Identifier of the record in the external system [required]
       --external-label string                         Human-friendly name shown in UIs (e.g. a NetSuite financial-treatment name)
   -h, --help                                          help for create

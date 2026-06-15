@@ -1,32 +1,19 @@
-## paygentic invoices-v2 list
+## paygentic salesforce
 
-List
+Operations for salesforce
 
 ### Synopsis
 
-List invoices with optional filters. Platform users can use nextActionAt=ready to get invoices ready for processing.
+Operations for salesforce
 
 ```
-paygentic invoices-v2 list [flags]
-```
-
-### Examples
-
-```
-  paygentic invoices-v2 list
+paygentic salesforce [flags]
 ```
 
 ### Options
 
 ```
-  -c, --customer-id string       Filter invoices by customer ID. Authorizes against the customer's merchant; takes precedence as the merchant source when combined with other filters.
-  -h, --help                     help for list
-  -l, --limit int                Maximum number of invoices to return (default 10)
-  -m, --merchant-id string       Filter invoices by merchant ID
-  -n, --next-action-at string    Filter for invoices ready for processing (platform only) (options: ready)
-      --offset int               Number of invoices to skip for pagination
-      --status string            Filter invoices by status (options: ACTIVE, CLOSING, CLOSED, CALCULATING, DRAFT, ISSUED, PAYMENT_FAILED, PAID, CANCELLED, WRITTEN_OFF, FAILED)
-      --subscription-id string   Filter invoices by subscription ID
+  -h, --help   help for salesforce
 ```
 
 ### Options inherited from parent commands
@@ -50,4 +37,5 @@ paygentic invoices-v2 list [flags]
 
 ### SEE ALSO
 
-* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
+* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
+* [paygentic salesforce list-salesforce-accounts](paygentic_salesforce_list-salesforce-accounts.md)	 - List Salesforce accounts
