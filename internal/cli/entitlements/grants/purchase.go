@@ -18,7 +18,7 @@ import (
 var purchaseCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "entitlement-id", FieldPath: "EntitlementID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the entitlement to purchase credits for. [required]"},
 	{FlagName: "amount", Shorthand: "a", FieldPath: "Body.Amount", Kind: flagutil.FlagKindFloat64, Required: true, Description: "The number of credits to grant upon payment completion. [required]"},
-	{FlagName: "price", FieldPath: "Body.Price", Kind: flagutil.FlagKindString, Required: true, Description: "The price in decimal format (e.g., '5.00' for $5.00 USD). Must be at least $0.50. [required]"},
+	{FlagName: "price", FieldPath: "Body.Price", Kind: flagutil.FlagKindString, Required: true, Description: "The price in decimal format (e.g., '5.00' for $5.00 USD). A non-negative decimal with at most 9 fractional digits (nanodollar precision). Must be at least $0.50 and must not exceed 4503599.62 (the maximum supported grant purchase amount). [required]"},
 	{FlagName: "idempotency-key", Shorthand: "i", FieldPath: "Body.IdempotencyKey", Kind: flagutil.FlagKindString, Required: true, Description: "Caller-provided deduplication key. Retrying with the same key returns the existing invoice. [required]"},
 	{FlagName: "effective-at", FieldPath: "Body.EffectiveAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "When the grant becomes effective. Defaults to now."},
 	{FlagName: "expires-at", FieldPath: "Body.ExpiresAt", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"expiresAt,omitempty"`, Description: "When the grant expires. If omitted, the grant does not expire."},

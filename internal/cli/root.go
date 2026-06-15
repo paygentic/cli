@@ -23,6 +23,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/products"
 	"github.com/paygentic/cli/internal/cli/profitability"
 	"github.com/paygentic/cli/internal/cli/revenue"
+	"github.com/paygentic/cli/internal/cli/salesforce"
 	"github.com/paygentic/cli/internal/cli/sources"
 	"github.com/paygentic/cli/internal/cli/subscriptions"
 	"github.com/paygentic/cli/internal/cli/testclocks"
@@ -130,6 +131,9 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := items.InitItemsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init items: %w", err)
+	}
+	if err := salesforce.InitSalesforceRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init salesforce: %w", err)
 	}
 	if err := merchantintegrations.InitMerchantIntegrationsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init merchant-integrations: %w", err)

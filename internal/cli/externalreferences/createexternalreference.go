@@ -17,7 +17,7 @@ import (
 
 var createExternalReferenceCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
-	{FlagName: "entity-type", FieldPath: "EntityType", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"item"}, Description: "The type of Paygentic entity this external reference points at (options: item) [required]"},
+	{FlagName: "entity-type", FieldPath: "EntityType", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"item", "customer"}, Description: "The type of Paygentic entity this external reference points at (options: item, customer) [required]"},
 	{FlagName: "entity-id", FieldPath: "EntityID", Kind: flagutil.FlagKindString, Required: true, Description: "Paygentic id of the entity, e.g. `itm_xxx` [required]"},
 	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindString, Required: true, Description: "Lowercase snake_case provider identifier (e.g. `salesforce`, `netsuite`) [required]"},
 	{FlagName: "external-id", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Required: true, Description: "Identifier of the record in the external system [required]"},
