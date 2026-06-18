@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 6008bb11c139545b253312e2e964fddb
+  docChecksum: e45a61dca958530627f827a20a925751
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.3.16
-  configChecksum: 02cc0aa8fe9629b388d25d4e2c31d99e
+  releaseVersion: 0.3.17
+  configChecksum: 9429803f1eb800f704da8686cab89178
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 6fb9f4db-e9b8-4957-931d-95c581c8f7ff
-  pristine_commit_hash: 20d1c2d3a5cda01b0e640d8265a1d88e57bcbe22
-  pristine_tree_hash: d2f41c89d0e6d278c324d2758bf7a65dbd90eedf
+  generation_id: d3e0034c-def0-4f5e-833c-3f6a0a7ab8eb
+  pristine_commit_hash: 0d68c374cb11aa4651a9e345a8acad95ed97f6b0
+  pristine_tree_hash: 126409073d1c20ef1b2f6ebf5f4aee1a6fbe1a68
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -605,8 +605,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:88d046f85aecdb2addf7975c100b8c6d5f7dc4b7
-    pristine_git_object: 6713c9eb5db55a8a9b02190c7568821761c93862
+    last_write_checksum: sha1:e08834b285f165fad2859678e713c78da47ea0ff
+    pristine_git_object: 1b2c369ead7200f0cc942e1e1229f4906121b43f
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -841,8 +841,8 @@ trackedFiles:
     pristine_git_object: a5c05d8c1fb5671491f1a355fb73723056b97a35
   internal/sdk/models/components/invoice.go:
     id: 0feca5d38bb2
-    last_write_checksum: sha1:c3c008d72b626a08d2ff7a2ac3d230d75ecc535d
-    pristine_git_object: 19f5c93e951b7aae83694879e055341c57eae8c8
+    last_write_checksum: sha1:363e24639909836370438fd063bdb7f30b3455ff
+    pristine_git_object: bd25576014999fb2c086ddb2fc404af59e0f186d
   internal/sdk/models/components/invoicecategorysummary.go:
     id: 67d75e2c8eb7
     last_write_checksum: sha1:81606dc8ed85663ef5581091295c57dfa9aafead
@@ -1661,8 +1661,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:4fe8ac1812bdfa114384b06925f2c89740839cc2
-    pristine_git_object: b51458ac1bc4029031bbbf0f5fdf298367dd4115
+    last_write_checksum: sha1:9544a413456e684f28f53212b669d7e063efce46
+    pristine_git_object: 7db8ca9938e1fc7e2b27254da57ef96c02067e17
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -3495,4 +3495,7 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Items.CreateItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.CreateExternalReference()`: \n  *  `request.Request.EntityType.Enum(customer)` **Added**\n  *  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.ListExternalReferences()`: \n  *  `request.Request.EntityType` **Changed**\n  *  `response.Data[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.GetExternalReference()`:  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.ExternalReferences.UpdateExternalReference()`:  `response.EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.ListItems()`:  `response.Data[].ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.GetItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.Items.UpdateItem()`:  `response.ExternalReferences[].EntityType.Enum(customer)` **Added** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.List()`: \n  *  `request.Request.CustomerId` **Added**\n  *  `response.Data[].CustomerId` **Added**\n* `Paygentic.InvoicesV2.ListLineItems()`:  `response.Data[].CustomerId` **Added**\n* `Paygentic.InvoicesV2.CreateLineItem()`:  `response.CustomerId` **Added**\n* `Paygentic.InvoicesV2.Get()`:  `response.CustomerId` **Added**\n* `Paygentic.Salesforce.ListSalesforceAccounts()`: **Added**\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.InvoicesV2.List()`:  `response.Data[].PaymentInFlight` **Added**
+  * `Paygentic.InvoicesV2.Get()`:  `response.PaymentInFlight` **Added**
