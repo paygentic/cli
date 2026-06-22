@@ -20,6 +20,7 @@ paygentic customers create-customer-payment-method [flags]
 
 ```
       --body string                        Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -e, --expires-at string                  Absolute time the generated link expires. Optional; defaults to the server's configured session expiry (30 days) when omitted. Must be in the future and no more than 30 days ahead.
   -f, --failure-redirect-url postMessage   URL the customer is redirected to on failure. When the page is iframed, failure is reported via postMessage instead.
   -h, --help                               help for create-customer-payment-method
   -i, --id string                          The unique identifier of the customer. [required]

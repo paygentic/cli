@@ -17,20 +17,22 @@ paygentic entitlements list [flags]
 ### Examples
 
 ```
-  paygentic entitlements list --customer-id cus_q3r4s5t6u7v8w9x0
+  paygentic entitlements list
 ```
 
 ### Options
 
 ```
-  -a, --at string                Evaluate balance and access at this point in time (RFC 3339 datetime with any UTC offset, e.g. 2024-01-15T10:30:00Z or 2024-01-15T15:30:00+05:30). Defaults to current time.
-  -c, --customer-id string       The unique identifier of the customer to retrieve entitlements for. [required]
-  -f, --feature-key productId    Filter results to a specific feature by its key. When specified, productId is also required. Use this to check access to a single feature.
-  -h, --help                     help for list
-  -l, --limit offset             Maximum number of entitlements to return per page. Use with offset for pagination. (default 10)
-      --offset limit             Number of entitlements to skip. Use with limit for pagination through large result sets.
-  -p, --product-id featureKey    Filter results to entitlements for a specific product. Required when featureKey is specified since feature keys are scoped to products.
-  -s, --subscription-id string   Filter results to entitlements for a specific subscription.
+  -a, --at string                                  Evaluate balance and access at this point in time (RFC 3339 datetime with any UTC offset, e.g. 2024-01-15T10:30:00Z or 2024-01-15T15:30:00+05:30). Defaults to current time.
+  -c, --customer-id customerId                     The Paygentic customer id to retrieve entitlements for. Supply exactly one of customerId or `externalCustomerId`. When combined with `merchantId`, the customer must belong to that merchant or the request resolves to not found.
+  -e, --external-customer-id Customer.externalId   The merchant's own external customer reference (Customer.externalId, exact match), used to retrieve entitlements without first resolving it to a `cus_` id. Matches the `externalId` filter on `GET /v1/customers` (plain string, exact match — no pattern constraint, so any stored `externalId` is addressable). Supply exactly one of `customerId` or `externalCustomerId`. `externalId` is unique only within a merchant, so an effective merchant scope is required: either pass `merchantId`, or authenticate with a single-merchant API key. With no resolvable merchant scope the request is rejected.
+  -f, --feature-key productId                      Filter results to a specific feature by its key. When specified, productId is also required. Use this to check access to a single feature.
+  -h, --help                                       help for list
+  -l, --limit offset                               Maximum number of entitlements to return per page. Use with offset for pagination. (default 10)
+  -m, --merchant-id externalCustomerId             Optional merchant scope. With externalCustomerId it selects the merchant the external id is resolved within (required for the platform key, which has no single merchant). With `customerId` it acts as a tenant guard — the resolved customer must belong to this merchant, otherwise the request resolves to not found. A passed `merchantId` is only a filter and never grants access the caller does not already hold; authorization is always evaluated against the resolved customer's merchant.
+      --offset limit                               Number of entitlements to skip. Use with limit for pagination through large result sets.
+  -p, --product-id featureKey                      Filter results to entitlements for a specific product. Required when featureKey is specified since feature keys are scoped to products.
+  -s, --subscription-id string                     Filter results to entitlements for a specific subscription.
 ```
 
 ### Options inherited from parent commands

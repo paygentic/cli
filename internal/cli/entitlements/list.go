@@ -16,7 +16,9 @@ import (
 )
 
 var listCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "customer-id", Shorthand: "c", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the customer to retrieve entitlements for. [required]"},
+	{FlagName: "customer-id", Shorthand: "c", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "The Paygentic customer id to retrieve entitlements for. Supply exactly one of `customerId` or `externalCustomerId`. When combined with `merchantId`, the customer must belong to that merchant or the request resolves to not found."},
+	{FlagName: "external-customer-id", Shorthand: "e", FieldPath: "ExternalCustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "The merchant's own external customer reference (`Customer.externalId`, exact match), used to retrieve entitlements without first resolving it to a `cus_` id. Matches the `externalId` filter on `GET /v1/customers` (plain string, exact match — no pattern constraint, so any stored `externalId` is addressable). Supply exactly one of `customerId` or `externalCustomerId`. `externalId` is unique only within a merchant, so an effective merchant scope is required: either pass `merchantId`, or authenticate with a single-merchant API key. With no resolvable merchant scope the request is rejected."},
+	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Optional merchant scope. With `externalCustomerId` it selects the merchant the external id is resolved within (required for the platform key, which has no single merchant). With `customerId` it acts as a tenant guard — the resolved customer must belong to this merchant, otherwise the request resolves to not found. A passed `merchantId` is only a filter and never grants access the caller does not already hold; authorization is always evaluated against the resolved customer's merchant."},
 	{FlagName: "feature-key", Shorthand: "f", FieldPath: "FeatureKey", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter results to a specific feature by its key. When specified, `productId` is also required. Use this to check access to a single feature."},
 	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter results to entitlements for a specific product. Required when `featureKey` is specified since feature keys are scoped to products."},
 	{FlagName: "subscription-id", Shorthand: "s", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter results to entitlements for a specific subscription."},
@@ -31,7 +33,7 @@ func initListCmd(parent *cobra.Command) error {
 		Use:     "list",
 		Short:   "List Entitlements",
 		Long:    "Retrieve all entitlements for a customer, optionally filtered by feature or product.\n\nList items identify the entitlement with `entitlementId` (the original list contract). The get-by-id endpoint (`GET /v1/entitlements/{entitlementId}`) returns the same object but with a top-level `id` and `object: \"entitlement\"` instead — so use `item.entitlementId`, not `item.id`, when chaining a list result into a get-by-id call.\n\nFor metered entitlements, each item carries live balance/usage fields, which the API resolves with one grant-engine balance lookup per metered item (bounded concurrency, up to `limit` items per page).",
-		Example: "  paygentic entitlements list --customer-id cus_q3r4s5t6u7v8w9x0",
+		Example: "  paygentic entitlements list",
 		RunE:    runListCmd,
 	}
 	flagutil.RegisterFlags(cmd, listCmdMeta)
@@ -75,7 +77,7 @@ func runListCmd(cmd *cobra.Command, args []string) error {
 	if output.WantsRawJSON(cmd) {
 		sdkOpts = append(sdkOpts, operations.WithSkipDeserialization())
 	}
-	res, err := s.Entitlements.List(cmd.Context(), *req, sdkOpts...)
+	res, err := s.Entitlements.List(cmd.Context(), req, sdkOpts...)
 	if err != nil {
 		return output.Error(cmd, err)
 	}
