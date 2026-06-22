@@ -20,6 +20,7 @@ var createCustomerPaymentMethodCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "success-redirect-url", Shorthand: "s", FieldPath: "Body.SuccessRedirectURL", Kind: flagutil.FlagKindString, Optional: true, Description: "URL the customer is redirected to on success. When the page is iframed, success is reported via `postMessage` instead."},
 	{FlagName: "failure-redirect-url", Shorthand: "f", FieldPath: "Body.FailureRedirectURL", Kind: flagutil.FlagKindString, Optional: true, Description: "URL the customer is redirected to on failure. When the page is iframed, failure is reported via `postMessage` instead."},
 	{FlagName: "metadata", Shorthand: "m", FieldPath: "Body.Metadata", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"metadata,omitempty"`, Description: "Arbitrary key/value pairs to attach to the session."},
+	{FlagName: "expires-at", Shorthand: "e", FieldPath: "Body.ExpiresAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Absolute time the generated link expires. Optional; defaults to the server's configured session expiry (30 days) when omitted. Must be in the future and no more than 30 days ahead."},
 }
 
 // initCreateCustomerPaymentMethodCmd initializes the create-customer-payment-method command.
