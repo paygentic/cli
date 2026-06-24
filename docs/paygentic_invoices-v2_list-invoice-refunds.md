@@ -1,19 +1,26 @@
-## paygentic invoices-v2
+## paygentic invoices-v2 list-invoice-refunds
 
-Invoice V2 operations supporting billing cycles organized by time periods
+List Invoice Refunds
 
 ### Synopsis
 
-Invoice V2 operations supporting billing cycles organized by time periods. Warning: v0 invoice endpoints are no longer supported.
+List the credit notes (refunds) recorded against an invoice. Accessible to the owning merchant or platform operators.
 
 ```
-paygentic invoices-v2 [flags]
+paygentic invoices-v2 list-invoice-refunds [flags]
+```
+
+### Examples
+
+```
+  paygentic invoices-v2 list-invoice-refunds --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for invoices-v2
+  -h, --help        help for list-invoice-refunds
+  -i, --id string   The invoice ID [required]
 ```
 
 ### Options inherited from parent commands
@@ -37,12 +44,4 @@ paygentic invoices-v2 [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic invoices-v2 create-invoice-refund](paygentic_invoices-v2_create-invoice-refund.md)	 - Refund Invoice
-* [paygentic invoices-v2 create-line-item](paygentic_invoices-v2_create-line-item.md)	 - Create Manual Line Item
-* [paygentic invoices-v2 get](paygentic_invoices-v2_get.md)	 - Get
-* [paygentic invoices-v2 get-line-items](paygentic_invoices-v2_get-line-items.md)	 - Get Line Items
-* [paygentic invoices-v2 list](paygentic_invoices-v2_list.md)	 - List
-* [paygentic invoices-v2 list-invoice-refunds](paygentic_invoices-v2_list-invoice-refunds.md)	 - List Invoice Refunds
-* [paygentic invoices-v2 list-line-items](paygentic_invoices-v2_list-line-items.md)	 - List Line Items
-* [paygentic invoices-v2 void-invoice-refund](paygentic_invoices-v2_void-invoice-refund.md)	 - Void Invoice Refund
+* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods

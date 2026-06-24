@@ -1,19 +1,28 @@
-## paygentic invoices-v2
+## paygentic invoices-v2 create-invoice-refund
 
-Invoice V2 operations supporting billing cycles organized by time periods
+Refund Invoice
 
 ### Synopsis
 
-Invoice V2 operations supporting billing cycles organized by time periods. Warning: v0 invoice endpoints are no longer supported.
+Issue a full refund against a paid invoice by creating a credit note. The invoice stays PAID; the refund is recorded as a child credit note. Accessible to the owning merchant or platform operators. Only works for invoices in PAID status that have not already been refunded. Full refund only — the entire invoice (subtotal + tax) is credited.
 
 ```
-paygentic invoices-v2 [flags]
+paygentic invoices-v2 create-invoice-refund [flags]
+```
+
+### Examples
+
+```
+  paygentic invoices-v2 create-invoice-refund --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for invoices-v2
+      --body string     Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -h, --help            help for create-invoice-refund
+  -i, --id string       The invoice ID [required]
+  -r, --reason string   Optional reason for the refund (recorded on the credit note)
 ```
 
 ### Options inherited from parent commands
@@ -37,12 +46,4 @@ paygentic invoices-v2 [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic invoices-v2 create-invoice-refund](paygentic_invoices-v2_create-invoice-refund.md)	 - Refund Invoice
-* [paygentic invoices-v2 create-line-item](paygentic_invoices-v2_create-line-item.md)	 - Create Manual Line Item
-* [paygentic invoices-v2 get](paygentic_invoices-v2_get.md)	 - Get
-* [paygentic invoices-v2 get-line-items](paygentic_invoices-v2_get-line-items.md)	 - Get Line Items
-* [paygentic invoices-v2 list](paygentic_invoices-v2_list.md)	 - List
-* [paygentic invoices-v2 list-invoice-refunds](paygentic_invoices-v2_list-invoice-refunds.md)	 - List Invoice Refunds
-* [paygentic invoices-v2 list-line-items](paygentic_invoices-v2_list-line-items.md)	 - List Line Items
-* [paygentic invoices-v2 void-invoice-refund](paygentic_invoices-v2_void-invoice-refund.md)	 - Void Invoice Refund
+* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
