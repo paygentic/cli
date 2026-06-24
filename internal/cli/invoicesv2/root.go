@@ -42,6 +42,18 @@ func InitInvoicesV2Root(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initCreateInvoiceRefundCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
+	if err := initListInvoiceRefundsCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
+	if err := initVoidInvoiceRefundCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(InvoicesV2Cmd)
 	return nil
 }
