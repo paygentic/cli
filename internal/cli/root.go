@@ -5,7 +5,9 @@ package cli
 
 import (
 	"fmt"
+	"github.com/paygentic/cli/internal/cli/approvals"
 	"github.com/paygentic/cli/internal/cli/billablemetrics"
+	"github.com/paygentic/cli/internal/cli/billingschedules"
 	"github.com/paygentic/cli/internal/cli/costs"
 	"github.com/paygentic/cli/internal/cli/customers"
 	"github.com/paygentic/cli/internal/cli/entitlements"
@@ -16,6 +18,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/invoicesv2"
 	"github.com/paygentic/cli/internal/cli/items"
 	"github.com/paygentic/cli/internal/cli/merchantintegrations"
+	"github.com/paygentic/cli/internal/cli/orders"
 	"github.com/paygentic/cli/internal/cli/payments"
 	"github.com/paygentic/cli/internal/cli/paymentsessions"
 	"github.com/paygentic/cli/internal/cli/plans"
@@ -132,11 +135,20 @@ func NewRootCommand() (*cobra.Command, error) {
 	if err := items.InitItemsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init items: %w", err)
 	}
+	if err := orders.InitOrdersRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init orders: %w", err)
+	}
+	if err := billingschedules.InitBillingSchedulesRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init billing-schedules: %w", err)
+	}
 	if err := salesforce.InitSalesforceRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init salesforce: %w", err)
 	}
 	if err := merchantintegrations.InitMerchantIntegrationsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init merchant-integrations: %w", err)
+	}
+	if err := approvals.InitApprovalsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init approvals: %w", err)
 	}
 	if err := initConfigureCmd(rootCmd); err != nil {
 		return nil, fmt.Errorf("init configure: %w", err)

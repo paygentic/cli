@@ -364,6 +364,30 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`update`](docs/paygentic_items_update.md) - Update
 * [`delete`](docs/paygentic_items_delete.md) - Delete
 
+### [orders](docs/paygentic_orders.md)
+
+* [`create`](docs/paygentic_orders_create.md) - Create an order
+* [`list`](docs/paygentic_orders_list.md) - List orders
+* [`get`](docs/paygentic_orders_get.md) - Get an order
+* [`update`](docs/paygentic_orders_update.md) - Update an order
+* [`delete`](docs/paygentic_orders_delete.md) - Delete an order
+* [`create-order-line-item`](docs/paygentic_orders_create-order-line-item.md) - Add a line item
+* [`update-order-line-item`](docs/paygentic_orders_update-order-line-item.md) - Update a line item
+* [`delete-order-line-item`](docs/paygentic_orders_delete-order-line-item.md) - Delete a line item
+* [`create-order-approval`](docs/paygentic_orders_create-order-approval.md) - Create an approval for the order
+
+### [billing-schedules](docs/paygentic_billing-schedules.md)
+
+* [`list`](docs/paygentic_billing-schedules_list.md) - List billing schedules
+* [`create`](docs/paygentic_billing-schedules_create.md) - Create a billing schedule
+* [`get`](docs/paygentic_billing-schedules_get.md) - Get a billing schedule
+* [`update`](docs/paygentic_billing-schedules_update.md) - Update a billing schedule
+* [`delete`](docs/paygentic_billing-schedules_delete.md) - Delete a billing schedule
+* [`list-schedule-intervals`](docs/paygentic_billing-schedules_list-schedule-intervals.md) - List schedule intervals
+* [`replace-schedule-intervals`](docs/paygentic_billing-schedules_replace-schedule-intervals.md) - Replace schedule intervals
+* [`list-schedule-invoices`](docs/paygentic_billing-schedules_list-schedule-invoices.md) - List staged invoices
+* [`generate-schedule-invoices`](docs/paygentic_billing-schedules_generate-schedule-invoices.md) - Generate staged invoices
+
 ### [salesforce](docs/paygentic_salesforce.md)
 
 * [`list-salesforce-accounts`](docs/paygentic_salesforce_list-salesforce-accounts.md) - List Salesforce accounts
@@ -374,6 +398,13 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`upsert`](docs/paygentic_merchant-integrations_upsert.md) - Upsert
 * [`get`](docs/paygentic_merchant-integrations_get.md) - Get
 * [`disconnect`](docs/paygentic_merchant-integrations_disconnect.md) - Disconnect
+
+### [approvals](docs/paygentic_approvals.md)
+
+* [`create`](docs/paygentic_approvals_create.md) - Submit a resource for approval
+* [`list`](docs/paygentic_approvals_list.md) - List approvals
+* [`get`](docs/paygentic_approvals_get.md) - Get an approval
+* [`update`](docs/paygentic_approvals_update.md) - Update an approval (approve, reject, or cancel)
 
 </details>
 <!-- End Available Commands [operations] -->

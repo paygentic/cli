@@ -26,6 +26,7 @@ paygentic entitlements grants create [flags]
       --expires-at string                When the grant expires. If omitted, the grant does not expire.
   -h, --help                             help for create
   -i, --idempotency-key string           Idempotency key to prevent duplicate grants. Must be unique per entitlement. [required]
+  -p, --priority int                     Burn-down priority. Grants with a lower priority are consumed before grants with a higher priority; ties break on earliest expiration, then creation order. Negative values are allowed and can be used to make a grant burn ahead of existing priority-0 grants (e.g. a correction grant absorbing erroneous usage before a recurring allowance). Defaults to 0.
       --reset-max-rollover usagePeriod   Maximum balance carried over at the entitlement's reset boundary. If omitted, the entire balance rolls over until consumed or expired. Set to 0 to discard any remaining balance at each reset. Ignored when the target entitlement has no usagePeriod (one-time entitlement) — one-time entitlements have no reset boundary, so this field has no effect.
       --reset-min-rollover usagePeriod   Minimum balance at the entitlement's reset boundary; balances below this are floored up. Defaults to 0 (no floor). Ignored when the target entitlement has no usagePeriod (one-time entitlement).
 ```

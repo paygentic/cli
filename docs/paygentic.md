@@ -34,8 +34,10 @@ paygentic [flags]
 
 ### SEE ALSO
 
+* [paygentic approvals](paygentic_approvals.md)	 - Submit, decide, cancel, and read maker-checker approvals
 * [paygentic auth](paygentic_auth.md)	 - Manage authentication credentials
 * [paygentic billable-metrics](paygentic_billable-metrics.md)	 - Operations for billable-metrics
+* [paygentic billing-schedules](paygentic_billing-schedules.md)	 - Owner-polymorphic billing schedules with intervals and staged invoice projections
 * [paygentic configure](paygentic_configure.md)	 - Configure authentication credentials and preferences
 * [paygentic costs](paygentic_costs.md)	 - A Cost represents the operational or infrastructure expense of serving customers for a given product
 * [paygentic customers](paygentic_customers.md)	 - A `Customer` is an entity connected to a `Merchant` via a `Subscription`
@@ -48,6 +50,7 @@ paygentic [flags]
 * [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
 * [paygentic items](paygentic_items.md)	 - An `Item` is the canonical "thing you sell" that external-system mappings point at
 * [paygentic merchant-integrations](paygentic_merchant-integrations.md)	 - A `MerchantIntegration` records a merchant's connection to an external provider
+* [paygentic orders](paygentic_orders.md)	 - Manage Orders, their line items, and billing schedules
 * [paygentic payment-sessions](paygentic_payment-sessions.md)	 - Handle payment session lifecycle and processing across various entity types including invoices and subscriptions
 * [paygentic payments](paygentic_payments.md)	 - Create and manage one-off payments
 * [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`
