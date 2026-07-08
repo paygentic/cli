@@ -27,8 +27,9 @@ paygentic prices create [flags]
   -g, --grant-discount-enabled        When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices.
   -h, --help                          help for create
   -i, --invoice-display-name string   Line item label shown on customer invoices. Sample values: 'Claude Token Consumption', 'Storage Usage (GB)', 'Inference API Calls', 'Image Generation Count', 'Training Compute Hours', 'Data Transfer (TB)' [required]
-  -m, --model string                  Pricing calculation model. Required for billable metrics, optional for fees (defaults to 'standard'). (options: standard, dynamic, volume, percentage)
+  -m, --model string                  Pricing calculation model. Required for billable metrics, optional for fees (defaults to 'standard'). Only 'standard' is accepted; for percentage/revenue-share use 'standard' with a unit-price multiplier. Legacy prices using 'dynamic'/'volume'/'percentage' stay readable and billable but cannot be created. (options: standard)
       --payment-term string           Billing timing preference. For billable metrics: 'instant' (charges immediately) or 'in_arrears' (charges at period end). For fees: 'in_advance' (charges upfront) or 'in_arrears' (charges at period end). (options: instant, in_arrears, in_advance) [required]
+      --pricing-unit-id string        Unique identifier for a pricing unit
       --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })
       --quantity int                  Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.
 ```
