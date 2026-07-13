@@ -18,7 +18,7 @@ import (
 var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "billing-cadence", FieldPath: "BillingCadence", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"P1M", "P3M", "P1Y"}, Description: "ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided. (options: P1M, P3M, P1Y)"},
 	{FlagName: "billing-interval", FieldPath: "BillingInterval", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"monthly", "quarterly", "yearly", "annual"}, Description: "Recurring billing period frequency. Sample values: 'monthly' for monthly billing, 'quarterly' for quarterly billing, 'yearly' for annual billing (options: monthly, quarterly, yearly, annual)"},
-	{FlagName: "currency", Shorthand: "c", FieldPath: "Currency", Kind: flagutil.FlagKindString, Required: true, Description: "Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]"},
+	{FlagName: "currency", FieldPath: "Currency", Kind: flagutil.FlagKindString, Required: true, Description: "Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]"},
 	{FlagName: "default-tax-code", FieldPath: "DefaultTaxCode", Kind: flagutil.FlagKindString, Optional: true, HasDefault: true, DefaultStr: "eservice", Description: "Default tax code for plan line items. Common values: 'eservice' (electronically supplied services), 'saas' (software as a service), 'consulting', 'ebook', 'standard', 'reduced', 'exempt'. Full list available via GET /tax/codes endpoint."},
 	{FlagName: "default-tax-rate", FieldPath: "DefaultTaxRate", Kind: flagutil.FlagKindFloat64, Optional: true, HasDefault: true, Description: "Fallback tax rate percentage when automatic tax calculation fails. Sample values: 8.5 represents 8.5% tax, 10.0 represents 10% tax, 0 represents no tax"},
 	{FlagName: "description", FieldPath: "Description", Kind: flagutil.FlagKindString, Optional: true, Description: "Plan details explaining included features and limits. Sample values: 'Claude API access with 500K tokens monthly allowance', 'Unlimited cloud storage plus real-time analytics tools', 'Complete machine learning infrastructure with GPU access', 'Flexible usage-based pricing with no monthly commitment'"},
@@ -26,12 +26,13 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for an organization [required]"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Name", Kind: flagutil.FlagKindString, Required: true, Description: "Plan identifier visible to customers. Sample values: 'Basic Tier', 'Business Package', 'Enterprise Solution', 'Metered Billing', 'Free Tier', 'Premium Access' [required]"},
 	{FlagName: "prices", FieldPath: "Prices", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Array of price IDs to associate with this plan"},
-	{FlagName: "product-id", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a product"},
+	{FlagName: "product-id", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for a product [required]"},
 	{FlagName: "tax-behavior", Shorthand: "t", FieldPath: "TaxBehavior", Kind: flagutil.FlagKindEnum, Optional: true, HasDefault: true, DefaultStr: "exclusive", EnumValues: []string{"exclusive", "inclusive"}, Description: "Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive)"},
 	{FlagName: "renewal-reminder-enabled", FieldPath: "RenewalReminderEnabled", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, DefaultBool: true, Description: "Whether to send renewal reminder emails to customers before their subscription renews"},
 	{FlagName: "renewal-reminder-days", FieldPath: "RenewalReminderDays", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 3, Description: "Number of days before renewal to send the reminder email"},
 	{FlagName: "billing-version", FieldPath: "BillingVersion", Kind: flagutil.FlagKindIntEnum, Optional: true, HasDefault: true, DefaultStr: "1", EnumValues: []string{"0", "1"}, Description: "Billing engine version. Only 1 (Standard, line-item billing with metered usage support) is accepted for new plans; omitting the field defaults to 1. 0 (Legacy, fee-schedule billing) is rejected — it exists only on plans created before this restriction. (options: 0, 1)"},
 	{FlagName: "billing-anchor", FieldPath: "BillingAnchor", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingAnchor,omitempty"`, Description: "ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. When set, subscriptions created under this plan align their first billing period to the next recurrence of this anchor."},
+	{FlagName: "credit-allocations", FieldPath: "CreditAllocations", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"creditAllocations,omitempty"`, Description: "Credit-pool funding declarations for this plan. Each entry funds a distinct pricing unit's credit pool when a subscription to this plan activates: the allocated amount is minted as a credit grant on the customer's pool for that pricing unit, once at activation, or on a recurring basis only when that allocation explicitly sets recurrencePeriod. A plan may declare zero or more allocations; no two allocations on the same plan may target the same pricingUnitId."},
 }
 
 // initCreateCmd initializes the create command.
@@ -40,7 +41,7 @@ func initCreateCmd(parent *cobra.Command) error {
 		Use:     "create",
 		Short:   "Create",
 		Long:    "Create",
-		Example: "  paygentic plans create --currency Won --merchant-id <id> --name <value>",
+		Example: "  paygentic plans create --currency Won --merchant-id <id> --name <value> --product-id <id>",
 		RunE:    runCreateCmd,
 	}
 	flagutil.RegisterFlags(cmd, createCmdMeta)
