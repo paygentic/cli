@@ -13,7 +13,7 @@ paygentic plans create [flags]
 ### Examples
 
 ```
-  paygentic plans create --currency Won --merchant-id <id> --name <value>
+  paygentic plans create --currency Won --merchant-id <id> --name <value> --product-id <id>
 ```
 
 ### Options
@@ -24,7 +24,8 @@ paygentic plans create [flags]
       --billing-interval string       Recurring billing period frequency. Sample values: 'monthly' for monthly billing, 'quarterly' for quarterly billing, 'yearly' for annual billing (options: monthly, quarterly, yearly, annual)
       --billing-version string        Billing engine version. Only 1 (Standard, line-item billing with metered usage support) is accepted for new plans; omitting the field defaults to 1. 0 (Legacy, fee-schedule billing) is rejected — it exists only on plans created before this restriction. (options: 0, 1) (default "1")
       --body string                   Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -c, --currency string               Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]
+      --credit-allocations string     Credit-pool funding declarations for this plan. Each entry funds a distinct pricing unit's credit pool when a subscription to this plan activates: the allocated amount is minted as a credit grant on the customer's pool for that pricing unit, once at activation, or on a recurring basis only when that allocation explicitly sets recurrencePeriod. A plan may declare zero or more allocations; no two allocations on the same plan may target the same pricingUnitId.
+      --currency string               Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]
       --default-tax-code string       Default tax code for plan line items. Common values: 'eservice' (electronically supplied services), 'saas' (software as a service), 'consulting', 'ebook', 'standard', 'reduced', 'exempt'. Full list available via GET /tax/codes endpoint. (default "eservice")
       --default-tax-rate float        Fallback tax rate percentage when automatic tax calculation fails. Sample values: 8.5 represents 8.5% tax, 10.0 represents 10% tax, 0 represents no tax
       --description string            Plan details explaining included features and limits. Sample values: 'Claude API access with 500K tokens monthly allowance', 'Unlimited cloud storage plus real-time analytics tools', 'Complete machine learning infrastructure with GPU access', 'Flexible usage-based pricing with no monthly commitment'
@@ -33,7 +34,7 @@ paygentic plans create [flags]
   -m, --merchant-id string            Unique identifier for an organization [required]
   -n, --name string                   Plan identifier visible to customers. Sample values: 'Basic Tier', 'Business Package', 'Enterprise Solution', 'Metered Billing', 'Free Tier', 'Premium Access' [required]
       --prices stringArray            Array of price IDs to associate with this plan
-      --product-id string             Unique identifier for a product
+      --product-id string             Unique identifier for a product [required]
       --renewal-reminder-days int     Number of days before renewal to send the reminder email (default 3)
       --renewal-reminder-enabled      Whether to send renewal reminder emails to customers before their subscription renews (default true)
   -t, --tax-behavior string           Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive) (default "exclusive")

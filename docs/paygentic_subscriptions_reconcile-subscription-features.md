@@ -1,19 +1,28 @@
-## paygentic subscriptions
+## paygentic subscriptions reconcile-subscription-features
 
-A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`
+Reconcile Features
 
 ### Synopsis
 
-A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`.
+Creates a reconciliation that converges a subscription's feature entitlements to its current plan. Provisions a missing entitlement (and, for metered features, its initial grant) for every plan feature the subscription does not already have; cancels the entitlement and voids the grants of any feature no longer on the plan; then synchronizes the corresponding prices' billing. An already-present feature is left unchanged. Restricted to active subscriptions billed on their plan's line-item schedule.
 
 ```
-paygentic subscriptions [flags]
+paygentic subscriptions reconcile-subscription-features [flags]
+```
+
+### Examples
+
+```
+  paygentic subscriptions reconcile-subscription-features --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for subscriptions
+      --body string   Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --dry-run       Preview the outcome without creating any entitlement, grant, or line item.
+  -h, --help          help for reconcile-subscription-features
+  -i, --id string     The subscription ID [required]
 ```
 
 ### Options inherited from parent commands
@@ -23,7 +32,6 @@ paygentic subscriptions [flags]
       --bearer-auth string     API key authentication
       --color string           Control colored output: auto (color when output is a TTY), always, or never. Respects NO_COLOR and FORCE_COLOR env vars. (default "auto")
   -d, --debug                  Log request and response diagnostics to stderr
-      --dry-run                Preview the request that would be sent without executing it (output to stderr)
   -H, --header stringArray     Set a custom HTTP request header (format: "Key: Value"). Can be specified multiple times.
       --include-headers        Include HTTP response headers in the output
   -q, --jq string              Filter and transform output using a jq expression (e.g., '.name', '.items[] | .id')
@@ -37,11 +45,4 @@ paygentic subscriptions [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic subscriptions create](paygentic_subscriptions_create.md)	 - Create
-* [paygentic subscriptions generate-portal-link](paygentic_subscriptions_generate-portal-link.md)	 - Generate Portal Link
-* [paygentic subscriptions get](paygentic_subscriptions_get.md)	 - Get
-* [paygentic subscriptions list](paygentic_subscriptions_list.md)	 - List
-* [paygentic subscriptions reconcile-subscription-features](paygentic_subscriptions_reconcile-subscription-features.md)	 - Reconcile Features
-* [paygentic subscriptions terminate](paygentic_subscriptions_terminate.md)	 - Terminate
-* [paygentic subscriptions update](paygentic_subscriptions_update.md)	 - Update
+* [paygentic subscriptions](paygentic_subscriptions.md)	 - A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`

@@ -45,6 +45,10 @@ func InitSubscriptionsRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initReconcileSubscriptionFeaturesCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(SubscriptionsCmd)
 	return nil
 }

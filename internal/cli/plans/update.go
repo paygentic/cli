@@ -29,6 +29,7 @@ var updateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "renewal-reminder-enabled", FieldPath: "Body.RenewalReminderEnabled", Kind: flagutil.FlagKindBool, Optional: true, Description: "Whether to send renewal reminder emails to customers before their subscription renews"},
 	{FlagName: "renewal-reminder-days", FieldPath: "Body.RenewalReminderDays", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Number of days before renewal to send the reminder email"},
 	{FlagName: "billing-anchor", FieldPath: "Body.BillingAnchor", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingAnchor,omitempty"`, Description: "ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. Set to null to clear the anchor and revert to start-time-based anchoring."},
+	{FlagName: "credit-allocations", Shorthand: "c", FieldPath: "Body.CreditAllocations", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"creditAllocations,omitempty"`, Description: "Credit-pool funding declarations for this plan. Each entry funds a distinct pricing unit's credit pool when a subscription to this plan activates: the allocated amount is minted as a credit grant on the customer's pool for that pricing unit, once at activation, or on a recurring basis only when that allocation explicitly sets recurrencePeriod. A plan may declare zero or more allocations; no two allocations on the same plan may target the same pricingUnitId."},
 }
 
 // initUpdateCmd initializes the update command.
