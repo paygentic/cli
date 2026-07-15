@@ -19,14 +19,15 @@ paygentic billable-metrics list-events [flags]
 ### Options
 
 ```
-  -e, --external-id string   Filter by external identifier. Alphanumeric characters, hyphens, and underscores only.
-  -f, --from string          Start of query window (ISO 8601) [required]
-  -h, --help                 help for list-events
-  -i, --id string            [required]
-  -l, --limit int            Maximum number of events to return (default 20)
-      --offset int           Number of events to skip
-  -s, --subject string       Filter by subject (typically the customer/user ID)
-  -t, --to string            End of query window (ISO 8601) [required]
+      --external-id string        Filter by external identifier. Alphanumeric characters, hyphens, and underscores only.
+      --external-subject string   Filter by the merchant's own customer identifier the event was reported with.
+  -f, --from string               Start of query window (ISO 8601) [required]
+  -h, --help                      help for list-events
+  -i, --id string                 [required]
+  -l, --limit int                 Maximum number of events to return (default 20)
+      --offset int                Number of events to skip
+  -s, --subject string            Filter by subject (typically the customer/user ID)
+  -t, --to string                 End of query window (ISO 8601) [required]
 ```
 
 ### Options inherited from parent commands

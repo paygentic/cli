@@ -22,7 +22,9 @@ var meterCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "subject", Shorthand: "s", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by customer/user ID"},
 	{FlagName: "window-size", Shorthand: "w", FieldPath: "WindowSize", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"MINUTE", "HOUR", "DAY", "MONTH"}, Description: "Time bucket granularity (options: MINUTE, HOUR, DAY, MONTH)"},
 	{FlagName: "filter-group-by", FieldPath: "FilterGroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "JSON-encoded dimension filter (e.g. {\"key\":\"value\"})"},
-	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated dimension keys"},
+	{FlagName: "group-by", FieldPath: "GroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated dimension keys. Configure keys for the grouping on the metric. Only the \"subject\" grouping is supported by default."},
+	{FlagName: "group-limit", FieldPath: "GroupLimit", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Cap groupedValues to the top-N by value (descending). With windowSize, restricts the windowed series to those top-N groups. Bounds the payload for high-cardinality groupings; groupCount reports the untruncated distinct-group count."},
+	{FlagName: "group-offset", FieldPath: "GroupOffset", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Offset into the value-descending group ordering; requires groupLimit to page through grouped results. With windowSize set, pages the windowed series through the ranked groups (offset 0 yields the top-N)."},
 }
 
 // initMeterCmd initializes the meter command.

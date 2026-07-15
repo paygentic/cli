@@ -21,7 +21,9 @@ paygentic billable-metrics meter [flags]
 ```
       --filter-group-by string   JSON-encoded dimension filter (e.g. {"key":"value"})
       --from string              Start of query window (ISO 8601) [required]
-  -g, --group-by string          Comma-separated dimension keys
+      --group-by string          Comma-separated dimension keys. Configure keys for the grouping on the metric. Only the "subject" grouping is supported by default.
+      --group-limit int          Cap groupedValues to the top-N by value (descending). With windowSize, restricts the windowed series to those top-N groups. Bounds the payload for high-cardinality groupings; groupCount reports the untruncated distinct-group count.
+      --group-offset int         Offset into the value-descending group ordering; requires groupLimit to page through grouped results. With windowSize set, pages the windowed series through the ranked groups (offset 0 yields the top-N).
   -h, --help                     help for meter
   -i, --id string                [required]
   -s, --subject string           Filter by customer/user ID

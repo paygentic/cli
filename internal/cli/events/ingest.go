@@ -4,7 +4,6 @@
 package events
 
 import (
-	"fmt"
 	"github.com/paygentic/cli/internal/client"
 	"github.com/paygentic/cli/internal/flagutil"
 	"github.com/paygentic/cli/internal/interactive"
@@ -15,31 +14,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var ingestCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "type", FieldPath: "Type", Kind: flagutil.FlagKindString, Required: true, Description: "CloudEvents type. Must match an eventType configured on a BillableMetric. [required]"},
-	{FlagName: "source", FieldPath: "Source", Kind: flagutil.FlagKindString, Required: true, Description: "Event source URI identifying the application. [required]"},
-	{FlagName: "subject", FieldPath: "Subject", Kind: flagutil.FlagKindString, Required: true, Description: "Customer or entity ID this event relates to. [required]"},
-	{FlagName: "namespace", Shorthand: "n", FieldPath: "Namespace", Kind: flagutil.FlagKindString, Optional: true, Description: "Organization/merchant ID. Defaults to the authenticated user's organization. Platform users can specify a different organization."},
-	{FlagName: "timestamp", FieldPath: "Timestamp", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Event timestamp. Defaults to server time if not provided."},
-	{FlagName: "idempotency-key", Shorthand: "i", FieldPath: "IdempotencyKey", Kind: flagutil.FlagKindString, Optional: true, Description: "User-provided deduplication key. If not provided, a unique key is generated."},
-	{FlagName: "external-id", Shorthand: "e", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Optional external identifier for cross-referencing with external systems. Alphanumeric characters, hyphens, and underscores only."},
-	{FlagName: "data", FieldPath: "Data", Kind: flagutil.FlagKindJSON, Required: true, Annotations: `json:"data"`, Description: "Event payload containing the metering data. [required]"},
-}
-
 // initIngestCmd initializes the ingest command.
 func initIngestCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "ingest",
 		Short:   "Ingest Event",
 		Long:    "Ingest a raw metering event. The event is published to the meter-events PubSub topic for processing by the meters service.",
-		Example: "  paygentic events ingest --type ai.inference --source https://api.myapp.com --subject cus_abc123 --data '{\"tokens\":1500,\"model\":\"gpt-4o\"}'",
+		Example: "  paygentic events ingest --request '{\"type\":\"ai.inference\",\"source\":\"https://api.myapp.com\",\"subject\":\"cus_abc123\",\"data\":{\"tokens\":1500,\"model\":\"gpt-4o\"} }'",
 		RunE:    runIngestCmd,
 	}
-	flagutil.RegisterFlags(cmd, ingestCmdMeta)
-	if err := flagutil.ValidateMeta[operations.IngestEventRequest](ingestCmdMeta); err != nil {
-		return fmt.Errorf("invalid metadata for ingest: %w", err)
-	}
-	cmd.Flags().String("body", "", "Request body as JSON (alternative to individual flags). Can also be provided via stdin.")
+	cmd.Flags().String("request", "", "Request body as JSON [required]. Can also be provided via stdin.")
 	parent.AddCommand(cmd)
 	return nil
 }
@@ -49,12 +33,12 @@ func runIngestCmd(cmd *cobra.Command, args []string) error {
 	if usage.UsageRequested(cmd) {
 		return usage.EmitSchema(cmd, cmd.OutOrStdout())
 	}
-	if interactive.ShouldPrompt(cmd, ingestCmdMeta) {
-		if err := interactive.PromptAndSetFlags(cmd, ingestCmdMeta); err != nil {
+	if interactive.ShouldPromptForBody(cmd, "request") {
+		if err := interactive.PromptForBodyJSON(cmd, "request", "Request body as JSON [required]. Can also be provided via stdin."); err != nil {
 			return err
 		}
 	}
-	request, err := flagutil.BuildRequest[operations.IngestEventRequest](cmd, ingestCmdMeta, "", "body")
+	request, err := flagutil.BuildRequestBody[operations.IngestEventRequest](cmd, "request", `request:"mediaType=application/json"`, true)
 	if err != nil {
 		return err
 	}

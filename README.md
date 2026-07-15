@@ -129,7 +129,7 @@ paygentic subscriptions create --bearer-auth 'Bearer test_token' --customer-id c
 Send meter events to record consumption once a subscription is active. The endpoint is fire-and-forget — it always returns `202 Accepted`.
 
 ```bash
-paygentic events ingest --bearer-auth 'Bearer test_token' --type ai.inference --source 'https://api.myapp.com' --subject cus_abc123 --data '{"tokens":1500,"model":"gpt-4o"}'
+paygentic events ingest --bearer-auth 'Bearer test_token' --request '{"type":"ai.inference","source":"https://api.myapp.com","subject":"cus_abc123","data":{"tokens":1500,"model":"gpt-4o"\x7d\x7d'
 
 ```
 <!-- End CLI Example Usage [usage] -->

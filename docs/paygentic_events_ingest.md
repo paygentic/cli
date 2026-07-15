@@ -13,22 +13,14 @@ paygentic events ingest [flags]
 ### Examples
 
 ```
-  paygentic events ingest --type ai.inference --source https://api.myapp.com --subject cus_abc123 --data '{"tokens":1500,"model":"gpt-4o"}'
+  paygentic events ingest --request '{"type":"ai.inference","source":"https://api.myapp.com","subject":"cus_abc123","data":{"tokens":1500,"model":"gpt-4o"} }'
 ```
 
 ### Options
 
 ```
-      --body string              Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --data string              Event payload containing the metering data. [required]
-  -e, --external-id string       Optional external identifier for cross-referencing with external systems. Alphanumeric characters, hyphens, and underscores only.
-  -h, --help                     help for ingest
-  -i, --idempotency-key string   User-provided deduplication key. If not provided, a unique key is generated.
-  -n, --namespace string         Organization/merchant ID. Defaults to the authenticated user's organization. Platform users can specify a different organization.
-      --source string            Event source URI identifying the application. [required]
-      --subject string           Customer or entity ID this event relates to. [required]
-      --timestamp string         Event timestamp. Defaults to server time if not provided.
-      --type string              CloudEvents type. Must match an eventType configured on a BillableMetric. [required]
+  -h, --help             help for ingest
+      --request string   Request body as JSON [required]. Can also be provided via stdin.
 ```
 
 ### Options inherited from parent commands

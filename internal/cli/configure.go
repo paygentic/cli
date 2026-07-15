@@ -56,16 +56,14 @@ func runConfigureCmd(cmd *cobra.Command, args []string) error {
 	if cfg == nil {
 		cfg = &config.Config{}
 	}
+
+	keychainStored := false
 	if noInteractive, _ := cmd.Flags().GetBool("no-interactive"); noInteractive {
 		changed := false
 		if f := cmd.Flags().Lookup("bearer-auth"); f != nil && f.Changed {
 			v, _ := cmd.Flags().GetString("bearer-auth")
-			if config.KeyringAvailable() {
-				if err := config.SetKeyringValue("bearer-auth", v); err != nil {
-					cfg.Security.BearerAuth = v // keyring failed, store in config
-				}
-			} else {
-				cfg.Security.BearerAuth = v // no keyring, store in config
+			if config.StoreSecret("bearer-auth", v, &cfg.Security.BearerAuth) == nil {
+				keychainStored = true
 			}
 			changed = true
 		}
@@ -83,7 +81,7 @@ func runConfigureCmd(cmd *cobra.Command, args []string) error {
 				Title("API key authentication").
 				Description("--bearer-auth").
 				EchoMode(huh.EchoModePassword).
-				Placeholder(maskSecret(cfg.Security.BearerAuth)).
+				Placeholder(maskSecret(config.GetStoredSecret("bearer-auth", cfg.Security.BearerAuth))).
 				Value(&authBearerAuth),
 		}
 		groups = append(groups, huh.NewGroup(securityFields...).Title("Authentication"))
@@ -120,12 +118,8 @@ func runConfigureCmd(cmd *cobra.Command, args []string) error {
 			return fmt.Errorf("configure: %w", err)
 		}
 		if authBearerAuth != "" {
-			if config.KeyringAvailable() {
-				if err := config.SetKeyringValue("bearer-auth", authBearerAuth); err != nil {
-					cfg.Security.BearerAuth = authBearerAuth // keyring failed, store in config
-				}
-			} else {
-				cfg.Security.BearerAuth = authBearerAuth // no keyring, store in config
+			if config.StoreSecret("bearer-auth", authBearerAuth, &cfg.Security.BearerAuth) == nil {
+				keychainStored = true
 			}
 		}
 		if !accessible {
@@ -143,7 +137,7 @@ func runConfigureCmd(cmd *cobra.Command, args []string) error {
 	}
 
 	out := cmd.OutOrStdout()
-	if config.KeyringAvailable() {
+	if keychainStored {
 		fmt.Fprintln(out, "Secret credentials stored in OS keychain")
 	}
 	fmt.Fprintf(out, "Configuration saved to %s\n", config.GetConfigPath())
