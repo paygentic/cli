@@ -3,7 +3,7 @@
 
 package sdk
 
-// Generated from OpenAPI doc version 0.1.0 and generator version 2.879.13
+// Generated from OpenAPI doc version 0.1.0 and generator version 2.918.1
 
 import (
 	"context"
@@ -182,7 +182,7 @@ func New(opts ...SDKOption) *Paygentic {
 	sdk := &Paygentic{
 		SDKVersion: "0.0.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.0.1 2.879.13 0.1.0 github.com/paygentic/cli/internal/sdk",
+			UserAgent:  "speakeasy-sdk/go 0.0.1 2.918.1 0.1.0 github.com/paygentic/cli/internal/sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
