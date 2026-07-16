@@ -120,7 +120,7 @@ func (s *Sources) Create(ctx context.Context, request operations.CreateSourceReq
 
 		_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
-	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+	} else if utils.MatchStatusCodes([]string{"400", "403", "404", "4XX", "500", "5XX"}, httpRes.StatusCode) {
 		_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
@@ -345,7 +345,7 @@ func (s *Sources) List(ctx context.Context, request *operations.ListSourcesReque
 
 		_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
-	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+	} else if utils.MatchStatusCodes([]string{"403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
 		_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
@@ -539,7 +539,7 @@ func (s *Sources) Get(ctx context.Context, request operations.GetSourceRequest, 
 
 		_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
-	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+	} else if utils.MatchStatusCodes([]string{"403", "404", "4XX", "500", "5XX"}, httpRes.StatusCode) {
 		_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
@@ -742,7 +742,7 @@ func (s *Sources) Update(ctx context.Context, request operations.UpdateSourceReq
 
 		_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
-	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+	} else if utils.MatchStatusCodes([]string{"400", "403", "404", "4XX", "500", "5XX"}, httpRes.StatusCode) {
 		_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err

@@ -1,6 +1,6 @@
 module github.com/paygentic/cli
 
-go 1.25.10
+go 1.25
 
 require (
 	github.com/alpkeskin/gotoon v0.1.1
