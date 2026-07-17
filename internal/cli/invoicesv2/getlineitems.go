@@ -26,7 +26,7 @@ func initGetLineItemsCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "get-line-items",
 		Short:   "Get Line Items",
-		Long:    "Get paginated line items for an invoice from the analytics service",
+		Long:    "Get paginated line items for an invoice",
 		Example: "  paygentic invoices-v2 get-line-items --id <id>",
 		RunE:    runGetLineItemsCmd,
 		Aliases: []string{"gli"},
