@@ -4,7 +4,7 @@ Get Line Items
 
 ### Synopsis
 
-Get paginated line items for an invoice from the analytics service
+Get paginated line items for an invoice
 
 ```
 paygentic invoices-v2 get-line-items [flags]
