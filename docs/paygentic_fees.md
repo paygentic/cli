@@ -41,6 +41,5 @@ paygentic fees [flags]
 * [paygentic fees create](paygentic_fees_create.md)	 - Create
 * [paygentic fees delete](paygentic_fees_delete.md)	 - Delete
 * [paygentic fees get](paygentic_fees_get.md)	 - Get
-* [paygentic fees get-price](paygentic_fees_get-price.md)	 - Get Fee Price
 * [paygentic fees list](paygentic_fees_list.md)	 - List
 * [paygentic fees update](paygentic_fees_update.md)	 - Update

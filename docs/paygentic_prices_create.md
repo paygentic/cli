@@ -13,7 +13,7 @@ paygentic prices create [flags]
 ### Examples
 
 ```
-  paygentic prices create --invoice-display-name <value> --payment-term instant --properties '{"default":"<value>","parameters":{"function":"linear","gradient":"<value>","max":"<value>","min":"<value>"} }'
+  paygentic prices create --invoice-display-name <value> --payment-term in_arrears --properties '{"default":"<value>","parameters":{"function":"linear","gradient":"<value>","max":"<value>","min":"<value>"} }'
 ```
 
 ### Options
@@ -28,7 +28,7 @@ paygentic prices create [flags]
   -h, --help                          help for create
   -i, --invoice-display-name string   Line item label shown on customer invoices. Sample values: 'Claude Token Consumption', 'Storage Usage (GB)', 'Inference API Calls', 'Image Generation Count', 'Training Compute Hours', 'Data Transfer (TB)' [required]
   -m, --model string                  Pricing calculation model. Required for billable metrics, optional for fees (defaults to 'standard'). Only 'standard' is accepted; for percentage/revenue-share use 'standard' with a unit-price multiplier. Legacy prices using 'dynamic'/'volume'/'percentage' stay readable and billable but cannot be created. (options: standard)
-      --payment-term string           Billing timing preference. For billable metrics: 'instant' (charges immediately) or 'in_arrears' (charges at period end). For fees: 'in_advance' (charges upfront) or 'in_arrears' (charges at period end). (options: instant, in_arrears, in_advance) [required]
+      --payment-term string           Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance) [required]
       --pricing-unit-id string        Unique identifier for a pricing unit
       --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })
       --quantity int                  Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.

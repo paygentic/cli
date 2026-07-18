@@ -21,7 +21,7 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "pricing-unit-id", FieldPath: "PricingUnitID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a pricing unit"},
 	{FlagName: "model", Shorthand: "m", FieldPath: "Model", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"standard"}, Description: "Pricing calculation model. Required for billable metrics, optional for fees (defaults to 'standard'). Only 'standard' is accepted; for percentage/revenue-share use 'standard' with a unit-price multiplier. Legacy prices using 'dynamic'/'volume'/'percentage' stay readable and billable but cannot be created. (options: standard)"},
 	{FlagName: "invoice-display-name", Shorthand: "i", FieldPath: "InvoiceDisplayName", Kind: flagutil.FlagKindString, Required: true, Description: "Line item label shown on customer invoices. Sample values: 'Claude Token Consumption', 'Storage Usage (GB)', 'Inference API Calls', 'Image Generation Count', 'Training Compute Hours', 'Data Transfer (TB)' [required]"},
-	{FlagName: "payment-term", FieldPath: "PaymentTerm", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"instant", "in_arrears", "in_advance"}, Description: "Billing timing preference. For billable metrics: 'instant' (charges immediately) or 'in_arrears' (charges at period end). For fees: 'in_advance' (charges upfront) or 'in_arrears' (charges at period end). (options: instant, in_arrears, in_advance) [required]"},
+	{FlagName: "payment-term", FieldPath: "PaymentTerm", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"in_arrears", "in_advance"}, Description: "Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance) [required]"},
 	{FlagName: "billing-cadence", FieldPath: "BillingCadence", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingCadence,omitempty"`, Description: "ISO 8601 duration for recurring charges (e.g., 'P1M' for monthly, 'P1Y' for yearly) or 'P0D' for one-time charges. Required for fees, optional for billable metrics. Sample values: 'P0D' for one-time, 'P1M' for monthly recurring, 'P1Y' for yearly recurring"},
 	{FlagName: "properties", FieldPath: "Properties", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, TypeDescription: "JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })"}},
 	{FlagName: "feature", FieldPath: "Feature", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"feature,omitempty"`, Description: "JSON object"},
@@ -35,7 +35,7 @@ func initCreateCmd(parent *cobra.Command) error {
 		Use:     "create",
 		Short:   "Create",
 		Long:    "Create",
-		Example: "  paygentic prices create --invoice-display-name <value> --payment-term instant --properties '{\"default\":\"<value>\",\"parameters\":{\"function\":\"linear\",\"gradient\":\"<value>\",\"max\":\"<value>\",\"min\":\"<value>\"} }'",
+		Example: "  paygentic prices create --invoice-display-name <value> --payment-term in_arrears --properties '{\"default\":\"<value>\",\"parameters\":{\"function\":\"linear\",\"gradient\":\"<value>\",\"max\":\"<value>\",\"min\":\"<value>\"} }'",
 		RunE:    runCreateCmd,
 	}
 	flagutil.RegisterFlags(cmd, createCmdMeta)

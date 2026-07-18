@@ -235,7 +235,6 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`get`](docs/paygentic_fees_get.md) - Get
 * [`update`](docs/paygentic_fees_update.md) - Update
 * [`delete`](docs/paygentic_fees_delete.md) - Delete
-* [`get-price`](docs/paygentic_fees_get-price.md) - Get Fee Price
 
 ### [plans](docs/paygentic_plans.md)
 
