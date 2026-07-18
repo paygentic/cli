@@ -37,7 +37,6 @@ func (e *SchemasPriceObject) UnmarshalJSON(data []byte) error {
 type SchemasPricePaymentTerm string
 
 const (
-	SchemasPricePaymentTermInstant   SchemasPricePaymentTerm = "instant"
 	SchemasPricePaymentTermInArrears SchemasPricePaymentTerm = "in_arrears"
 	SchemasPricePaymentTermInAdvance SchemasPricePaymentTerm = "in_advance"
 )
@@ -50,7 +49,7 @@ func (e SchemasPricePaymentTerm) ToPointer() *SchemasPricePaymentTerm {
 func (e *SchemasPricePaymentTerm) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "instant", "in_arrears", "in_advance":
+		case "in_arrears", "in_advance":
 			return true
 		}
 	}

@@ -41,10 +41,6 @@ func InitFeesRoot(parent *cobra.Command) error {
 		return err
 	}
 
-	if err := initGetPriceCmd(FeesCmd); err != nil {
-		return err
-	}
-
 	parent.AddCommand(FeesCmd)
 	return nil
 }
