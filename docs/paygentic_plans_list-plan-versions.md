@@ -1,19 +1,28 @@
-## paygentic plans
+## paygentic plans list-plan-versions
 
-A `Plan` links a collection of `Prices` to a `Product`
+List versions
 
 ### Synopsis
 
-A `Plan` links a collection of `Prices` to a `Product`. It functions as a pricing structure document for a particular feature set or service offering.
+List the versions of a plan, newest first. Only accounts that can manage this plan may list its versions; versions can expose in-progress pricing, so read-only access is not sufficient.
 
 ```
-paygentic plans [flags]
+paygentic plans list-plan-versions [flags]
+```
+
+### Examples
+
+```
+  paygentic plans list-plan-versions --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for plans
+  -h, --help         help for list-plan-versions
+  -i, --id string    [required]
+  -l, --limit int    Maximum number of versions to return (default 10)
+      --offset int   Number of versions to skip
 ```
 
 ### Options inherited from parent commands
@@ -37,10 +46,4 @@ paygentic plans [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic plans create](paygentic_plans_create.md)	 - Create
-* [paygentic plans get](paygentic_plans_get.md)	 - Get
-* [paygentic plans list](paygentic_plans_list.md)	 - List
-* [paygentic plans list-available](paygentic_plans_list-available.md)	 - List Available Plans
-* [paygentic plans list-plan-versions](paygentic_plans_list-plan-versions.md)	 - List versions
-* [paygentic plans update](paygentic_plans_update.md)	 - Update
+* [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`

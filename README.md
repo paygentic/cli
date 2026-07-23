@@ -243,6 +243,7 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`list-available`](docs/paygentic_plans_list-available.md) - List Available Plans
 * [`get`](docs/paygentic_plans_get.md) - Get
 * [`update`](docs/paygentic_plans_update.md) - Update
+* [`list-plan-versions`](docs/paygentic_plans_list-plan-versions.md) - List versions
 
 ### [prices](docs/paygentic_prices.md)
 

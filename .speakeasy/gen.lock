@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 4022cd9b7eea2f64b4633ab908a4b7e5
+  docChecksum: bbea83d76e354505eff0a685ccda93f1
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.4.4
-  configChecksum: 4416cb0c2f2aa48218c009232bdc7f49
+  releaseVersion: 0.4.5
+  configChecksum: a9d6b9b94a83d0447e82de5bd8aa0f25
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 73a9a115-4ceb-4e03-88e3-99e716b7f8fe
-  pristine_commit_hash: 6c89beb63541151a1cda4ea85ff1232ac26a463e
-  pristine_tree_hash: ad370693999c2c41fb9dea95787a69deaf454657
+  generation_id: 2ae66c63-6584-43a1-9165-46669633fa28
+  pristine_commit_hash: 118edc5e944fd5f405e07774c385d52cf8c38d97
+  pristine_tree_hash: f58de08f90b561960bb23b6feb08195f685e1cf7
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -500,10 +500,14 @@ trackedFiles:
     id: 24c2951c033c
     last_write_checksum: sha1:b06ba61c7738f3e6d4bfd68f0bcd534141cf9486
     pristine_git_object: bbdf4c2149f4e1f07a048e2ce72b131507966f8a
+  internal/cli/plans/listplanversions.go:
+    id: 926c59eadf5a
+    last_write_checksum: sha1:5bfc9aa5fff63bc77e7f5ce49a63c7ca69ba5139
+    pristine_git_object: 385f16cbeae43b2a29e78c09d347227b684d9071
   internal/cli/plans/root.go:
     id: b8260e57de68
-    last_write_checksum: sha1:a7b8429e0f67a5558626267cff95a40643390bd2
-    pristine_git_object: 3c00d4bad76c9327e52b03c1eeb56dc4fa3ff23b
+    last_write_checksum: sha1:cb01437503eb5e61e158abf421e5e9390341c89e
+    pristine_git_object: 256c9290454a4ebeaefd6db47de0a0b013afe739
   internal/cli/plans/update.go:
     id: 2542fa77dc10
     last_write_checksum: sha1:17f30589e256e1bc34077a4e511fbc548ea1f7af
@@ -718,8 +722,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:51d16fe11cf2e796c933d02a16c9d8298b2132f2
-    pristine_git_object: 3068312cd4097300cfca8ebf89d66eca476d5ea8
+    last_write_checksum: sha1:34ee550d56dcb35c6a1427a32d39734ff7f7c00b
+    pristine_git_object: d7f8861e19191590b36028060a4f8b019b71691a
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -1098,12 +1102,16 @@ trackedFiles:
     pristine_git_object: 85c52aabd583d96f9967265d775321df54512941
   internal/sdk/models/components/plan.go:
     id: 26f6aee2a65b
-    last_write_checksum: sha1:f43a43ee69356a436447fe4221ef83146d032df8
-    pristine_git_object: 0e20066d29babcf330d60c3051b78813ad9444c7
+    last_write_checksum: sha1:59f3ae6340c5bc6e1abcac2950130d1b91ef801b
+    pristine_git_object: 51230e26608fa846ffe9f57ab89fa0edab417c00
   internal/sdk/models/components/plancreditallocation.go:
     id: ffabba2aa400
     last_write_checksum: sha1:7f209281e6659c99486136ecb82eef26e66da2df
     pristine_git_object: 83077098c05912e42f5c8326a8354b344619983a
+  internal/sdk/models/components/planversionsummary.go:
+    id: 09aa864c5349
+    last_write_checksum: sha1:a99cf7001ff4708211b43e83c12eacdd55c0afb6
+    pristine_git_object: bfbe9a29ca0eef4fcf6edcbfdc724881d1e7bc3f
   internal/sdk/models/components/price.go:
     id: 0d11f090b28e
     last_write_checksum: sha1:b3f6b1dc6a9fc08b24ebfbc9c427e616fc016bf1
@@ -1234,8 +1242,8 @@ trackedFiles:
     pristine_git_object: 88c9c8b3bdaab0630ca0b8811123f3c7fb4a708d
   internal/sdk/models/components/subscription.go:
     id: 052300e8a5d6
-    last_write_checksum: sha1:1a1cc640e58d584f24e0fc4d0cecb95ab9e90421
-    pristine_git_object: 4ed41d8b5f33cc52013412af5996e8e042a6856c
+    last_write_checksum: sha1:93d19176ec4e090e16374f3c3baceadd1635d582
+    pristine_git_object: 580e0936c58c505e538ad4790c12f99d495210e6
   internal/sdk/models/components/subscriptionmetadata.go:
     id: 782d7987fe8f
     last_write_checksum: sha1:d8fd848e66cd8f615122155eced315aa996a45fa
@@ -1672,6 +1680,10 @@ trackedFiles:
     id: 67f4319a64a8
     last_write_checksum: sha1:43e2501ac15eeb34bd9d05a758079ef5875d43fc
     pristine_git_object: dd012e41d5e847429fc2d991980c5cc91640d98e
+  internal/sdk/models/operations/listplanversions.go:
+    id: ee34d8c08365
+    last_write_checksum: sha1:3cf260685af9ed8a734bdfe2e24a4a876e304cf6
+    pristine_git_object: baf3807a2b146fb2a56bdf981871cb4b69aaaa92
   internal/sdk/models/operations/listprices.go:
     id: 20440279a2b9
     last_write_checksum: sha1:9c041d5774173b1180ae718a5a19b5b7ea5169c8
@@ -1870,8 +1882,8 @@ trackedFiles:
     pristine_git_object: 8fccd108893eb4392debe6b934709eca3244e14a
   internal/sdk/plans.go:
     id: 809941a72a78
-    last_write_checksum: sha1:8f8246cc0b2a1837e6d3c2af01abd2ede2f26ef7
-    pristine_git_object: be0bca92f5b3b8c7b5efa331e260d7045832e84b
+    last_write_checksum: sha1:618677e314c712ab3437795687c877b9bfdc77db
+    pristine_git_object: b1e7e61461eeaa5106cc5e30ab44f8cc0d3b3b05
   internal/sdk/prices.go:
     id: 0199a156dc8a
     last_write_checksum: sha1:40599aede7c79171bbaeb50f22d0b6ba5212b9f8
@@ -2002,8 +2014,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:d020f31b94ea274f79953e716557c58a59e63cfc
-    pristine_git_object: deb28f2e8b86f7017a92733a621b9de94241e8ba
+    last_write_checksum: sha1:686e7c83377f08f182809772bdc8198c8e02ab1a
+    pristine_git_object: 2f45311cb43351c04417294d6b9f71283815601d
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4194,5 +4206,34 @@ examples:
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
+  listPlanVersions:
+    speakeasy-default-list-plan-versions:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          limit: 10
+          offset: 0
+      responses:
+        "200":
+          application/json: {"object": "list", "data": [{"id": "<id>", "object": "plan_version", "versionNumber": 329936, "status": "draft", "isDefault": false, "subscriptionCount": 298928}], "pagination": {"limit": 293358, "offset": 432982, "total": 477530}}
+        "400":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "401":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "500":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Plans.Create()`:  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.List()`:  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.ListAvailable()`:  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.Get()`:  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.Update()`:  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.Prices.Create()`: \n  *  `request.Request.PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n  *  `response.PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n* `Paygentic.Prices.List()`:  `response.Data[].PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n* `Paygentic.Prices.Get()`:  `response.PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n* `Paygentic.Prices.Update()`: \n  *  `request.Request.Body.PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n  *  `response.PaymentTerm.Enum(instant)` **Removed** (Breaking ⚠️)\n* `Paygentic.Fees.GetPrice()`: **Removed** (Breaking ⚠️)\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.Plans.ListPlanVersions()`: **Added**
+  * `Paygentic.Plans.Create()`:  `response.DefaultVersionId` **Added**
+  * `Paygentic.Plans.List()`:  `response.Data[].DefaultVersionId` **Added**
+  * `Paygentic.Plans.ListAvailable()`:  `response.Data[].DefaultVersionId` **Added**
+  * `Paygentic.Plans.Get()`:  `response.DefaultVersionId` **Added**
+  * `Paygentic.Plans.Update()`:  `response.DefaultVersionId` **Added**
+  * `Paygentic.Subscriptions.List()`:  `response.Data[]` **Changed**
+  * `Paygentic.Subscriptions.Create()`:  `response` **Changed**
+  * `Paygentic.Subscriptions.Get()`:  `response` **Changed**
+  * `Paygentic.Subscriptions.UpdateSubscription()`:  `response` **Changed**
+  * `Paygentic.Subscriptions.Terminate()`:  `response` **Changed**
