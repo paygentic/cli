@@ -472,6 +472,32 @@ When multiple input methods are used, the priority is:
 | 3 (lowest) | Stdin | Piped JSON input |
 <!-- End Request Body Input [stdinpiping] -->
 
+### Defaulted flags and `--body`
+
+Some fields have a dedicated flag that carries a built-in default value. Because individual flags take priority over `--body` (see the priority table above), a defaulted flag contributes its default **even when you don't pass it explicitly** — silently overriding the same field in your `--body` JSON.
+
+This matters most on `create` commands driven from `--body` (e.g. scripting or agent usage). Known fields with a defaulting flag include:
+
+| Command | Flag | Default |
+|---------|------|---------|
+| `features create` | `--type` | `boolean` |
+| `plans create` | `--billing-version` | `1` |
+| `plans create` | `--default-tax-rate` | `0` |
+| `plans create` | `--default-tax-code` | `eservice` |
+| `plans create` | `--tax-behavior` | `exclusive` |
+| `plans create` | `--renewal-reminder-enabled` | `true` |
+| `plans create` | `--renewal-reminder-days` | `3` |
+
+**Workaround:** for any field that has a defaulting flag, set it via the flag and keep only default-free fields in `--body`.
+
+```bash
+# Overridden: the --type default (boolean) wins over the body, creating a boolean feature
+paygentic features create --body '{"key": "tokens", "type": "metered"}'
+
+# Correct: pass the defaulted field as a flag
+paygentic features create --type metered --body '{"key": "tokens"}'
+```
+
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
