@@ -45,6 +45,18 @@ func InitPlansRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initMintPlanVersionCmd(PlansCmd); err != nil {
+		return err
+	}
+
+	if err := initGetPlanVersionCmd(PlansCmd); err != nil {
+		return err
+	}
+
+	if err := initTransitionPlanVersionCmd(PlansCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(PlansCmd)
 	return nil
 }

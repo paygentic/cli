@@ -18,7 +18,7 @@ import (
 var getLineItemsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The invoice ID [required]"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 100, Description: "Maximum number of line items to return"},
-	{FlagName: "page-token", Shorthand: "p", FieldPath: "PageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Token for pagination to fetch the next page of results"},
+	{FlagName: "page-token", Shorthand: "p", FieldPath: "PageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Opaque pagination token to fetch the next page of results, taken from a previous response's nextPageToken. Do not construct or parse this value."},
 }
 
 // initGetLineItemsCmd initializes the get-line-items command.
