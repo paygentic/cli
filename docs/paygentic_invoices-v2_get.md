@@ -23,7 +23,7 @@ paygentic invoices-v2 get [flags]
   -h, --help                           help for get
   -i, --id string                      The invoice ID [required]
       --line-items-limit int           Page size for line items when expand=lineItems (default 100)
-      --line-items-page-token string   Pagination token for line items when expand=lineItems
+      --line-items-page-token string   Opaque pagination token for line items when expand=lineItems, taken from a previous response's nextPageToken. Do not construct or parse this value.
 ```
 
 ### Options inherited from parent commands

@@ -1,19 +1,27 @@
-## paygentic plans
+## paygentic plans get-plan-version
 
-A `Plan` links a collection of `Prices` to a `Product`
+Get a version
 
 ### Synopsis
 
-A `Plan` links a collection of `Prices` to a `Product`. It functions as a pricing structure document for a particular feature set or service offering.
+Get a single plan version, including its price slots. Only accounts that can manage this plan may read its versions; versions can expose in-progress pricing, so read-only access is not sufficient.
 
 ```
-paygentic plans [flags]
+paygentic plans get-plan-version [flags]
+```
+
+### Examples
+
+```
+  paygentic plans get-plan-version --id <id> --version-number 541574
 ```
 
 ### Options
 
 ```
-  -h, --help   help for plans
+  -h, --help                 help for get-plan-version
+  -i, --id string            [required]
+  -v, --version-number int   The version number within the plan (1-based). [required]
 ```
 
 ### Options inherited from parent commands
@@ -37,13 +45,4 @@ paygentic plans [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic plans create](paygentic_plans_create.md)	 - Create
-* [paygentic plans get](paygentic_plans_get.md)	 - Get
-* [paygentic plans get-plan-version](paygentic_plans_get-plan-version.md)	 - Get a version
-* [paygentic plans list](paygentic_plans_list.md)	 - List
-* [paygentic plans list-available](paygentic_plans_list-available.md)	 - List Available Plans
-* [paygentic plans list-plan-versions](paygentic_plans_list-plan-versions.md)	 - List versions
-* [paygentic plans mint-plan-version](paygentic_plans_mint-plan-version.md)	 - Mint a plan version
-* [paygentic plans transition-plan-version](paygentic_plans_transition-plan-version.md)	 - Set the default version
-* [paygentic plans update](paygentic_plans_update.md)	 - Update
+* [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`

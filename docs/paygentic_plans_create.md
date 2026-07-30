@@ -37,6 +37,7 @@ paygentic plans create [flags]
       --product-id string             Unique identifier for a product [required]
       --renewal-reminder-days int     Number of days before renewal to send the reminder email (default 3)
       --renewal-reminder-enabled      Whether to send renewal reminder emails to customers before their subscription renews (default true)
+  -s, --stable-price-ids              Governs price identity when a price on this plan's default version is replaced. When true (default), replacing a price at make-default keeps the original price id live (its value changes) and the superseded value is preserved under a new id. When false, the replacement price's id goes live instead and the superseded value stays under the original id. (default true)
   -t, --tax-behavior string           Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive) (default "exclusive")
 ```
 

@@ -1,19 +1,30 @@
-## paygentic plans
+## paygentic plans mint-plan-version
 
-A `Plan` links a collection of `Prices` to a `Product`
+Mint a plan version
 
 ### Synopsis
 
-A `Plan` links a collection of `Prices` to a `Product`. It functions as a pricing structure document for a particular feature set or service offering.
+Mint a new plan version from a price diff and make it the version the plan bills from, in one step. The diff references existing prices by id: create prices beforehand with POST /prices, then add, remove, or replace them here. To return to an earlier price set, make that version the default with a PATCH on the version.
 
 ```
-paygentic plans [flags]
+paygentic plans mint-plan-version [flags]
+```
+
+### Examples
+
+```
+  paygentic plans mint-plan-version --id <id>
 ```
 
 ### Options
 
 ```
-  -h, --help   help for plans
+  -a, --add-prices stringArray      Prices to add to the version. Each must not already be on the plan's current version.
+      --body string                 Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -h, --help                        help for mint-plan-version
+  -i, --id string                   [required]
+      --remove-prices stringArray   Prices to remove. Each must be on the plan's current version.
+      --replace-prices string       Prices to swap in place, preserving the slot's lineage so the price keeps its identity where the plan is configured for stable price ids. replacesPriceId must be on the plan's current version; withPriceId is the new price.
 ```
 
 ### Options inherited from parent commands
@@ -37,13 +48,4 @@ paygentic plans [flags]
 
 ### SEE ALSO
 
-* [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
-* [paygentic plans create](paygentic_plans_create.md)	 - Create
-* [paygentic plans get](paygentic_plans_get.md)	 - Get
-* [paygentic plans get-plan-version](paygentic_plans_get-plan-version.md)	 - Get a version
-* [paygentic plans list](paygentic_plans_list.md)	 - List
-* [paygentic plans list-available](paygentic_plans_list-available.md)	 - List Available Plans
-* [paygentic plans list-plan-versions](paygentic_plans_list-plan-versions.md)	 - List versions
-* [paygentic plans mint-plan-version](paygentic_plans_mint-plan-version.md)	 - Mint a plan version
-* [paygentic plans transition-plan-version](paygentic_plans_transition-plan-version.md)	 - Set the default version
-* [paygentic plans update](paygentic_plans_update.md)	 - Update
+* [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`

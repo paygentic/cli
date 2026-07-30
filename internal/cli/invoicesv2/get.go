@@ -19,7 +19,7 @@ var getCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The invoice ID [required]"},
 	{FlagName: "expand", Shorthand: "e", FieldPath: "Expand", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated list of fields to expand. Currently supports: lineItems"},
 	{FlagName: "line-items-limit", FieldPath: "LineItemsLimit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 100, Description: "Page size for line items when expand=lineItems"},
-	{FlagName: "line-items-page-token", FieldPath: "LineItemsPageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Pagination token for line items when expand=lineItems"},
+	{FlagName: "line-items-page-token", FieldPath: "LineItemsPageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Opaque pagination token for line items when expand=lineItems, taken from a previous response's nextPageToken. Do not construct or parse this value."},
 }
 
 // initGetCmd initializes the get command.

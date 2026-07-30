@@ -22,7 +22,7 @@ paygentic invoices-v2 get-line-items [flags]
   -h, --help                help for get-line-items
   -i, --id string           The invoice ID [required]
   -l, --limit int           Maximum number of line items to return (default 100)
-  -p, --page-token string   Token for pagination to fetch the next page of results
+  -p, --page-token string   Opaque pagination token to fetch the next page of results, taken from a previous response's nextPageToken. Do not construct or parse this value.
 ```
 
 ### Options inherited from parent commands

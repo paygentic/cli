@@ -244,6 +244,9 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`get`](docs/paygentic_plans_get.md) - Get
 * [`update`](docs/paygentic_plans_update.md) - Update
 * [`list-plan-versions`](docs/paygentic_plans_list-plan-versions.md) - List versions
+* [`mint-plan-version`](docs/paygentic_plans_mint-plan-version.md) - Mint a plan version
+* [`get-plan-version`](docs/paygentic_plans_get-plan-version.md) - Get a version
+* [`transition-plan-version`](docs/paygentic_plans_transition-plan-version.md) - Set the default version
 
 ### [prices](docs/paygentic_prices.md)
 

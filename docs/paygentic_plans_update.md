@@ -34,6 +34,7 @@ paygentic plans update [flags]
   -p, --prices stringArray            Array of price IDs to associate with this plan
       --renewal-reminder-days int     Number of days before renewal to send the reminder email
       --renewal-reminder-enabled      Whether to send renewal reminder emails to customers before their subscription renews
+  -s, --stable-price-ids              Governs price identity when a price is replaced by minting a new plan version and making it default. When true (default), replacing a price at make-default keeps the original price id live (its value changes) and the superseded value is preserved under a new id. When false, the replacement price's id goes live instead and the superseded value stays under the original id. Has no effect on this request's own prices field: prices carried over keep their ids, but swapping one price for another there moves the plan to the new price's id rather than keeping the original live.
   -t, --tax-behavior string           Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive)
 ```
 
