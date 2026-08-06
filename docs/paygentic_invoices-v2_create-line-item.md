@@ -26,6 +26,7 @@ paygentic invoices-v2 create-line-item [flags]
       --body-param.idempotency-key string   Optional caller-provided idempotency key. Auto-generated if not provided.
       --body-param.invoice-at string        When to collect this item into an invoice. Defaults to now. Ignored when invoiceId is provided.
       --body-param.invoice-id string        The invoice ID to attach this item directly to. Exactly one of subscriptionId or invoiceId must be provided. The invoice must be in ACTIVE or CLOSING state.
+      --body-param.item-id string           Optional item to tag this line with, for accounting/GL mapping. Must belong to the caller's merchant and must not be archived. A manual line has no price, so it is never reached by a later restamp — supplying it here is the only opportunity to tag it.
       --body-param.period-end string        End of the billing period for display purposes. Defaults to now.
       --body-param.period-start string      Start of the billing period for display purposes. Defaults to now.
       --body-param.quantity float           Number of units. [required]

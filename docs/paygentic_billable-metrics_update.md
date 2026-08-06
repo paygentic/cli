@@ -25,7 +25,8 @@ paygentic billable-metrics update [flags]
       --event-type string    CloudEvents type for meter routing.
   -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
   -h, --help                 help for update
-  -i, --id string            [required]
+      --id string            [required]
+      --item-id productId    Optional item tag, used to map this metric's invoice lines to an external accounting/tax identity. Send a new id to re-tag — productId is re-derived from that item's catalog, and an archived item is rejected. Send `null` to untag.
   -n, --name string          Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'
   -u, --unit string          Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'
   -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`).

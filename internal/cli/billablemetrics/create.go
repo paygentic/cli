@@ -20,7 +20,8 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "description", FieldPath: "Description", Kind: flagutil.FlagKindString, Required: true, Description: "Explanatory text describing what the metric tracks and how it's used for billing. Sample values: 'Total tokens consumed by Claude language model interactions', 'Gigabytes of cloud storage utilized', 'Count of machine learning inference requests processed', 'Quantity of AI-generated images created', 'Compute hours spent training neural networks', 'Terabytes of data transferred' [required]"},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for an organization [required]"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Name", Kind: flagutil.FlagKindString, Required: true, Description: "Human-readable label identifying what this metric measures. Sample values: 'Claude Tokens', 'Storage Capacity', 'Model Inference Calls', 'Generated Images', 'Training Compute Hours', 'Data Transfer Volume' [required]"},
-	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for a product [required]"},
+	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a product"},
+	{FlagName: "item-id", Shorthand: "i", FieldPath: "ItemID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for an item"},
 	{FlagName: "unit", Shorthand: "u", FieldPath: "Unit", Kind: flagutil.FlagKindString, Required: true, Description: "Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]"},
 	{FlagName: "event-type", FieldPath: "EventType", Kind: flagutil.FlagKindString, Optional: true, Description: "CloudEvents type for meter routing. Links this billable metric to the metering service."},
 	{FlagName: "value-property", Shorthand: "v", FieldPath: "ValueProperty", Kind: flagutil.FlagKindString, Optional: true, Description: "JSONPath to extract a numeric value from event data. Must start with `$.` (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations."},
@@ -34,7 +35,7 @@ func initCreateCmd(parent *cobra.Command) error {
 		Use:     "create",
 		Short:   "Create",
 		Long:    "Create a new billable metric for a merchant organization. A `Billable Metric` represents a metric that can be used to measure the usage of a `Product`. It contains information about the metric, such as its name, description, and units.",
-		Example: "  paygentic billable-metrics create --aggregation SUM --description Tracks total tokens consumed per API call. --merchant-id org_YS8jkP59V71TdUvj --name Token Counter --product-id prod_abc123",
+		Example: "  paygentic billable-metrics create --aggregation SUM --description Tracks total tokens consumed per API call. --merchant-id org_YS8jkP59V71TdUvj --name Token Counter --unit tokens",
 		RunE:    runCreateCmd,
 	}
 	flagutil.RegisterFlags(cmd, createCmdMeta)

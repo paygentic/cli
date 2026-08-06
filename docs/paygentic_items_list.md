@@ -19,8 +19,10 @@ paygentic items list [flags]
 ### Options
 
 ```
+  -c, --catalog-id string                    Filter items by the product they are filed under
   -e, --external-id (provider, externalId)   Resolve every live Item mapped to this (provider, externalId) — the canonical primary plus any non-primary aliases. The primary Item is returned first and is identifiable by its matching reference's `isPrimary: true`. Empty list on no match. Must be supplied together with `provider`.
   -h, --help                                 help for list
+  -i, --include-archived provider            Include archived items in the results. By default, archived items are omitted. This is ignored when resolving by provider and `externalId`, which always returns the matching item regardless of archived status.
   -l, --limit provider                       Maximum items to return. In resolution mode (provider+`externalId` supplied) pagination is over the de-duplicated resolved Item set, primary Item first. (default 50)
   -m, --merchant-id string                   Filter items by merchant organization id
       --offset int                           Zero-based offset for pagination. In resolution mode this paginates the de-duplicated resolved Item set.

@@ -17,9 +17,10 @@ import (
 
 var getCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The invoice ID [required]"},
-	{FlagName: "expand", Shorthand: "e", FieldPath: "Expand", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated list of fields to expand. Currently supports: lineItems"},
+	{FlagName: "expand", Shorthand: "e", FieldPath: "Expand", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated list of fields to expand. Supports: lineItems, items. `items` resolves each returned line's item and its external accounting codes into an `items` collection inside the lineItems block; because those ids come from the lines, requesting `items` also expands `lineItems` on its default paging."},
 	{FlagName: "line-items-limit", FieldPath: "LineItemsLimit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 100, Description: "Page size for line items when expand=lineItems"},
 	{FlagName: "line-items-page-token", FieldPath: "LineItemsPageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Opaque pagination token for line items when expand=lineItems, taken from a previous response's nextPageToken. Do not construct or parse this value."},
+	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindString, Optional: true, Description: "Narrows which external references are returned per item when expand=items. Matched exactly against the provider stored on the reference (e.g. accountsiq); there is no allowlist of known providers, but the value must satisfy the same format every stored provider does, so a malformed one is rejected rather than answered with an empty result that reads as \"nothing is mapped\". It never removes lines or items: an item with no reference for this provider comes back with an empty list, so unmapped SKUs stay visible. Ignored when the items expansion is not requested."},
 }
 
 // initGetCmd initializes the get command.

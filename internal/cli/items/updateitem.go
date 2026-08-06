@@ -18,6 +18,8 @@ import (
 var updateItemCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the item [required]"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Body.Name", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
+	{FlagName: "catalog-id", Shorthand: "c", FieldPath: "Body.CatalogID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"catalogId,omitempty"`, Description: "The product this item belongs to."},
+	{FlagName: "archived", Shorthand: "a", FieldPath: "Body.Archived", Kind: flagutil.FlagKindBool, Optional: true, Description: "Set to true to retire this item from your catalog, or false to restore it. Archived items remain readable and continue to resolve on historical invoices."},
 	{FlagName: "metadata", Shorthand: "m", FieldPath: "Body.Metadata", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"metadata,omitempty"`, Description: "value"},
 }
 

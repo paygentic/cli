@@ -13,7 +13,7 @@ paygentic fees create [flags]
 ### Examples
 
 ```
-  paygentic fees create --name <value> --description obnoxiously boldly that fort as minus bob adventurously --merchant-id <id> --product-id <id>
+  paygentic fees create --name <value> --description obnoxiously boldly that fort as minus bob adventurously --merchant-id <id>
 ```
 
 ### Options
@@ -22,9 +22,10 @@ paygentic fees create [flags]
       --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --description string   Explanatory text describing what the fee represents. Sample values: 'One-time setup fee for new customers', 'Monthly base subscription charge', 'Yearly compliance and security update fee' [required]
   -h, --help                 help for create
+  -i, --item-id string       Unique identifier for an item
   -m, --merchant-id string   Unique identifier for an organization [required]
   -n, --name string          Human-readable label identifying the fee. Sample values: 'Setup Fee', 'Monthly Subscription', 'Compliance Update', 'Annual License' [required]
-  -p, --product-id string    Unique identifier for a product [required]
+  -p, --product-id string    Unique identifier for a product
 ```
 
 ### Options inherited from parent commands

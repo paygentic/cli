@@ -19,7 +19,8 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "name", Shorthand: "n", FieldPath: "Name", Kind: flagutil.FlagKindString, Required: true, Description: "Human-readable label identifying the fee. Sample values: 'Setup Fee', 'Monthly Subscription', 'Compliance Update', 'Annual License' [required]"},
 	{FlagName: "description", FieldPath: "Description", Kind: flagutil.FlagKindString, Required: true, Description: "Explanatory text describing what the fee represents. Sample values: 'One-time setup fee for new customers', 'Monthly base subscription charge', 'Yearly compliance and security update fee' [required]"},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for an organization [required]"},
-	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for a product [required]"},
+	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a product"},
+	{FlagName: "item-id", Shorthand: "i", FieldPath: "ItemID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for an item"},
 }
 
 // initCreateCmd initializes the create command.
@@ -28,7 +29,7 @@ func initCreateCmd(parent *cobra.Command) error {
 		Use:     "create",
 		Short:   "Create",
 		Long:    "Create a new fee for a merchant organization. A `Fee` represents a charge that can be applied to subscriptions. Cadence is defined when creating a Price for the fee.",
-		Example: "  paygentic fees create --name <value> --description obnoxiously boldly that fort as minus bob adventurously --merchant-id <id> --product-id <id>",
+		Example: "  paygentic fees create --name <value> --description obnoxiously boldly that fort as minus bob adventurously --merchant-id <id>",
 		RunE:    runCreateCmd,
 	}
 	flagutil.RegisterFlags(cmd, createCmdMeta)

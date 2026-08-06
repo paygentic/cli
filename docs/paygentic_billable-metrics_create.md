@@ -13,7 +13,7 @@ paygentic billable-metrics create [flags]
 ### Examples
 
 ```
-  paygentic billable-metrics create --aggregation SUM --description Tracks total tokens consumed per API call. --merchant-id org_YS8jkP59V71TdUvj --name Token Counter --product-id prod_abc123
+  paygentic billable-metrics create --aggregation SUM --description Tracks total tokens consumed per API call. --merchant-id org_YS8jkP59V71TdUvj --name Token Counter --unit tokens
 ```
 
 ### Options
@@ -26,9 +26,10 @@ paygentic billable-metrics create [flags]
       --event-type string    CloudEvents type for meter routing. Links this billable metric to the metering service.
   -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
   -h, --help                 help for create
+  -i, --item-id string       Unique identifier for an item
   -m, --merchant-id string   Unique identifier for an organization [required]
   -n, --name string          Human-readable label identifying what this metric measures. Sample values: 'Claude Tokens', 'Storage Capacity', 'Model Inference Calls', 'Generated Images', 'Training Compute Hours', 'Data Transfer Volume' [required]
-  -p, --product-id string    Unique identifier for a product [required]
+  -p, --product-id string    Unique identifier for a product
   -u, --unit string          Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]
   -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations.
 ```

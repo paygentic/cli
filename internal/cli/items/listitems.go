@@ -17,10 +17,12 @@ import (
 
 var listItemsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter items by merchant organization id"},
+	{FlagName: "catalog-id", Shorthand: "c", FieldPath: "CatalogID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter items by the product they are filed under"},
 	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindString, Optional: true, Description: "Provider whose external code to resolve (e.g. `salesforce`, `netsuite`). Must be supplied together with `externalId`."},
 	{FlagName: "external-id", Shorthand: "e", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Resolve every live Item mapped to this `(provider, externalId)` — the canonical primary plus any non-primary aliases. The primary Item is returned first and is identifiable by its matching reference's `isPrimary: true`. Empty list on no match. Must be supplied together with `provider`."},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 50, Description: "Maximum items to return. In resolution mode (`provider`+`externalId` supplied) pagination is over the de-duplicated resolved Item set, primary Item first."},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Zero-based offset for pagination. In resolution mode this paginates the de-duplicated resolved Item set."},
+	{FlagName: "include-archived", Shorthand: "i", FieldPath: "IncludeArchived", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "Include archived items in the results. By default, archived items are omitted. This is ignored when resolving by `provider` and `externalId`, which always returns the matching item regardless of archived status."},
 }
 
 // initListItemsCmd initializes the list-items command.

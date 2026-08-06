@@ -18,6 +18,7 @@ import (
 var createItemCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Name", Kind: flagutil.FlagKindString, Required: true, Description: "Canonical sellable name for the Item [required]"},
+	{FlagName: "catalog-id", Shorthand: "c", FieldPath: "CatalogID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a product"},
 	{FlagName: "metadata", FieldPath: "Metadata", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"metadata,omitempty"`, Description: "Optional key-value metadata"},
 }
 

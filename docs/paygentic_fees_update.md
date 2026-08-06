@@ -22,7 +22,8 @@ paygentic fees update [flags]
       --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --description string   Revised explanation of what the fee represents.
   -h, --help                 help for update
-  -i, --id string            The unique identifier of the fee [required]
+      --id string            The unique identifier of the fee [required]
+      --item-id productId    Optional item tag, used to map this fee's invoice lines to an external accounting/tax identity. Send a new id to re-tag — productId is re-derived from that item's catalog, and an archived item is rejected. Send `null` to untag.
   -n, --name string          Updated label for the fee.
 ```
 
