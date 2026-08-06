@@ -16,10 +16,11 @@ import (
 )
 
 var updateCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
+	{FlagName: "id", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
 	{FlagName: "description", FieldPath: "Body.Description", Kind: flagutil.FlagKindString, Optional: true, Description: "Revised explanation of what the metric represents. Sample values: 'Language model token consumption', 'Database storage capacity used', 'Machine learning prediction API calls', 'AI-generated content items'"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Body.Name", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'"},
 	{FlagName: "unit", Shorthand: "u", FieldPath: "Body.Unit", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'"},
+	{FlagName: "item-id", FieldPath: "Body.ItemID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"itemId,omitempty"`, Description: "Optional item tag, used to map this metric's invoice lines to an external accounting/tax identity. Send a new id to re-tag — `productId` is re-derived from that item's catalog, and an archived item is rejected. Send `null` to untag."},
 	{FlagName: "event-type", FieldPath: "Body.EventType", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"eventType,omitempty"`, Description: "CloudEvents type for meter routing."},
 	{FlagName: "value-property", Shorthand: "v", FieldPath: "Body.ValueProperty", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"valueProperty,omitempty"`, Description: "JSONPath to extract a numeric value from event data. Must start with `$.` (example: `$.amount` or `$.payload.bytes`)."},
 	{FlagName: "group-by", Shorthand: "g", FieldPath: "Body.GroupBy", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"groupBy,omitempty"`, Description: "Map of dimension name to JSONPath for group-by queries. Each value must start with `$.` (example: `$.region`)."},

@@ -6,6 +6,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 )
 
 // LineItemsResponseObject - The object type
@@ -37,9 +38,22 @@ type LineItemsResponse struct {
 	Object LineItemsResponseObject `json:"object"`
 	// Array of line items
 	Data []LineItem `json:"data"`
+	// Items the returned lines were tagged with, each appearing once, ordered by id. Only present when expand=items is requested. Scoped to the lines in THIS response, not to any invoice as a whole — combine the collections across pages for a complete set. Join a line to its entry via the line's itemId. A line whose itemId has no entry here is a data-integrity fault — the tag points at an item that no longer resolves for this merchant. It is not the same as an untagged line and must not be counted as unmapped; report it.
+	Items []ResolvedItem `json:"items,omitzero"`
 	// Total number of matching line items
 	TotalCount int64            `json:"totalCount"`
 	Summary    LineItemsSummary `json:"summary"`
+}
+
+func (l LineItemsResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LineItemsResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (l *LineItemsResponse) GetObject() LineItemsResponseObject {
@@ -54,6 +68,13 @@ func (l *LineItemsResponse) GetData() []LineItem {
 		return []LineItem{}
 	}
 	return l.Data
+}
+
+func (l *LineItemsResponse) GetItems() []ResolvedItem {
+	if l == nil {
+		return nil
+	}
+	return l.Items
 }
 
 func (l *LineItemsResponse) GetTotalCount() int64 {

@@ -28,6 +28,7 @@ var createLineItemCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "body-param.period-start", FieldPath: "Body.PeriodStart", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"periodStart,omitempty"`, Description: "Start of the billing period for display purposes. Defaults to now."},
 	{FlagName: "body-param.period-end", FieldPath: "Body.PeriodEnd", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"periodEnd,omitempty"`, Description: "End of the billing period for display purposes. Defaults to now."},
 	{FlagName: "body-param.idempotency-key", FieldPath: "Body.IdempotencyKey", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"idempotencyKey,omitempty"`, Description: "Optional caller-provided idempotency key. Auto-generated if not provided."},
+	{FlagName: "body-param.item-id", FieldPath: "Body.ItemID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"itemId,omitempty"`, Description: "Optional item to tag this line with, for accounting/GL mapping. Must belong to the caller's merchant and must not be archived. A manual line has no price, so it is never reached by a later restamp — supplying it here is the only opportunity to tag it."},
 }
 
 // initCreateLineItemCmd initializes the create-line-item command.

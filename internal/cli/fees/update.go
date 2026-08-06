@@ -16,9 +16,10 @@ import (
 )
 
 var updateCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the fee [required]"},
+	{FlagName: "id", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the fee [required]"},
 	{FlagName: "description", FieldPath: "Body.Description", Kind: flagutil.FlagKindString, Optional: true, Description: "Revised explanation of what the fee represents."},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Body.Name", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated label for the fee."},
+	{FlagName: "item-id", FieldPath: "Body.ItemID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"itemId,omitempty"`, Description: "Optional item tag, used to map this fee's invoice lines to an external accounting/tax identity. Send a new id to re-tag — `productId` is re-derived from that item's catalog, and an archived item is rejected. Send `null` to untag."},
 }
 
 // initUpdateCmd initializes the update command.

@@ -18,7 +18,9 @@ import (
 var getLineItemsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The invoice ID [required]"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 100, Description: "Maximum number of line items to return"},
-	{FlagName: "page-token", Shorthand: "p", FieldPath: "PageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Opaque pagination token to fetch the next page of results, taken from a previous response's nextPageToken. Do not construct or parse this value."},
+	{FlagName: "page-token", FieldPath: "PageToken", Kind: flagutil.FlagKindString, Optional: true, Description: "Opaque pagination token to fetch the next page of results, taken from a previous response's nextPageToken. Do not construct or parse this value."},
+	{FlagName: "expand", Shorthand: "e", FieldPath: "Expand", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated list of fields to expand. Supports: items — resolves each returned line's item and that item's external accounting codes into an `items` collection, so a line can be translated to a GL/SKU code without a second call."},
+	{FlagName: "provider", FieldPath: "Provider", Kind: flagutil.FlagKindString, Optional: true, Description: "Narrows which external references are returned per item when expand=items. Matched exactly against the provider stored on the reference (e.g. accountsiq); there is no allowlist of known providers, but the value must satisfy the same format every stored provider does, so a malformed one is rejected rather than answered with an empty result that reads as \"nothing is mapped\". It never removes lines or items: an item with no reference for this provider comes back with an empty list, so unmapped SKUs stay visible. Ignored when the items expansion is not requested."},
 }
 
 // initGetLineItemsCmd initializes the get-line-items command.
