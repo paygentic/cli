@@ -37,10 +37,6 @@ func InitItemsRoot(parent *cobra.Command) error {
 		return err
 	}
 
-	if err := initDeleteItemCmd(ItemsCmd); err != nil {
-		return err
-	}
-
 	parent.AddCommand(ItemsCmd)
 	return nil
 }

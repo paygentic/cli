@@ -17,6 +17,7 @@ import (
 
 var listCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "billable-metric-id", Shorthand: "b", FieldPath: "BillableMetricID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter prices by billable metric ID"},
+	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter prices by merchant organization ID. Matches prices reached via either a billable metric or a fee belonging to that merchant. Unlike the unfiltered listing, this includes prices whose billable metric or fee has been deleted — deleting a parent does not delete its prices, and they can still bill. Returns 404 if the merchant does not exist."},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Number of prices to return"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of prices to skip"},
 }
