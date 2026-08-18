@@ -18,7 +18,7 @@ import (
 
 var createBillingScheduleCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "order-id", FieldPath: "OrderID", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
-	{FlagName: "subscription-id", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
+	{FlagName: "subscription-id", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "Not supported for creating a billing schedule. Use orderId — every billing schedule belongs to an order."},
 	{FlagName: "start-date", FieldPath: "StartDate", Kind: flagutil.FlagKindDateTime, Required: true, Description: "[required]"},
 	{FlagName: "end-date", Shorthand: "e", FieldPath: "EndDate", Kind: flagutil.FlagKindDateTime, Required: true, Description: "[required]"},
 	{FlagName: "billing-anchor", Shorthand: "b", FieldPath: "BillingAnchor", Kind: flagutil.FlagKindDateTime, Required: true, Description: "[required]"},

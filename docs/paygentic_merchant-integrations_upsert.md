@@ -25,7 +25,7 @@ paygentic merchant-integrations upsert [flags]
   -h, --help                  help for upsert
       --merchant-id string    Unique identifier for an organization [required]
       --metadata string       value
-  -p, --provider string       External provider a merchant can connect at the tenant level (options: salesforce) [required]
+  -p, --provider netsuite     External provider a merchant can connect at the tenant level. netsuite and `accountsiq` are returned on reads wherever a connection exists, but connecting them is accepted only in local and development environments; elsewhere the connect request is refused with 404. (options: salesforce, netsuite, accountsiq) [required]
   -s, --status string         Connection lifecycle state. Live Ampersand health is separate and not stored here. (options: active, disconnected, error)
 ```
 

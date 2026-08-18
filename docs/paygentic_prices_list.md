@@ -22,6 +22,7 @@ paygentic prices list [flags]
   -b, --billable-metric-id string   Filter prices by billable metric ID
   -h, --help                        help for list
   -l, --limit int                   Number of prices to return (default 10)
+  -m, --merchant-id string          Filter prices by merchant organization ID. Matches prices reached via either a billable metric or a fee belonging to that merchant. Unlike the unfiltered listing, this includes prices whose billable metric or fee has been deleted — deleting a parent does not delete its prices, and they can still bill. Returns 404 if the merchant does not exist.
       --offset int                  Number of prices to skip
 ```
 

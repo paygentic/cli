@@ -19,6 +19,7 @@ var listCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Number of billable metrics to return."},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "Filter billable metrics by merchant organization ID. [required]"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of billable metrics to skip."},
+	{FlagName: "item-id", Shorthand: "i", FieldPath: "ItemID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter to the charges tagged with this item. Lets a surface that needs only one item's charges read exactly those, rather than reading the whole product's and filtering — which makes its completeness a function of how large the product is."},
 	{FlagName: "product-id", Shorthand: "p", FieldPath: "ProductID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter billable metrics by product ID."},
 }
 

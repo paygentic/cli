@@ -19,7 +19,7 @@ var updateItemCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the item [required]"},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Body.Name", Kind: flagutil.FlagKindString, Optional: true, Description: "string value"},
 	{FlagName: "catalog-id", Shorthand: "c", FieldPath: "Body.CatalogID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"catalogId,omitempty"`, Description: "The product this item belongs to."},
-	{FlagName: "archived", Shorthand: "a", FieldPath: "Body.Archived", Kind: flagutil.FlagKindBool, Optional: true, Description: "Set to true to retire this item from your catalog, or false to restore it. Archived items remain readable and continue to resolve on historical invoices."},
+	{FlagName: "archived", Shorthand: "a", FieldPath: "Body.Archived", Kind: flagutil.FlagKindBool, Optional: true, Description: "Set to true to retire this item from your catalog, or false to restore it. Archived items remain readable and continue to resolve on historical invoices. Archiving also releases this item's claim on its external codes: any reference it holds as primary becomes non-primary, freeing that (provider, externalId) for a replacement item while the reference stays attached so this item's own invoice lines keep resolving it. Restoring the item does not reclaim primary status. Archiving is rejected while live billableMetrics or fees are anchored to the item — re-tag or retire those charges first."},
 	{FlagName: "metadata", Shorthand: "m", FieldPath: "Body.Metadata", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"metadata,omitempty"`, Description: "value"},
 }
 

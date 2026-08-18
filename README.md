@@ -308,6 +308,7 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`create-line-item`](docs/paygentic_invoices-v2_create-line-item.md) - Create Manual Line Item
 * [`get`](docs/paygentic_invoices-v2_get.md) - Get
 * [`get-line-items`](docs/paygentic_invoices-v2_get-line-items.md) - Get Line Items
+* [`download-invoice-pdf`](docs/paygentic_invoices-v2_download-invoice-pdf.md) - Download Invoice PDF
 * [`create-invoice-refund`](docs/paygentic_invoices-v2_create-invoice-refund.md) - Refund Invoice
 * [`list-invoice-refunds`](docs/paygentic_invoices-v2_list-invoice-refunds.md) - List Invoice Refunds
 * [`void-invoice-refund`](docs/paygentic_invoices-v2_void-invoice-refund.md) - Void Invoice Refund
@@ -366,7 +367,6 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`list`](docs/paygentic_items_list.md) - List
 * [`get`](docs/paygentic_items_get.md) - Get
 * [`update`](docs/paygentic_items_update.md) - Update
-* [`delete`](docs/paygentic_items_delete.md) - Delete
 
 ### [orders](docs/paygentic_orders.md)
 

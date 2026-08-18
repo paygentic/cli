@@ -40,6 +40,7 @@ paygentic invoices-v2 [flags]
 * [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
 * [paygentic invoices-v2 create-invoice-refund](paygentic_invoices-v2_create-invoice-refund.md)	 - Refund Invoice
 * [paygentic invoices-v2 create-line-item](paygentic_invoices-v2_create-line-item.md)	 - Create Manual Line Item
+* [paygentic invoices-v2 download-invoice-pdf](paygentic_invoices-v2_download-invoice-pdf.md)	 - Download Invoice PDF
 * [paygentic invoices-v2 get](paygentic_invoices-v2_get.md)	 - Get
 * [paygentic invoices-v2 get-line-items](paygentic_invoices-v2_get-line-items.md)	 - Get Line Items
 * [paygentic invoices-v2 list](paygentic_invoices-v2_list.md)	 - List

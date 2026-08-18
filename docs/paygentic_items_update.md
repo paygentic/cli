@@ -19,7 +19,7 @@ paygentic items update [flags]
 ### Options
 
 ```
-  -a, --archived            Set to true to retire this item from your catalog, or false to restore it. Archived items remain readable and continue to resolve on historical invoices.
+  -a, --archived            Set to true to retire this item from your catalog, or false to restore it. Archived items remain readable and continue to resolve on historical invoices. Archiving also releases this item's claim on its external codes: any reference it holds as primary becomes non-primary, freeing that (provider, externalId) for a replacement item while the reference stays attached so this item's own invoice lines keep resolving it. Restoring the item does not reclaim primary status. Archiving is rejected while live billableMetrics or fees are anchored to the item — re-tag or retire those charges first.
       --body string         Request body as JSON (alternative to individual flags). Can also be provided via stdin.
   -c, --catalog-id string   The product this item belongs to.
   -h, --help                help for update

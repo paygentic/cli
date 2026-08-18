@@ -23,7 +23,7 @@ paygentic merchant-integrations list [flags]
   -l, --limit int             integer value (default 50)
   -m, --merchant-id string    Restrict results to a specific merchant. All active filters AND together.
       --offset int            integer value
-  -p, --provider salesforce   Filter by provider (e.g. salesforce). (options: salesforce)
+  -p, --provider salesforce   Filter by provider (e.g. salesforce). (options: salesforce, netsuite, accountsiq)
 ```
 
 ### Options inherited from parent commands

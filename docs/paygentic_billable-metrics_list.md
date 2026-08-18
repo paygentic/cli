@@ -20,6 +20,7 @@ paygentic billable-metrics list [flags]
 
 ```
   -h, --help                 help for list
+  -i, --item-id string       Filter to the charges tagged with this item. Lets a surface that needs only one item's charges read exactly those, rather than reading the whole product's and filtering — which makes its completeness a function of how large the product is.
   -l, --limit int            Number of billable metrics to return. (default 10)
   -m, --merchant-id string   Filter billable metrics by merchant organization ID. [required]
       --offset int           Number of billable metrics to skip.

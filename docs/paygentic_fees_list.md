@@ -20,6 +20,7 @@ paygentic fees list [flags]
 
 ```
   -h, --help                 help for list
+  -i, --item-id string       Filter to the charges tagged with this item. Lets a surface that needs only one item's charges read exactly those, rather than reading the whole product's and filtering — which makes its completeness a function of how large the product is.
   -l, --limit int            Number of fees to return. (default 10)
   -m, --merchant-id string   Filter fees by merchant organization ID. [required]
       --offset int           Number of fees to skip.

@@ -31,7 +31,7 @@ paygentic billing-schedules create [flags]
       --period-preset string           options: single, P1M, P3M, P6M, P1Y, custom
       --proration-policy string        options: none, daily
       --start-date string              [required]
-      --subscription-id string         string value
+      --subscription-id string         Not supported for creating a billing schedule. Use orderId — every billing schedule belongs to an order.
 ```
 
 ### Options inherited from parent commands

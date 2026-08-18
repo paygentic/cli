@@ -39,7 +39,6 @@ paygentic items [flags]
 
 * [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
 * [paygentic items create](paygentic_items_create.md)	 - Create
-* [paygentic items delete](paygentic_items_delete.md)	 - Delete
 * [paygentic items get](paygentic_items_get.md)	 - Get
 * [paygentic items list](paygentic_items_list.md)	 - List
 * [paygentic items update](paygentic_items_update.md)	 - Update

@@ -17,7 +17,7 @@ import (
 
 var upsertMerchantIntegrationCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Required: true, Description: "Unique identifier for an organization [required]"},
-	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"salesforce"}, Description: "External provider a merchant can connect at the tenant level (options: salesforce) [required]"},
+	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"salesforce", "netsuite", "accountsiq"}, Description: "External provider a merchant can connect at the tenant level. `netsuite` and `accountsiq` are returned on reads wherever a connection exists, but connecting them is accepted only in local and development environments; elsewhere the connect request is refused with 404. (options: salesforce, netsuite, accountsiq) [required]"},
 	{FlagName: "external-id", Shorthand: "e", FieldPath: "ExternalID", Kind: flagutil.FlagKindString, Optional: true, Description: "Ampersand installation id."},
 	{FlagName: "status", Shorthand: "s", FieldPath: "Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"active", "disconnected", "error"}, Description: "Connection lifecycle state. Live Ampersand health is separate and not stored here. (options: active, disconnected, error)"},
 	{FlagName: "config-param", Shorthand: "c", FieldPath: "Config", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"config,omitempty"`, Description: "value"},

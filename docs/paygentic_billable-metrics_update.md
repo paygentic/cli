@@ -19,17 +19,17 @@ paygentic billable-metrics update [flags]
 ### Options
 
 ```
-      --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --description string   Revised explanation of what the metric represents. Sample values: 'Language model token consumption', 'Database storage capacity used', 'Machine learning prediction API calls', 'AI-generated content items'
-      --event-from string    Only count events after this timestamp.
-      --event-type string    CloudEvents type for meter routing.
-  -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
-  -h, --help                 help for update
-      --id string            [required]
-      --item-id productId    Optional item tag, used to map this metric's invoice lines to an external accounting/tax identity. Send a new id to re-tag — productId is re-derived from that item's catalog, and an archived item is rejected. Send `null` to untag.
-  -n, --name string          Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'
-  -u, --unit string          Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'
-  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`).
+      --body string                     Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --description string              Revised explanation of what the metric represents. Sample values: 'Language model token consumption', 'Database storage capacity used', 'Machine learning prediction API calls', 'AI-generated content items'
+      --event-from string               Only count events after this timestamp.
+      --event-type string               CloudEvents type for meter routing.
+  -g, --group-by $.                     Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
+  -h, --help                            help for update
+      --id string                       [required]
+      --item-id ITEM_PRODUCT_MISMATCH   Optional item tag, used to map this metric's invoice lines to an external accounting/tax identity. Send a new id to re-tag — the item must be filed under this charge's own product, and an archived item is rejected. An item from another product is refused with ITEM_PRODUCT_MISMATCH: a tag is an accounting grouping and does not move the charge between products, and no field here could move it back. Re-file the item to move every charge anchored to it together. Send `null` to untag. Every line item whose invoice has not closed reports this charge's current tag, so a re-tag takes effect on the bill in progress and on any generated ahead of it — no further action, and no window to wait for. Lines on a closed invoice keep the item recorded at close and never move. Un-tagging works the same way: those lines report no item.
+  -n, --name string                     Updated label for the metric. Sample values: 'LLM Tokens', 'Database Storage', 'Prediction Requests', 'Content Generations'
+  -u, --unit string                     Updated measurement unit. Common examples: 'tokens', 'GB', 'requests', 'items', 'hours'
+  -v, --value-property $.               JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`).
 ```
 
 ### Options inherited from parent commands

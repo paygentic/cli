@@ -17,7 +17,7 @@ import (
 
 var listMerchantIntegrationsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Restrict results to a specific merchant. All active filters AND together."},
-	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"salesforce"}, Description: "Filter by provider (e.g. `salesforce`). (options: salesforce)"},
+	{FlagName: "provider", Shorthand: "p", FieldPath: "Provider", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"salesforce", "netsuite", "accountsiq"}, Description: "Filter by provider (e.g. `salesforce`). (options: salesforce, netsuite, accountsiq)"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 50, Description: "integer value"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "integer value"},
 }

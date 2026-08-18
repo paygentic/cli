@@ -1,30 +1,30 @@
-## paygentic fees update
+## paygentic invoices-v2 download-invoice-pdf
 
-Update
+Download Invoice PDF
 
 ### Synopsis
 
-Update
+Downloads the Paygentic-rendered invoice document. The caller must be authenticated and entitled to the invoice; the stored document is streamed back, so no storage URL is ever handed out. Returns 404 when the invoice's document is the tax provider's rather than ours — in that case the invoice resource reports pdfSource `tax_provider` and its pdfUrl points at the provider's link instead.
+
+This operation returns binary data. Use --output-file <path> to save to a file, or pipe the output to another command.
 
 ```
-paygentic fees update [flags]
+paygentic invoices-v2 download-invoice-pdf [flags]
 ```
 
 ### Examples
 
 ```
-  paygentic fees update --id <id>
+  paygentic invoices-v2 download-invoice-pdf --id <id>
 ```
 
 ### Options
 
 ```
-      --body string                     Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --description string              Revised explanation of what the fee represents.
-  -h, --help                            help for update
-      --id string                       The unique identifier of the fee [required]
-      --item-id ITEM_PRODUCT_MISMATCH   Optional item tag, used to map this fee's invoice lines to an external accounting/tax identity. Send a new id to re-tag — the item must be filed under this charge's own product, and an archived item is rejected. An item from another product is refused with ITEM_PRODUCT_MISMATCH: a tag is an accounting grouping and does not move the charge between products, and no field here could move it back. Re-file the item to move every charge anchored to it together. Send `null` to untag. Every line item whose invoice has not closed reports this charge's current tag, so a re-tag takes effect on the bill in progress and on any generated ahead of it — no further action, and no window to wait for. Lines on a closed invoice keep the item recorded at close and never move. Un-tagging works the same way: those lines report no item.
-  -n, --name string                     Updated label for the fee.
+  -h, --help                 help for download-invoice-pdf
+  -i, --id string            The invoice ID [required]
+      --output-b64           Encode binary response as base64 and print to stdout
+      --output-file string   Save the response body to a file path (recommended for binary/file responses)
 ```
 
 ### Options inherited from parent commands
@@ -48,4 +48,4 @@ paygentic fees update [flags]
 
 ### SEE ALSO
 
-* [paygentic fees](paygentic_fees.md)	 - A `Fee` defines a recurring or one-time charge tied to a `Product`
+* [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
