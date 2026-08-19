@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: cb0a72e9762255f1a5ecffe5b16b53ca
+  docChecksum: 2305f519c14b20a67613b658c3b06b9d
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.0
-  configChecksum: 71f449b250dc48802e4e3f422a8d6ba4
+  releaseVersion: 0.5.1
+  configChecksum: 98ef41298fa317e668688b4b579333e0
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 7453f92a-b8eb-4acb-b9ae-c730d7c743e3
-  pristine_commit_hash: e524be265123c78fdd3329508263a1394a43fa6b
-  pristine_tree_hash: b7dce62dc5728d784ab36adb96cbed5d99c9461e
+  generation_id: 7940b3da-37f4-4de0-a149-670fc062f5a2
+  pristine_commit_hash: cc32ec3e2a1f78069e281700cd0375f9913fb9b3
+  pristine_tree_hash: 21f99ea787b83dda8ff2b8f5d777c0bd4ce6f2a1
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -735,8 +735,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:4a0a451399506ba92fa182e85456f63801776fc1
-    pristine_git_object: 7613cfac5a4d04bec19d7dadff32a3cde4b07cd8
+    last_write_checksum: sha1:47b032adcfddc0ddf68559d5e475e141334b0af7
+    pristine_git_object: cf8415587235450db7f64a06b88dc35481014d0b
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -2071,8 +2071,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:f6e2a7b27f378610177e107c75005c261e1344ea
-    pristine_git_object: 8af9b744e6020af05c2dfbcdaa8d521c5c2a1417
+    last_write_checksum: sha1:6bc0119f3258ac30bbbf880881608eb08341c20d
+    pristine_git_object: ecb96ac83619e40a6944ab8d37c5ac3d712220bf
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4354,4 +4354,3 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Plans.MintPlanVersion()`:  `response.Status.Enum(draft)` **Removed** (Breaking ⚠️)\n* `Paygentic.MerchantIntegrations.DisconnectMerchantIntegration()`:  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.MerchantIntegrations.GetMerchantIntegration()`:  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.MerchantIntegrations.UpsertMerchantIntegration()`: \n  *  `request.Request.Provider` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.MerchantIntegrations.ListMerchantIntegrations()`: \n  *  `request.Request.Provider` **Changed**\n  *  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.TransitionPlanVersion()`:  `response.Status.Enum(draft)` **Removed** (Breaking ⚠️)\n* `Paygentic.Plans.GetPlanVersion()`:  `response.Status.Enum(draft)` **Removed** (Breaking ⚠️)\n* `Paygentic.Plans.ListPlanVersions()`:  `response.Data[].Status.Enum(draft)` **Removed** (Breaking ⚠️)\n* `Paygentic.Fees.Update()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.Get()`:  `response.PdfSource` **Added**\n* `Paygentic.InvoicesV2.DownloadInvoicePdf()`: **Added**\n* `Paygentic.Prices.List()`: \n  *  `request.Request.MerchantId` **Added**\n  *  `error.status[404]` **Added**\n* `Paygentic.Prices.Delete()`:  `error.status[409]` **Added**\n* `Paygentic.Subscriptions.ReconcileSubscriptionFeatures()`:  `response.Features.Failed[].Reason.Enum(resetCycleMisaligned)` **Added**\n* `Paygentic.InvoicesV2.List()`:  `response.Data[].PdfSource` **Added**\n* `Paygentic.Fees.Delete()`:  `error.Details.Blockers[].Items` **Added**\n* `Paygentic.Costs.GetCostSummary()`:  `response.Unit` **Added**\n* `Paygentic.ExternalReferences.CreateExternalReference()`:  `request.Request` **Changed**\n* `Paygentic.Fees.List()`: \n  *  `request.Request.ItemId` **Added**\n* `Paygentic.BillableMetrics.Update()`:  `error` **Changed**\n* `Paygentic.BillableMetrics.List()`: \n  *  `request.Request.ItemId` **Added**\n* `Paygentic.Items.DeleteItem()`: **Removed** (Breaking ⚠️)\n"
