@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 58b03c4b6d10ac0380b02e3e95c005cd
+  docChecksum: 46edb618cf0aaa2e5a409e1c48026124
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.2
-  configChecksum: 52ce9916538b29f13a7a2b3c4395bb58
+  releaseVersion: 0.5.3
+  configChecksum: 67b4af56977535b9d51f89eef250fe4d
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 3ca03793-8974-4d94-a4f8-678d4cb5b567
-  pristine_commit_hash: 0ea8bba2ffd67a7b39313f4a91ed31e48ba97ffa
-  pristine_tree_hash: 64d027d34ef80f62953493653978cff487786d78
+  generation_id: cc6287e1-0d14-44f2-9275-b2cc361e0086
+  pristine_commit_hash: 72c664d647744f7c4fea3b8ad33e335ec297c4b4
+  pristine_tree_hash: 09c67f33edd13ae110fe657005e4d67365ba3a82
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -735,8 +735,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:0d2190e489e0db1205dd5c84c53df4d74522557d
-    pristine_git_object: e95a7d5d1f123da6c8e8d909dca766f26738c6ca
+    last_write_checksum: sha1:611f652fc288524d354ba43a2b13c28428b7481d
+    pristine_git_object: 752ce35018656cfef07dbbf686b7575cd9629bad
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -1011,8 +1011,8 @@ trackedFiles:
     pristine_git_object: a5c05d8c1fb5671491f1a355fb73723056b97a35
   internal/sdk/models/components/invoice.go:
     id: 0feca5d38bb2
-    last_write_checksum: sha1:0459bff06eba0634dade5e9cf3de9eb35a66805b
-    pristine_git_object: dbb785785d1c8e8cd87f934c99a2fdcf40eabd83
+    last_write_checksum: sha1:5784f1e5eaf5139b847c1553c80c8641aad99abe
+    pristine_git_object: 43762e7f19240499066d44e7786bf03f48be21a5
   internal/sdk/models/components/invoicecategorysummary.go:
     id: 67d75e2c8eb7
     last_write_checksum: sha1:81606dc8ed85663ef5581091295c57dfa9aafead
@@ -2071,8 +2071,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:433ea7d6a8ed59f666f441a8e85c8b5e99afc9d9
-    pristine_git_object: 3d521940a1a7fb612eafa772f291a9e7c7f2e5ad
+    last_write_checksum: sha1:8f66ed14507495eda8937f448b7f93a8641b98a1
+    pristine_git_object: c09a1a10b841fbca1976f2ff073ff9e82167889d
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4356,5 +4356,5 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Cli SDK Changes:
-  * `Paygentic.InvoicesV2.ListLineItems()`:  `response.Data[].Type.Enum(adjustment)` **Added**
-  * `Paygentic.InvoicesV2.CreateLineItem()`:  `response.Type.Enum(adjustment)` **Added**
+  * `Paygentic.InvoicesV2.List()`:  `response.Data[].DocumentWithheldReason` **Added**
+  * `Paygentic.InvoicesV2.Get()`:  `response.DocumentWithheldReason` **Added**
