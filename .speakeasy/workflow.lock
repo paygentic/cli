@@ -2,8 +2,8 @@ speakeasyVersion: 1.761.4
 sources:
     Paygentic API:
         sourceNamespace: paygentic-api
-        sourceRevisionDigest: sha256:dd96448433433ac7e71673ac57a7a6dbdb26a3f10b58fad5637f35727e264969
-        sourceBlobDigest: sha256:43166ff4db01494a242e259b30ac17985fea0fae470a9f77da29bd966ab3497e
+        sourceRevisionDigest: sha256:cb9bb70820c912c719e53946c7ee72e28db3267a12d34fa2600ccdcd0ce4ef36
+        sourceBlobDigest: sha256:84b385f4f91f3139e5f821fd0a4ce49f3c492383d39fb216072bcfcecb9d8b32
         tags:
             - latest
     paygentic-OAS:
@@ -16,8 +16,8 @@ targets:
     paygentic:
         source: Paygentic API
         sourceNamespace: paygentic-api
-        sourceRevisionDigest: sha256:dd96448433433ac7e71673ac57a7a6dbdb26a3f10b58fad5637f35727e264969
-        sourceBlobDigest: sha256:43166ff4db01494a242e259b30ac17985fea0fae470a9f77da29bd966ab3497e
+        sourceRevisionDigest: sha256:cb9bb70820c912c719e53946c7ee72e28db3267a12d34fa2600ccdcd0ce4ef36
+        sourceBlobDigest: sha256:84b385f4f91f3139e5f821fd0a4ce49f3c492383d39fb216072bcfcecb9d8b32
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.761.4

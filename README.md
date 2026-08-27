@@ -295,6 +295,9 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`generate-portal-link`](docs/paygentic_subscriptions_generate-portal-link.md) - Generate Portal Link
 * [`terminate`](docs/paygentic_subscriptions_terminate.md) - Terminate
 * [`reconcile-subscription-features`](docs/paygentic_subscriptions_reconcile-subscription-features.md) - Reconcile Features
+* [`list-subscription-adjustments`](docs/paygentic_subscriptions_list-subscription-adjustments.md) - List Adjustments
+* [`create-subscription-adjustment`](docs/paygentic_subscriptions_create-subscription-adjustment.md) - Create Adjustment
+* [`delete-subscription-adjustment`](docs/paygentic_subscriptions_delete-subscription-adjustment.md) - Delete Adjustment
 
 ### [users](docs/paygentic_users.md)
 

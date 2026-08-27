@@ -49,6 +49,18 @@ func InitSubscriptionsRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initListSubscriptionAdjustmentsCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
+	if err := initCreateSubscriptionAdjustmentCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
+	if err := initDeleteSubscriptionAdjustmentCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(SubscriptionsCmd)
 	return nil
 }

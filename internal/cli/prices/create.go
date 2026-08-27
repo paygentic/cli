@@ -23,7 +23,7 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "invoice-display-name", Shorthand: "i", FieldPath: "InvoiceDisplayName", Kind: flagutil.FlagKindString, Required: true, Description: "Line item label shown on customer invoices. Sample values: 'Claude Token Consumption', 'Storage Usage (GB)', 'Inference API Calls', 'Image Generation Count', 'Training Compute Hours', 'Data Transfer (TB)' [required]"},
 	{FlagName: "payment-term", FieldPath: "PaymentTerm", Kind: flagutil.FlagKindEnum, Required: true, EnumValues: []string{"in_arrears", "in_advance"}, Description: "Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance) [required]"},
 	{FlagName: "billing-cadence", FieldPath: "BillingCadence", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingCadence,omitempty"`, Description: "ISO 8601 duration for recurring charges (e.g., 'P1M' for monthly, 'P1Y' for yearly) or 'P0D' for one-time charges. Required for fees, optional for billable metrics. Sample values: 'P0D' for one-time, 'P1M' for monthly recurring, 'P1Y' for yearly recurring"},
-	{FlagName: "properties", FieldPath: "Properties", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, TypeDescription: "JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })"}},
+	{FlagName: "properties", FieldPath: "Properties", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, TypeDescription: "JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { tiers: object[] } | { maxCharge: string, minCharge: string, percentage: string })"}},
 	{FlagName: "feature", FieldPath: "Feature", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"feature,omitempty"`, Description: "JSON object"},
 	{FlagName: "grant-discount-enabled", Shorthand: "g", FieldPath: "GrantDiscountEnabled", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices."},
 	{FlagName: "quantity", FieldPath: "Quantity", Kind: flagutil.FlagKindInt64, Optional: true, Description: "Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1."},
@@ -35,7 +35,7 @@ func initCreateCmd(parent *cobra.Command) error {
 		Use:     "create",
 		Short:   "Create",
 		Long:    "Create",
-		Example: "  paygentic prices create --invoice-display-name <value> --payment-term in_arrears --properties '{\"default\":\"<value>\",\"parameters\":{\"function\":\"linear\",\"gradient\":\"<value>\",\"max\":\"<value>\",\"min\":\"<value>\"} }'",
+		Example: "  paygentic prices create --invoice-display-name <value> --payment-term in_arrears --properties '{\"maxPrice\":\"<value>\",\"minPrice\":\"<value>\"}'",
 		RunE:    runCreateCmd,
 	}
 	flagutil.RegisterFlags(cmd, createCmdMeta)

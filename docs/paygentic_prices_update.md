@@ -30,7 +30,7 @@ paygentic prices update [flags]
   -m, --model string                  The pricing model to set. Only 'standard' is accepted. Legacy 'dynamic'/'volume'/'percentage' prices can still be edited (other fields) but cannot be switched to those models. Percentage/revenue-share is expressed via 'standard' with a unit-price multiplier. (options: standard)
       --payment-term string           Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance)
       --pricing-unit-id string        Denominate this metered price in a pricing unit (credits). Set to a pricing unit ID to draw down a credit pool, null to revert to real currency, or omit to leave unchanged.
-      --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { default: string, parameters: object } | { maxCharge: string, minCharge: string, percentage: string })
+      --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { tiers: object[] } | { maxCharge: string, minCharge: string, percentage: string })
       --quantity int                  Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.
 ```
 

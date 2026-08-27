@@ -39,9 +39,12 @@ paygentic subscriptions [flags]
 
 * [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
 * [paygentic subscriptions create](paygentic_subscriptions_create.md)	 - Create
+* [paygentic subscriptions create-subscription-adjustment](paygentic_subscriptions_create-subscription-adjustment.md)	 - Create Adjustment
+* [paygentic subscriptions delete-subscription-adjustment](paygentic_subscriptions_delete-subscription-adjustment.md)	 - Delete Adjustment
 * [paygentic subscriptions generate-portal-link](paygentic_subscriptions_generate-portal-link.md)	 - Generate Portal Link
 * [paygentic subscriptions get](paygentic_subscriptions_get.md)	 - Get
 * [paygentic subscriptions list](paygentic_subscriptions_list.md)	 - List
+* [paygentic subscriptions list-subscription-adjustments](paygentic_subscriptions_list-subscription-adjustments.md)	 - List Adjustments
 * [paygentic subscriptions reconcile-subscription-features](paygentic_subscriptions_reconcile-subscription-features.md)	 - Reconcile Features
 * [paygentic subscriptions terminate](paygentic_subscriptions_terminate.md)	 - Terminate
 * [paygentic subscriptions update](paygentic_subscriptions_update.md)	 - Update
