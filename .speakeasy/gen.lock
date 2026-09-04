@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 213ddee729506a346ac85873e7ed7805
+  docChecksum: 54eedeef42aba846c654b3a4d3023869
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.5
-  configChecksum: d7a10bef3bb601c97ff79f9777f76f9b
+  releaseVersion: 0.5.6
+  configChecksum: 050ef02854445220d22f3c7576b75ead
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: c059a719-0ed1-464f-bae1-49186071881a
-  pristine_commit_hash: 8c0a4ddd619b5c327fc23685c6fc1fd4a8ece6d8
-  pristine_tree_hash: 37369c9e986d40a7b04bc027026ae654adf69fb3
+  generation_id: 0bd14b9c-d7a1-402f-ae22-172c27e32107
+  pristine_commit_hash: 78c9cca01e5ab133c88d3e491b753505bac4d5d0
+  pristine_tree_hash: e31e40fab2bd295922dfc58d31ccf86e23a05d32
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -747,8 +747,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:730cd80c484fc3f8a23944ca5a7546891b1beb22
-    pristine_git_object: da33ba0752aa66804c8a72321720701c6e272a79
+    last_write_checksum: sha1:170e0e013d1a68070af22f47414b453f26750615
+    pristine_git_object: 581d4d28beab319eba2f6cb1fdb3c2652b4d4b8d
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -1035,8 +1035,8 @@ trackedFiles:
     pristine_git_object: 1795ac134eb0dbba4dc9f73004efbab839eb711c
   internal/sdk/models/components/invoicelineitem.go:
     id: b342be1d491d
-    last_write_checksum: sha1:daa9b9f9494cc411f068f25d226b589717158a53
-    pristine_git_object: 7d9374e195d35db31f277025fefe30f8c5e900da
+    last_write_checksum: sha1:2b94e61f5b8987b17971c8dab719aaf411ba0675
+    pristine_git_object: 6493d50c34e7ec3376cf2386b0363f55f2ada81c
   internal/sdk/models/components/invoicelineitemsresponse.go:
     id: 734ff84ec79f
     last_write_checksum: sha1:d091aa59f2de70028b5fd974810b281a2a7bb0e7
@@ -1063,8 +1063,8 @@ trackedFiles:
     pristine_git_object: de377e3885db356980690bdac6a8bfe4cd0bde87
   internal/sdk/models/components/lineitem.go:
     id: adb3840daff0
-    last_write_checksum: sha1:f504fb0693e7c2fc22fd6b80083323a0f4917979
-    pristine_git_object: 25c8d8e9c30c145a348bb8a48d724efbd37d89e2
+    last_write_checksum: sha1:4f44cc5fc3338e1bdd7d2d231323cf89e70dcb02
+    pristine_git_object: b10d779695ef61f8633501e57e84fa5134b38ec6
   internal/sdk/models/components/lineitemsresponse.go:
     id: bee374acf506
     last_write_checksum: sha1:af85629ae563469bc0c18e0d88e772275dc73356
@@ -2111,8 +2111,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:73d0d0e2ccca9af3badcb4682ebef9345f330c21
-    pristine_git_object: 27be374890067d115a1053aeb456169dad44b034
+    last_write_checksum: sha1:43c9cd9e7507ae7c2a9e73d86cfeb602c02c0658
+    pristine_git_object: 6392eaa5cc86c0d121740d74c5339ce0989c5ddd
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4438,4 +4438,8 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Plans.Create()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Plans.List()`:  `response.Data[].Prices[].IsObligation` **Added**\n* `Paygentic.Plans.ListAvailable()`:  `response.Data[].Prices[].IsObligation` **Added**\n* `Paygentic.Plans.Get()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Plans.Update()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Plans.MintPlanVersion()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Plans.GetPlanVersion()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Plans.TransitionPlanVersion()`:  `response.Prices[].IsObligation` **Added**\n* `Paygentic.Prices.Create()`: \n  *  `request.Request` **Changed**\n  *  `response.IsObligation` **Added**\n* `Paygentic.Prices.List()`:  `response.Data[].IsObligation` **Added**\n* `Paygentic.Prices.Get()`:  `response.IsObligation` **Added**\n* `Paygentic.Prices.Update()`: \n  *  `request.Request.Body` **Changed**\n  *  `response.IsObligation` **Added**\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.InvoicesV2.List()`:  `response.Data[].LineItems.LineItems[]` **Changed**
+  * `Paygentic.InvoicesV2.Get()`:  `response.LineItems.LineItems[]` **Changed**
+  * `Paygentic.InvoicesV2.GetLineItems()`:  `response.LineItems[]` **Changed**
