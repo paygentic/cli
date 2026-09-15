@@ -4,7 +4,7 @@ Create Adjustment
 
 ### Synopsis
 
-Attaches a percentage discount to the subscription for a dated window. Every invoice calculated while the window is open carries one discount line for each discounted charge, and tax is assessed on the reduced amount. An invoice that already exists is not changed, including one still in draft — the discount reaches the periods that close after it is created. There is no update operation, and a window cannot be changed after it is created. To change a rate before any invoice has issued under the discount, delete the adjustment and create a replacement. Once an invoice has issued the adjustment is permanent, so set effectiveTo at creation time whenever the deal has a known end date.
+Attaches an adjustment to the subscription for a dated window. A percentageDiscount reduces every discountable charge by a rate and carries one discount line per charge on the invoice. A usageDiscount takes a number of usage units off one metered price's billable quantity before that line is priced, so the line re-slots on a volume ladder and shows the corrected quantity; it emits no line of its own. Tax is assessed on the reduced amount either way. An invoice that already exists is not changed, including one still in draft — the adjustment reaches the periods that close after it is created. There is no update operation, and a window cannot be changed after it is created. To change an adjustment before any invoice has issued under it, delete it and create a replacement. Once an invoice has issued the adjustment is permanent, so set effectiveTo at creation time whenever the deal has a known end date.
 
 ```
 paygentic subscriptions create-subscription-adjustment [flags]
@@ -13,21 +13,23 @@ paygentic subscriptions create-subscription-adjustment [flags]
 ### Examples
 
 ```
-  paygentic subscriptions create-subscription-adjustment --id <id> --type percentageDiscount --percentage-discount 0.35 --effective-from 2026-01-01T00:00:00Z
+  paygentic subscriptions create-subscription-adjustment --id <id>
 ```
 
 ### Options
 
 ```
-      --body string                  Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --description string           The deal's own name, shown on each discount line of the invoice.
-      --effective-from string        The first instant the discount applies. Inclusive. [required]
-      --effective-to string          The instant the discount stops applying. Exclusive, so a window ending on the same date another begins neither overlaps nor leaves a gap. Null means the discount never stops, and it cannot be ended later — set an instant whenever the deal has a known end date. Must be after effectiveFrom.
-  -h, --help                         help for create-subscription-adjustment
-      --id string                    The subscription ID [required]
-      --idempotency-key string       A key of your choosing that makes a retry safe. Sending the same key against the same subscription returns the adjustment already created and creates no second one. Without a key a retried request creates a second adjustment, and two percentage discounts compound — two of 0.35 bill 57.75 percent off, not 35 percent.
-  -p, --percentage-discount string   The discount rate as a decimal fraction between 0 and 1, sent as a string. "0.35" means 35 percent. "1" means 100 percent, not 1 percent. At most 6 decimal places. A value of 0 or above 1 is rejected. [required]
-  -t, --type percentageDiscount      The kind of adjustment. percentageDiscount reduces every discountable charge by a rate. (options: percentageDiscount) [required]
+      --body string                                                 Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -b, --body-param string                                           JSON value (variants: percentageDiscount: { type: string, percentageDiscount: string, effectiveFrom: date-time, effectiveTo: date-time, ... }, usageDiscount: { type: string, usageDiscount: string, targetPriceIds: string[], effectiveFrom: date-time, ... })
+      --body-param.percentage-discount string                       CreatePercentageDiscountAdjustment variant as JSON
+      --body-param.percentage-discount.description string           The deal's own name, shown on each discount line of the invoice.
+      --body-param.percentage-discount.effective-from string        The first instant the discount applies. Inclusive. [required]
+      --body-param.percentage-discount.effective-to string          The instant the discount stops applying. Exclusive, so a window ending on the same date another begins neither overlaps nor leaves a gap. Null means the discount never stops, and it cannot be ended later — set an instant whenever the deal has a known end date. Must be after effectiveFrom.
+      --body-param.percentage-discount.idempotency-key string       A key of your choosing that makes a retry safe. Sending the same key against the same subscription returns the adjustment already created and creates no second one. Without a key a retried request creates a second adjustment, and two percentage discounts compound — two of 0.35 bill 57.75 percent off, not 35 percent.
+      --body-param.percentage-discount.percentage-discount string   The discount rate as a decimal fraction between 0 and 1, sent as a string. "0.35" means 35 percent. "1" means 100 percent, not 1 percent. At most 6 decimal places. A value of 0 or above 1 is rejected. [required]
+      --body-param.usage-discount string                            CreateUsageDiscountAdjustment variant as JSON
+  -h, --help                                                        help for create-subscription-adjustment
+  -i, --id string                                                   The subscription ID [required]
 ```
 
 ### Options inherited from parent commands

@@ -19,20 +19,23 @@ paygentic prices update [flags]
 ### Options
 
 ```
-      --billable-metric-id string     Unique identifier for a billable metric
-      --billing-cadence string        ISO 8601 duration for recurring fees (e.g., 'P1M' for monthly, 'P1Y' for yearly, or 'P0D' for one-time)
-      --body string                   Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -f, --feature string                Feature to associate. Set to null to remove existing feature. Omit to leave unchanged.
-  -g, --grant-discount-enabled        When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices.
-  -h, --help                          help for update
-      --id string                     The unique identifier of the price [required]
-      --invoice-display-name string   Updated invoice line item label. Sample values: 'LLM Token Usage', 'Storage Charges', 'API Call Fees'
-      --is-obligation                 A fixed amount owed whole rather than a per-period rate. An obligation is not prorated over a partial first period: when a subscription starts before its billing anchor, no truncated stub is billed and the first charge is the full amount at the next anchor. An obligation also refuses an interval boundary that falls strictly inside one of its own billing periods, since part of an amount owed whole is not a thing to bill. Defaults to false, which is a rate and is today's behaviour for every price. Not supported on a metered price, whose amount resolves from usage at close.
-  -m, --model string                  The pricing model to set. 'standard' and 'volume' are accepted. Legacy 'dynamic'/'percentage' prices can still be edited (other fields) but cannot be switched back to those models. Percentage/revenue-share is expressed via 'standard' with a unit-price multiplier. (options: standard, volume)
-      --payment-term string           Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance)
-      --pricing-unit-id string        Denominate this metered price in a pricing unit (credits). Set to a pricing unit ID to draw down a credit pool, null to revert to real currency, or omit to leave unchanged.
-      --properties string             JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { tiers: object[] } | { maxCharge: string, minCharge: string, percentage: string })
-      --quantity int                  Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.
+      --billable-metric-id string      Unique identifier for a billable metric
+      --billing-cadence string         ISO 8601 duration for recurring fees (e.g., 'P1M' for monthly, 'P1Y' for yearly, or 'P0D' for one-time)
+      --body string                    Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -f, --feature string                 Feature to associate. Set to null to remove existing feature. Omit to leave unchanged.
+  -g, --grant-discount-enabled         When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices.
+  -h, --help                           help for update
+      --id string                      The unique identifier of the price [required]
+      --invoice-display-group string   Presentation only. Prices sharing this value, within one billing period, print as a single row on the rendered invoice PDF and are described by this string. Every member still bills its own line item on the ledger, this API and the compliance document. The combined row's rate is derived from the members' own rates. Requires the 'standard' pricing model. Sample values: 'Cross Border Fees', 'FX Fees'
+      --invoice-display-name string    Updated invoice line item label. Sample values: 'LLM Token Usage', 'Storage Charges', 'API Call Fees'
+      --is-obligation                  A fixed amount owed whole rather than a per-period rate. An obligation is not prorated over a partial first period: when a subscription starts before its billing anchor, no truncated stub is billed and the first charge is the full amount at the next anchor. An obligation also refuses an interval boundary that falls strictly inside one of its own billing periods, since part of an amount owed whole is not a thing to bill. Defaults to false, which is a rate and is today's behaviour for every price. Not supported on a metered price, whose amount resolves from usage at close.
+  -m, --model string                   The pricing model to set. 'standard' and 'volume' are accepted. Legacy 'dynamic'/'percentage' prices can still be edited (other fields) but cannot be switched back to those models. Percentage/revenue-share is expressed via 'standard' with a unit-price multiplier. (options: standard, volume)
+      --payment-term string            Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance)
+      --pricing-unit-id string         Denominate this metered price in a pricing unit (credits). Set to a pricing unit ID to draw down a credit pool, null to revert to real currency, or omit to leave unchanged.
+      --properties string              JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { tiers: object[] } | { maxCharge: string, minCharge: string, percentage: string })
+      --quantity int                   Quantity for invoice line items. Total per period = quantity × unitPrice. Only supported for fee prices; metered prices derive quantity from usage. Defaults to 1.
+  -r, --rate-type string               What properties.unitPrice is denominated in. 'amount' (the default) is an amount of the invoice currency for each unit metered, so the quantity is the multiplier. 'proportion' is the reverse: a dimensionless share of a currency-denominated quantity, so '0.02' is 2% and the invoice prints '2.00%'. Presentation only. Requires a standard metered price in real currency. (options: amount, proportion)
+  -t, --tax IN_SCOPE                   A price's tax declaration. Optional on write — a price that declares nothing is IN_SCOPE, and is billed and taxed exactly as it was before this object existed. Always present on read. Replaced as a whole on update: send the object to change it, omit it to leave it alone.
 ```
 
 ### Options inherited from parent commands

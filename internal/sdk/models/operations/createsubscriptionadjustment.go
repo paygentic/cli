@@ -28,6 +28,14 @@ func (c *CreateSubscriptionAdjustmentRequest) GetBody() components.CreateSubscri
 	return c.Body
 }
 
+func (c *CreateSubscriptionAdjustmentRequest) GetBodyPercentageDiscount() *components.CreatePercentageDiscountAdjustment {
+	return c.GetBody().CreatePercentageDiscountAdjustment
+}
+
+func (c *CreateSubscriptionAdjustmentRequest) GetBodyUsageDiscount() *components.CreateUsageDiscountAdjustment {
+	return c.GetBody().CreateUsageDiscountAdjustment
+}
+
 type CreateSubscriptionAdjustmentResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// An adjustment already exists for this idempotency key, and is returned unchanged. Nothing was created.
