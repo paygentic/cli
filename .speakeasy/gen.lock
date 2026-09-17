@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: ebfed76ef770c001f43bd702acdd1ce2
+  docChecksum: 332d674f9526d1f5d7aa3d5590574735
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.7
-  configChecksum: 2afc530feb0995d7e63f1f68a54910ec
+  releaseVersion: 0.5.8
+  configChecksum: a4a877ffc55a2bc2ae4205db4094e9b8
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 92949cbd-ea8f-4177-9de0-7c5dcb228ad0
-  pristine_commit_hash: c07a7c82fc2823a30624a6c69c24f462c066b229
-  pristine_tree_hash: 42e57ab30398470a7f886fac45cc1eba92563133
+  generation_id: 0165101a-9caa-4374-8cf5-0e30792837d2
+  pristine_commit_hash: b93093eeb1eb2471d12f4f7380b58d0aed9588d6
+  pristine_tree_hash: f076cb56e7c4f8e6897aad8818dcf7c0ed06dfe9
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -747,8 +747,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:b9ad483ec27b469af79a1dc98f897b6a77a55ede
-    pristine_git_object: 20a958c78a2908d1e1ebd8110bf11d66e788f7a6
+    last_write_checksum: sha1:fb81015de060ed6beac21355eb3e3d6c90346e8a
+    pristine_git_object: 13b0451952350c49ef8192b361875be11684deb8
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -971,8 +971,8 @@ trackedFiles:
     pristine_git_object: 4815300fa66bb867ac7075a7c51a32fb1fef4cf1
   internal/sdk/models/components/createusagediscountadjustment.go:
     id: 4e9787b2cd5d
-    last_write_checksum: sha1:deb77b7d53a0132ac243827a2aa1b26508fb5197
-    pristine_git_object: c6d014f2606eee8b0623e1ba7e185c202205ab37
+    last_write_checksum: sha1:19ff542b7dcd877e586b837450a97dcef35306de
+    pristine_git_object: 43108d36377752f5d306eff6667872a887865477
   internal/sdk/models/components/currencybreakdownentry.go:
     id: ea276bdce2e3
     last_write_checksum: sha1:da7d1fab4cf06fc93a05c4b50e84936eae31f033
@@ -1163,16 +1163,16 @@ trackedFiles:
     pristine_git_object: 92ee2273ed6361e6a5c5ddb0ae6cf5bf21ba1ed4
   internal/sdk/models/components/planversionpriceslot.go:
     id: 7b49fa2562dc
-    last_write_checksum: sha1:03cf39dcc4de8af8b496082f080dd7d18f7e6452
-    pristine_git_object: ff6e0cb0cda8ca140a5a031505c014ac5345396f
+    last_write_checksum: sha1:cf9f03ad86907804646573131420564dc4699306
+    pristine_git_object: e880e42bff85bab30d07fa483f6d610e38464fe3
   internal/sdk/models/components/planversionsummary.go:
     id: 09aa864c5349
     last_write_checksum: sha1:11d40337457d9d0e07979a2a24015ae4594e0dca
     pristine_git_object: a657929d54d6bf21df6b79d88540d1803da5ce1a
   internal/sdk/models/components/price.go:
     id: 0d11f090b28e
-    last_write_checksum: sha1:afa9c86440d72d2e2f08bc95b6a9bc482163c552
-    pristine_git_object: 6c6070082a69a760548c5435e92801e246713389
+    last_write_checksum: sha1:c2b4c1876c9b60dd12be4de5d747246859d4a411
+    pristine_git_object: ec21390179fd9ada9aa938786569b53878e8f2bc
   internal/sdk/models/components/pricefeature.go:
     id: 68e2c9d6f3c3
     last_write_checksum: sha1:738b9552100be1f203cbbfdaf3d97968fb638e73
@@ -1191,8 +1191,8 @@ trackedFiles:
     pristine_git_object: 680f06d5508d217221a6c5f6739cd20af25e5777
   internal/sdk/models/components/priceproperties.go:
     id: 5eaa1402d40e
-    last_write_checksum: sha1:f03e7c6ee81ab6180c5ee80f897a9eb8997b7157
-    pristine_git_object: d25a91fb2822a8130c6d01e1d7f838965b4aaf88
+    last_write_checksum: sha1:16b2983cd6fc5776c686f79a68f9eb3cd1e4b832
+    pristine_git_object: 5f5bbb98a0b94c9adfa54c838235d3b7c587e4b0
   internal/sdk/models/components/pricetax.go:
     id: 0f46154de50f
     last_write_checksum: sha1:45df502bc12a569d213cd2ba7c110cd2f5ab9958
@@ -2127,8 +2127,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:10967e68517f0b7918d2b9d9ce9ee852829b8094
-    pristine_git_object: 75549892e46714de1b997dad2be00f35fec177a4
+    last_write_checksum: sha1:06e618ca5a4e811851ae16a51f95c923eebdbc42
+    pristine_git_object: 7a1cdccd1a0d9254c9d550fec4a0a9109c3bd7b4
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4484,4 +4484,13 @@ examples:
         "500":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Subscriptions.ListSubscriptionAdjustments()`:  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Paygentic.Subscriptions.CreateSubscriptionAdjustment()`: \n  *  `request.Request.Body` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `Paygentic.Plans.TransitionPlanVersion()`:  `response.Prices[]` **Changed**\n* `Paygentic.Prices.Create()`: \n  *  `request.Request` **Changed**\n  *  `response` **Changed**\n* `Paygentic.Plans.Get()`:  `response.Prices[]` **Changed**\n* `Paygentic.Plans.Update()`:  `response.Prices[]` **Changed**\n* `Paygentic.Plans.MintPlanVersion()`:  `response.Prices[]` **Changed**\n* `Paygentic.Plans.GetPlanVersion()`:  `response.Prices[]` **Changed**\n* `Paygentic.Customers.List()`:  `error.status[429]` **Added**\n* `Paygentic.Plans.ListAvailable()`:  `response.Data[].Prices[]` **Changed**\n* `Paygentic.Prices.List()`:  `response.Data[]` **Changed**\n* `Paygentic.Prices.Get()`:  `response` **Changed**\n* `Paygentic.Prices.Update()`: \n  *  `request.Request.Body` **Changed**\n  *  `response` **Changed**\n* `Paygentic.Subscriptions.ReconcileSubscriptionFeatures()`:  `error.status[429]` **Added**\n* `Paygentic.Plans.List()`:  `response.Data[].Prices[]` **Changed**\n* `Paygentic.Plans.Create()`:  `response.Prices[]` **Changed**\n* `Paygentic.InvoicesV2.ListLineItems()`:  `response.Data[].UsageDiscountIds` **Added**\n* `Paygentic.InvoicesV2.CreateLineItem()`:  `response.UsageDiscountIds` **Added**\n"
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.Plans.Create()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Plans.List()`:  `response.Data[].Prices[]` **Changed**
+  * `Paygentic.Plans.ListAvailable()`:  `response.Data[].Prices[]` **Changed**
+  * `Paygentic.Plans.Get()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Plans.Update()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Plans.MintPlanVersion()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Plans.GetPlanVersion()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Plans.TransitionPlanVersion()`:  `response.Prices[]` **Changed**
