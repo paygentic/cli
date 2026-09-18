@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 332d674f9526d1f5d7aa3d5590574735
+  docChecksum: 593775e9cf35ed89df7a617d1d147582
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.8
-  configChecksum: a4a877ffc55a2bc2ae4205db4094e9b8
+  releaseVersion: 0.5.9
+  configChecksum: bc70a50dd3924466050556121a915144
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 0165101a-9caa-4374-8cf5-0e30792837d2
-  pristine_commit_hash: b93093eeb1eb2471d12f4f7380b58d0aed9588d6
-  pristine_tree_hash: f076cb56e7c4f8e6897aad8818dcf7c0ed06dfe9
+  generation_id: 37ea9239-8931-4e03-b638-c9da343ad2f9
+  pristine_commit_hash: 79722bf201b8af647016e1a95c6392eaeb253344
+  pristine_tree_hash: 696320d45faf8b57d9d2c0cb3f70129933c70327
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -747,8 +747,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:fb81015de060ed6beac21355eb3e3d6c90346e8a
-    pristine_git_object: 13b0451952350c49ef8192b361875be11684deb8
+    last_write_checksum: sha1:6047c1dbea3e84180d290298b87bc863c8c78eeb
+    pristine_git_object: 16c9f5b4233c3d9eb6826594846747bf3946b0b4
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -1071,8 +1071,8 @@ trackedFiles:
     pristine_git_object: de377e3885db356980690bdac6a8bfe4cd0bde87
   internal/sdk/models/components/lineitem.go:
     id: adb3840daff0
-    last_write_checksum: sha1:d7093d5ed908111d7a567aa42c586a3128d8110f
-    pristine_git_object: b5bf1d6204ed062dd598bea2cb26c370d554fafd
+    last_write_checksum: sha1:197d770e62b89790d9e39c8ed1c97af2dfd5b0d1
+    pristine_git_object: fd861b8a5d12b2cab758a9a0cad979cc64a6a02a
   internal/sdk/models/components/lineitemsresponse.go:
     id: bee374acf506
     last_write_checksum: sha1:af85629ae563469bc0c18e0d88e772275dc73356
@@ -1207,8 +1207,8 @@ trackedFiles:
     pristine_git_object: fa161828c384c06d8771aff6686ae6671491ffec
   internal/sdk/models/components/profitabilitysummaryresponse.go:
     id: bf7f8b4d2c36
-    last_write_checksum: sha1:9e06fc1b8a43d6127b3c28e27db1efff58809efa
-    pristine_git_object: 0cd023627fbb0204c18d8e6264744302fe011db4
+    last_write_checksum: sha1:2088765dc61805ea959cc83e4bc9d78f9ca90fe9
+    pristine_git_object: ae00f74c2cdfac9688c891a5f12763a1eb9f7f45
   internal/sdk/models/components/profitabilitytrend.go:
     id: 206a15097ea6
     last_write_checksum: sha1:b0ce3da839d48ad4ec86b6a1697b8522c95aa208
@@ -1251,8 +1251,8 @@ trackedFiles:
     pristine_git_object: e031a8a9f3046dab00e00bc7bb6d4546df03f753
   internal/sdk/models/components/revenuesummaryresponse.go:
     id: b2252a23920f
-    last_write_checksum: sha1:f796fe261c47778a9d6b5513c3663b05642f35d4
-    pristine_git_object: c37f89584c502c600bb41f6b745177fbd51099ce
+    last_write_checksum: sha1:a068ea7110f7e1824443f8b174f3e3ed906217e1
+    pristine_git_object: 5621b0776348993d647e117c6af5c34ff04e1737
   internal/sdk/models/components/revenuetrendbucket.go:
     id: 2943c8f6650a
     last_write_checksum: sha1:5d971d78d378090808762e04f6fb916dc9c53eb2
@@ -2095,8 +2095,8 @@ trackedFiles:
     pristine_git_object: b17c6b4b8358a72c6ae52c70cfa1ecedef47978b
   internal/sdk/subscriptions.go:
     id: 6c0fb6924ba6
-    last_write_checksum: sha1:6be753307d86c21a9bb2e2315b68aff66c915a8b
-    pristine_git_object: ece26cbf62fef57d3a4d3c81903f90e44887cc88
+    last_write_checksum: sha1:85bc275fd0f51c6723bca6c18b813d87117c8d89
+    pristine_git_object: 773c1d288fa034baca7caf285b5e1426ce0192f4
   internal/sdk/testclocks.go:
     id: 0c77c6d8d26f
     last_write_checksum: sha1:614e374c54e1f30de5dfc42ba3d7183aadb8594e
@@ -2127,8 +2127,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:06e618ca5a4e811851ae16a51f95c923eebdbc42
-    pristine_git_object: 7a1cdccd1a0d9254c9d550fec4a0a9109c3bd7b4
+    last_write_checksum: sha1:bec0e619444ce52076b3e8c0966916e76733165e
+    pristine_git_object: c9a3b22bd824c4ff3bd5b83388492ddfaabad417
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4486,11 +4486,6 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Cli SDK Changes:
-  * `Paygentic.Plans.Create()`:  `response.Prices[]` **Changed**
-  * `Paygentic.Plans.List()`:  `response.Data[].Prices[]` **Changed**
-  * `Paygentic.Plans.ListAvailable()`:  `response.Data[].Prices[]` **Changed**
-  * `Paygentic.Plans.Get()`:  `response.Prices[]` **Changed**
-  * `Paygentic.Plans.Update()`:  `response.Prices[]` **Changed**
-  * `Paygentic.Plans.MintPlanVersion()`:  `response.Prices[]` **Changed**
-  * `Paygentic.Plans.GetPlanVersion()`:  `response.Prices[]` **Changed**
-  * `Paygentic.Plans.TransitionPlanVersion()`:  `response.Prices[]` **Changed**
+  * `Paygentic.Subscriptions.ReconcileSubscriptionFeatures()`:  `error.status[503]` **Added**
+  * `Paygentic.Revenue.Get()`:  `response.RevenueRange` **Added**
+  * `Paygentic.Profitability.GetProfitability()`:  `response.RevenueRange` **Added**
