@@ -6,6 +6,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/paygentic/cli/internal/sdk/optionalnullable"
 	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 	"time"
 )
@@ -90,6 +91,39 @@ func (p *Pagination) GetOffset() int64 {
 	return p.Offset
 }
 
+// CostReportResponseCostRange - Where the caller's cost data actually lies in time. Present only when the selected range returned no cost. An object carries the bounds of the real cost events; null means the caller has no cost event at any time; an absent field means the extent was not resolved, because the result was not empty, because the lookup failed, or because the metering service does not serve the bounds method. An absent field must never be read as an absence.
+type CostReportResponseCostRange struct {
+	// Earliest cost event instant.
+	From time.Time `json:"from"`
+	// Latest cost event instant.
+	To time.Time `json:"to"`
+}
+
+func (c CostReportResponseCostRange) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CostReportResponseCostRange) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CostReportResponseCostRange) GetFrom() time.Time {
+	if c == nil {
+		return time.Time{}
+	}
+	return c.From
+}
+
+func (c *CostReportResponseCostRange) GetTo() time.Time {
+	if c == nil {
+		return time.Time{}
+	}
+	return c.To
+}
+
 type CostReportResponse struct {
 	Object *CostReportResponseObject `default:"cost_report" json:"object"`
 	// ISO 4217 currency code for all monetary values in this response.
@@ -110,6 +144,8 @@ type CostReportResponse struct {
 	// Non-fatal warnings, e.g. costs that could not be queried.
 	Warnings   []string   `json:"warnings,omitzero"`
 	Pagination Pagination `json:"pagination"`
+	// Where the caller's cost data actually lies in time. Present only when the selected range returned no cost. An object carries the bounds of the real cost events; null means the caller has no cost event at any time; an absent field means the extent was not resolved, because the result was not empty, because the lookup failed, or because the metering service does not serve the bounds method. An absent field must never be read as an absence.
+	CostRange optionalnullable.OptionalNullable[CostReportResponseCostRange] `json:"costRange,omitzero"`
 }
 
 func (c CostReportResponse) MarshalJSON() ([]byte, error) {
@@ -198,4 +234,11 @@ func (c *CostReportResponse) GetPagination() Pagination {
 		return Pagination{}
 	}
 	return c.Pagination
+}
+
+func (c *CostReportResponse) GetCostRange() optionalnullable.OptionalNullable[CostReportResponseCostRange] {
+	if c == nil {
+		return nil
+	}
+	return c.CostRange
 }
