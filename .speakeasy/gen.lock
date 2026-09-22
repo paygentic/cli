@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 593775e9cf35ed89df7a617d1d147582
+  docChecksum: 2ed87226e9ee3fde399a92f1bc628894
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.9
-  configChecksum: bc70a50dd3924466050556121a915144
+  releaseVersion: 0.5.10
+  configChecksum: 3cfe4e5d20b2f58dbb6b4cc2ef8bb3b7
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 37ea9239-8931-4e03-b638-c9da343ad2f9
-  pristine_commit_hash: 79722bf201b8af647016e1a95c6392eaeb253344
-  pristine_tree_hash: 696320d45faf8b57d9d2c0cb3f70129933c70327
+  generation_id: 5cb1ab55-3dd2-42be-966e-3f99b5460ed0
+  pristine_commit_hash: 22a478cce1d1b2674a16a164f775dfa3ce0d85b0
+  pristine_tree_hash: b52ec2935c17a1f140c34dc63ccbcd6ebdadd676
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -747,8 +747,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:6047c1dbea3e84180d290298b87bc863c8c78eeb
-    pristine_git_object: 16c9f5b4233c3d9eb6826594846747bf3946b0b4
+    last_write_checksum: sha1:ec6348854d43a6e9705846bec69f0dc05a9fee0e
+    pristine_git_object: a6e0bbd0fd60a0e356aa749e0994f0f38e975dc0
   internal/cli/whoami.go:
     id: c1787f2298ec
     last_write_checksum: sha1:91e0430d2efa04478659bdc402442e57f7168a0c
@@ -919,8 +919,8 @@ trackedFiles:
     pristine_git_object: 92e171bc3d6c352ed2843f343393dda0d054cab1
   internal/sdk/models/components/costreportresponse.go:
     id: 7ad2ac8dac9f
-    last_write_checksum: sha1:8ce1b57c2768d047dccece8a9c13537a275bdfcb
-    pristine_git_object: a8a7e8891d0d55187400e9aace7dd3736aa16eb8
+    last_write_checksum: sha1:a2cf1b2efb47415243d2b28b37fa650cadb5703d
+    pristine_git_object: 7a7357c323d7e0d93c2ff1f05c1e2a6fd59c631b
   internal/sdk/models/components/costreporttimeseries.go:
     id: bd4ef5df6615
     last_write_checksum: sha1:eef35425a7bbd2238ac1112929ca27385403b77b
@@ -1035,8 +1035,8 @@ trackedFiles:
     pristine_git_object: a5c05d8c1fb5671491f1a355fb73723056b97a35
   internal/sdk/models/components/invoice.go:
     id: 0feca5d38bb2
-    last_write_checksum: sha1:5784f1e5eaf5139b847c1553c80c8641aad99abe
-    pristine_git_object: 43762e7f19240499066d44e7786bf03f48be21a5
+    last_write_checksum: sha1:76c1aa071d39fb6a35ee8135205f8bc98de1a5f1
+    pristine_git_object: a0bb06d4ed8b3df8ddd3e58c890dc4b75dd5e62e
   internal/sdk/models/components/invoicecategorysummary.go:
     id: 67d75e2c8eb7
     last_write_checksum: sha1:81606dc8ed85663ef5581091295c57dfa9aafead
@@ -1207,8 +1207,8 @@ trackedFiles:
     pristine_git_object: fa161828c384c06d8771aff6686ae6671491ffec
   internal/sdk/models/components/profitabilitysummaryresponse.go:
     id: bf7f8b4d2c36
-    last_write_checksum: sha1:2088765dc61805ea959cc83e4bc9d78f9ca90fe9
-    pristine_git_object: ae00f74c2cdfac9688c891a5f12763a1eb9f7f45
+    last_write_checksum: sha1:50457065d5ea3560092fdc0179d43d4a5bc534e4
+    pristine_git_object: 12deda945052def64832294949840f9754ee8560
   internal/sdk/models/components/profitabilitytrend.go:
     id: 206a15097ea6
     last_write_checksum: sha1:b0ce3da839d48ad4ec86b6a1697b8522c95aa208
@@ -2127,8 +2127,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:bec0e619444ce52076b3e8c0966916e76733165e
-    pristine_git_object: c9a3b22bd824c4ff3bd5b83388492ddfaabad417
+    last_write_checksum: sha1:1251de93eae1d1945ccbb534181ea996af4e7774
+    pristine_git_object: 51530893049701e00a23967a1ce1e69c9d9227cb
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4486,6 +4486,5 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Cli SDK Changes:
-  * `Paygentic.Subscriptions.ReconcileSubscriptionFeatures()`:  `error.status[503]` **Added**
-  * `Paygentic.Revenue.Get()`:  `response.RevenueRange` **Added**
-  * `Paygentic.Profitability.GetProfitability()`:  `response.RevenueRange` **Added**
+  * `Paygentic.Costs.GetCostReport()`:  `response.CostRange` **Added**
+  * `Paygentic.Profitability.GetProfitability()`:  `response.CostRange` **Added**
