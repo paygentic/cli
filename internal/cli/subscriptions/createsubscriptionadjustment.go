@@ -17,7 +17,7 @@ import (
 
 var createSubscriptionAdjustmentCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The subscription ID [required]"},
-	{FlagName: "body-param", Shorthand: "b", FieldPath: "Body", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: true, DiscriminatorKey: "Type", TypeDescription: "JSON value (variants: percentageDiscount: { type: string, percentageDiscount: string, effectiveFrom: date-time, effectiveTo: date-time, ... }, usageDiscount: { type: string, usageDiscount: string, targetPriceIds: string[], effectiveFrom: date-time, ... })", Variants: []flagutil.UnionVariantMeta{
+	{FlagName: "body-param", Shorthand: "b", FieldPath: "Body", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: true, DiscriminatorKey: "Type", TypeDescription: "JSON value (variants: percentageDiscount: { type: string, percentageDiscount: string, effectiveFrom: date-time, effectiveTo: date-time, ... }, usageDiscount: { type: string, usageDiscount: string, targetPriceIds: string[], effectiveFrom: date-time, ... }, minimumQuantity: { type: string, minimumQuantity: string, targetPriceIds: string[], effectiveFrom: date-time, ... }, maximumQuantity: { type: string, maximumQuantity: string, targetPriceIds: string[], effectiveFrom: date-time, ... })", Variants: []flagutil.UnionVariantMeta{
 		{DiscriminatorValue: "percentageDiscount", FlagName: "body-param.percentage-discount", FieldName: "CreatePercentageDiscountAdjustment", CanExpand: true, Description: "CreatePercentageDiscountAdjustment variant as JSON", Fields: []flagutil.FlagMeta{
 			{FlagName: "body-param.percentage-discount.percentage-discount", FieldPath: "PercentageDiscount", Kind: flagutil.FlagKindString, Required: true, Description: "The discount rate as a decimal fraction between 0 and 1, sent as a string. \"0.35\" means 35 percent. \"1\" means 100 percent, not 1 percent. At most 6 decimal places. A value of 0 or above 1 is rejected. [required]"},
 			{FlagName: "body-param.percentage-discount.effective-from", FieldPath: "EffectiveFrom", Kind: flagutil.FlagKindDateTime, Required: true, Description: "The first instant the discount applies. Inclusive. [required]"},
@@ -26,6 +26,8 @@ var createSubscriptionAdjustmentCmdMeta = []flagutil.FlagMeta{
 			{FlagName: "body-param.percentage-discount.idempotency-key", FieldPath: "IdempotencyKey", Kind: flagutil.FlagKindString, Optional: true, Description: "A key of your choosing that makes a retry safe. Sending the same key against the same subscription returns the adjustment already created and creates no second one. Without a key a retried request creates a second adjustment, and two percentage discounts compound — two of 0.35 bill 57.75 percent off, not 35 percent."},
 		}},
 		{DiscriminatorValue: "usageDiscount", FlagName: "body-param.usage-discount", FieldName: "CreateUsageDiscountAdjustment", CanExpand: false, Description: "CreateUsageDiscountAdjustment variant as JSON"},
+		{DiscriminatorValue: "minimumQuantity", FlagName: "body-param.minimum-quantity", FieldName: "CreateMinimumQuantityAdjustment", CanExpand: false, Description: "CreateMinimumQuantityAdjustment variant as JSON"},
+		{DiscriminatorValue: "maximumQuantity", FlagName: "body-param.maximum-quantity", FieldName: "CreateMaximumQuantityAdjustment", CanExpand: false, Description: "CreateMaximumQuantityAdjustment variant as JSON"},
 	}}},
 }
 

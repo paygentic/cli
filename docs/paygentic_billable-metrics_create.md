@@ -23,7 +23,7 @@ paygentic billable-metrics create [flags]
       --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --description string   Explanatory text describing what the metric tracks and how it's used for billing. Sample values: 'Total tokens consumed by Claude language model interactions', 'Gigabytes of cloud storage utilized', 'Count of machine learning inference requests processed', 'Quantity of AI-generated images created', 'Compute hours spent training neural networks', 'Terabytes of data transferred' [required]
       --event-from string    Only count events after this timestamp. Used for meter versioning.
-      --event-type string    CloudEvents type for meter routing. Links this billable metric to the metering service.
+      --event-type string    CloudEvents type for meter routing. Links this billable metric to the metering service. [required]
   -g, --group-by $.          Map of dimension name to JSONPath for group-by queries. Each value must start with $. (example: `$.region`).
   -h, --help                 help for create
   -i, --item-id string       Unique identifier for an item
@@ -31,7 +31,7 @@ paygentic billable-metrics create [flags]
   -n, --name string          Human-readable label identifying what this metric measures. Sample values: 'Claude Tokens', 'Storage Capacity', 'Model Inference Calls', 'Generated Images', 'Training Compute Hours', 'Data Transfer Volume' [required]
   -p, --product-id string    Unique identifier for a product
   -u, --unit string          Measurement unit used when aggregating this metric's values. Common examples: 'tokens', 'GB', 'calls', 'images', 'hours', 'TB', 'queries', 'requests' [required]
-  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations.
+  -v, --value-property $.    JSONPath to extract a numeric value from event data. Must start with $. (example: `$.amount` or `$.payload.bytes`). Required for SUM/AVG/MIN/MAX/LATEST aggregations. Optional for UNIQUE_COUNT, which counts distinct values of this property when set and distinct events when not. Not stored for COUNT.
 ```
 
 ### Options inherited from parent commands

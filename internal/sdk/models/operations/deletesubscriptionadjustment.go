@@ -5,6 +5,7 @@ package operations
 
 import (
 	"github.com/paygentic/cli/internal/sdk/models/components"
+	"github.com/paygentic/cli/internal/sdk/sdkinternal/utils"
 )
 
 type DeleteSubscriptionAdjustmentRequest struct {
@@ -30,6 +31,19 @@ func (d *DeleteSubscriptionAdjustmentRequest) GetAdjustmentID() string {
 
 type DeleteSubscriptionAdjustmentResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// The adjustment was retracted to the end of the last period it was billed on. It still exists, with a shortened window.
+	SubscriptionAdjustment *components.SubscriptionAdjustment
+}
+
+func (d DeleteSubscriptionAdjustmentResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DeleteSubscriptionAdjustmentResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (d *DeleteSubscriptionAdjustmentResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -37,4 +51,11 @@ func (d *DeleteSubscriptionAdjustmentResponse) GetHTTPMeta() components.HTTPMeta
 		return components.HTTPMetadata{}
 	}
 	return d.HTTPMeta
+}
+
+func (d *DeleteSubscriptionAdjustmentResponse) GetSubscriptionAdjustment() *components.SubscriptionAdjustment {
+	if d == nil {
+		return nil
+	}
+	return d.SubscriptionAdjustment
 }

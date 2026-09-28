@@ -20,7 +20,7 @@ paygentic test-clocks create [flags]
 
 ```
       --body string           Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -c, --current-time string   Initial time for the test clock (defaults to current time). Cannot be more than 1 hour in the past to prevent accidental backdating. The 1-hour buffer accounts for clock drift and network delays.
+  -c, --current-time string   Initial time for the test clock (defaults to current time). May be in the past, which lets a subscription on the clock start on a past date and bill its periods as the clock advances.
       --description string    Description of the test clock's purpose
   -h, --help                  help for create
   -m, --merchant-id string    The merchant organization that will own this test clock. If not provided, will be extracted from authenticated user's context.

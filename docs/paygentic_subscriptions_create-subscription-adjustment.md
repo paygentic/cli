@@ -20,7 +20,9 @@ paygentic subscriptions create-subscription-adjustment [flags]
 
 ```
       --body string                                                 Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -b, --body-param string                                           JSON value (variants: percentageDiscount: { type: string, percentageDiscount: string, effectiveFrom: date-time, effectiveTo: date-time, ... }, usageDiscount: { type: string, usageDiscount: string, targetPriceIds: string[], effectiveFrom: date-time, ... })
+  -b, --body-param string                                           JSON value (variants: percentageDiscount: { type: string, percentageDiscount: string, effectiveFrom: date-time, effectiveTo: date-time, ... }, usageDiscount: { type: string, usageDiscount: string, targetPriceIds: string[], effectiveFrom: date-time, ... }, minimumQuantity: { type: string, minimumQuantity: string, targetPriceIds: string[], effectiveFrom: date-time, ... }, maximumQuantity: { type: string, maximumQuantity: string, targetPriceIds: string[], effectiveFrom: date-time, ... })
+      --body-param.maximum-quantity string                          CreateMaximumQuantityAdjustment variant as JSON
+      --body-param.minimum-quantity string                          CreateMinimumQuantityAdjustment variant as JSON
       --body-param.percentage-discount string                       CreatePercentageDiscountAdjustment variant as JSON
       --body-param.percentage-discount.description string           The deal's own name, shown on each discount line of the invoice.
       --body-param.percentage-discount.effective-from string        The first instant the discount applies. Inclusive. [required]
