@@ -2037,7 +2037,7 @@ func (s *Subscriptions) CreateSubscriptionAdjustment(ctx context.Context, reques
 }
 
 // DeleteSubscriptionAdjustment - Delete Adjustment
-// Deletes an adjustment that has not yet reached an issued invoice. No invoice changes: an invoice still in draft keeps its numbers, and loses the discount only when its period is calculated again. An adjustment that has already discounted an issued invoice cannot be deleted, because the invoice records why the customer was charged that amount. Its window cannot be shortened afterwards either, so set effectiveTo at creation time whenever the deal has a known end date.
+// Stops an adjustment from applying to any period it has not already been billed on. An adjustment that has never reached an issued invoice is removed, and the response is 204. An adjustment that has already been billed on an issued invoice is RETRACTED instead: its effectiveTo moves to the end of the last period it was billed on, the adjustment still exists, and the response is 200 carrying it. Read a 200 as "shortened", not as "removed". No invoice changes either way: an issued invoice keeps its numbers, and a draft loses the adjustment only when its period is calculated again. Deleting the same adjustment again returns the same 200 and the same window.
 func (s *Subscriptions) DeleteSubscriptionAdjustment(ctx context.Context, request operations.DeleteSubscriptionAdjustmentRequest, opts ...operations.Option) (*operations.DeleteSubscriptionAdjustmentResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -2134,6 +2134,29 @@ func (s *Subscriptions) DeleteSubscriptionAdjustment(ctx context.Context, reques
 	}
 
 	switch {
+	case httpRes.StatusCode == 200:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
+
+				var out components.SubscriptionAdjustment
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
+
+				res.SubscriptionAdjustment = &out
+			}
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, sdkerrors.NewSDKDefaultError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
 	case httpRes.StatusCode == 204:
 		if o.SkipDeserialization == nil || !*o.SkipDeserialization {
 			utils.DrainBody(httpRes)

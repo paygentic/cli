@@ -16,7 +16,7 @@ import (
 )
 
 var createCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "current-time", Shorthand: "c", FieldPath: "CurrentTime", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Initial time for the test clock (defaults to current time). Cannot be more than 1 hour in the past to prevent accidental backdating. The 1-hour buffer accounts for clock drift and network delays."},
+	{FlagName: "current-time", Shorthand: "c", FieldPath: "CurrentTime", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Initial time for the test clock (defaults to current time). May be in the past, which lets a subscription on the clock start on a past date and bill its periods as the clock advances."},
 	{FlagName: "description", FieldPath: "Description", Kind: flagutil.FlagKindString, Optional: true, Description: "Description of the test clock's purpose"},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "The merchant organization that will own this test clock. If not provided, will be extracted from authenticated user's context."},
 	{FlagName: "name", Shorthand: "n", FieldPath: "Name", Kind: flagutil.FlagKindString, Optional: true, Description: "Name of the test clock"},
