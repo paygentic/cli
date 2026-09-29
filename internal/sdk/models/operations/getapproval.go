@@ -22,7 +22,7 @@ func (g *GetApprovalRequest) GetID() string {
 type GetApprovalResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Approval
-	SchemasApproval *components.SchemasApproval
+	Approval *components.Approval
 }
 
 func (g GetApprovalResponse) MarshalJSON() ([]byte, error) {
@@ -43,9 +43,9 @@ func (g *GetApprovalResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetApprovalResponse) GetSchemasApproval() *components.SchemasApproval {
+func (g *GetApprovalResponse) GetApproval() *components.Approval {
 	if g == nil {
 		return nil
 	}
-	return g.SchemasApproval
+	return g.Approval
 }

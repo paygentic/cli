@@ -87,8 +87,8 @@ func (l *ListPricesPagination) GetTotal() *int64 {
 
 // ListPricesResponseBody - List of prices
 type ListPricesResponseBody struct {
-	Data       []components.SchemasPrice `json:"data,omitzero"`
-	Pagination *ListPricesPagination     `json:"pagination,omitzero"`
+	Data       []components.Price    `json:"data,omitzero"`
+	Pagination *ListPricesPagination `json:"pagination,omitzero"`
 }
 
 func (l ListPricesResponseBody) MarshalJSON() ([]byte, error) {
@@ -102,7 +102,7 @@ func (l *ListPricesResponseBody) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (l *ListPricesResponseBody) GetData() []components.SchemasPrice {
+func (l *ListPricesResponseBody) GetData() []components.Price {
 	if l == nil {
 		return nil
 	}

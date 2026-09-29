@@ -1454,12 +1454,12 @@ func (s *Customers) CreateCustomerPaymentMethod(ctx context.Context, request ope
 					return nil, err
 				}
 
-				var out components.PaymentSession
+				var out components.CustomerPaymentSession
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.PaymentSession = &out
+				res.CustomerPaymentSession = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

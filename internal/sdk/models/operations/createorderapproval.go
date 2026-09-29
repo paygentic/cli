@@ -30,7 +30,7 @@ func (c *CreateOrderApprovalRequest) GetBody() components.CreateOrderApprovalReq
 type CreateOrderApprovalResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Approval created
-	Approval *components.Approval
+	OrderApproval *components.OrderApproval
 }
 
 func (c CreateOrderApprovalResponse) MarshalJSON() ([]byte, error) {
@@ -51,9 +51,9 @@ func (c *CreateOrderApprovalResponse) GetHTTPMeta() components.HTTPMetadata {
 	return c.HTTPMeta
 }
 
-func (c *CreateOrderApprovalResponse) GetApproval() *components.Approval {
+func (c *CreateOrderApprovalResponse) GetOrderApproval() *components.OrderApproval {
 	if c == nil {
 		return nil
 	}
-	return c.Approval
+	return c.OrderApproval
 }

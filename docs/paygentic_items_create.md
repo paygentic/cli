@@ -22,7 +22,7 @@ paygentic items create [flags]
       --body string          Request body as JSON (alternative to individual flags). Can also be provided via stdin.
   -c, --catalog-id string    Unique identifier for a product
   -h, --help                 help for create
-      --merchant-id string   [required]
+      --merchant-id string   Unique identifier for an organization [required]
       --metadata string      Optional key-value metadata
   -n, --name string          Canonical sellable name for the Item [required]
 ```

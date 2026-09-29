@@ -1847,12 +1847,12 @@ func (s *Orders) CreateOrderApproval(ctx context.Context, request operations.Cre
 					return nil, err
 				}
 
-				var out components.Approval
+				var out components.OrderApproval
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.Approval = &out
+				res.OrderApproval = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

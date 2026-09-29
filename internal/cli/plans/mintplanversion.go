@@ -17,9 +17,8 @@ import (
 
 var mintPlanVersionCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
-	{FlagName: "add-prices", Shorthand: "a", FieldPath: "Body.AddPrices", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Prices to add to the version. Each must not already be on the plan's current version."},
-	{FlagName: "remove-prices", FieldPath: "Body.RemovePrices", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Prices to remove. Each must be on the plan's current version."},
-	{FlagName: "replace-prices", FieldPath: "Body.ReplacePrices", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"replacePrices,omitempty"`, Description: "Prices to swap in place, preserving the slot's lineage so the price keeps its identity where the plan is configured for stable price ids. replacesPriceId must be on the plan's current version; withPriceId is the new price."},
+	{FlagName: "prices", Shorthand: "p", FieldPath: "Body.Prices", Kind: flagutil.FlagKindJSON, Required: true, Annotations: `json:"prices"`, Description: "The full price set the new version holds. To move off the previous addPrices, removePrices and replacePrices fields: a replacePrices entry becomes the same key with the new price ID, a removePrices entry becomes an omitted key, and an addPrices entry becomes a new entry. [required]"},
+	{FlagName: "based-on-version-id", Shorthand: "b", FieldPath: "Body.BasedOnVersionID", Kind: flagutil.FlagKindString, Optional: true, Description: "The ID of the plan version you read the current price set from. Supply it to be told when the plan has moved on: the request is rejected with 409 if the plan's current version is no longer this one, so a set built from a stale read cannot drop a line another caller has just added. Omit it to write the set unconditionally."},
 }
 
 // initMintPlanVersionCmd initializes the mint-plan-version command.
@@ -27,8 +26,8 @@ func initMintPlanVersionCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "mint-plan-version",
 		Short:   "Mint a plan version",
-		Long:    "Mint a new plan version from a price diff and make it the version the plan bills from, in one step. The diff references existing prices by id: create prices beforehand with POST /prices, then add, remove, or replace them here. To return to an earlier price set, make that version the default with a PATCH on the version.",
-		Example: "  paygentic plans mint-plan-version --id <id>",
+		Long:    "Mint a new plan version from the price set it is to hold, and make it the version the plan bills from, in one step. The request names the complete set, not a change to it: create prices beforehand with POST /prices, then list every price the new version holds. The change against the current version follows from the keys — a key on both sides with a different price ID replaces that line, a key only in the request adds a line, and a key the current version holds and the request omits removes that line. To return to an earlier price set, make that version the default with a PATCH on the version.",
+		Example: "  paygentic plans mint-plan-version --id <id> --prices '[{\"priceId\":\"<id>\"}]'",
 		RunE:    runMintPlanVersionCmd,
 		Aliases: []string{"mpv"},
 	}

@@ -30,7 +30,7 @@ func (u *UpdateApprovalRequest) GetBody() components.UpdateApprovalRequest {
 type UpdateApprovalResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Approval updated
-	SchemasApproval *components.SchemasApproval
+	Approval *components.Approval
 }
 
 func (u UpdateApprovalResponse) MarshalJSON() ([]byte, error) {
@@ -51,9 +51,9 @@ func (u *UpdateApprovalResponse) GetHTTPMeta() components.HTTPMetadata {
 	return u.HTTPMeta
 }
 
-func (u *UpdateApprovalResponse) GetSchemasApproval() *components.SchemasApproval {
+func (u *UpdateApprovalResponse) GetApproval() *components.Approval {
 	if u == nil {
 		return nil
 	}
-	return u.SchemasApproval
+	return u.Approval
 }

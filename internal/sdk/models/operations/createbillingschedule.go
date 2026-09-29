@@ -11,7 +11,7 @@ import (
 type CreateBillingScheduleResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// BillingSchedule created
-	SchemasBillingSchedule *components.SchemasBillingSchedule
+	BillingSchedule *components.BillingSchedule
 }
 
 func (c CreateBillingScheduleResponse) MarshalJSON() ([]byte, error) {
@@ -32,9 +32,9 @@ func (c *CreateBillingScheduleResponse) GetHTTPMeta() components.HTTPMetadata {
 	return c.HTTPMeta
 }
 
-func (c *CreateBillingScheduleResponse) GetSchemasBillingSchedule() *components.SchemasBillingSchedule {
+func (c *CreateBillingScheduleResponse) GetBillingSchedule() *components.BillingSchedule {
 	if c == nil {
 		return nil
 	}
-	return c.SchemasBillingSchedule
+	return c.BillingSchedule
 }

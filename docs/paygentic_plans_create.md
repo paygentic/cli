@@ -33,7 +33,7 @@ paygentic plans create [flags]
   -i, --invoice-display-name string   Plan name shown on billing statements. Sample values: 'LLM API Basic Plan', 'Data Warehouse Business', 'ML Platform Enterprise', 'Pay-Per-Use Model'
   -m, --merchant-id string            Unique identifier for an organization [required]
   -n, --name string                   Plan identifier visible to customers. Sample values: 'Basic Tier', 'Business Package', 'Enterprise Solution', 'Metered Billing', 'Free Tier', 'Premium Access' [required]
-      --prices stringArray            Array of price IDs to associate with this plan
+      --prices string                 The prices this plan starts with. An entry is either a price ID on its own, or an object that names a price ID and the key by which you address that line. A price ID on its own receives a generated key.
       --product-id string             Unique identifier for a product [required]
       --renewal-reminder-days int     Number of days before renewal to send the reminder email (default 3)
       --renewal-reminder-enabled      Whether to send renewal reminder emails to customers before their subscription renews (default true)

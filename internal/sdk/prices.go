@@ -145,12 +145,12 @@ func (s *Prices) Create(ctx context.Context, request operations.CreatePriceReque
 					return nil, err
 				}
 
-				var out components.SchemasPrice
+				var out components.Price
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasPrice = &out
+				res.Price = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -595,12 +595,12 @@ func (s *Prices) Get(ctx context.Context, request operations.GetPriceRequest, op
 					return nil, err
 				}
 
-				var out components.SchemasPrice
+				var out components.Price
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasPrice = &out
+				res.Price = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -825,12 +825,12 @@ func (s *Prices) Update(ctx context.Context, request operations.UpdatePriceReque
 					return nil, err
 				}
 
-				var out components.SchemasPrice
+				var out components.Price
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasPrice = &out
+				res.Price = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

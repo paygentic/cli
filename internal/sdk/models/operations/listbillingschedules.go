@@ -56,8 +56,8 @@ func (e *ListBillingSchedulesObject) UnmarshalJSON(data []byte) error {
 
 // ListBillingSchedulesResponseBody - List of billing schedules
 type ListBillingSchedulesResponseBody struct {
-	Object ListBillingSchedulesObject          `json:"object"`
-	Data   []components.SchemasBillingSchedule `json:"data"`
+	Object ListBillingSchedulesObject   `json:"object"`
+	Data   []components.BillingSchedule `json:"data"`
 	// Offset-based pagination response.
 	Pagination components.OffsetPagination `json:"pagination"`
 }
@@ -69,9 +69,9 @@ func (l *ListBillingSchedulesResponseBody) GetObject() ListBillingSchedulesObjec
 	return l.Object
 }
 
-func (l *ListBillingSchedulesResponseBody) GetData() []components.SchemasBillingSchedule {
+func (l *ListBillingSchedulesResponseBody) GetData() []components.BillingSchedule {
 	if l == nil {
-		return []components.SchemasBillingSchedule{}
+		return []components.BillingSchedule{}
 	}
 	return l.Data
 }

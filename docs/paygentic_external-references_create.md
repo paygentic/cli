@@ -27,7 +27,7 @@ paygentic external-references create [flags]
   -h, --help                                          help for create
       --is-default (entityType, entityId, provider)   Whether this is the code sent *to* the provider for this entity. At most one per (entityType, entityId, provider). **Omit** to have the entity's first code for the provider designated automatically — see the note on `isPrimary` for why this carries no schema default.
       --is-primary (provider, externalId)             Whether this reference claims (provider, externalId) — the code resolves back to this one entity. Unique per merchant; unclaimed references are aliases. **Omitting it claims the code.** Send `false` for a code that is only ever sent outward, such as a ledger account several items post to — claiming that refuses the second item to use it. The default is not derived from the provider: what a code is for is a property of the operation recording it, and one provider can both resolve an arriving code and be sent a selected one. Declaring a schema default here would defeat the distinction, because a generated client materialises the default into the request body and the caller can no longer express "I did not say".
-      --merchant-id string                            [required]
+      --merchant-id string                            Unique identifier for an organization [required]
       --metadata { "sfObject": "Product2" }           Provider-specific fields (e.g. { "sfObject": "Product2" })
       --move-claim 409                                Take this code's claim from whichever entity currently holds it, in the same transaction.
                                                       

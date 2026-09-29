@@ -93,7 +93,7 @@ func (c *CreateCustomerPaymentMethodRequest) GetBody() *CreateCustomerPaymentMet
 type CreateCustomerPaymentMethodResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Payment session created successfully
-	PaymentSession *components.PaymentSession
+	CustomerPaymentSession *components.CustomerPaymentSession
 }
 
 func (c CreateCustomerPaymentMethodResponse) MarshalJSON() ([]byte, error) {
@@ -114,9 +114,9 @@ func (c *CreateCustomerPaymentMethodResponse) GetHTTPMeta() components.HTTPMetad
 	return c.HTTPMeta
 }
 
-func (c *CreateCustomerPaymentMethodResponse) GetPaymentSession() *components.PaymentSession {
+func (c *CreateCustomerPaymentMethodResponse) GetCustomerPaymentSession() *components.CustomerPaymentSession {
 	if c == nil {
 		return nil
 	}
-	return c.PaymentSession
+	return c.CustomerPaymentSession
 }

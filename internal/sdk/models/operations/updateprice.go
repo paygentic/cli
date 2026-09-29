@@ -238,7 +238,7 @@ func (u *UpdatePriceDetails) GetSubscriptionCount() *int64 {
 type UpdatePriceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Price updated successfully
-	SchemasPrice *components.SchemasPrice
+	Price *components.Price
 }
 
 func (u UpdatePriceResponse) MarshalJSON() ([]byte, error) {
@@ -259,9 +259,9 @@ func (u *UpdatePriceResponse) GetHTTPMeta() components.HTTPMetadata {
 	return u.HTTPMeta
 }
 
-func (u *UpdatePriceResponse) GetSchemasPrice() *components.SchemasPrice {
+func (u *UpdatePriceResponse) GetPrice() *components.Price {
 	if u == nil {
 		return nil
 	}
-	return u.SchemasPrice
+	return u.Price
 }

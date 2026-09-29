@@ -372,12 +372,12 @@ func (s *BillingSchedules) CreateBillingSchedule(ctx context.Context, request co
 					return nil, err
 				}
 
-				var out components.SchemasBillingSchedule
+				var out components.BillingSchedule
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasBillingSchedule = &out
+				res.BillingSchedule = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -597,12 +597,12 @@ func (s *BillingSchedules) GetBillingSchedule(ctx context.Context, request opera
 					return nil, err
 				}
 
-				var out components.SchemasBillingSchedule
+				var out components.BillingSchedule
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasBillingSchedule = &out
+				res.BillingSchedule = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -802,12 +802,12 @@ func (s *BillingSchedules) UpdateBillingSchedule(ctx context.Context, request op
 					return nil, err
 				}
 
-				var out components.SchemasBillingSchedule
+				var out components.BillingSchedule
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasBillingSchedule = &out
+				res.BillingSchedule = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

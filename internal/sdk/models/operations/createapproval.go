@@ -11,7 +11,7 @@ import (
 type CreateApprovalResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Approval created
-	SchemasApproval *components.SchemasApproval
+	Approval *components.Approval
 }
 
 func (c CreateApprovalResponse) MarshalJSON() ([]byte, error) {
@@ -32,9 +32,9 @@ func (c *CreateApprovalResponse) GetHTTPMeta() components.HTTPMetadata {
 	return c.HTTPMeta
 }
 
-func (c *CreateApprovalResponse) GetSchemasApproval() *components.SchemasApproval {
+func (c *CreateApprovalResponse) GetApproval() *components.Approval {
 	if c == nil {
 		return nil
 	}
-	return c.SchemasApproval
+	return c.Approval
 }
