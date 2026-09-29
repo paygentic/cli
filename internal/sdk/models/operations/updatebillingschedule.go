@@ -30,7 +30,7 @@ func (u *UpdateBillingScheduleRequest) GetBody() components.UpdateBillingSchedul
 type UpdateBillingScheduleResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// BillingSchedule updated
-	SchemasBillingSchedule *components.SchemasBillingSchedule
+	BillingSchedule *components.BillingSchedule
 }
 
 func (u UpdateBillingScheduleResponse) MarshalJSON() ([]byte, error) {
@@ -51,9 +51,9 @@ func (u *UpdateBillingScheduleResponse) GetHTTPMeta() components.HTTPMetadata {
 	return u.HTTPMeta
 }
 
-func (u *UpdateBillingScheduleResponse) GetSchemasBillingSchedule() *components.SchemasBillingSchedule {
+func (u *UpdateBillingScheduleResponse) GetBillingSchedule() *components.BillingSchedule {
 	if u == nil {
 		return nil
 	}
-	return u.SchemasBillingSchedule
+	return u.BillingSchedule
 }

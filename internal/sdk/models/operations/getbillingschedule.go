@@ -22,7 +22,7 @@ func (g *GetBillingScheduleRequest) GetID() string {
 type GetBillingScheduleResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// BillingSchedule
-	SchemasBillingSchedule *components.SchemasBillingSchedule
+	BillingSchedule *components.BillingSchedule
 }
 
 func (g GetBillingScheduleResponse) MarshalJSON() ([]byte, error) {
@@ -43,9 +43,9 @@ func (g *GetBillingScheduleResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetBillingScheduleResponse) GetSchemasBillingSchedule() *components.SchemasBillingSchedule {
+func (g *GetBillingScheduleResponse) GetBillingSchedule() *components.BillingSchedule {
 	if g == nil {
 		return nil
 	}
-	return g.SchemasBillingSchedule
+	return g.BillingSchedule
 }

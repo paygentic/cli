@@ -188,7 +188,7 @@ func (c *CreatePriceRequest) GetQuantity() *int64 {
 type CreatePriceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Price created successfully
-	SchemasPrice *components.SchemasPrice
+	Price *components.Price
 }
 
 func (c CreatePriceResponse) MarshalJSON() ([]byte, error) {
@@ -209,9 +209,9 @@ func (c *CreatePriceResponse) GetHTTPMeta() components.HTTPMetadata {
 	return c.HTTPMeta
 }
 
-func (c *CreatePriceResponse) GetSchemasPrice() *components.SchemasPrice {
+func (c *CreatePriceResponse) GetPrice() *components.Price {
 	if c == nil {
 		return nil
 	}
-	return c.SchemasPrice
+	return c.Price
 }

@@ -145,12 +145,12 @@ func (s *Approvals) CreateApproval(ctx context.Context, request components.Creat
 					return nil, err
 				}
 
-				var out components.SchemasApproval
+				var out components.Approval
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasApproval = &out
+				res.Approval = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -595,12 +595,12 @@ func (s *Approvals) GetApproval(ctx context.Context, request operations.GetAppro
 					return nil, err
 				}
 
-				var out components.SchemasApproval
+				var out components.Approval
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasApproval = &out
+				res.Approval = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -800,12 +800,12 @@ func (s *Approvals) UpdateApproval(ctx context.Context, request operations.Updat
 					return nil, err
 				}
 
-				var out components.SchemasApproval
+				var out components.Approval
 				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 					return nil, err
 				}
 
-				res.SchemasApproval = &out
+				res.Approval = &out
 			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

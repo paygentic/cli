@@ -1397,7 +1397,7 @@ func (s *Plans) ListPlanVersions(ctx context.Context, request operations.ListPla
 }
 
 // MintPlanVersion - Mint a plan version
-// Mint a new plan version from a price diff and make it the version the plan bills from, in one step. The diff references existing prices by id: create prices beforehand with POST /prices, then add, remove, or replace them here. To return to an earlier price set, make that version the default with a PATCH on the version.
+// Mint a new plan version from the price set it is to hold, and make it the version the plan bills from, in one step. The request names the complete set, not a change to it: create prices beforehand with POST /prices, then list every price the new version holds. The change against the current version follows from the keys — a key on both sides with a different price ID replaces that line, a key only in the request adds a line, and a key the current version holds and the request omits removes that line. To return to an earlier price set, make that version the default with a PATCH on the version.
 func (s *Plans) MintPlanVersion(ctx context.Context, request operations.MintPlanVersionRequest, opts ...operations.Option) (*operations.MintPlanVersionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

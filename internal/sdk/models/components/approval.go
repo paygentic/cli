@@ -34,6 +34,51 @@ func (e *ApprovalObject) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type ApprovalResourceType string
+
+const (
+	ApprovalResourceTypeOrder   ApprovalResourceType = "order"
+	ApprovalResourceTypeInvoice ApprovalResourceType = "invoice"
+)
+
+func (e ApprovalResourceType) ToPointer() *ApprovalResourceType {
+	return &e
+}
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *ApprovalResourceType) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "order", "invoice":
+			return true
+		}
+	}
+	return false
+}
+
+type ApprovalKind string
+
+const (
+	ApprovalKindDataReview      ApprovalKind = "data_review"
+	ApprovalKindFinancialReview ApprovalKind = "financial_review"
+	ApprovalKindPush            ApprovalKind = "push"
+)
+
+func (e ApprovalKind) ToPointer() *ApprovalKind {
+	return &e
+}
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *ApprovalKind) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "data_review", "financial_review", "push":
+			return true
+		}
+	}
+	return false
+}
+
 type ApprovalDecision string
 
 const (
@@ -62,9 +107,9 @@ type Approval struct {
 	ID               string                                       `json:"id"`
 	Object           ApprovalObject                               `json:"object"`
 	MerchantID       string                                       `json:"merchantId"`
-	ResourceType     string                                       `json:"resourceType"`
+	ResourceType     ApprovalResourceType                         `json:"resourceType"`
 	ResourceID       string                                       `json:"resourceId"`
-	Kind             string                                       `json:"kind"`
+	Kind             ApprovalKind                                 `json:"kind"`
 	Decision         ApprovalDecision                             `json:"decision"`
 	Requester        string                                       `json:"requester"`
 	Reviewer         optionalnullable.OptionalNullable[string]    `json:"reviewer,omitzero"`
@@ -106,9 +151,9 @@ func (a *Approval) GetMerchantID() string {
 	return a.MerchantID
 }
 
-func (a *Approval) GetResourceType() string {
+func (a *Approval) GetResourceType() ApprovalResourceType {
 	if a == nil {
-		return ""
+		return ApprovalResourceType("")
 	}
 	return a.ResourceType
 }
@@ -120,9 +165,9 @@ func (a *Approval) GetResourceID() string {
 	return a.ResourceID
 }
 
-func (a *Approval) GetKind() string {
+func (a *Approval) GetKind() ApprovalKind {
 	if a == nil {
-		return ""
+		return ApprovalKind("")
 	}
 	return a.Kind
 }
