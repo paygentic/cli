@@ -37,6 +37,14 @@ func InitSubscriptionsRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initGetSubscriptionIntervalsCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
+	if err := initEditSubscriptionIntervalsCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
 	if err := initGeneratePortalLinkCmd(SubscriptionsCmd); err != nil {
 		return err
 	}
