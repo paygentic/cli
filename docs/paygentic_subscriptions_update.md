@@ -33,6 +33,7 @@ paygentic subscriptions update [flags]
       --terminated-at string              Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400.
       --terminated-by string              Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation
       --termination-reason string         Explanation for subscription cancellation. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration'
+  -v, --version-policy floating           How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
 ```
 
 ### Options inherited from parent commands

@@ -41,8 +41,10 @@ paygentic subscriptions [flags]
 * [paygentic subscriptions create](paygentic_subscriptions_create.md)	 - Create
 * [paygentic subscriptions create-subscription-adjustment](paygentic_subscriptions_create-subscription-adjustment.md)	 - Create Adjustment
 * [paygentic subscriptions delete-subscription-adjustment](paygentic_subscriptions_delete-subscription-adjustment.md)	 - Delete Adjustment
+* [paygentic subscriptions edit-subscription-intervals](paygentic_subscriptions_edit-subscription-intervals.md)	 - Edit Price Intervals
 * [paygentic subscriptions generate-portal-link](paygentic_subscriptions_generate-portal-link.md)	 - Generate Portal Link
 * [paygentic subscriptions get](paygentic_subscriptions_get.md)	 - Get
+* [paygentic subscriptions get-subscription-intervals](paygentic_subscriptions_get-subscription-intervals.md)	 - Get Price Intervals
 * [paygentic subscriptions list](paygentic_subscriptions_list.md)	 - List
 * [paygentic subscriptions list-subscription-adjustments](paygentic_subscriptions_list-subscription-adjustments.md)	 - List Adjustments
 * [paygentic subscriptions reconcile-subscription-features](paygentic_subscriptions_reconcile-subscription-features.md)	 - Reconcile Features

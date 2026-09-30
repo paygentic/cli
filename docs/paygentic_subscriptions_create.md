@@ -38,6 +38,7 @@ paygentic subscriptions create [flags]
       --started-at string                 Subscription activation timestamp in ISO 8601 format. Sample values: '2024-01-15T10:30:00Z', '2024-02-01T00:00:00Z' [required]
       --tax-exempt                        When true, forces tax rate to 0%. Use for customers with verified tax-exempt status.
       --test-clock-id string              Test clock identifier for simulating time-based billing scenarios. Sample values: 'tc_abc123xyz', 'tc_789def456'. Restricted to non-production environments (local, dev, sandbox). Must belong to the same merchant organization.
+  -v, --version-policy floating           How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
 ```
 
 ### Options inherited from parent commands
