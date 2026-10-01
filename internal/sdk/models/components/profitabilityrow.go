@@ -16,8 +16,6 @@ type ProfitabilityRow struct {
 	Profit string `json:"profit"`
 	// Margin percent (profit / revenue × 100), with two decimals. Null when revenue is zero.
 	MarginPct *string `json:"marginPct"`
-	// Per-customer revenue trend over the period. Null for the 'Other' row and when there's insufficient data.
-	Trend *ProfitabilityTrend `json:"trend"`
 }
 
 func (p *ProfitabilityRow) GetCustomerID() string {
@@ -60,11 +58,4 @@ func (p *ProfitabilityRow) GetMarginPct() *string {
 		return nil
 	}
 	return p.MarginPct
-}
-
-func (p *ProfitabilityRow) GetTrend() *ProfitabilityTrend {
-	if p == nil {
-		return nil
-	}
-	return p.Trend
 }

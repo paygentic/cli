@@ -19,13 +19,14 @@ paygentic profitability get [flags]
 ### Options
 
 ```
-  -b, --bucket-width string   Time bucket granularity for the per-customer revenue trend. When omitted, the server picks a reasonable bucket from the window length. (options: hour, day, week) (default "day")
-  -c, --currency string       ISO 4217 currency code to scope the summary. Defaults to the merchant's primary currency.
-  -f, --from string           Start of the time range (ISO 8601 format) [required]
-  -h, --help                  help for get
-  -m, --merchant-id string    Merchant whose customers to summarize [required]
-      --to string             End of the time range (ISO 8601 format) [required]
-      --top-n int             Number of top customers (by profit) to return individually. The rest are rolled into a single 'Other' row. (default 10)
+  -c, --currency string                ISO 4217 currency code to scope the summary. Defaults to the merchant's primary currency.
+  -e, --exclude-empty rows             When true, leave customers with neither revenue nor cost in the period out of rows. They are dropped before ranking, so they take no top-N slot and are not folded into the 'Other' row. `emptyCustomerCount` says how many there are either way.
+  -f, --from string                    Start of the time range (ISO 8601 format) [required]
+  -h, --help                           help for get
+  -i, --include-empty emptyCustomers   When true, also return in emptyCustomers the customers counted in `emptyCustomerCount` that `rows` does not carry, so a caller can show the complete customer list.
+  -m, --merchant-id string             Merchant whose customers to summarize [required]
+      --to string                      End of the time range (ISO 8601 format) [required]
+      --top-n int                      Number of top customers (by profit) to return individually. The rest are rolled into a single 'Other' row. (default 10)
 ```
 
 ### Options inherited from parent commands

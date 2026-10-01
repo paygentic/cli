@@ -46,7 +46,9 @@ paygentic subscriptions [flags]
 * [paygentic subscriptions get](paygentic_subscriptions_get.md)	 - Get
 * [paygentic subscriptions get-subscription-intervals](paygentic_subscriptions_get-subscription-intervals.md)	 - Get Price Intervals
 * [paygentic subscriptions list](paygentic_subscriptions_list.md)	 - List
+* [paygentic subscriptions list-interval-changes](paygentic_subscriptions_list-interval-changes.md)	 - List Merchant Interval Changes
 * [paygentic subscriptions list-subscription-adjustments](paygentic_subscriptions_list-subscription-adjustments.md)	 - List Adjustments
+* [paygentic subscriptions list-subscription-interval-changes](paygentic_subscriptions_list-subscription-interval-changes.md)	 - List Interval Changes
 * [paygentic subscriptions reconcile-subscription-features](paygentic_subscriptions_reconcile-subscription-features.md)	 - Reconcile Features
 * [paygentic subscriptions terminate](paygentic_subscriptions_terminate.md)	 - Terminate
 * [paygentic subscriptions update](paygentic_subscriptions_update.md)	 - Update

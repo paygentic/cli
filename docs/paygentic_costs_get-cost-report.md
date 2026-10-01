@@ -19,22 +19,23 @@ paygentic costs get-cost-report [flags]
 ### Options
 
 ```
-      --compare-prior-period     When true, include prior-period comparison data in each group.
-      --cost-id stringArray      Filter to specific cost(s). Enables dynamic dimension grouping.
-      --currency string          Filter costs to a single ISO 4217 currency code (e.g. 'USD'). When omitted, defaults to the merchant's primary currency.
-      --filter-group-by string   JSON-encoded dimension filters (e.g. {"region":"us-east-1"}). Max 4KB, max 5 keys.
-      --from string              Start of the query window (ISO 8601). [required]
-  -g, --group-by string          Dimension to group results by. Valid values: 'cost' (group by cost ID), 'customer' (group by customer ID), or any dimension key from a filtered cost's groupBy schema for dynamic dimension grouping. Dynamic dimension values require exactly one costId filter. [required]
-  -h, --help                     help for get-cost-report
-  -l, --limit int                Maximum number of groups to return. (default 25)
-  -m, --merchant-id string       The merchant organization ID. If omitted, defaults to the merchant associated with the authenticated API key.
-      --offset int               Number of groups to skip for pagination.
-      --sort string              Field to sort groups by. (options: totalCost, totalQuantity) (default "totalCost")
-      --sort-dir string          Sort direction. (options: asc, desc) (default "desc")
-      --subject string           Filter to a specific subject (customer/event subject ID).
-      --to string                End of the query window (ISO 8601). [required]
-      --top-n int                Number of top groups to return. An 'Other' bucket aggregates remaining groups. (default 9)
-  -w, --window-size string       Time window granularity for the time-series breakdown. (options: HOUR, DAY, MONTH)
+      --compare-prior-period             When true, include prior-period comparison data in each group.
+      --cost-id stringArray              Filter to specific cost(s). Enables dynamic dimension grouping.
+      --currency string                  Filter costs to a single ISO 4217 currency code (e.g. 'USD'). When omitted, defaults to the merchant's primary currency.
+  -e, --exclude-empty pagination.total   When true, leave out groups with neither cost nor usage in the period. They are dropped before ranking, so they take no top-N slot, do not appear in the 'Other' bucket and are not counted in pagination.total. `emptyGroupCount` says how many were left out.
+      --filter-group-by string           JSON-encoded dimension filters (e.g. {"region":"us-east-1"}). Max 4KB, max 5 keys.
+      --from string                      Start of the query window (ISO 8601). [required]
+  -g, --group-by string                  Dimension to group results by. Valid values: 'cost' (group by cost ID), 'customer' (group by customer ID), or any dimension key from a filtered cost's groupBy schema for dynamic dimension grouping. Dynamic dimension values require exactly one costId filter. [required]
+  -h, --help                             help for get-cost-report
+  -l, --limit int                        Maximum number of groups to return. (default 25)
+  -m, --merchant-id string               The merchant organization ID. If omitted, defaults to the merchant associated with the authenticated API key.
+      --offset int                       Number of groups to skip for pagination.
+      --sort string                      Field to sort groups by. (options: totalCost, totalQuantity) (default "totalCost")
+      --sort-dir string                  Sort direction. (options: asc, desc) (default "desc")
+      --subject string                   Filter to a specific subject (customer/event subject ID).
+      --to string                        End of the query window (ISO 8601). [required]
+      --top-n int                        Number of top groups to return. An 'Other' bucket aggregates remaining groups. (default 9)
+  -w, --window-size string               Time window granularity for the time-series breakdown. (options: HOUR, DAY, MONTH)
 ```
 
 ### Options inherited from parent commands

@@ -1,28 +1,30 @@
-## paygentic subscriptions edit-subscription-intervals
+## paygentic subscriptions list-interval-changes
 
-Edit Price Intervals
+List Merchant Interval Changes
 
 ### Synopsis
 
-Adds, edits, or removes price intervals on the subscription. Use an add to override a plan price for a period. Use an edit to change unitPrice, baseQuantity, quantityTransitions, or endDate. Use a remove to delete an interval. To close a price, set endDate. To re-open it, set endDate to null. To send an interval from a GET response as an edit, remove kind from it. An edit with no changed field changes nothing. If you send an add again after a timeout, it fails with 409 because it overlaps the first add. Use GET to check the result. The request is rejected if it changes a billing period that already exists, leaves a gap or an overlap, or bills a one-off price more than once.
+Lists the interval changes of all your subscriptions, oldest first. `from` is included and `to` is excluded.
 
 ```
-paygentic subscriptions edit-subscription-intervals [flags]
+paygentic subscriptions list-interval-changes [flags]
 ```
 
 ### Examples
 
 ```
-  paygentic subscriptions edit-subscription-intervals --id <id>
+  paygentic subscriptions list-interval-changes
 ```
 
 ### Options
 
 ```
-      --body string         Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -b, --body-param string   JSON value (one of: { add: object[], edit: object[], remove: object[], changeReason: string, ... })
-  -h, --help                help for edit-subscription-intervals
-  -i, --id string           The subscription ID [required]
+  -c, --change-reason string   Only return changes with this reason. (options: commercial, correction, migration, unspecified)
+  -f, --from string            Only return changes recorded at or after this time
+  -h, --help                   help for list-interval-changes
+  -l, --limit string           Number of interval changes to return (default "10")
+      --offset string          Number of interval changes to skip (default "0")
+  -t, --to string              Only return changes recorded before this time
 ```
 
 ### Options inherited from parent commands

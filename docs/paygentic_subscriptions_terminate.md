@@ -19,10 +19,11 @@ paygentic subscriptions terminate [flags]
 ### Options
 
 ```
-      --body string     Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -h, --help            help for terminate
-  -i, --id string       The subscription ID [required]
-  -r, --reason string   Cancellation explanation text. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration' [required]
+      --body string                Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -c, --change-reason correction   Why a change was made. correction fixes data to match what was agreed; `migration` moves a contract from another system; `commercial` is a real change to the deal. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified)
+  -h, --help                       help for terminate
+  -i, --id string                  The subscription ID [required]
+  -r, --reason string              Cancellation explanation text. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration' [required]
 ```
 
 ### Options inherited from parent commands

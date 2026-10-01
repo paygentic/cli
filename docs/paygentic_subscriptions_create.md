@@ -21,6 +21,9 @@ paygentic subscriptions create [flags]
 ```
   -a, --auto-charge                       Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
       --body string                       Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --change-description string         A free-text note on why these intervals are changing.
+      --change-metadata string            Your own key-value data about the change, such as a CRM deal ID.
+      --change-reason correction          Why a change was made. correction fixes data to match what was agreed; `migration` moves a contract from another system; `commercial` is a real change to the deal. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified)
       --customer customerId               Fields to create a new customer and consumer. Will use an existing consumer if one exists with the same email address. Required if customerId is not provided. Address with complete tax information (country, state, zipCode) is required for tax calculation when using Paygentic Tax.
       --customer-id string                Unique identifier for a customer
   -e, --ending-at string                  Subscription expiration timestamp in ISO 8601 format. Sample values: '2024-12-31T23:59:59Z', '2025-01-15T10:30:00Z'. Omit for indefinite subscriptions.
