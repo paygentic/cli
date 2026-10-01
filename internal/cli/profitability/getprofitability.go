@@ -21,7 +21,8 @@ var getProfitabilityCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "to", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the time range (ISO 8601 format) [required]"},
 	{FlagName: "top-n", FieldPath: "TopN", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Number of top customers (by profit) to return individually. The rest are rolled into a single 'Other' row."},
 	{FlagName: "currency", Shorthand: "c", FieldPath: "Currency", Kind: flagutil.FlagKindString, Optional: true, Description: "ISO 4217 currency code to scope the summary. Defaults to the merchant's primary currency."},
-	{FlagName: "bucket-width", Shorthand: "b", FieldPath: "BucketWidth", Kind: flagutil.FlagKindEnum, Optional: true, HasDefault: true, DefaultStr: "day", EnumValues: []string{"hour", "day", "week"}, Description: "Time bucket granularity for the per-customer revenue trend. When omitted, the server picks a reasonable bucket from the window length. (options: hour, day, week)"},
+	{FlagName: "exclude-empty", Shorthand: "e", FieldPath: "ExcludeEmpty", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "When true, leave customers with neither revenue nor cost in the period out of `rows`. They are dropped before ranking, so they take no top-N slot and are not folded into the 'Other' row. `emptyCustomerCount` says how many there are either way."},
+	{FlagName: "include-empty", Shorthand: "i", FieldPath: "IncludeEmpty", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "When true, also return in `emptyCustomers` the customers counted in `emptyCustomerCount` that `rows` does not carry, so a caller can show the complete customer list."},
 }
 
 // initGetProfitabilityCmd initializes the get-profitability command.

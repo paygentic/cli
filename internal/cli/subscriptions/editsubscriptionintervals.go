@@ -17,9 +17,7 @@ import (
 
 var editSubscriptionIntervalsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The subscription ID [required]"},
-	{FlagName: "add", Shorthand: "a", FieldPath: "Body.Add", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"add,omitempty"`, Description: "New override segments to add."},
-	{FlagName: "edit", Shorthand: "e", FieldPath: "Body.Edit", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"edit,omitempty"`, Description: "Changes to existing intervals."},
-	{FlagName: "remove", Shorthand: "r", FieldPath: "Body.Remove", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"remove,omitempty"`, Description: "Intervals to remove outright."},
+	{FlagName: "body-param", Shorthand: "b", FieldPath: "Body", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, TypeDescription: "JSON value (one of: { add: object[], edit: object[], remove: object[], changeReason: string, ... })"}},
 }
 
 // initEditSubscriptionIntervalsCmd initializes the edit-subscription-intervals command.
