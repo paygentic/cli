@@ -32,7 +32,7 @@ func initGetCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "get",
 		Short:   "Get revenue summary",
-		Long:    "Returns revenue summary with invoice and payment breakdowns (outstanding/paid/writtenOff), plus a time-series trend. Revenue is sourced from all issued invoices (v0 + v1) and completed payments.",
+		Long:    "Returns revenue summary with invoice and payment breakdowns (outstanding/paid/writtenOff), plus a time-series trend. Revenue is what was billed in the period (by default, invoices issued in it; see periodBasis), whatever their status since, less refunds, both excluding tax; completed payments are reported under payments, never in revenue.",
 		Example: "  paygentic revenue get --start-time 2024-07-23T16:05:39.311Z --end-time 2026-04-29T18:43:05.586Z",
 		RunE:    runGetCmd,
 	}

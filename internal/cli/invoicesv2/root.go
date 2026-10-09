@@ -34,6 +34,10 @@ func InitInvoicesV2Root(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initListProjectedInvoicesCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
 	if err := initGetCmd(InvoicesV2Cmd); err != nil {
 		return err
 	}
@@ -46,6 +50,10 @@ func InitInvoicesV2Root(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initRecordInvoicePaymentCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
 	if err := initCreateInvoiceRefundCmd(InvoicesV2Cmd); err != nil {
 		return err
 	}
@@ -55,6 +63,10 @@ func InitInvoicesV2Root(parent *cobra.Command) error {
 	}
 
 	if err := initVoidInvoiceRefundCmd(InvoicesV2Cmd); err != nil {
+		return err
+	}
+
+	if err := initRetryInvoicePaymentCmd(InvoicesV2Cmd); err != nil {
 		return err
 	}
 

@@ -30,7 +30,7 @@ func initGetProfitabilityCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "get",
 		Short:   "Get profitability summary",
-		Long:    "Returns a per-customer profitability summary for a merchant over a date range. Each row aggregates revenue (from issued + paid invoices), cost (from metered cost discovery), profit, and margin. Customers are ranked by profit descending and capped at topN; the remainder is rolled into a single self-consistent 'Other' row whose revenue, cost, and profit reflect the same set of customers. Rows are inner-joined against the merchant's customer list, so orphaned meter subjects from deleted or unknown customers are dropped.",
+		Long:    "Returns a per-customer profitability summary for a merchant over a date range. Each row aggregates revenue (invoices issued in the period, whatever their status since, less refunds, both excluding tax; the same figure /v0/revenue reports), cost (from metered cost discovery), profit, and margin. Customers are ranked by profit descending and capped at topN; the remainder is rolled into a single self-consistent 'Other' row whose revenue, cost, and profit reflect the same set of customers. Rows are joined against the merchant's customer list, so meter subjects that match no customer are dropped. Soft-deleted customers with revenue or cost in the period are folded into a single 'deleted' row, which always comes last, after 'Other', and takes no top-N slot.",
 		Example: "  paygentic profitability get --merchant-id <id> --from 2026-09-10T15:32:06.535Z --to 2026-10-20T08:45:45.521Z",
 		RunE:    runGetProfitabilityCmd,
 	}
