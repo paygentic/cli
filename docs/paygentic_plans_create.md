@@ -19,26 +19,27 @@ paygentic plans create [flags]
 ### Options
 
 ```
-      --billing-anchor string         ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. When set, subscriptions created under this plan align their first billing period to the next recurrence of this anchor.
-      --billing-cadence string        ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided. (options: P1M, P3M, P1Y)
-      --billing-interval string       Recurring billing period frequency. Sample values: 'monthly' for monthly billing, 'quarterly' for quarterly billing, 'yearly' for annual billing (options: monthly, quarterly, yearly, annual)
-      --billing-version string        Billing engine version. Only 1 (Standard, line-item billing with metered usage support) is accepted for new plans; omitting the field defaults to 1. 0 (Legacy, fee-schedule billing) is rejected — it exists only on plans created before this restriction. (options: 0, 1) (default "1")
-      --body string                   Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --credit-allocations string     Credit-pool funding declarations for this plan. Each entry funds a distinct pricing unit's credit pool when a subscription to this plan activates: the allocated amount is minted as a credit grant on the customer's pool for that pricing unit, once at activation, or on a recurring basis only when that allocation explicitly sets recurrencePeriod. A plan may declare zero or more allocations; no two allocations on the same plan may target the same pricingUnitId.
-      --currency string               Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]
-      --default-tax-code string       Default tax code for plan line items. Common values: 'eservice' (electronically supplied services), 'saas' (software as a service), 'consulting', 'ebook', 'standard', 'reduced', 'exempt'. Full list available via GET /tax/codes endpoint. (default "eservice")
-      --default-tax-rate float        Fallback tax rate percentage when automatic tax calculation fails. Sample values: 8.5 represents 8.5% tax, 10.0 represents 10% tax, 0 represents no tax
-      --description string            Plan details explaining included features and limits. Sample values: 'Claude API access with 500K tokens monthly allowance', 'Unlimited cloud storage plus real-time analytics tools', 'Complete machine learning infrastructure with GPU access', 'Flexible usage-based pricing with no monthly commitment'
-  -h, --help                          help for create
-  -i, --invoice-display-name string   Plan name shown on billing statements. Sample values: 'LLM API Basic Plan', 'Data Warehouse Business', 'ML Platform Enterprise', 'Pay-Per-Use Model'
-  -m, --merchant-id string            Unique identifier for an organization [required]
-  -n, --name string                   Plan identifier visible to customers. Sample values: 'Basic Tier', 'Business Package', 'Enterprise Solution', 'Metered Billing', 'Free Tier', 'Premium Access' [required]
-      --prices string                 The prices this plan starts with. An entry is either a price ID on its own, or an object that names a price ID and the key by which you address that line. A price ID on its own receives a generated key.
-      --product-id string             Unique identifier for a product [required]
-      --renewal-reminder-days int     Number of days before renewal to send the reminder email (default 3)
-      --renewal-reminder-enabled      Whether to send renewal reminder emails to customers before their subscription renews (default true)
-  -s, --stable-price-ids              Governs price identity when a price on this plan's default version is replaced. When true (default), replacing a price at make-default keeps the original price id live (its value changes) and the superseded value is preserved under a new id. When false, the replacement price's id goes live instead and the superseded value stays under the original id. (default true)
-  -t, --tax-behavior string           Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive) (default "exclusive")
+      --billing-anchor string                      ISO 8601 datetime reference point for billing period alignment. Must be in the past or present. When set, subscriptions created under this plan align their first billing period to the next recurrence of this anchor.
+      --billing-cadence string                     ISO 8601 duration for the billing period. Takes precedence over billingInterval when both are provided. (options: P1M, P3M, P1Y)
+      --billing-interval string                    Recurring billing period frequency. Sample values: 'monthly' for monthly billing, 'quarterly' for quarterly billing, 'yearly' for annual billing (options: monthly, quarterly, yearly, annual)
+      --billing-version string                     Billing engine version. Only 1 (Standard, line-item billing with metered usage support) is accepted for new plans; omitting the field defaults to 1. 0 (Legacy, fee-schedule billing) is rejected — it exists only on plans created before this restriction. (options: 0, 1) (default "1")
+      --body string                                Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --credit-allocations string                  Credit-pool funding declarations for this plan. Each entry funds a distinct pricing unit's credit pool when a subscription to this plan activates: the allocated amount is minted as a credit grant on the customer's pool for that pricing unit, once at activation, or on a recurring basis only when that allocation explicitly sets recurrencePeriod. A plan may declare zero or more allocations; no two allocations on the same plan may target the same pricingUnitId.
+      --currency string                            Three-letter ISO 4217 currency code for plan pricing. Must be one of the merchant's supported currencies. Sample values: 'USD' for US dollars, 'EUR' for euros, 'GBP' for British pounds [required]
+      --default-tax-code string                    Default tax code for plan line items. Common values: 'eservice' (electronically supplied services), 'saas' (software as a service), 'consulting', 'ebook', 'standard', 'reduced', 'exempt'. Full list available via GET /tax/codes endpoint. (default "eservice")
+      --default-tax-rate float                     Fallback tax rate percentage when automatic tax calculation fails. Sample values: 8.5 represents 8.5% tax, 10.0 represents 10% tax, 0 represents no tax
+      --description string                         Plan details explaining included features and limits. Sample values: 'Claude API access with 500K tokens monthly allowance', 'Unlimited cloud storage plus real-time analytics tools', 'Complete machine learning infrastructure with GPU access', 'Flexible usage-based pricing with no monthly commitment'
+  -h, --help                                       help for create
+  -i, --invoice-display-name string                Plan name shown on billing statements. Sample values: 'LLM API Basic Plan', 'Data Warehouse Business', 'ML Platform Enterprise', 'Pay-Per-Use Model'
+  -m, --merchant-id string                         Unique identifier for an organization [required]
+  -n, --name string                                Plan identifier visible to customers. Sample values: 'Basic Tier', 'Business Package', 'Enterprise Solution', 'Metered Billing', 'Free Tier', 'Premium Access' [required]
+      --prices string                              The prices this plan starts with. An entry is either a price ID on its own, or an object that names a price ID and the key by which you address that line. A price ID on its own receives a generated key.
+      --product-id string                          Unique identifier for a product [required]
+      --renewal-reminder-days int                  Number of days before renewal to send the reminder email (default 3)
+      --renewal-reminder-enabled                   Whether to send renewal reminder emails to customers before their subscription renews (default true)
+  -s, --stable-price-ids                           Governs price identity when a price on this plan's default version is replaced. When true (default), replacing a price at make-default keeps the original price id live (its value changes) and the superseded value is preserved under a new id. When false, the replacement price's id goes live instead and the superseded value stays under the original id. (default true)
+  -t, --tax-behavior string                        Whether tax is added on top of the price (exclusive) or included in the price (inclusive) (options: exclusive, inclusive) (default "exclusive")
+  -v, --version-transition end_of_current_period   When a move to a new plan version takes effect for this plan's subscriptions. end_of_current_period (the default) moves everything at the end of the current billing period. `immediate` changes entitlements at the move, in-arrears prices for the whole current period, and in-advance prices from the next period. Neither prorates.
 ```
 
 ### Options inherited from parent commands

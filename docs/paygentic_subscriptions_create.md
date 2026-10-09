@@ -19,29 +19,30 @@ paygentic subscriptions create [flags]
 ### Options
 
 ```
-  -a, --auto-charge                       Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
-      --body string                       Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --change-description string         A free-text note on why these intervals are changing.
-      --change-metadata string            Your own key-value data about the change, such as a CRM deal ID.
-      --change-reason correction          Why a change was made. correction fixes data to match what was agreed; `migration` moves a contract from another system; `commercial` is a real change to the deal. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified)
-      --customer customerId               Fields to create a new customer and consumer. Will use an existing consumer if one exists with the same email address. Required if customerId is not provided. Address with complete tax information (country, state, zipCode) is required for tax calculation when using Paygentic Tax.
-      --customer-id string                Unique identifier for a customer
-  -e, --ending-at string                  Subscription expiration timestamp in ISO 8601 format. Sample values: '2024-12-31T23:59:59Z', '2025-01-15T10:30:00Z'. Omit for indefinite subscriptions.
-  -h, --help                              help for create
-      --metadata string                   Free-form merchant metadata to attach to the subscription. Values must be strings, numbers, or booleans.
-      --minimum-account-balance string    Deprecated. This field is ignored and has no effect.
-  -n, --name string                       Subscription identifier combining customer and service details. Sample values: 'TechCorp - LLM API Access', 'Analytics Co - Data Platform Enterprise', 'StartupXYZ - Image Generation Service', 'Enterprise Inc - ML Training Platform' [required]
-      --payment-term-days int             Payment term in days ("Net X") applied to every invoice the subscription generates: invoice dueAt = invoice issue date + paymentTermDays. Defaults to 0 ("due on issue"). A non-zero value is only valid alongside bankTransferOnly=true.
-      --plan-id string                    Unique identifier for a plan [required]
-      --prefund-amount string             Deprecated. This field is ignored and has no effect.
-      --redirect-urls string              Optional redirect URLs after payment completion or failure. If not provided, uses default platform behavior.
-      --renewal-reminder-days string      Override plan setting for number of days before renewal to send the reminder. Only used if renewalReminderEnabled is true (or inherited from plan). Set to null to use plan default.
-      --renewal-reminder-enabled string   Override plan setting for renewal reminder emails. When set, this subscription's setting takes precedence over the plan default. Set to true to enable reminders, false to disable, or null/omit to use plan default.
-      --session-expiry-minutes float      Number of minutes until the payment session expires. Defaults to 240 minutes (4 hours) if not provided.
-      --started-at string                 Subscription activation timestamp in ISO 8601 format. Sample values: '2024-01-15T10:30:00Z', '2024-02-01T00:00:00Z' [required]
-      --tax-exempt                        When true, forces tax rate to 0%. Use for customers with verified tax-exempt status.
-      --test-clock-id string              Test clock identifier for simulating time-based billing scenarios. Sample values: 'tc_abc123xyz', 'tc_789def456'. Restricted to non-production environments (local, dev, sandbox). Must belong to the same merchant organization.
-  -v, --version-policy floating           How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
+  -a, --auto-charge                        Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
+      --body string                        Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+      --change-description string          A free-text note on why these intervals are changing.
+      --change-metadata string             Your own key-value data about the change, such as a CRM deal ID.
+      --change-reason correction           Why a change was made. correction fixes data to match what was agreed; `migration` moves a contract from another system; `commercial` is a real change to the deal. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified)
+      --customer customerId                Fields to create a new customer and consumer. Will use an existing consumer if one exists with the same email address. Required if customerId is not provided. Address with complete tax information (country, state, zipCode) is required for tax calculation when using Paygentic Tax.
+      --customer-id string                 Unique identifier for a customer
+      --elapsed-period-billing startedAt   Whether a backdated start bills its elapsed periods. A start is backdated when startedAt is more than 24 hours before the subscription is created. `none` bills only charges that fall due from the moment of creation, for a customer whose earlier periods another system already billed. `per_period` bills every charge that fell due from `startedAt`, on one first invoice; it refuses a `startedAt` more than 12 months back. Has no effect on a start that is not backdated. Defaults to `none`. (options: none, per_period) (default "none")
+      --ending-at string                   Subscription expiration timestamp in ISO 8601 format. Sample values: '2024-12-31T23:59:59Z', '2025-01-15T10:30:00Z'. Omit for indefinite subscriptions.
+  -h, --help                               help for create
+      --metadata string                    Free-form merchant metadata to attach to the subscription. Values must be strings, numbers, or booleans.
+      --minimum-account-balance string     Deprecated. This field is ignored and has no effect.
+  -n, --name string                        Subscription identifier combining customer and service details. Sample values: 'TechCorp - LLM API Access', 'Analytics Co - Data Platform Enterprise', 'StartupXYZ - Image Generation Service', 'Enterprise Inc - ML Training Platform' [required]
+      --payment-term-days int              Payment term in days ("Net X") applied to every invoice the subscription generates: invoice dueAt = invoice issue date + paymentTermDays. Defaults to 0 ("due on issue"). A non-zero value is only valid alongside bankTransferOnly=true.
+      --plan-id string                     Unique identifier for a plan [required]
+      --prefund-amount string              Deprecated. This field is ignored and has no effect.
+      --redirect-urls string               Optional redirect URLs after payment completion or failure. If not provided, uses default platform behavior.
+      --renewal-reminder-days string       Override plan setting for number of days before renewal to send the reminder. Only used if renewalReminderEnabled is true (or inherited from plan). Set to null to use plan default.
+      --renewal-reminder-enabled string    Override plan setting for renewal reminder emails. When set, this subscription's setting takes precedence over the plan default. Set to true to enable reminders, false to disable, or null/omit to use plan default.
+      --session-expiry-minutes float       Number of minutes until the payment session expires. Defaults to 240 minutes (4 hours) if not provided.
+      --started-at string                  Subscription activation timestamp in ISO 8601 format. Sample values: '2024-01-15T10:30:00Z', '2024-02-01T00:00:00Z' [required]
+      --tax-exempt                         When true, forces tax rate to 0%. Use for customers with verified tax-exempt status.
+      --test-clock-id string               Test clock identifier for simulating time-based billing scenarios. Sample values: 'tc_abc123xyz', 'tc_789def456'. Restricted to non-production environments (local, dev, sandbox). Must belong to the same merchant organization.
+  -v, --version-policy floating            How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
 ```
 
 ### Options inherited from parent commands

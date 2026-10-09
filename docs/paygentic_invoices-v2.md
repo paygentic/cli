@@ -46,4 +46,7 @@ paygentic invoices-v2 [flags]
 * [paygentic invoices-v2 list](paygentic_invoices-v2_list.md)	 - List
 * [paygentic invoices-v2 list-invoice-refunds](paygentic_invoices-v2_list-invoice-refunds.md)	 - List Invoice Refunds
 * [paygentic invoices-v2 list-line-items](paygentic_invoices-v2_list-line-items.md)	 - List Line Items
+* [paygentic invoices-v2 list-projected-invoices](paygentic_invoices-v2_list-projected-invoices.md)	 - List projected
+* [paygentic invoices-v2 record-invoice-payment](paygentic_invoices-v2_record-invoice-payment.md)	 - Settle Invoice Payment
+* [paygentic invoices-v2 retry-invoice-payment](paygentic_invoices-v2_retry-invoice-payment.md)	 - Retry Payment
 * [paygentic invoices-v2 void-invoice-refund](paygentic_invoices-v2_void-invoice-refund.md)	 - Void Invoice Refund

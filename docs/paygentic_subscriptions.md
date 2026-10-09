@@ -49,6 +49,7 @@ paygentic subscriptions [flags]
 * [paygentic subscriptions list-interval-changes](paygentic_subscriptions_list-interval-changes.md)	 - List Merchant Interval Changes
 * [paygentic subscriptions list-subscription-adjustments](paygentic_subscriptions_list-subscription-adjustments.md)	 - List Adjustments
 * [paygentic subscriptions list-subscription-interval-changes](paygentic_subscriptions_list-subscription-interval-changes.md)	 - List Interval Changes
+* [paygentic subscriptions migrate-subscription-version](paygentic_subscriptions_migrate-subscription-version.md)	 - Migrate To A Plan Version
 * [paygentic subscriptions reconcile-subscription-features](paygentic_subscriptions_reconcile-subscription-features.md)	 - Reconcile Features
 * [paygentic subscriptions terminate](paygentic_subscriptions_terminate.md)	 - Terminate
 * [paygentic subscriptions update](paygentic_subscriptions_update.md)	 - Update

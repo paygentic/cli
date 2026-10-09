@@ -45,6 +45,10 @@ func InitSubscriptionsRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initMigrateSubscriptionVersionCmd(SubscriptionsCmd); err != nil {
+		return err
+	}
+
 	if err := initListSubscriptionIntervalChangesCmd(SubscriptionsCmd); err != nil {
 		return err
 	}

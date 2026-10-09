@@ -50,6 +50,7 @@ paygentic [flags]
 * [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
 * [paygentic items](paygentic_items.md)	 - An `Item` is the canonical "thing you sell" that external-system mappings point at
 * [paygentic merchant-integrations](paygentic_merchant-integrations.md)	 - A `MerchantIntegration` records a merchant's connection to an external provider
+* [paygentic merchants](paygentic_merchants.md)	 - Operations for merchants
 * [paygentic orders](paygentic_orders.md)	 - Manage Orders, their line items, and billing schedules
 * [paygentic payment-sessions](paygentic_payment-sessions.md)	 - Handle payment session lifecycle and processing across various entity types including invoices and subscriptions
 * [paygentic payments](paygentic_payments.md)	 - Create and manage one-off payments
@@ -64,4 +65,5 @@ paygentic [flags]
 * [paygentic test-clocks](paygentic_test-clocks.md)	 - Test clocks provide programmable time control to simulate subscription and billing scenarios during testing
 * [paygentic users](paygentic_users.md)	 - A `User` is an entity granted access to an Organization's resources
 * [paygentic version](paygentic_version.md)	 - Print the CLI version
+* [paygentic webhooks](paygentic_webhooks.md)	 - Endpoints for setting up webhook integrations and administering webhook settings
 * [paygentic whoami](paygentic_whoami.md)	 - Display current authentication configuration

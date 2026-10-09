@@ -294,6 +294,7 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`update`](docs/paygentic_subscriptions_update.md) - Update
 * [`get-subscription-intervals`](docs/paygentic_subscriptions_get-subscription-intervals.md) - Get Price Intervals
 * [`edit-subscription-intervals`](docs/paygentic_subscriptions_edit-subscription-intervals.md) - Edit Price Intervals
+* [`migrate-subscription-version`](docs/paygentic_subscriptions_migrate-subscription-version.md) - Migrate To A Plan Version
 * [`list-subscription-interval-changes`](docs/paygentic_subscriptions_list-subscription-interval-changes.md) - List Interval Changes
 * [`list-interval-changes`](docs/paygentic_subscriptions_list-interval-changes.md) - List Merchant Interval Changes
 * [`generate-portal-link`](docs/paygentic_subscriptions_generate-portal-link.md) - Generate Portal Link
@@ -313,12 +314,15 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`list`](docs/paygentic_invoices-v2_list.md) - List
 * [`list-line-items`](docs/paygentic_invoices-v2_list-line-items.md) - List Line Items
 * [`create-line-item`](docs/paygentic_invoices-v2_create-line-item.md) - Create Manual Line Item
+* [`list-projected-invoices`](docs/paygentic_invoices-v2_list-projected-invoices.md) - List projected
 * [`get`](docs/paygentic_invoices-v2_get.md) - Get
 * [`get-line-items`](docs/paygentic_invoices-v2_get-line-items.md) - Get Line Items
 * [`download-invoice-pdf`](docs/paygentic_invoices-v2_download-invoice-pdf.md) - Download Invoice PDF
+* [`record-invoice-payment`](docs/paygentic_invoices-v2_record-invoice-payment.md) - Settle Invoice Payment
 * [`create-invoice-refund`](docs/paygentic_invoices-v2_create-invoice-refund.md) - Refund Invoice
 * [`list-invoice-refunds`](docs/paygentic_invoices-v2_list-invoice-refunds.md) - List Invoice Refunds
 * [`void-invoice-refund`](docs/paygentic_invoices-v2_void-invoice-refund.md) - Void Invoice Refund
+* [`retry-invoice-payment`](docs/paygentic_invoices-v2_retry-invoice-payment.md) - Retry Payment
 
 ### [payments](docs/paygentic_payments.md)
 
@@ -359,6 +363,10 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`get`](docs/paygentic_test-clocks_get.md) - Get
 * [`advance`](docs/paygentic_test-clocks_advance.md) - Advance
 * [`delete`](docs/paygentic_test-clocks_delete.md) - Delete
+
+### [merchants](docs/paygentic_merchants.md)
+
+* [`reset`](docs/paygentic_merchants_reset.md) - Reset a merchant's data
 
 ### [external-references](docs/paygentic_external-references.md)
 
@@ -416,6 +424,14 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`list`](docs/paygentic_approvals_list.md) - List approvals
 * [`get`](docs/paygentic_approvals_get.md) - Get an approval
 * [`update`](docs/paygentic_approvals_update.md) - Update an approval (approve, reject, or cancel)
+
+### [webhooks](docs/paygentic_webhooks.md)
+
+* [`get`](docs/paygentic_webhooks_get.md) - Get
+* [`enable`](docs/paygentic_webhooks_enable.md) - Enable
+* [`update`](docs/paygentic_webhooks_update.md) - Update
+* [`disable`](docs/paygentic_webhooks_disable.md) - Disable
+* [`get-portal`](docs/paygentic_webhooks_get-portal.md) - Get Portal Access
 
 </details>
 <!-- End Available Commands [operations] -->
