@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 6d3e87fcfc1ddd166908eac5f553a681
+  docChecksum: b2505479ef0e1902a4ce20be0241dd70
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.15
-  configChecksum: 3c8f547989122f6a4a20f2427258a7a9
+  releaseVersion: 0.5.16
+  configChecksum: f987a4b2da17f12f71162aa9ae974b3a
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 191873a6-89e6-4206-8c2d-41c75c6c3baa
-  pristine_commit_hash: c30ef891f9938cd0c652e4715ff2a81c0a3e4d4e
-  pristine_tree_hash: 5a313f1b19615c308272941c7bd304312f79837a
+  generation_id: 7d8f2f81-9704-4b47-8b79-9dd54234b803
+  pristine_commit_hash: 10e03dc61461d5dc00fffd750edf16eea0e4abc8
+  pristine_tree_hash: ac797e756dae6b14426751309cb115aac73b8bde
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -787,8 +787,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:a22afc636fce1a464f598ffa218f89e6bb0d8aa2
-    pristine_git_object: 2bbeac3248a560b08a50296e32f816aa5c666759
+    last_write_checksum: sha1:52e8e8e644baf8675c527c12573ef5ecce3fef13
+    pristine_git_object: 26b2f70060f74d8187c88dc6eb84f2344b6563a3
   internal/cli/webhooks/disable.go:
     id: 9b4f4fab81d6
     last_write_checksum: sha1:ba6c16162e2837f0061f005aac335fc1460e0738
@@ -1139,8 +1139,8 @@ trackedFiles:
     pristine_git_object: 4c2b5be05baccfbc6c689183e10d72f9812ac740
   internal/sdk/models/components/invoice.go:
     id: 0feca5d38bb2
-    last_write_checksum: sha1:e51475183cbe35069b065cb3ecd9d613c6b65d3c
-    pristine_git_object: 4637013e5a72c6f2aa8ed6c21c432134f8fa0e3e
+    last_write_checksum: sha1:78d975929a26c06be81d6874749f28b06fbca436
+    pristine_git_object: 6d94992863e14ddf1126ab010e242e97008bb07a
   internal/sdk/models/components/invoicecategorysummary.go:
     id: 67d75e2c8eb7
     last_write_checksum: sha1:de991b1cb60f40a59b98fb79bdeda324f46ca796
@@ -2395,8 +2395,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:c675779fae2ba29594a0bb3153649a3afe07ef98
-    pristine_git_object: 5158c301e320675ccc54f77c996e457f9fe2f0c5
+    last_write_checksum: sha1:01b120ca14d345ff10ff68c76192a8d7cdd9327b
+    pristine_git_object: 154b3b72f1fd6db7e44f102e0bde3bd54430870a
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4940,4 +4940,3 @@ examples:
         "401":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Subscriptions.MigrateSubscriptionVersion()`: **Added**\n* `Paygentic.InvoicesV2.ListProjectedInvoices()`: **Added**\n* `Paygentic.InvoicesV2.RecordInvoicePayment()`: **Added**\n* `Paygentic.InvoicesV2.RetryInvoicePayment()`: **Added**\n* `Paygentic.Merchants.Reset()`: **Added**\n* `Paygentic.Webhooks.Get()`: **Added**\n* `Paygentic.Webhooks.Enable()`: **Added**\n* `Paygentic.Webhooks.Update()`: **Added**\n* `Paygentic.Webhooks.Disable()`: **Added**\n* `Paygentic.Webhooks.GetPortal()`: **Added**\n* `Paygentic.Plans.Create()`: \n  *  `request.Request.VersionTransition` **Added**\n  *  `response.VersionTransition` **Added**\n* `Paygentic.Plans.List()`:  `response.Data[].VersionTransition` **Added**\n* `Paygentic.Plans.ListAvailable()`:  `response.Data[].VersionTransition` **Added**\n* `Paygentic.Plans.Get()`:  `response.VersionTransition` **Added**\n* `Paygentic.Plans.Update()`: \n  *  `request.Request.Body.VersionTransition` **Added**\n  *  `response.VersionTransition` **Added**\n* `Paygentic.Subscriptions.List()`:  `response.Data[]` **Changed**\n* `Paygentic.Subscriptions.Create()`: \n  *  `request.Request.ElapsedPeriodBilling` **Added**\n  *  `response` **Changed**\n* `Paygentic.Subscriptions.Get()`:  `response` **Changed**\n* `Paygentic.Subscriptions.UpdateSubscription()`:  `response` **Changed**\n* `Paygentic.Subscriptions.Terminate()`:  `response` **Changed**\n* `Paygentic.InvoicesV2.List()`:  `response.Data[].Status.Enum(projected)` **Added**\n* `Paygentic.InvoicesV2.Get()`:  `response.Status.Enum(projected)` **Added**\n* `Paygentic.Revenue.Get()`:  `response.Trend[]` **Changed**\n* `Paygentic.Profitability.GetProfitability()`:  `response.Rows[].CostData` **Added**\n"
