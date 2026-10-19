@@ -20,15 +20,15 @@ paygentic revenue get [flags]
 
 ```
   -b, --bucket-width string            Time bucket granularity for trend data (options: hour, day, week) (default "day")
-      --currency string                Filter all results to a single ISO 4217 currency code (e.g. 'USD'). When omitted, results include all currencies.
-      --customer-id string             Filter by customer ID. At least one of merchantId, subscriptionIds, or customerId must be provided.
+      --currency string                ISO 4217 currency code (e.g. 'USD') to scope every figure to. Defaults to the merchant's primary currency, except with groupBy=currency, where omitting it returns every currency.
+      --customer-id string             Narrow the read to one of the merchant's customers.
   -e, --end-time string                End of the time range (ISO 8601 format) [required]
-  -g, --group-by string                Group invoice data by dimension. Allowed values: 'plan' (max 5 groups, top 4 + 'other' when exceeding), 'customer' (max 25 groups, top 24 + 'other' when exceeding, sorted by revenue descending), 'currency' (one entry per currency, primary currency first then alphabetical). Note: groupBy values are mutually exclusive — combining them returns a 400 error. When groupBy=currency is active, top-level netRevenue, invoices, and payments fields are omitted; currencyBreakdown is the sole data source. (options: plan, customer, currency)
+  -g, --group-by string                Group invoice data by dimension. Allowed values: 'plan' (max 5 groups, top 4 + 'other' when exceeding), 'customer' (max 25 groups, top 24 + 'other' when exceeding, sorted by revenue descending), both in one currency like an ungrouped read, 'currency' (one entry per currency, primary currency first then alphabetical). Note: groupBy values are mutually exclusive — combining them returns a 400 error. When groupBy=currency is active, top-level netRevenue, invoices, and payments fields are omitted; currencyBreakdown is the sole data source. (options: plan, customer, currency)
   -h, --help                           help for get
-  -m, --merchant-id string             Filter by merchant ID. At least one of merchantId, subscriptionIds, or customerId must be provided.
+  -m, --merchant-id string             The merchant whose revenue to read. Defaults to the merchant your API key belongs to, and is required when you belong to several merchants. Every read is scoped to one merchant; customerId and subscriptionIds narrow it further.
   -p, --period-basis string            Which date places revenue inside the window. 'issued' (default) counts whole invoices by their issue date, the basis revenue is recognised on. 'billingPeriod' counts invoice lines by the start of the period each line bills, so a window covering one billing period returns that period's charges, whichever invoices carry them: this month's advance fee and this month's arrears usage. Paid, outstanding and written-off follow each line's invoice; a refund splits across its invoice's lines by subtotal; payments not tied to an invoice are excluded because they bill no period. (options: issued, billingPeriod) (default "issued")
       --start-time string              Start of the time range (ISO 8601 format) [required]
-      --subscription-ids stringArray   Filter by subscription IDs. At least one of merchantId, subscriptionIds, or customerId must be provided.
+      --subscription-ids stringArray   Narrow the invoice figures to some of the merchant's subscriptions. A payment is not tied to a subscription, so the payment figures are not narrowed by it.
 ```
 
 ### Options inherited from parent commands

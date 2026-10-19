@@ -39,3 +39,4 @@ paygentic revenue [flags]
 
 * [paygentic](paygentic.md)	 - Paygentic API: The Paygentic API provides billing infrastructure for usage-based and subscription monetization — customers, subscriptions, usage metering, invoicing, entitlements, and payments
 * [paygentic revenue get](paygentic_revenue_get.md)	 - Get revenue summary
+* [paygentic revenue get-revenue-accounts](paygentic_revenue_get-revenue-accounts.md)	 - List customer accounts

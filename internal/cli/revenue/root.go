@@ -25,6 +25,10 @@ func InitRevenueRoot(parent *cobra.Command) error {
 		return err
 	}
 
+	if err := initGetRevenueAccountsCmd(RevenueCmd); err != nil {
+		return err
+	}
+
 	parent.AddCommand(RevenueCmd)
 	return nil
 }

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: b2505479ef0e1902a4ce20be0241dd70
+  docChecksum: 4d526d9314ab8ca6ebc4f42f1c226c35
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.5.16
-  configChecksum: f987a4b2da17f12f71162aa9ae974b3a
+  releaseVersion: 0.5.17
+  configChecksum: c501a651ac38187cd0457d5114d4671a
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 7d8f2f81-9704-4b47-8b79-9dd54234b803
-  pristine_commit_hash: 10e03dc61461d5dc00fffd750edf16eea0e4abc8
-  pristine_tree_hash: ac797e756dae6b14426751309cb115aac73b8bde
+  generation_id: ca462af7-0f00-496a-85db-c8a61218020b
+  pristine_commit_hash: 186b3ef6ad75015382ce6ffe459045ec0d25a57f
+  pristine_tree_hash: 2c82c78e776a9d43763ba5098b47657bb50d2cf6
 features:
   cli:
     constsAndDefaults: 0.0.0
@@ -599,12 +599,16 @@ trackedFiles:
     pristine_git_object: 3f768507b019bb63d034d1c2d08ce328eb852723
   internal/cli/revenue/get.go:
     id: 07a2525da79c
-    last_write_checksum: sha1:d96b2fdfceb73c8450862d4be95b6e25bcba3b60
-    pristine_git_object: 386e9672064d5506f2e4b3731808d889c37a24ab
+    last_write_checksum: sha1:af74620bd5c7c6ae31397a53c413712653d8d8e2
+    pristine_git_object: 3add7ec28e8c5cb1b126b1b0b15ece92549897bc
+  internal/cli/revenue/getrevenueaccounts.go:
+    id: 8618cacd8b46
+    last_write_checksum: sha1:c969f6b06eb9894767f87a85db5b09ea0caa714f
+    pristine_git_object: 3815a46ebf3de3d6f062873e5df13f146a509a21
   internal/cli/revenue/root.go:
     id: c305cbebb764
-    last_write_checksum: sha1:4fb9da2b88d13e9e79bacb40933dd6117f2b06df
-    pristine_git_object: 4a7659874113335cecc83e03884a92dc1e5b4107
+    last_write_checksum: sha1:278b118357588ad409dc75a2bae56eab76df0c9f
+    pristine_git_object: be216418ef33eb6492c7535674306d45c71d469f
   internal/cli/root.go:
     id: 239d55a0d6be
     last_write_checksum: sha1:153ba81c23802d33904d73ee490f2cb5b90f088d
@@ -787,8 +791,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:52e8e8e644baf8675c527c12573ef5ecce3fef13
-    pristine_git_object: 26b2f70060f74d8187c88dc6eb84f2344b6563a3
+    last_write_checksum: sha1:fdf20b1c6b1b3c6314ba8f9149d84600ed5a0780
+    pristine_git_object: e3ba2e949a8b5d032d9356d1af3b715947b631eb
   internal/cli/webhooks/disable.go:
     id: 9b4f4fab81d6
     last_write_checksum: sha1:ba6c16162e2837f0061f005aac335fc1460e0738
@@ -949,6 +953,10 @@ trackedFiles:
     id: 4b367232b07d
     last_write_checksum: sha1:34bde862805b394af28d5b2de65edafb96efc8e4
     pristine_git_object: 9e76302b759e4a841d278f3388c9beef4fa11b50
+  internal/sdk/models/components/accountfigure.go:
+    id: 8a030bf5fdbf
+    last_write_checksum: sha1:e09294616cc15c9b8f74b4fc0625d1618232c512
+    pristine_git_object: 52679bbdf6437b9802ff85caa434781f8676dc4d
   internal/sdk/models/components/address.go:
     id: 968e1f64a4d7
     last_write_checksum: sha1:b9b011d7ab8910e101bd7abb1960bc416cb68a63
@@ -1281,6 +1289,10 @@ trackedFiles:
     id: 3671ad2aedd5
     last_write_checksum: sha1:7260b84912e66b971b002ab3e6e1c0ac0f328251
     pristine_git_object: 3f4dff54b4f5ffec553adaa8611680ab72e26ae3
+  internal/sdk/models/components/outstandingblock.go:
+    id: 9f87312f152d
+    last_write_checksum: sha1:f72785bd7731fe98d317fcc7e4eca9a98596e09d
+    pristine_git_object: f72705332fda301e115662baf86493148e45f4be
   internal/sdk/models/components/payment.go:
     id: 4d237122f9dc
     last_write_checksum: sha1:f10787316494a5aa24560f0e87713585472d2fd7
@@ -1413,10 +1425,22 @@ trackedFiles:
     id: f2d211d4040c
     last_write_checksum: sha1:93899011d4e2edd933410acbabaeafb369182094
     pristine_git_object: a8a987aa40943bd7ec16a8f5795207680f534a9f
+  internal/sdk/models/components/revenueaccountrow.go:
+    id: 38553be7f15b
+    last_write_checksum: sha1:ff7eb05d58ccfa590ad5ed1f2892f7d841d83fc1
+    pristine_git_object: 1a1d6aecfd24b0fe52a487719bc0fbf015ca62d6
+  internal/sdk/models/components/revenueaccountsresponse.go:
+    id: 3ee742917fb8
+    last_write_checksum: sha1:cacb9a1ea6e40d2d3204a52f4eb35ef07613f122
+    pristine_git_object: 2351e63f693ff732ee1f6afa67e26676cf51566c
+  internal/sdk/models/components/revenueaccounttotal.go:
+    id: 94348d280efa
+    last_write_checksum: sha1:f82045e6374000750198a69e6e8ae29c9c6e557e
+    pristine_git_object: 278436b47bc21aece22e761f02053530def53afb
   internal/sdk/models/components/revenuesummaryresponse.go:
     id: b2252a23920f
-    last_write_checksum: sha1:55606578dee5ad29ccc104677dfed6bde3870078
-    pristine_git_object: 5ee56c4bf8f42660f92a1545f68d0187230584c6
+    last_write_checksum: sha1:493835afb804c4c3fd6fb1aee0d0de0a1d8ad633
+    pristine_git_object: 4e2918e34a8d0dd0f2ec8dba24a32ddf01bf7c33
   internal/sdk/models/components/revenuetrendbucket.go:
     id: 2943c8f6650a
     last_write_checksum: sha1:eaabb6f2a7ad10aa7d3de236d14bbc8ca22a8c5f
@@ -1867,8 +1891,12 @@ trackedFiles:
     pristine_git_object: 9142c3e69f1fb0cd26aaef8f52068ebc7f16ea27
   internal/sdk/models/operations/getrevenue.go:
     id: a4ae9f92b5f9
-    last_write_checksum: sha1:69b29df56e6cf5b2c30367c8ecb5012ae2dcb011
-    pristine_git_object: 03080716e58cded7eec7fb8d227a867bd7dc70ef
+    last_write_checksum: sha1:ee31b9e45fec05f7533c5346001d891efb384db4
+    pristine_git_object: f20f5a2833b2b578519d32f4353f1a4d9f819917
+  internal/sdk/models/operations/getrevenueaccounts.go:
+    id: 1788030f3a10
+    last_write_checksum: sha1:10e8052c6b3c0264795733a5ea157b73bb9d4097
+    pristine_git_object: 92ac677c97a201dc9817d2ac1a32546f73dd0576
   internal/sdk/models/operations/getsource.go:
     id: 0966ae56c28f
     last_write_checksum: sha1:0266e86669d4bf8d7df96aaa30cec9551d56f74f
@@ -2279,8 +2307,8 @@ trackedFiles:
     pristine_git_object: c9fb2a2267b398e2bcabbb199d6636ef8887d004
   internal/sdk/revenue.go:
     id: 75b10d3b1dce
-    last_write_checksum: sha1:62552eab00a7daada7dcc6b9795da106dec47276
-    pristine_git_object: 8bd84fff89136c3db04480ce59d10fecd431e70e
+    last_write_checksum: sha1:a0dcbbe5d487142054f2393ba4428a02ee2796b5
+    pristine_git_object: dae8f86e7ee40599227cd7daf4459bc79c1a0e98
   internal/sdk/rules.go:
     id: 1ecf39cf6118
     last_write_checksum: sha1:41c3988fda4052961cbac546e623ba2a7bab59dc
@@ -2395,8 +2423,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:01b120ca14d345ff10ff68c76192a8d7cdd9327b
-    pristine_git_object: 154b3b72f1fd6db7e44f102e0bde3bd54430870a
+    last_write_checksum: sha1:d8bef74a5c0071f4fbf364676075cf16953374c5
+    pristine_git_object: 27502697894c74d10ae4bd9bd94f49eeb73210ae
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -4939,4 +4967,24 @@ examples:
           application/json: {"object": "webhookPortal", "expiresAt": "2025-03-22T18:36:46.825Z", "url": "https://circular-riser.biz"}
         "401":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
+  getRevenueAccounts:
+    speakeasy-default-get-revenue-accounts:
+      parameters:
+        query:
+          merchantId: "<id>"
+          limit: 50
+          offset: 0
+      responses:
+        "200":
+          application/json: {"object": "list", "totals": [{"currency": "Nuevo Sol", "outstanding": {"count": 756373, "amount": "625.11", "awaitingPayment": {"count": 274308, "amount": "808.76"}, "paymentFailed": {"count": 733558, "amount": "669.37"}}}], "data": [{"customerId": "<id>", "customerName": "<value>", "currency": "Venezuelan bolívar", "outstanding": {"count": 756373, "amount": "625.11", "awaitingPayment": {"count": 274308, "amount": "808.76"}, "paymentFailed": {"count": 733558, "amount": "669.37"}}}], "pagination": {"limit": 695281, "offset": 79625, "total": 252071}}
+        "400":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "401":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
+        "500":
+          application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Cli SDK Changes:
+  * `Paygentic.Revenue.GetRevenueAccounts()`: **Added**
+  * `Paygentic.Revenue.Get()`:  `response.Currency` **Added**

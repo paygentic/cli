@@ -351,6 +351,7 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 ### [revenue](docs/paygentic_revenue.md)
 
 * [`get`](docs/paygentic_revenue_get.md) - Get revenue summary
+* [`get-revenue-accounts`](docs/paygentic_revenue_get-revenue-accounts.md) - List customer accounts
 
 ### [profitability](docs/paygentic_profitability.md)
 
