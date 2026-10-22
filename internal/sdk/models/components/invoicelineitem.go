@@ -122,6 +122,8 @@ type InvoiceLineItem struct {
 	TotalTax string `json:"totalTax"`
 	// Unit price in decimal dollars
 	UnitPrice string `json:"unitPrice"`
+	// How the line's amount before tax was calculated: a trace of one evaluation, saved when the invoice was calculated and fixed once it is issued. Returned only with `expand=lineProvenance`. Every field but `status` is present when `status` is `recorded`. Every number is a plain decimal string.
+	Provenance *LineProvenance `json:"provenance,omitzero"`
 }
 
 func (i InvoiceLineItem) MarshalJSON() ([]byte, error) {
@@ -280,4 +282,11 @@ func (i *InvoiceLineItem) GetUnitPrice() string {
 		return ""
 	}
 	return i.UnitPrice
+}
+
+func (i *InvoiceLineItem) GetProvenance() *LineProvenance {
+	if i == nil {
+		return nil
+	}
+	return i.Provenance
 }
