@@ -19,7 +19,7 @@ paygentic invoices-v2 get-line-items [flags]
 ### Options
 
 ```
-  -e, --expand items        Comma-separated list of fields to expand. Supports: items — resolves each returned line's item and that item's external accounting codes into an items collection, so a line can be translated to a GL/SKU code without a second call.
+  -e, --expand items        Comma-separated list of fields to expand. Supports: items, lineProvenance. items resolves each returned line's item and that item's external accounting codes into an `items` collection, so a line can be translated to a GL/SKU code without a second call. `lineProvenance` adds `provenance` to each returned line: how its amount before tax was calculated.
   -h, --help                help for get-line-items
   -i, --id string           The invoice ID [required]
   -l, --limit int           Maximum number of line items to return (default 100)

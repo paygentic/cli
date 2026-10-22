@@ -19,7 +19,7 @@ paygentic invoices-v2 get [flags]
 ### Options
 
 ```
-  -e, --expand items                   Comma-separated list of fields to expand. Supports: lineItems, items. items resolves each returned line's item and its external accounting codes into an `items` collection inside the lineItems block; because those ids come from the lines, requesting `items` also expands `lineItems` on its default paging.
+  -e, --expand items                   Comma-separated list of fields to expand. Supports: lineItems, items, lineProvenance. items resolves each returned line's item and its external accounting codes into an `items` collection inside the lineItems block; because those ids come from the lines, requesting `items` also expands `lineItems` on its default paging. `lineProvenance` adds `provenance` to each returned line: how its amount before tax was calculated. It also expands `lineItems`.
   -h, --help                           help for get
   -i, --id string                      The invoice ID [required]
       --line-items-limit int           Page size for line items when expand=lineItems (default 100)
