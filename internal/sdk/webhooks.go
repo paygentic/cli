@@ -290,7 +290,7 @@ func (s *Webhooks) Enable(ctx context.Context, request *operations.CreateWebhook
 
 		_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
-	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "5XX"}, httpRes.StatusCode) {
+	} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "4XX", "5XX"}, httpRes.StatusCode) {
 		_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
@@ -363,6 +363,8 @@ func (s *Webhooks) Enable(ctx context.Context, request *operations.CreateWebhook
 	case httpRes.StatusCode == 401:
 		fallthrough
 	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 404:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -781,7 +783,7 @@ func (s *Webhooks) Disable(ctx context.Context, request *operations.DeleteWebhoo
 }
 
 // GetPortal - Get Portal Access
-// Returns a link to the webhook portal, where you add endpoints, choose event types, read the signing secret and inspect deliveries. The link opens without a login and expires one hour after it is issued, at `expiresAt`. Treat it as a secret. Returns 404 unless webhooks are enabled.
+// Returns a link to the webhook portal, where you add endpoints, choose event types, read the signing secret and inspect deliveries. The link opens without a login and expires one hour after it is issued, at `expiresAt`. Treat it as a secret. The link is read-only unless the caller holds `webhooks:write`: a read-only portal shows endpoints and deliveries but does not let you add or change endpoints, read the signing secret or replay messages. Returns 404 unless webhooks are enabled.
 func (s *Webhooks) GetPortal(ctx context.Context, request *operations.GetWebhookPortalRequest, opts ...operations.Option) (*operations.GetWebhookPortalResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
