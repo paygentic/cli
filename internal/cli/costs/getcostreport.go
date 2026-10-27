@@ -17,8 +17,8 @@ import (
 
 var getCostReportCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "The merchant organization ID. If omitted, defaults to the merchant associated with the authenticated API key."},
-	{FlagName: "from", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the query window (ISO 8601). [required]"},
-	{FlagName: "to", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the query window (ISO 8601). [required]"},
+	{FlagName: "from", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the query window, included (ISO 8601). [required]"},
+	{FlagName: "to", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the query window, excluded: the read counts from <= t < to (ISO 8601). [required]"},
 	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindString, Required: true, Description: "Dimension to group results by. Valid values: 'cost' (group by cost ID), 'customer' (group by customer ID), or any dimension key from a filtered cost's groupBy schema for dynamic dimension grouping. Dynamic dimension values require exactly one costId filter. [required]"},
 	{FlagName: "cost-id", FieldPath: "CostID", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Filter to specific cost(s). Enables dynamic dimension grouping."},
 	{FlagName: "subject", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter to a specific subject (customer/event subject ID)."},
