@@ -24,7 +24,7 @@ paygentic costs get-cost-report [flags]
       --currency string                  Filter costs to a single ISO 4217 currency code (e.g. 'USD'). When omitted, defaults to the merchant's primary currency.
   -e, --exclude-empty pagination.total   When true, leave out groups with neither cost nor usage in the period. They are dropped before ranking, so they take no top-N slot, do not appear in the 'Other' bucket and are not counted in pagination.total. `emptyGroupCount` says how many were left out.
       --filter-group-by string           JSON-encoded dimension filters (e.g. {"region":"us-east-1"}). Max 4KB, max 5 keys.
-      --from string                      Start of the query window (ISO 8601). [required]
+      --from string                      Start of the query window, included (ISO 8601). [required]
   -g, --group-by string                  Dimension to group results by. Valid values: 'cost' (group by cost ID), 'customer' (group by customer ID), or any dimension key from a filtered cost's groupBy schema for dynamic dimension grouping. Dynamic dimension values require exactly one costId filter. [required]
   -h, --help                             help for get-cost-report
   -l, --limit int                        Maximum number of groups to return. (default 25)
@@ -33,7 +33,7 @@ paygentic costs get-cost-report [flags]
       --sort string                      Field to sort groups by. (options: totalCost, totalQuantity) (default "totalCost")
       --sort-dir string                  Sort direction. (options: asc, desc) (default "desc")
       --subject string                   Filter to a specific subject (customer/event subject ID).
-      --to string                        End of the query window (ISO 8601). [required]
+      --to string                        End of the query window, excluded: the read counts from <= t < to (ISO 8601). [required]
       --top-n int                        Number of top groups to return. An 'Other' bucket aggregates remaining groups. (default 9)
   -w, --window-size string               Time window granularity for the time-series breakdown. (options: HOUR, DAY, MONTH)
 ```

@@ -18,8 +18,8 @@ import (
 var getCostSummaryCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the cost [required]"},
 	{FlagName: "subject", Shorthand: "s", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter usage to a specific subject (billing entity). When provided, only cost events matching this subject are included. When omitted, usage is aggregated across all subjects for the merchant."},
-	{FlagName: "from", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the query window (ISO 8601). Required together with 'to'. [required]"},
-	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the query window (ISO 8601). Required together with 'from'. [required]"},
+	{FlagName: "from", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the query window, included (ISO 8601). Required together with 'to'. [required]"},
+	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the query window, excluded: the read counts from <= t < to (ISO 8601). Required together with 'from'. [required]"},
 	{FlagName: "group-by", Shorthand: "g", FieldPath: "GroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "Comma-separated dimension keys to group results by."},
 	{FlagName: "window", Shorthand: "w", FieldPath: "Window", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"MINUTE", "HOUR", "DAY"}, Description: "Time window granularity for time-series breakdown. (options: MINUTE, HOUR, DAY)"},
 	{FlagName: "filter-group-by", FieldPath: "FilterGroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "JSON-encoded dimension filter (e.g. {\"model\":\"gpt-4\",\"region\":\"us-east\"}). Keys must match those defined in the cost's groupBy configuration. Retrieve the cost first to determine valid keys."},

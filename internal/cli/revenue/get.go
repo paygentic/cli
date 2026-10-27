@@ -16,8 +16,8 @@ import (
 )
 
 var getCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "start-time", FieldPath: "StartTime", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the time range (ISO 8601 format) [required]"},
-	{FlagName: "end-time", Shorthand: "e", FieldPath: "EndTime", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the time range (ISO 8601 format) [required]"},
+	{FlagName: "start-time", FieldPath: "StartTime", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of the read window, included (ISO 8601 format) [required]"},
+	{FlagName: "end-time", Shorthand: "e", FieldPath: "EndTime", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of the read window, excluded: the read counts startTime <= t < endTime, so a month ends at the first instant of the next month (ISO 8601 format) [required]"},
 	{FlagName: "bucket-width", Shorthand: "b", FieldPath: "BucketWidth", Kind: flagutil.FlagKindEnum, Optional: true, HasDefault: true, DefaultStr: "day", EnumValues: []string{"hour", "day", "week"}, Description: "Time bucket granularity for trend data (options: hour, day, week)"},
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "The merchant whose revenue to read. Defaults to the merchant your API key belongs to, and is required when you belong to several merchants. Every read is scoped to one merchant; customerId and subscriptionIds narrow it further."},
 	{FlagName: "customer-id", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Narrow the read to one of the merchant's customers."},

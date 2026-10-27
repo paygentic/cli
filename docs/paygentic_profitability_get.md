@@ -21,11 +21,11 @@ paygentic profitability get [flags]
 ```
   -c, --currency string                ISO 4217 currency code to scope the summary. Defaults to the merchant's primary currency.
   -e, --exclude-empty rows             When true, leave customers with neither revenue nor cost in the period out of rows. They are dropped before ranking, so they take no top-N slot and are not folded into the 'Other' row. `emptyCustomerCount` says how many there are either way.
-  -f, --from string                    Start of the time range (ISO 8601 format) [required]
+  -f, --from string                    Start of the read window, included (ISO 8601 format) [required]
   -h, --help                           help for get
   -i, --include-empty emptyCustomers   When true, also return in emptyCustomers the customers counted in `emptyCustomerCount` that `rows` does not carry, so a caller can show the complete customer list.
   -m, --merchant-id string             Merchant whose customers to summarize [required]
-      --to string                      End of the time range (ISO 8601 format) [required]
+      --to string                      End of the read window, excluded: the read counts from <= t < to, so a month ends at the first instant of the next month (ISO 8601 format) [required]
       --top-n int                      Number of top customers (by profit) to return individually. The rest are rolled into a single 'Other' row. (default 10)
 ```
 

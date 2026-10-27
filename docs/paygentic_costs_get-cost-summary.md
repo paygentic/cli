@@ -20,12 +20,12 @@ paygentic costs get-cost-summary [flags]
 
 ```
       --filter-group-by string   JSON-encoded dimension filter (e.g. {"model":"gpt-4","region":"us-east"}). Keys must match those defined in the cost's groupBy configuration. Retrieve the cost first to determine valid keys.
-      --from string              Start of the query window (ISO 8601). Required together with 'to'. [required]
+      --from string              Start of the query window, included (ISO 8601). Required together with 'to'. [required]
   -g, --group-by string          Comma-separated dimension keys to group results by.
   -h, --help                     help for get-cost-summary
   -i, --id string                The unique identifier of the cost [required]
   -s, --subject string           Filter usage to a specific subject (billing entity). When provided, only cost events matching this subject are included. When omitted, usage is aggregated across all subjects for the merchant.
-  -t, --to string                End of the query window (ISO 8601). Required together with 'from'. [required]
+  -t, --to string                End of the query window, excluded: the read counts from <= t < to (ISO 8601). Required together with 'from'. [required]
   -w, --window string            Time window granularity for time-series breakdown. (options: MINUTE, HOUR, DAY)
 ```
 
