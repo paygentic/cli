@@ -49,6 +49,7 @@ paygentic [flags]
 * [paygentic fees](paygentic_fees.md)	 - A `Fee` defines a recurring or one-time charge tied to a `Product`
 * [paygentic invoices-v2](paygentic_invoices-v2.md)	 - Invoice V2 operations supporting billing cycles organized by time periods
 * [paygentic items](paygentic_items.md)	 - An `Item` is the canonical "thing you sell" that external-system mappings point at
+* [paygentic me](paygentic_me.md)	 - The caller: who it is in its active organization and what it can do
 * [paygentic merchant-integrations](paygentic_merchant-integrations.md)	 - A `MerchantIntegration` records a merchant's connection to an external provider
 * [paygentic merchants](paygentic_merchants.md)	 - Operations for merchants
 * [paygentic orders](paygentic_orders.md)	 - Manage Orders, their line items, and billing schedules

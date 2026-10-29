@@ -17,6 +17,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/fees"
 	"github.com/paygentic/cli/internal/cli/invoicesv2"
 	"github.com/paygentic/cli/internal/cli/items"
+	"github.com/paygentic/cli/internal/cli/me"
 	"github.com/paygentic/cli/internal/cli/merchantintegrations"
 	"github.com/paygentic/cli/internal/cli/merchants"
 	"github.com/paygentic/cli/internal/cli/orders"
@@ -73,6 +74,9 @@ func NewRootCommand() (*cobra.Command, error) {
 			output.InitAgentMode(cmd)
 			return nil
 		},
+	}
+	if err := me.InitMeRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init me: %w", err)
 	}
 	if err := billablemetrics.InitBillableMetricsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init billable-metrics: %w", err)

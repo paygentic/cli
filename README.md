@@ -187,6 +187,10 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 <details open>
 <summary>Available commands</summary>
 
+### [me](docs/paygentic_me.md)
+
+* [`get`](docs/paygentic_me_get.md) - Get the caller
+
 ### [billable-metrics](docs/paygentic_billable-metrics.md)
 
 * [`create`](docs/paygentic_billable-metrics_create.md) - Create

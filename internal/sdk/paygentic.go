@@ -55,7 +55,9 @@ func Pointer[T any](v T) *T { return &v }
 //
 // See the [Quickstart](https://docs.paygentic.io/getting-started/quickstart) to go from zero to billing in a handful of steps.
 type Paygentic struct {
-	SDKVersion      string
+	SDKVersion string
+	// The caller: who it is in its active organization and what it can do
+	Me              *Me
 	BillableMetrics *BillableMetrics
 	// A `Customer` is an entity connected to a `Merchant` via a `Subscription`. This represents the merchant-facing perspective of `Consumers` who purchase their `Products`.
 	Customers    *Customers
@@ -201,6 +203,7 @@ func New(opts ...SDKOption) *Paygentic {
 
 	sdk.sdkConfiguration = sdk.hooks.SDKInit(sdk.sdkConfiguration)
 
+	sdk.Me = newMe(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.BillableMetrics = newBillableMetrics(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Customers = newCustomers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Entitlements = newEntitlements(sdk, sdk.sdkConfiguration, sdk.hooks)
