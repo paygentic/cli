@@ -17,14 +17,12 @@ import (
 
 var updateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The unique identifier of the price [required]"},
-	{FlagName: "billable-metric-id", FieldPath: "Body.BillableMetricID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a billable metric"},
+	{FlagName: "billable-metric-id", Shorthand: "b", FieldPath: "Body.BillableMetricID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a billable metric"},
 	{FlagName: "pricing-unit-id", FieldPath: "Body.PricingUnitID", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"pricingUnitId,omitempty"`, Description: "Denominate this metered price in a pricing unit (credits). Set to a pricing unit ID to draw down a credit pool, null to revert to real currency, or omit to leave unchanged."},
 	{FlagName: "invoice-display-name", FieldPath: "Body.InvoiceDisplayName", Kind: flagutil.FlagKindString, Optional: true, Description: "Updated invoice line item label. Sample values: 'LLM Token Usage', 'Storage Charges', 'API Call Fees'"},
 	{FlagName: "invoice-display-group", FieldPath: "Body.InvoiceDisplayGroup", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"invoiceDisplayGroup,omitempty"`, Description: "Presentation only. Prices sharing this value, within one billing period, print as a single row on the rendered invoice PDF and are described by this string. Every member still bills its own line item on the ledger, this API and the compliance document. The combined row's rate is derived from the members' own rates. Requires the 'standard' pricing model. Sample values: 'Cross Border Fees', 'FX Fees'"},
 	{FlagName: "model", Shorthand: "m", FieldPath: "Body.Model", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"standard", "volume"}, Description: "The pricing model to set. 'standard' and 'volume' are accepted. Legacy 'dynamic'/'percentage' prices can still be edited (other fields) but cannot be switched back to those models. Percentage/revenue-share is expressed via 'standard' with a unit-price multiplier. (options: standard, volume)"},
 	{FlagName: "properties", FieldPath: "Body.Properties", Kind: flagutil.FlagKindUnion, Union: &flagutil.UnionMeta{Discriminated: false, Optional: true, TypeDescription: "JSON value (one of: { unitPrice: string } | { maxPrice: string, minPrice: string } | { tiers: object[] } | { maxCharge: string, minCharge: string, percentage: string })"}},
-	{FlagName: "payment-term", FieldPath: "Body.PaymentTerm", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"in_arrears", "in_advance"}, Description: "Billing timing preference: 'in_advance' (prepaid — charged upfront or drawn from a prepaid commitment) or 'in_arrears' (charged at period end). (options: in_arrears, in_advance)"},
-	{FlagName: "billing-cadence", FieldPath: "Body.BillingCadence", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"billingCadence,omitempty"`, Description: "ISO 8601 duration for recurring fees (e.g., 'P1M' for monthly, 'P1Y' for yearly, or 'P0D' for one-time)"},
 	{FlagName: "feature", Shorthand: "f", FieldPath: "Body.Feature", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"feature,omitempty"`, Description: "Feature to associate. Set to null to remove existing feature. Omit to leave unchanged."},
 	{FlagName: "grant-discount-enabled", Shorthand: "g", FieldPath: "Body.GrantDiscountEnabled", Kind: flagutil.FlagKindBool, Optional: true, Description: "When true, grants applied to a subscription will discount usage charged by this price. Only supported for standard metered prices."},
 	{FlagName: "is-obligation", FieldPath: "Body.IsObligation", Kind: flagutil.FlagKindBool, Optional: true, Description: "A fixed amount owed whole rather than a per-period rate. An obligation is not prorated over a partial first period: when a subscription starts before its billing anchor, no truncated stub is billed and the first charge is the full amount at the next anchor. An obligation also refuses an interval boundary that falls strictly inside one of its own billing periods, since part of an amount owed whole is not a thing to bill. Defaults to false, which is a rate and is today's behaviour for every price. Not supported on a metered price, whose amount resolves from usage at close."},
@@ -38,7 +36,7 @@ func initUpdateCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "update",
 		Short:   "Update",
-		Long:    "Update",
+		Long:    "Updates a price. `paymentTerm` and `billingCadence` are fixed when the price is created: a request that sends either one is refused with a 400. To change them, create a new price.",
 		Example: "  paygentic prices update --id <id>",
 		RunE:    runUpdateCmd,
 	}
