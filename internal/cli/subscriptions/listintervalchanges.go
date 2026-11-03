@@ -20,7 +20,7 @@ var listIntervalChangesCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindString, Optional: true, HasDefault: true, DefaultStr: "0", Description: "Number of interval changes to skip"},
 	{FlagName: "from", Shorthand: "f", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Only return changes recorded at or after this time"},
 	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Only return changes recorded before this time"},
-	{FlagName: "change-reason", Shorthand: "c", FieldPath: "ChangeReason", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"commercial", "correction", "migration", "unspecified"}, Description: "Only return changes with this reason. (options: commercial, correction, migration, unspecified)"},
+	{FlagName: "change-reason", Shorthand: "c", FieldPath: "ChangeReason", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"commercial", "correction", "migration", "unspecified", "contractual"}, Description: "Only return changes with this reason. (options: commercial, correction, migration, unspecified, contractual)"},
 }
 
 // initListIntervalChangesCmd initializes the list-interval-changes command.

@@ -19,7 +19,7 @@ paygentic subscriptions list-interval-changes [flags]
 ### Options
 
 ```
-  -c, --change-reason string   Only return changes with this reason. (options: commercial, correction, migration, unspecified)
+  -c, --change-reason string   Only return changes with this reason. (options: commercial, correction, migration, unspecified, contractual)
   -f, --from string            Only return changes recorded at or after this time
   -h, --help                   help for list-interval-changes
   -l, --limit string           Number of interval changes to return (default "10")

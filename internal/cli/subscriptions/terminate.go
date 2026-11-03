@@ -18,7 +18,7 @@ import (
 var terminateCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "The subscription ID [required]"},
 	{FlagName: "reason", Shorthand: "r", FieldPath: "Body.Reason", Kind: flagutil.FlagKindString, Required: true, Description: "Cancellation explanation text. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration' [required]"},
-	{FlagName: "change-reason", Shorthand: "c", FieldPath: "Body.ChangeReason", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"commercial", "correction", "migration", "unspecified"}, Description: "Why a change was made. `correction` fixes data to match what was agreed; `migration` moves a contract from another system; `commercial` is a real change to the deal. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified)"},
+	{FlagName: "change-reason", Shorthand: "c", FieldPath: "Body.ChangeReason", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"commercial", "correction", "migration", "unspecified", "contractual"}, Description: "Why a change was made. `correction` repairs data that was entered wrong; `migration` moves a contract from another system; `commercial` is a real change to the deal; `contractual` applies a step the original contract scheduled, such as an annual uplift. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified, contractual)"},
 }
 
 // initTerminateCmd initializes the terminate command.
