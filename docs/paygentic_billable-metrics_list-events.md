@@ -27,7 +27,7 @@ paygentic billable-metrics list-events [flags]
   -l, --limit int                 Maximum number of events to return (default 20)
       --offset int                Number of events to skip
   -s, --subject string            Filter by subject (typically the customer/user ID)
-  -t, --to string                 End of query window (ISO 8601) [required]
+  -t, --to from                   End of query window (ISO 8601). At most 403 days after from. [required]
 ```
 
 ### Options inherited from parent commands

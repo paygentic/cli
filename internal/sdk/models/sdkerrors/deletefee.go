@@ -11,10 +11,12 @@ import (
 
 // DeleteFeeConflictError - Fee cannot be deleted because it has associated prices
 type DeleteFeeConflictError struct {
-	Error_   *string                      `json:"error,omitzero"`
-	Message  *string                      `json:"message,omitzero"`
-	Details  *operations.DeleteFeeDetails `json:"details,omitzero"`
-	HTTPMeta components.HTTPMetadata      `json:"-"`
+	// Identifies this request in our logs. Include it when you contact support. Also sent in the `request-id` response header.
+	RequestID *string                      `json:"requestId,omitzero"`
+	Error_    *string                      `json:"error,omitzero"`
+	Message   *string                      `json:"message,omitzero"`
+	Details   *operations.DeleteFeeDetails `json:"details,omitzero"`
+	HTTPMeta  components.HTTPMetadata      `json:"-"`
 }
 
 var _ error = &DeleteFeeConflictError{}

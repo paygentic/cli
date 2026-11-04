@@ -27,7 +27,7 @@ paygentic billable-metrics meter [flags]
   -h, --help                     help for meter
   -i, --id string                [required]
   -s, --subject string           Filter by customer/user ID
-  -t, --to string                End of query window (ISO 8601) [required]
+  -t, --to from                  End of query window (ISO 8601). At most 403 days after from. [required]
   -w, --window-size string       Time bucket granularity (options: MINUTE, HOUR, DAY, MONTH)
 ```
 

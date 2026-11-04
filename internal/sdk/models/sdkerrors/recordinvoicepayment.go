@@ -21,8 +21,10 @@ type UnprocessableEntityError struct {
 	// Present on a 403 from the authorization check. Says why access was refused: the caller has no role that grants the permission, the OAuth token lacks the scope, or the caller is not a member of the organization.
 	Reason *components.AuthorizationDenialReason `json:"reason,omitzero"`
 	// Present on a 403 from the authorization check. The permissions the caller needs for this request.
-	RequiredPermissions []string                `json:"requiredPermissions,omitzero"`
-	HTTPMeta            components.HTTPMetadata `json:"-"`
+	RequiredPermissions []string `json:"requiredPermissions,omitzero"`
+	// Identifies this request in our logs. Include it when you contact support. Also sent in the `request-id` response header.
+	RequestID *string                 `json:"requestId,omitzero"`
+	HTTPMeta  components.HTTPMetadata `json:"-"`
 }
 
 var _ error = &UnprocessableEntityError{}

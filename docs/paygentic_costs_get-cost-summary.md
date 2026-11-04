@@ -25,7 +25,7 @@ paygentic costs get-cost-summary [flags]
   -h, --help                     help for get-cost-summary
   -i, --id string                The unique identifier of the cost [required]
   -s, --subject string           Filter usage to a specific subject (billing entity). When provided, only cost events matching this subject are included. When omitted, usage is aggregated across all subjects for the merchant.
-  -t, --to string                End of the query window, excluded: the read counts from <= t < to (ISO 8601). Required together with 'from'. [required]
+  -t, --to from                  End of the query window, excluded: the read counts from <= t < to (ISO 8601). Required together with 'from'. At most 403 days after from. [required]
   -w, --window string            Time window granularity for time-series breakdown. (options: MINUTE, HOUR, DAY)
 ```
 
