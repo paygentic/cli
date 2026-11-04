@@ -18,7 +18,7 @@ import (
 var meterCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
 	{FlagName: "from", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of query window (ISO 8601) [required]"},
-	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of query window (ISO 8601) [required]"},
+	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of query window (ISO 8601). At most 403 days after `from`. [required]"},
 	{FlagName: "subject", Shorthand: "s", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by customer/user ID"},
 	{FlagName: "window-size", Shorthand: "w", FieldPath: "WindowSize", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"MINUTE", "HOUR", "DAY", "MONTH"}, Description: "Time bucket granularity (options: MINUTE, HOUR, DAY, MONTH)"},
 	{FlagName: "filter-group-by", FieldPath: "FilterGroupBy", Kind: flagutil.FlagKindString, Optional: true, Description: "JSON-encoded dimension filter (e.g. {\"key\":\"value\"})"},

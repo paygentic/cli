@@ -11,10 +11,12 @@ import (
 
 // DeleteCustomerConflictError - Customer cannot be deleted due to active dependencies
 type DeleteCustomerConflictError struct {
-	Error_   *operations.Error                 `json:"error,omitzero"`
-	Message  *string                           `json:"message,omitzero"`
-	Details  *operations.DeleteCustomerDetails `json:"details,omitzero"`
-	HTTPMeta components.HTTPMetadata           `json:"-"`
+	// Identifies this request in our logs. Include it when you contact support. Also sent in the `request-id` response header.
+	RequestID *string                           `json:"requestId,omitzero"`
+	Error_    *operations.Error                 `json:"error,omitzero"`
+	Message   *string                           `json:"message,omitzero"`
+	Details   *operations.DeleteCustomerDetails `json:"details,omitzero"`
+	HTTPMeta  components.HTTPMetadata           `json:"-"`
 }
 
 var _ error = &DeleteCustomerConflictError{}

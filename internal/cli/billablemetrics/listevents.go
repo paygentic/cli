@@ -18,7 +18,7 @@ import (
 var listEventsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
 	{FlagName: "from", Shorthand: "f", FieldPath: "From", Kind: flagutil.FlagKindDateTime, Required: true, Description: "Start of query window (ISO 8601) [required]"},
-	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of query window (ISO 8601) [required]"},
+	{FlagName: "to", Shorthand: "t", FieldPath: "To", Kind: flagutil.FlagKindDateTime, Required: true, Description: "End of query window (ISO 8601). At most 403 days after `from`. [required]"},
 	{FlagName: "subject", Shorthand: "s", FieldPath: "Subject", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter by subject (typically the customer/user ID)"},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 20, Description: "Maximum number of events to return"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of events to skip"},

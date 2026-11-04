@@ -19,8 +19,10 @@ type RetryPaymentResponseError struct {
 	// The provider's payment reference for the charge, when the provider has one.
 	PaymentIntentID *string `json:"paymentIntentId,omitzero"`
 	// Why a payment retry did not collect the money.
-	Error_   *components.RetryPaymentError `json:"error,omitzero"`
-	HTTPMeta components.HTTPMetadata       `json:"-"`
+	Error_ *components.RetryPaymentError `json:"error,omitzero"`
+	// Identifies this request in our logs. Include it when you contact support. Also sent in the `request-id` response header.
+	RequestID *string                 `json:"requestId,omitzero"`
+	HTTPMeta  components.HTTPMetadata `json:"-"`
 }
 
 var _ error = &RetryPaymentResponseError{}
