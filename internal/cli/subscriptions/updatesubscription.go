@@ -18,7 +18,7 @@ import (
 var updateSubscriptionCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "id", Shorthand: "i", FieldPath: "ID", Kind: flagutil.FlagKindString, Required: true, Description: "[required]"},
 	{FlagName: "ending-at", Shorthand: "e", FieldPath: "Body.EndingAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "date/time value"},
-	{FlagName: "status", Shorthand: "s", FieldPath: "Body.Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"active", "terminated"}, Description: "options: active, terminated"},
+	{FlagName: "status", Shorthand: "s", FieldPath: "Body.Status", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"terminated"}, Description: "options: terminated"},
 	{FlagName: "terminated-at", FieldPath: "Body.TerminatedAt", Kind: flagutil.FlagKindDateTime, Optional: true, Description: "Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400."},
 	{FlagName: "terminated-by", FieldPath: "Body.TerminatedBy", Kind: flagutil.FlagKindString, Optional: true, Description: "Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation"},
 	{FlagName: "termination-reason", FieldPath: "Body.TerminationReason", Kind: flagutil.FlagKindString, Optional: true, Description: "Explanation for subscription cancellation. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration'"},
