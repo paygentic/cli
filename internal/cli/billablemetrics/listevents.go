@@ -31,7 +31,7 @@ func initListEventsCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "list-events",
 		Short:   "List Meter Events",
-		Long:    "List raw underlying events for a billable metric from the metering service. Returns events ordered by time descending.",
+		Long:    "List raw underlying events for a billable metric from the metering service. Returns events ordered by time descending. Events before the metric's `eventFrom` are left out, as its usage leaves them out.",
 		Example: "  paygentic billable-metrics list-events --id <id> --from 2024-09-28T08:04:20.478Z --to 2025-07-03T05:08:35.498Z",
 		RunE:    runListEventsCmd,
 		Aliases: []string{"le"},

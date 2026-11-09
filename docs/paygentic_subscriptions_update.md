@@ -28,7 +28,7 @@ paygentic subscriptions update [flags]
   -p, --payment-term-days int             Payment term in days ("Net X") applied to subsequently generated invoices: invoice dueAt = invoice issue date + paymentTermDays. A non-zero value is only valid alongside bankTransferOnly=true. Set 0 for "due on issue". Already-issued invoices keep their snapshotted dueAt.
       --renewal-reminder-days string      Override plan setting for number of days before renewal to send the reminder. Set to null to use plan default.
       --renewal-reminder-enabled string   Override plan setting for renewal reminder emails. Set to true to enable, false to disable, or null to use plan default.
-  -s, --status string                     options: active, terminated
+  -s, --status string                     options: terminated
       --tax-exempt                        When true, forces tax rate to 0%.
       --terminated-at string              Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400.
       --terminated-by string              Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation

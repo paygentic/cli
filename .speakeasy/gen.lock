@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 63a83ac6c8bf4a1442e7c3322ab2f650
+  docChecksum: 9be10b4246cb0160175fb9c258a5428e
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.6.6
-  configChecksum: 89b05c5c85ad3bfbb64ce2f17aec3f70
+  releaseVersion: 0.6.7
+  configChecksum: 6e1802307fa420e6483caf6d4bb11fd0
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: 07fa265d-c0de-49a3-886c-0275678cf62e
-  pristine_commit_hash: 49e30a1ea5143f989ef293a39a6367afa674db25
-  pristine_tree_hash: 7463875eca7b82265fce78fe460631910be497f2
+  generation_id: 9b115599-9c36-482a-baf0-60859d82c960
+  pristine_commit_hash: 11e0e0ffbbd77878e1f4c5fbcdfe1a39095cc50a
+  pristine_tree_hash: c4b54e1f577d0b6662ffc31b63fe9f1bcd01f9a1
 features:
   cli:
     additionalProperties: 0.0.0
@@ -96,8 +96,8 @@ trackedFiles:
     pristine_git_object: 2c0c3d469f13224e91696684153b95955bc41c36
   internal/cli/billablemetrics/listevents.go:
     id: f560a4e52cbb
-    last_write_checksum: sha1:cc4183dc18d2ce6d7c8151699875c76780dcfbf6
-    pristine_git_object: ec097eccf438b6ca6e33dde20c5de943eacb619e
+    last_write_checksum: sha1:85572dd7498f554be86f91fbd345beb25f0bcc06
+    pristine_git_object: 4004fd00a4edb0189885dc1e6dc4374f5a4e99b5
   internal/cli/billablemetrics/meter.go:
     id: 9dcf1dc7b9ce
     last_write_checksum: sha1:1e6897616774e93006ba36d07e7cb68e2304dfc3
@@ -268,8 +268,8 @@ trackedFiles:
     pristine_git_object: 15574c5fdc35d28366b447f167fd5862a6ab7335
   internal/cli/externalreferences/createexternalreference.go:
     id: 18f7e9b8749f
-    last_write_checksum: sha1:f95031496968bb78743dac7c1a242c5baf5acb16
-    pristine_git_object: 282e0149d1c4e939ed6a5469e231825b5c1d4ef3
+    last_write_checksum: sha1:5b8b5003c0ab7ff38cd4073a8cecaf6debc6406c
+    pristine_git_object: 335d5da59a8d0bf745d7c323a82b24ee585ce134
   internal/cli/externalreferences/deleteexternalreference.go:
     id: d6e8e025e20e
     last_write_checksum: sha1:68d075fe19bc31ba385ca25ae24212f894a5dcf2
@@ -280,8 +280,8 @@ trackedFiles:
     pristine_git_object: 72de3895c59c04326bacccc0da6872450efa36af
   internal/cli/externalreferences/listexternalreferences.go:
     id: 0832d1354841
-    last_write_checksum: sha1:3fb527775d7556fe6c2b52a5b32b5a459e8a104e
-    pristine_git_object: 45f4b7bcb89d6e183990a3f01324a93f265cc0a9
+    last_write_checksum: sha1:68bc5dc61fe78f2b917d717e06d4c982cfac1b1b
+    pristine_git_object: 2a0cee90e59877794549d5729f3995e0767397f9
   internal/cli/externalreferences/root.go:
     id: 5b09de17a783
     last_write_checksum: sha1:6eec0e0369407e56399b17d8cef2ace66b100863
@@ -760,8 +760,8 @@ trackedFiles:
     pristine_git_object: 23434d9e4cd41d5d1433a2f8bc648b9aeca2809d
   internal/cli/subscriptions/updatesubscription.go:
     id: 2a327aff8d54
-    last_write_checksum: sha1:7438e51a925ac6b78e45310d7d9df06bedb5f24e
-    pristine_git_object: 3ae978ab40f43da7ed7a5bb3131f48077f39b778
+    last_write_checksum: sha1:66267d10796fe87173fa5bcaa364e362cdb237c9
+    pristine_git_object: e62f1678f3a5ab08d177bbbd14069df2f37d97e1
   internal/cli/testclocks/advance.go:
     id: e270ab771128
     last_write_checksum: sha1:bfa3d5ab96dc33d71658df66df33e763e7dd1342
@@ -800,8 +800,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:bfafd0fcda763569486aba586305ced277a1c11c
-    pristine_git_object: fd467695998ec612c50516da36228fbf36e2fac2
+    last_write_checksum: sha1:bef46313a7659567cea15960f241073d8a72938f
+    pristine_git_object: 161e7e7fbfbb7c2d55f230205e70e79a7411fed8
   internal/cli/webhooks/disable.go:
     id: 9b4f4fab81d6
     last_write_checksum: sha1:ba6c16162e2837f0061f005aac335fc1460e0738
@@ -908,8 +908,8 @@ trackedFiles:
     pristine_git_object: 4cf04e79c0c68ec4a4ba3e20ccefc7d60bf4ad37
   internal/sdk/billablemetrics.go:
     id: be25e4b4832d
-    last_write_checksum: sha1:afebfc7046152baa3a18569efdc71d927a3d53a0
-    pristine_git_object: dd923c42b2c25edbf48251b4c5ea8f55cfb1f290
+    last_write_checksum: sha1:20c5f1a5e05546a009be8347ea75981c822919b9
+    pristine_git_object: af49f4e2981a1a726a0b6caf944ef5cefdb0ceb4
   internal/sdk/billingschedules.go:
     id: 42f540b7bb62
     last_write_checksum: sha1:23bc518dae6122002cfddb4299a9ce11ffd7638a
@@ -932,8 +932,8 @@ trackedFiles:
     pristine_git_object: 803e5291a24f86f97b76bc7f8f25ba63aa1b528c
   internal/sdk/externalreferences.go:
     id: 552d29db1631
-    last_write_checksum: sha1:12007cf4a992de5a35f247fbb9e832996e5e60b1
-    pristine_git_object: a416e14d9ff38ba374dd4c1c2aee7f5b774e46c6
+    last_write_checksum: sha1:043997f3e15bde3640d8374c231166ecc2c27bcd
+    pristine_git_object: 18376f0ed8ed127487cb619be7924acfee1eebd0
   internal/sdk/features.go:
     id: 191ad21f984f
     last_write_checksum: sha1:e6342f1ad72602da6d10100b176796715d58f663
@@ -1120,16 +1120,20 @@ trackedFiles:
     pristine_git_object: b12d25ed4a3ece96aaf309e1d6fc327e2d94ab38
   internal/sdk/models/components/entitytype.go:
     id: 1cdab48c095d
-    last_write_checksum: sha1:b945fd6e371d3fc7eeb1d10f5127ded4bd617afd
-    pristine_git_object: 5353bc27a2486dbe9b3c68a372e8f20d75e578e2
+    last_write_checksum: sha1:fafc00bd1cb1f1939bb05005d3c6d8acfd2a4d8c
+    pristine_git_object: b45996b80a531053d25b42d72ab36c8f17b1e70a
+  internal/sdk/models/components/entitytypeinput.go:
+    id: 8cc7f78bbf88
+    last_write_checksum: sha1:7be397a81d9dc3b761c492fa58f010b11589b4d8
+    pristine_git_object: 64c8858ebed937665a9015f0cc2aedefdfc7b7f3
   internal/sdk/models/components/eventresponse.go:
     id: 8acd43d69c75
     last_write_checksum: sha1:4da268ce38916a116d881655d676727d19f1f182
     pristine_git_object: e9522d8ce35c39a2f2e8f5b51d62cee3e7fda5f6
   internal/sdk/models/components/externalreference.go:
     id: 824384d95d85
-    last_write_checksum: sha1:8fd4bcca5508b5867bdc31a3d6852d9b3b595509
-    pristine_git_object: 6c20b0de680ff9c3dfe1c7aa8108bd6cfbafa623
+    last_write_checksum: sha1:315de9bd1570bd42ca13468fd63486c895ec15f7
+    pristine_git_object: 03a4f65fe8d233106e57040c6f9fd34dc23aaea6
   internal/sdk/models/components/feature.go:
     id: "1313445627e1"
     last_write_checksum: sha1:b5f6d4a05c97a2b15bd69af4efc7c3e07472ce3a
@@ -1732,8 +1736,8 @@ trackedFiles:
     pristine_git_object: 69fb50cf76d527bf4a708bb9ebb26141312274ec
   internal/sdk/models/operations/createexternalreference.go:
     id: cb58aaa898c3
-    last_write_checksum: sha1:bffefb126e134550e3beee3f176629117c06b5da
-    pristine_git_object: 1988f575e8be19a5cc64572959ec294ab1c52b7e
+    last_write_checksum: sha1:2265841593edaa3a0b932f4f1f75a767c25445d2
+    pristine_git_object: 0737ff4b02582ab68de3e1383deead7926581ea1
   internal/sdk/models/operations/createfeature.go:
     id: adf97463bd8f
     last_write_checksum: sha1:f29cd407121b5f6cfe2d2c09fb347d0c6f788594
@@ -2288,8 +2292,8 @@ trackedFiles:
     pristine_git_object: 86e7b184d26013733f8f35810fe5be37fd27dc23
   internal/sdk/models/operations/updatesubscription.go:
     id: 1788f95a4ef4
-    last_write_checksum: sha1:daed57e062f167253bc4db1f831b10d86eb76ab9
-    pristine_git_object: 9146014b47d71641b96deb66f99c9ef05e536cf7
+    last_write_checksum: sha1:411953d716a74014ccfdad8aec86dfbb57e4a824
+    pristine_git_object: 8d4b9fbb915118d238656d9350196611baa0c86e
   internal/sdk/models/operations/updateuser.go:
     id: 08d7263339a0
     last_write_checksum: sha1:deb81e2847c74241a687ac25f38bed4f8cffcf3f
@@ -2512,8 +2516,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:d6de3187d079bf7cc4aa44c0134653df3726d1be
-    pristine_git_object: 806ee818965dc025ac3048faae91e295fc223dfe
+    last_write_checksum: sha1:6903d89c14e92f34873e020b3938135b5f0f609f
+    pristine_git_object: adfbe281b1b651addd530d0f790f6fe7429a166c
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -5080,4 +5084,4 @@ examples:
         "401":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Me.GetMe()`: \n  *  `response.Permissions[].Enum(invoices:transition)` **Added**\n  *  `error.RequestId` **Added**\n* `Paygentic.BillableMetrics.Create()`:  `error` **Changed**\n* `Paygentic.BillableMetrics.List()`:  `error.RequestId` **Added**\n* `Paygentic.BillableMetrics.Get()`:  `error.RequestId` **Added**\n* `Paygentic.BillableMetrics.Update()`:  `error` **Changed**\n* `Paygentic.BillableMetrics.Meter()`:  `error` **Changed**\n* `Paygentic.BillableMetrics.ListEvents()`:  `error` **Changed**\n* `Paygentic.Customers.List()`:  `error` **Changed**\n* `Paygentic.Customers.Create()`:  `error` **Changed**\n* `Paygentic.Customers.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Customers.Delete()`:  `error.RequestId` **Added**\n* `Paygentic.Customers.Update()`:  `error` **Changed**\n* `Paygentic.Customers.ListCustomerPaymentMethods()`:  `error.RequestId` **Added**\n* `Paygentic.Customers.CreateCustomerPaymentMethod()`:  `error` **Changed**\n* `Paygentic.Entitlements.List()`:  `error` **Changed**\n* `Paygentic.Entitlements.Issue()`:  `error` **Changed**\n* `Paygentic.Entitlements.Get()`:  `error` **Changed**\n* `Paygentic.Entitlements.Grants.List()`:  `error` **Changed**\n* `Paygentic.Entitlements.Grants.Create()`:  `error` **Changed**\n* `Paygentic.Entitlements.Grants.Purchase()`:  `error` **Changed**\n* `Paygentic.Entitlements.Grants.Get()`:  `error` **Changed**\n* `Paygentic.Entitlements.Grants.Void()`:  `error` **Changed**\n* `Paygentic.Features.List()`:  `error` **Changed**\n* `Paygentic.Features.Create()`:  `error` **Changed**\n* `Paygentic.Features.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Features.Update()`:  `error` **Changed**\n* `Paygentic.Features.Delete()`:  `error.RequestId` **Added**\n* `Paygentic.Fees.Create()`:  `error` **Changed**\n* `Paygentic.Fees.List()`:  `error.RequestId` **Added**\n* `Paygentic.Fees.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Fees.Update()`:  `error` **Changed**\n* `Paygentic.Fees.Delete()`:  `error.RequestId` **Added**\n* `Paygentic.Plans.Create()`:  `error` **Changed**\n* `Paygentic.Plans.List()`:  `error` **Changed**\n* `Paygentic.Plans.ListAvailable()`:  `error` **Changed**\n* `Paygentic.Plans.Get()`:  `error` **Changed**\n* `Paygentic.Plans.Update()`:  `error` **Changed**\n* `Paygentic.Plans.ListPlanVersions()`:  `error` **Changed**\n* `Paygentic.Plans.MintPlanVersion()`:  `error` **Changed**\n* `Paygentic.Plans.GetPlanVersion()`:  `error` **Changed**\n* `Paygentic.Plans.TransitionPlanVersion()`:  `error` **Changed**\n* `Paygentic.Prices.Create()`:  `error` **Changed**\n* `Paygentic.Prices.List()`:  `error` **Changed**\n* `Paygentic.Prices.Get()`:  `error` **Changed**\n* `Paygentic.Prices.Update()`:  `error` **Changed**\n* `Paygentic.Prices.Delete()`:  `error` **Changed**\n* `Paygentic.Products.Create()`:  `error` **Changed**\n* `Paygentic.Products.List()`:  `error` **Changed**\n* `Paygentic.Products.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Products.Update()`:  `error.RequestId` **Added**\n* `Paygentic.Sources.Create()`:  `error` **Changed**\n* `Paygentic.Sources.List()`:  `error.RequestId` **Added**\n* `Paygentic.Sources.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Sources.Update()`:  `error` **Changed**\n* `Paygentic.Sources.Events.List()`:  `error.RequestId` **Added**\n* `Paygentic.Sources.Events.Approve()`:  `error` **Changed**\n* `Paygentic.Sources.Events.Reject()`:  `error` **Changed**\n* `Paygentic.Sources.Events.BulkApprove()`:  `error` **Changed**\n* `Paygentic.Sources.Events.BulkReject()`:  `error` **Changed**\n* `Paygentic.Sources.Rules.List()`:  `error` **Changed**\n* `Paygentic.Sources.Rules.Create()`:  `error` **Changed**\n* `Paygentic.Sources.Rules.Get()`:  `error` **Changed**\n* `Paygentic.Sources.Rules.Update()`:  `error` **Changed**\n* `Paygentic.Sources.Rules.Delete()`:  `error` **Changed**\n* `Paygentic.Subscriptions.List()`:  `error` **Changed**\n* `Paygentic.Subscriptions.Create()`:  `error` **Changed**\n* `Paygentic.Subscriptions.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Subscriptions.UpdateSubscription()`:  `error` **Changed**\n* `Paygentic.Subscriptions.GetSubscriptionIntervals()`:  `error.RequestId` **Added**\n* `Paygentic.Subscriptions.EditSubscriptionIntervals()`:  `error` **Changed**\n* `Paygentic.Subscriptions.MigrateSubscriptionVersion()`:  `error` **Changed**\n* `Paygentic.Subscriptions.ListSubscriptionIntervalChanges()`:  `error.RequestId` **Added**\n* `Paygentic.Subscriptions.ListIntervalChanges()`:  `error` **Changed**\n* `Paygentic.Subscriptions.GeneratePortalLink()`:  `error.RequestId` **Added**\n* `Paygentic.Subscriptions.Terminate()`:  `error` **Changed**\n* `Paygentic.Subscriptions.ReconcileSubscriptionFeatures()`:  `error` **Changed**\n* `Paygentic.Subscriptions.ListSubscriptionAdjustments()`:  `error.RequestId` **Added**\n* `Paygentic.Subscriptions.CreateSubscriptionAdjustment()`:  `error` **Changed**\n* `Paygentic.Subscriptions.DeleteSubscriptionAdjustment()`:  `error.RequestId` **Added**\n* `Paygentic.Users.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Users.Update()`:  `error.RequestId` **Added**\n* `Paygentic.InvoicesV2.List()`:  `error.RequestId` **Added**\n* `Paygentic.InvoicesV2.ListLineItems()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.CreateLineItem()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.ListProjectedInvoices()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.Get()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.GetLineItems()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.DownloadInvoicePdf()`:  `error.RequestId` **Added**\n* `Paygentic.InvoicesV2.RecordInvoicePayment()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.CreateInvoiceRefund()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.ListInvoiceRefunds()`:  `error.RequestId` **Added**\n* `Paygentic.InvoicesV2.VoidInvoiceRefund()`:  `error` **Changed**\n* `Paygentic.InvoicesV2.RetryInvoicePayment()`: \n  *  `response.RequestId` **Added**\n  *  `error` **Changed**\n* `Paygentic.Payments.List()`:  `error.RequestId` **Added**\n* `Paygentic.Payments.Create()`:  `error` **Changed**\n* `Paygentic.Payments.Get()`:  `error.RequestId` **Added**\n* `Paygentic.PaymentSessions.ListPaymentSessions()`:  `error.RequestId` **Added**\n* `Paygentic.Events.Ingest()`:  `error` **Changed**\n* `Paygentic.Costs.CreateCost()`:  `error` **Changed**\n* `Paygentic.Costs.ListCosts()`:  `error.RequestId` **Added**\n* `Paygentic.Costs.GetCost()`:  `error.RequestId` **Added**\n* `Paygentic.Costs.UpdateCost()`:  `error` **Changed**\n* `Paygentic.Costs.DeleteCost()`:  `error.RequestId` **Added**\n* `Paygentic.Costs.GetCostSummary()`:  `error` **Changed**\n* `Paygentic.Costs.GetCostReport()`:  `error` **Changed**\n* `Paygentic.Revenue.Get()`:  `error` **Changed**\n* `Paygentic.Revenue.GetRevenueAccounts()`:  `error` **Changed**\n* `Paygentic.Profitability.GetProfitability()`:  `error` **Changed**\n* `Paygentic.TestClocks.List()`:  `error.RequestId` **Added**\n* `Paygentic.TestClocks.Create()`:  `error.RequestId` **Added**\n* `Paygentic.TestClocks.Get()`:  `error.RequestId` **Added**\n* `Paygentic.TestClocks.Advance()`:  `error.RequestId` **Added**\n* `Paygentic.TestClocks.Delete()`:  `error.RequestId` **Added**\n* `Paygentic.Merchants.Reset()`:  `error` **Changed**\n* `Paygentic.ExternalReferences.CreateExternalReference()`:  `error` **Changed**\n* `Paygentic.ExternalReferences.ListExternalReferences()`:  `error` **Changed**\n* `Paygentic.ExternalReferences.GetExternalReference()`:  `error.RequestId` **Added**\n* `Paygentic.ExternalReferences.UpdateExternalReference()`:  `error` **Changed**\n* `Paygentic.ExternalReferences.DeleteExternalReference()`:  `error.RequestId` **Added**\n* `Paygentic.Items.CreateItem()`:  `error` **Changed**\n* `Paygentic.Items.ListItems()`:  `error` **Changed**\n* `Paygentic.Items.GetItem()`:  `error.RequestId` **Added**\n* `Paygentic.Items.UpdateItem()`:  `error` **Changed**\n* `Paygentic.Orders.CreateOrder()`:  `error` **Changed**\n* `Paygentic.Orders.ListOrders()`:  `error` **Changed**\n* `Paygentic.Orders.GetOrder()`:  `error.RequestId` **Added**\n* `Paygentic.Orders.UpdateOrder()`:  `error` **Changed**\n* `Paygentic.Orders.DeleteOrder()`:  `error.RequestId` **Added**\n* `Paygentic.Orders.CreateOrderLineItem()`:  `error` **Changed**\n* `Paygentic.Orders.UpdateOrderLineItem()`:  `error` **Changed**\n* `Paygentic.Orders.DeleteOrderLineItem()`:  `error.RequestId` **Added**\n* `Paygentic.BillingSchedules.ListBillingSchedules()`:  `error` **Changed**\n* `Paygentic.BillingSchedules.CreateBillingSchedule()`:  `error` **Changed**\n* `Paygentic.BillingSchedules.GetBillingSchedule()`:  `error.RequestId` **Added**\n* `Paygentic.BillingSchedules.UpdateBillingSchedule()`:  `error` **Changed**\n* `Paygentic.BillingSchedules.DeleteBillingSchedule()`:  `error.RequestId` **Added**\n* `Paygentic.BillingSchedules.ListScheduleIntervals()`:  `error.RequestId` **Added**\n* `Paygentic.BillingSchedules.ReplaceScheduleIntervals()`:  `error` **Changed**\n* `Paygentic.BillingSchedules.ListScheduleInvoices()`:  `error.RequestId` **Added**\n* `Paygentic.BillingSchedules.GenerateScheduleInvoices()`:  `error` **Changed**\n* `Paygentic.Salesforce.ListSalesforceAccounts()`:  `error` **Changed**\n* `Paygentic.MerchantIntegrations.ListMerchantIntegrations()`:  `error` **Changed**\n* `Paygentic.MerchantIntegrations.UpsertMerchantIntegration()`:  `error` **Changed**\n* `Paygentic.MerchantIntegrations.GetMerchantIntegration()`:  `error.RequestId` **Added**\n* `Paygentic.MerchantIntegrations.DisconnectMerchantIntegration()`:  `error.RequestId` **Added**\n* `Paygentic.Approvals.CreateApproval()`:  `error` **Changed**\n* `Paygentic.Approvals.ListApprovals()`:  `error` **Changed**\n* `Paygentic.Approvals.GetApproval()`:  `error.RequestId` **Added**\n* `Paygentic.Approvals.UpdateApproval()`:  `error` **Changed**\n* `Paygentic.Webhooks.Get()`:  `error.RequestId` **Added**\n* `Paygentic.Webhooks.Enable()`:  `error` **Changed**\n* `Paygentic.Webhooks.Update()`:  `error` **Changed**\n* `Paygentic.Webhooks.Disable()`:  `error.RequestId` **Added**\n* `Paygentic.Webhooks.GetPortal()`:  `error.RequestId` **Added**\n"
+releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Subscriptions.UpdateSubscription()`: \n  *  `request.Request.Body.Status.Enum(active)` **Removed** (Breaking ⚠️)\n* `Paygentic.InvoicesV2.List()`:  `response.Data[].LineItems.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.InvoicesV2.ListLineItems()`:  `response.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.InvoicesV2.ListProjectedInvoices()`:  `response.Data[].LineItems.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.InvoicesV2.Get()`:  `response.LineItems.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.InvoicesV2.GetLineItems()`:  `response.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.InvoicesV2.RecordInvoicePayment()`:  `response.union(hosted_link).Invoice.LineItems.Items[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.ExternalReferences.CreateExternalReference()`:  `response.EntityType` **Changed**\n* `Paygentic.ExternalReferences.ListExternalReferences()`: \n  *  `request.Request.EntityType` **Changed**\n  *  `response.Data[].EntityType` **Changed**\n* `Paygentic.ExternalReferences.GetExternalReference()`:  `response.EntityType` **Changed**\n* `Paygentic.ExternalReferences.UpdateExternalReference()`:  `response.EntityType` **Changed**\n* `Paygentic.ExternalReferences.DeleteExternalReference()`:  `error.status[409]` **Added**\n* `Paygentic.Items.CreateItem()`:  `response.ExternalReferences[].EntityType` **Changed**\n* `Paygentic.Items.ListItems()`:  `response.Data[].ExternalReferences[].EntityType` **Changed**\n* `Paygentic.Items.GetItem()`:  `response.ExternalReferences[].EntityType` **Changed**\n* `Paygentic.Items.UpdateItem()`:  `response.ExternalReferences[].EntityType` **Changed**\n"
