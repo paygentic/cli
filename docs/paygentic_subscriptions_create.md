@@ -20,6 +20,7 @@ paygentic subscriptions create [flags]
 
 ```
   -a, --auto-charge                        Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
+  -b, --billing-anchor startedAt           A billing anchor for this subscription, in place of the plan's. Any instant, past or future. The subscription's billing anchor is its first recurrence on or after startedAt, stepping back or forward by whole billing cadences. Example: on a monthly plan, an anchor of '2027-01-31T00:00:00Z' with a start of '2026-10-10T00:00:00Z' gives '2026-10-31T00:00:00Z'. A create is refused with 400 when the resolved anchor does not line up with the usage period anchor of a feature that credits unused balance. Omit it to use the plan's billing anchor. A repeated create that names an anchor resolving to a different instant than the existing subscription's gets 409.
       --body string                        Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --change-description string          A free-text note on why these intervals are changing.
       --change-metadata string             Your own key-value data about the change, such as a CRM deal ID.
