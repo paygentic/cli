@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7580c764-3078-402d-8f02-b998f9f86291
 management:
-  docChecksum: 805f3a4da31b6f588334c6ad20886f6c
+  docChecksum: 22d15938748f7abe392e9c2ce6c7103b
   docVersion: 0.1.0
   speakeasyVersion: 1.761.4
   generationVersion: 2.879.13
-  releaseVersion: 0.6.8
-  configChecksum: 0896e2e5f93c3f1b51f4dcaadab7dac3
+  releaseVersion: 0.6.9
+  configChecksum: 2762404e29240ed5a91c9fb59aedb066
   repoURL: https://github.com/paygentic/cli.git
   installationURL: https://github.com/paygentic/cli
 persistentEdits:
-  generation_id: e2bc4f7d-a77d-4426-94f5-7a1ce01dd500
-  pristine_commit_hash: 216dac067aa5f23af97bb6c5b4cce46196ed7e45
-  pristine_tree_hash: 158b27e776f1793db14cb835dde495191daacf71
+  generation_id: 58543a15-fd7f-43ea-b7fd-ecf100f2fc10
+  pristine_commit_hash: b41f667690f7293440a720b02dbd6199b4fcf50e
+  pristine_tree_hash: 48353ff171a63ab2a3eedecb9f4d38d24558f847
 features:
   cli:
     additionalProperties: 0.0.0
@@ -700,8 +700,8 @@ trackedFiles:
     pristine_git_object: d12497f322414d7263eaa32d6c7f363003115154
   internal/cli/subscriptions/create.go:
     id: 9bd70401e2d5
-    last_write_checksum: sha1:537b589cad1c05c8a3a521170dcfdef7eaa496a0
-    pristine_git_object: 454ccdbce048d5304c56ff467788dc23fb1b29e9
+    last_write_checksum: sha1:8c0800a8d065614438ea66fc85ab74a9ada8f55f
+    pristine_git_object: fdb229511f91a1100e334a2f6657960c07757792
   internal/cli/subscriptions/createsubscriptionadjustment.go:
     id: b639b8dcf727
     last_write_checksum: sha1:dd774fde1e5af5294bfb8dc2ba6bb46d84a643fb
@@ -800,8 +800,8 @@ trackedFiles:
     pristine_git_object: 2469baa7b091e13913c675fca424e23fa9bdd9f1
   internal/cli/version.go:
     id: 7b0665492f72
-    last_write_checksum: sha1:4a462afa214ec434ea45a0f0c6e3c97bb02d604f
-    pristine_git_object: 62f01fd5eb81612bb5d6080543f13ed29c91c665
+    last_write_checksum: sha1:f1ba19a2d84996620a0bfde4b472bb1872c3363b
+    pristine_git_object: 41fb2153376078fdb4666ef16c3a413e308be2f4
   internal/cli/webhooks/disable.go:
     id: 9b4f4fab81d6
     last_write_checksum: sha1:ba6c16162e2837f0061f005aac335fc1460e0738
@@ -1796,8 +1796,8 @@ trackedFiles:
     pristine_git_object: 3f2fc9d32c00998555d427d86ac2e56c1dd4aa81
   internal/sdk/models/operations/createsubscription.go:
     id: 9f7279202099
-    last_write_checksum: sha1:0e0ac6a8a04d29568bc26e9e13cf7878e2565fa3
-    pristine_git_object: 3434bcc51e53d6b95d40016ffa0fd184e55cf3bd
+    last_write_checksum: sha1:48191118d8272f07d8432d46d0232d97ca8ddd0a
+    pristine_git_object: d44fb7eb6038c4ba8af6e0c55ef7ea77ec650fbb
   internal/sdk/models/operations/createsubscriptionadjustment.go:
     id: b4a3f289fff8
     last_write_checksum: sha1:fe7594d46979d804525a724314c5379af7629a90
@@ -2516,8 +2516,8 @@ trackedFiles:
     pristine_git_object: 7e1f465c87ec82286f5efb5c1be95501ba0a1cc8
   internal/usage/schema.go:
     id: 0f40f4612437
-    last_write_checksum: sha1:d0db3888c111b495ea760285b53a86d4afb5eea0
-    pristine_git_object: 6c8557d44632c389bd8b8b7dd443214ff938e586
+    last_write_checksum: sha1:f6e5260233c0b913789475878f46fbdcae900f7b
+    pristine_git_object: aded8b0bd91af56977e800614bb3ccd6de5e3af5
   scripts/install.ps1:
     id: fee0853709e9
     last_write_checksum: sha1:80274bd7b07b37a9d64769ae8e59999d87983dcc
@@ -5084,4 +5084,3 @@ examples:
         "401":
           application/json: {"error": "not_found", "message": "The requested resource was not found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Cli SDK Changes:\n* `Paygentic.Me.GetMe()`:  `response.Permissions[]` **Changed**\n* `Paygentic.Subscriptions.Create()`: \n  *  `request.Request.BillingAnchor` **Added**\n"
