@@ -9,7 +9,7 @@ import (
 	"github.com/paygentic/cli/internal/sdk/models/operations"
 )
 
-// UpdatePriceConflictError - Price cannot be restructured because a subscription still bills it directly
+// UpdatePriceConflictError - Price cannot be changed: a subscription still bills it directly, or a pending subscription proposal names it
 type UpdatePriceConflictError struct {
 	// Identifies this request in our logs. Include it when you contact support. Also sent in the `request-id` response header.
 	RequestID *string `json:"requestId,omitzero"`

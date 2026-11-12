@@ -48,10 +48,11 @@ func (e *Error) UnmarshalJSON(data []byte) error {
 type DeleteCustomerType string
 
 const (
-	DeleteCustomerTypeSubscriptions DeleteCustomerType = "subscriptions"
-	DeleteCustomerTypeInvoices      DeleteCustomerType = "invoices"
-	DeleteCustomerTypeDisputes      DeleteCustomerType = "disputes"
-	DeleteCustomerTypeEntitlements  DeleteCustomerType = "entitlements"
+	DeleteCustomerTypeSubscriptions         DeleteCustomerType = "subscriptions"
+	DeleteCustomerTypeInvoices              DeleteCustomerType = "invoices"
+	DeleteCustomerTypeDisputes              DeleteCustomerType = "disputes"
+	DeleteCustomerTypeEntitlements          DeleteCustomerType = "entitlements"
+	DeleteCustomerTypeSubscriptionProposals DeleteCustomerType = "subscriptionProposals"
 )
 
 func (e DeleteCustomerType) ToPointer() *DeleteCustomerType {
@@ -62,7 +63,7 @@ func (e DeleteCustomerType) ToPointer() *DeleteCustomerType {
 func (e *DeleteCustomerType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "subscriptions", "invoices", "disputes", "entitlements":
+		case "subscriptions", "invoices", "disputes", "entitlements", "subscriptionProposals":
 			return true
 		}
 	}
