@@ -16,7 +16,7 @@ import (
 )
 
 var createCmdMeta = []flagutil.FlagMeta{
-	{FlagName: "auto-charge", Shorthand: "a", FieldPath: "AutoCharge", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false."},
+	{FlagName: "auto-charge", FieldPath: "AutoCharge", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false."},
 	{FlagName: "tax-exempt", FieldPath: "TaxExempt", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "When true, forces tax rate to 0%. Use for customers with verified tax-exempt status."},
 	{FlagName: "customer", FieldPath: "Customer", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"customer,omitempty"`, Description: "Fields to create a new customer and consumer. Will use an existing consumer if one exists with the same email address. Required if `customerId` is not provided. Address with complete tax information (country, state, zipCode) is required for tax calculation when using Paygentic Tax."},
 	{FlagName: "customer-id", FieldPath: "CustomerID", Kind: flagutil.FlagKindString, Optional: true, Description: "Unique identifier for a customer"},
@@ -39,6 +39,9 @@ var createCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "change-reason", FieldPath: "ChangeReason", Kind: flagutil.FlagKindEnum, Optional: true, EnumValues: []string{"commercial", "correction", "migration", "unspecified", "contractual"}, Description: "Why a change was made. `correction` repairs data that was entered wrong; `migration` moves a contract from another system; `commercial` is a real change to the deal; `contractual` applies a step the original contract scheduled, such as an annual uplift. Defaults to `unspecified`. (options: commercial, correction, migration, unspecified, contractual)"},
 	{FlagName: "change-description", FieldPath: "ChangeDescription", Kind: flagutil.FlagKindString, Optional: true, Description: "A free-text note on why these intervals are changing."},
 	{FlagName: "change-metadata", FieldPath: "ChangeMetadata", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"changeMetadata,omitempty"`, Description: "Your own key-value data about the change, such as a CRM deal ID."},
+	{FlagName: "add-prices", FieldPath: "AddPrices", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"addPrices,omitempty"`, Description: "Catalog prices to bill on this subscription that its plan version does not carry. Each must be owned by the same merchant and use the standard price model."},
+	{FlagName: "override-prices", FieldPath: "OverridePrices", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"overridePrices,omitempty"`, Description: "Rate or quantity overrides for prices the plan version does carry."},
+	{FlagName: "remove-prices", FieldPath: "RemovePrices", Kind: flagutil.FlagKindJSON, Optional: true, Annotations: `json:"removePrices,omitempty"`, Description: "Plan prices this subscription does not bill."},
 }
 
 // initCreateCmd initializes the create command.

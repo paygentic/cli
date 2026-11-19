@@ -76,6 +76,8 @@ type Paygentic struct {
 	Sources *Sources
 	// A `Subscription` is a customer's commitment to purchase a `Product` following the terms of a `Plan` and its linked `Prices`.
 	Subscriptions *Subscriptions
+	// A `SubscriptionProposal` holds the values of a subscription until a person on your team approves or rejects it. Nothing is billed while it waits.
+	SubscriptionProposals *SubscriptionProposals
 	// A `User` is an entity granted access to an Organization's resources. All operations are performed by users.
 	Users *Users
 	// Invoice V2 operations supporting billing cycles organized by time periods. Warning: v0 invoice endpoints are no longer supported.
@@ -214,6 +216,7 @@ func New(opts ...SDKOption) *Paygentic {
 	sdk.Products = newProducts(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Sources = newSources(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Subscriptions = newSubscriptions(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.SubscriptionProposals = newSubscriptionProposals(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Users = newUsers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.InvoicesV2 = newInvoicesV2(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Payments = newPayments(sdk, sdk.sdkConfiguration, sdk.hooks)
