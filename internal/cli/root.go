@@ -30,6 +30,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/revenue"
 	"github.com/paygentic/cli/internal/cli/salesforce"
 	"github.com/paygentic/cli/internal/cli/sources"
+	"github.com/paygentic/cli/internal/cli/subscriptionproposals"
 	"github.com/paygentic/cli/internal/cli/subscriptions"
 	"github.com/paygentic/cli/internal/cli/testclocks"
 	"github.com/paygentic/cli/internal/cli/users"
@@ -107,6 +108,9 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := subscriptions.InitSubscriptionsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init subscriptions: %w", err)
+	}
+	if err := subscriptionproposals.InitSubscriptionProposalsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init subscription-proposals: %w", err)
 	}
 	if err := users.InitUsersRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init users: %w", err)

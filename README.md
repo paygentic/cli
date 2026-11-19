@@ -308,6 +308,15 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`create-subscription-adjustment`](docs/paygentic_subscriptions_create-subscription-adjustment.md) - Create Adjustment
 * [`delete-subscription-adjustment`](docs/paygentic_subscriptions_delete-subscription-adjustment.md) - Delete Adjustment
 
+### [subscription-proposals](docs/paygentic_subscription-proposals.md)
+
+* [`list`](docs/paygentic_subscription-proposals_list.md) - List
+* [`create`](docs/paygentic_subscription-proposals_create.md) - Create
+* [`get`](docs/paygentic_subscription-proposals_get.md) - Get
+* [`update`](docs/paygentic_subscription-proposals_update.md) - Amend
+* [`decide`](docs/paygentic_subscription-proposals_decide.md) - Approve or reject
+* [`list-subscription-proposal-projected-invoices`](docs/paygentic_subscription-proposals_list-subscription-proposal-projected-invoices.md) - List projected
+
 ### [users](docs/paygentic_users.md)
 
 * [`get`](docs/paygentic_users_get.md) - Get

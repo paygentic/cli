@@ -19,7 +19,8 @@ paygentic subscriptions create [flags]
 ### Options
 
 ```
-  -a, --auto-charge                                         Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
+      --add-prices string                                   Catalog prices to bill on this subscription that its plan version does not carry. Each must be owned by the same merchant and use the standard price model.
+      --auto-charge                                         Enable automatic charging of invoices using stored payment methods. When true, invoices will be automatically paid using off-session payment. Defaults to false.
   -b, --billing-anchor startedAt                            A billing anchor for this subscription, in place of the plan's. Any instant, past or future. The subscription's billing anchor is its first recurrence on or after startedAt, stepping back or forward by whole billing cadences. Example: on a monthly plan, an anchor of '2027-01-31T00:00:00Z' with a start of '2026-10-10T00:00:00Z' gives '2026-10-31T00:00:00Z'. A create is refused with 400 when the resolved anchor does not line up with the usage period anchor of a feature that credits unused balance. Omit it to use the plan's billing anchor. A repeated create that names an anchor resolving to a different instant than the existing subscription's gets 409.
       --body string                                         Request body as JSON (alternative to individual flags). Can also be provided via stdin.
       --change-description string                           A free-text note on why these intervals are changing.
@@ -33,10 +34,12 @@ paygentic subscriptions create [flags]
       --metadata string                                     Free-form merchant metadata to attach to the subscription. Values must be strings, numbers, or booleans.
       --minimum-account-balance string                      Deprecated. This field is ignored and has no effect.
   -n, --name string                                         Subscription identifier combining customer and service details. Sample values: 'TechCorp - LLM API Access', 'Analytics Co - Data Platform Enterprise', 'StartupXYZ - Image Generation Service', 'Enterprise Inc - ML Training Platform' [required]
+      --override-prices string                              Rate or quantity overrides for prices the plan version does carry.
       --payment-term-days metadata.bankTransferOnly: true   Payment term in days ("Net X") applied to every invoice the subscription generates: invoice dueAt = invoice issue date + paymentTermDays. Defaults to 0 ("due on issue"). A non-zero value needs metadata.bankTransferOnly: true; without it the request answers 400 `PAYMENT_TERM_DAYS_REQUIRES_BANK_TRANSFER_ONLY`.
       --plan-id string                                      Unique identifier for a plan [required]
       --prefund-amount string                               Deprecated. This field is ignored and has no effect.
       --redirect-urls string                                Optional redirect URLs after payment completion or failure. If not provided, uses default platform behavior.
+      --remove-prices string                                Plan prices this subscription does not bill.
       --renewal-reminder-days string                        Override plan setting for number of days before renewal to send the reminder. Only used if renewalReminderEnabled is true (or inherited from plan). Set to null to use plan default.
       --renewal-reminder-enabled string                     Override plan setting for renewal reminder emails. When set, this subscription's setting takes precedence over the plan default. Set to true to enable reminders, false to disable, or null/omit to use plan default.
       --session-expiry-minutes float                        Number of minutes until the payment session expires. Defaults to 240 minutes (4 hours) if not provided.
