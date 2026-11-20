@@ -19,21 +19,21 @@ paygentic subscriptions update [flags]
 ### Options
 
 ```
-  -a, --auto-charge                                         Enable or disable automatic charging of invoices using stored payment methods.
-      --body string                                         Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-  -e, --ending-at string                                    date/time value
-  -h, --help                                                help for update
-  -i, --id string                                           [required]
-  -m, --minimum-account-balance string                      Deprecated. This field is ignored and has no effect.
-  -p, --payment-term-days metadata.bankTransferOnly: true   Payment term in days ("Net X") applied to subsequently generated invoices: invoice dueAt = invoice issue date + paymentTermDays. A non-zero value is only valid on a subscription created with metadata.bankTransferOnly: true. Set 0 for "due on issue". Already-issued invoices keep their snapshotted dueAt.
-      --renewal-reminder-days string                        Override plan setting for number of days before renewal to send the reminder. Set to null to use plan default.
-      --renewal-reminder-enabled string                     Override plan setting for renewal reminder emails. Set to true to enable, false to disable, or null to use plan default.
-  -s, --status string                                       options: terminated
-      --tax-exempt                                          When true, forces tax rate to 0%.
-      --terminated-at string                                Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400.
-      --terminated-by string                                Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation
-      --termination-reason string                           Explanation for subscription cancellation. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration'
-  -v, --version-policy floating                             How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
+  -a, --auto-charge                       Enable or disable automatic charging of invoices using stored payment methods.
+      --body string                       Request body as JSON (alternative to individual flags). Can also be provided via stdin.
+  -e, --ending-at string                  date/time value
+  -h, --help                              help for update
+  -i, --id string                         [required]
+  -m, --minimum-account-balance string    Deprecated. This field is ignored and has no effect.
+  -p, --payment-term-days int             Payment term in days ("Net X") applied to subsequently generated invoices: invoice dueAt = invoice issue date + paymentTermDays. Valid on any subscription, whatever its payment method. Set 0 for "due on issue". Already-issued invoices keep their snapshotted dueAt.
+      --renewal-reminder-days string      Override plan setting for number of days before renewal to send the reminder. Set to null to use plan default.
+      --renewal-reminder-enabled string   Override plan setting for renewal reminder emails. Set to true to enable, false to disable, or null to use plan default.
+  -s, --status string                     options: terminated
+      --tax-exempt                        When true, forces tax rate to 0%.
+      --terminated-at string              Effective termination timestamp. Capped at the current effective time (future values are clamped). Must be strictly after the subscription's start date — values at or before startedAt are rejected with 400.
+      --terminated-by string              Identifier of entity that cancelled the subscription. Sample values: 'cust_abc123' for customer-initiated cancellation, 'org_xyz789' for merchant-initiated cancellation
+      --termination-reason string         Explanation for subscription cancellation. Sample values: 'Customer requested cancellation', 'Payment failure', 'Service migration', 'Contract expiration'
+  -v, --version-policy floating           How the subscription follows new versions of its plan. floating follows the plan's default version: when the default changes, the subscription bills from the new default from its next billing period. `pinned` keeps the plan version that the subscription holds. A subscription created without a value is `floating`. A change to this value does not change a billing period that has already started. (options: floating, pinned)
 ```
 
 ### Options inherited from parent commands
