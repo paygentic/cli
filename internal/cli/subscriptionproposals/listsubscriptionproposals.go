@@ -17,7 +17,8 @@ import (
 
 var listSubscriptionProposalsCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Return only this merchant's proposals."},
-	{FlagName: "status", Shorthand: "s", FieldPath: "Status", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Return proposals in any of these statuses. Repeat the parameter to pass several, e.g. `?status=pending&status=approved`. Omit it to return every status."},
+	{FlagName: "subscription-id", FieldPath: "SubscriptionID", Kind: flagutil.FlagKindString, Optional: true, Description: "Return only the proposal whose approval created this subscription. A subscription that no proposal created, or a subscription of a merchant the caller cannot read, gives an empty list. A `merchantId` the caller cannot read is still refused with 403."},
+	{FlagName: "status", FieldPath: "Status", Kind: flagutil.FlagKindStringArray, Optional: true, Description: "Return proposals in any of these statuses. Repeat the parameter to pass several, e.g. `?status=pending&status=approved`. Omit it to return every status."},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 50, Description: "Number of proposals to return."},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of proposals to skip."},
 }

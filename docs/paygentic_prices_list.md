@@ -4,7 +4,7 @@ List
 
 ### Synopsis
 
-List
+Lists the merchant's prices. A price that is only an older rate of a slot a live plan bills today, such as the copy a price edit keeps for the versions it freezes, is left out unless `includeSuperseded` is true: a subscription pinned to that version still bills it, and reads it by id.
 
 ```
 paygentic prices list [flags]
@@ -21,6 +21,7 @@ paygentic prices list [flags]
 ```
   -b, --billable-metric-id string   Filter prices by billable metric ID
   -h, --help                        help for list
+  -i, --include-superseded          Include a price that is only an older rate of a slot a live plan bills today. It still bills subscriptions pinned to its version, so set this to list every price that can bill.
   -l, --limit int                   Number of prices to return (default 10)
   -m, --merchant-id string          Filter prices by merchant organization ID. Matches prices reached via either a billable metric or a fee belonging to that merchant. Unlike the unfiltered listing, this includes prices whose billable metric or fee has been deleted — deleting a parent does not delete its prices, and they can still bill. Returns 404 if the merchant does not exist.
       --offset int                  Number of prices to skip

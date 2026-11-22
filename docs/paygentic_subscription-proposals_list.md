@@ -23,7 +23,8 @@ paygentic subscription-proposals list [flags]
   -l, --limit int                                Number of proposals to return. (default 50)
   -m, --merchant-id string                       Return only this merchant's proposals.
       --offset int                               Number of proposals to skip.
-  -s, --status ?status=pending&status=approved   Return proposals in any of these statuses. Repeat the parameter to pass several, e.g. ?status=pending&status=approved. Omit it to return every status.
+      --status ?status=pending&status=approved   Return proposals in any of these statuses. Repeat the parameter to pass several, e.g. ?status=pending&status=approved. Omit it to return every status.
+      --subscription-id merchantId               Return only the proposal whose approval created this subscription. A subscription that no proposal created, or a subscription of a merchant the caller cannot read, gives an empty list. A merchantId the caller cannot read is still refused with 403.
 ```
 
 ### Options inherited from parent commands

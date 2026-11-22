@@ -20,6 +20,7 @@ var listCmdMeta = []flagutil.FlagMeta{
 	{FlagName: "merchant-id", Shorthand: "m", FieldPath: "MerchantID", Kind: flagutil.FlagKindString, Optional: true, Description: "Filter prices by merchant organization ID. Matches prices reached via either a billable metric or a fee belonging to that merchant. Unlike the unfiltered listing, this includes prices whose billable metric or fee has been deleted — deleting a parent does not delete its prices, and they can still bill. Returns 404 if the merchant does not exist."},
 	{FlagName: "limit", Shorthand: "l", FieldPath: "Limit", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, DefaultInt: 10, Description: "Number of prices to return"},
 	{FlagName: "offset", FieldPath: "Offset", Kind: flagutil.FlagKindInt64, Optional: true, HasDefault: true, Description: "Number of prices to skip"},
+	{FlagName: "include-superseded", Shorthand: "i", FieldPath: "IncludeSuperseded", Kind: flagutil.FlagKindBool, Optional: true, HasDefault: true, Description: "Include a price that is only an older rate of a slot a live plan bills today. It still bills subscriptions pinned to its version, so set this to list every price that can bill."},
 }
 
 // initListCmd initializes the list command.
@@ -27,7 +28,7 @@ func initListCmd(parent *cobra.Command) error {
 	var cmd = &cobra.Command{
 		Use:     "list",
 		Short:   "List",
-		Long:    "List",
+		Long:    "Lists the merchant's prices. A price that is only an older rate of a slot a live plan bills today, such as the copy a price edit keeps for the versions it freezes, is left out unless `includeSuperseded` is true: a subscription pinned to that version still bills it, and reads it by id.",
 		Example: "  paygentic prices list",
 		RunE:    runListCmd,
 	}
