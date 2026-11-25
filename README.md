@@ -260,6 +260,22 @@ Configuration is stored in `~/.config/paygentic/config.yaml`.
 * [`update`](docs/paygentic_prices_update.md) - Update
 * [`delete`](docs/paygentic_prices_delete.md) - Delete
 
+### [pricing-units](docs/paygentic_pricing-units.md)
+
+* [`create`](docs/paygentic_pricing-units_create.md) - Create
+* [`list`](docs/paygentic_pricing-units_list.md) - List
+* [`get`](docs/paygentic_pricing-units_get.md) - Get
+
+### [credit-pools](docs/paygentic_credit-pools.md)
+
+* [`create`](docs/paygentic_credit-pools_create.md) - Create or resolve
+* [`list`](docs/paygentic_credit-pools_list.md) - List
+* [`get`](docs/paygentic_credit-pools_get.md) - Get
+* [`list-credit-pool-grants`](docs/paygentic_credit-pools_list-credit-pool-grants.md) - List grants
+* [`create-credit-pool-grant`](docs/paygentic_credit-pools_create-credit-pool-grant.md) - Grant credits
+* [`get-credit-pool-ledger`](docs/paygentic_credit-pools_get-credit-pool-ledger.md) - Get ledger
+* [`create-credit-pool-purchase`](docs/paygentic_credit-pools_create-credit-pool-purchase.md) - Purchase credits
+
 ### [products](docs/paygentic_products.md)
 
 * [`create`](docs/paygentic_products_create.md) - Create

@@ -40,6 +40,7 @@ paygentic [flags]
 * [paygentic billing-schedules](paygentic_billing-schedules.md)	 - Owner-polymorphic billing schedules with intervals and staged invoice projections
 * [paygentic configure](paygentic_configure.md)	 - Configure authentication credentials and preferences
 * [paygentic costs](paygentic_costs.md)	 - A Cost represents the operational or infrastructure expense of serving customers for a given product
+* [paygentic credit-pools](paygentic_credit-pools.md)	 - A `CreditPool` is the `(customer, pricingUnit)` identity that credit-denominated prices draw down
 * [paygentic customers](paygentic_customers.md)	 - A `Customer` is an entity connected to a `Merchant` via a `Subscription`
 * [paygentic entitlements](paygentic_entitlements.md)	 - Operations for entitlements
 * [paygentic events](paygentic_events.md)	 - Ingest raw metering events that are processed by the meters service
@@ -57,6 +58,7 @@ paygentic [flags]
 * [paygentic payments](paygentic_payments.md)	 - Create and manage one-off payments
 * [paygentic plans](paygentic_plans.md)	 - A `Plan` links a collection of `Prices` to a `Product`
 * [paygentic prices](paygentic_prices.md)	 - A `Price` determines the monetary value for a single unit of a `Billable Metric`
+* [paygentic pricing-units](paygentic_pricing-units.md)	 - A `PricingUnit` is a merchant-scoped catalog object that names a credit denomination and the rate (`conversionRate`) at which it converts to an invoicing `currency`
 * [paygentic products](paygentic_products.md)	 - A `Product` is an offering sold by a `Merchant`
 * [paygentic profitability](paygentic_profitability.md)	 - Per-customer profitability summaries
 * [paygentic revenue](paygentic_revenue.md)	 - Revenue data from invoices and payments

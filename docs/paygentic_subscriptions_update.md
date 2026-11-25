@@ -4,7 +4,7 @@ Update
 
 ### Synopsis
 
-Update
+Updates the subscription's settings. Switching `versionPolicy` to `floating` is refused with 400 when following the plan's default version would credit unused balance on a reset cycle that is not the subscription's billing period: a feature the default starts must reset from the subscription's billing anchor, and a feature the subscription keeps goes on resetting on its current cycle.
 
 ```
 paygentic subscriptions update [flags]
