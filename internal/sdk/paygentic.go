@@ -70,6 +70,10 @@ type Paygentic struct {
 	Plans *Plans
 	// A `Price` determines the monetary value for a single unit of a `Billable Metric`. Prices are exclusively grouped within a `Plan`.
 	Prices *Prices
+	// A `PricingUnit` is a merchant-scoped catalog object that names a credit denomination and the rate (`conversionRate`) at which it converts to an invoicing `currency`. Credit-denominated prices draw a customer's balance for the unit; the unit holds no balance itself.
+	PricingUnits *PricingUnits
+	// A `CreditPool` is the `(customer, pricingUnit)` identity that credit-denominated prices draw down. The balance itself lives on grants, not on the pool; the pool survives subscription changes. There is one pool per `(customer, pricingUnit)`.
+	CreditPools *CreditPools
 	// A `Product` is an offering sold by a `Merchant`. It includes product metadata like title, summary, and pricing details. `Plans`, `Prices`, and `Subscriptions` are all associated with products.
 	Products *Products
 	// A `Source` is an external data provider capable of automatically creating usage events. Configuration occurs at the plan level, enabling data retrieval from third-party platforms such as Stripe to produce billable events.
@@ -213,6 +217,8 @@ func New(opts ...SDKOption) *Paygentic {
 	sdk.Fees = newFees(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Plans = newPlans(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Prices = newPrices(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.PricingUnits = newPricingUnits(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.CreditPools = newCreditPools(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Products = newProducts(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Sources = newSources(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Subscriptions = newSubscriptions(sdk, sdk.sdkConfiguration, sdk.hooks)

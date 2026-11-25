@@ -9,6 +9,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/billablemetrics"
 	"github.com/paygentic/cli/internal/cli/billingschedules"
 	"github.com/paygentic/cli/internal/cli/costs"
+	"github.com/paygentic/cli/internal/cli/creditpools"
 	"github.com/paygentic/cli/internal/cli/customers"
 	"github.com/paygentic/cli/internal/cli/entitlements"
 	"github.com/paygentic/cli/internal/cli/events"
@@ -25,6 +26,7 @@ import (
 	"github.com/paygentic/cli/internal/cli/paymentsessions"
 	"github.com/paygentic/cli/internal/cli/plans"
 	"github.com/paygentic/cli/internal/cli/prices"
+	"github.com/paygentic/cli/internal/cli/pricingunits"
 	"github.com/paygentic/cli/internal/cli/products"
 	"github.com/paygentic/cli/internal/cli/profitability"
 	"github.com/paygentic/cli/internal/cli/revenue"
@@ -99,6 +101,12 @@ func NewRootCommand() (*cobra.Command, error) {
 	}
 	if err := prices.InitPricesRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init prices: %w", err)
+	}
+	if err := pricingunits.InitPricingUnitsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init pricing-units: %w", err)
+	}
+	if err := creditpools.InitCreditPoolsRoot(rootCmd); err != nil {
+		return nil, fmt.Errorf("init credit-pools: %w", err)
 	}
 	if err := products.InitProductsRoot(rootCmd); err != nil {
 		return nil, fmt.Errorf("init products: %w", err)
